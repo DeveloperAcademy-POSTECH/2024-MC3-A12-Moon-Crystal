@@ -18,7 +18,7 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
-            
+  
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
@@ -36,7 +36,6 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                 Text("\(context.state.capacity)")
                     .font(.system(size: 8.0))
             } compactTrailing: {
-                
             } minimal: {
                 Text("여유 공간 \(context.state.capacity)")
                     .font(.system(size: 8.0))
