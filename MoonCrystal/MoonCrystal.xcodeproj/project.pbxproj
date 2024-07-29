@@ -30,6 +30,11 @@
 		260035C42C57703500343511 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C32C57703500343511 /* UserProfileView.swift */; };
 		260035C72C5772F500343511 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C62C5772F500343511 /* UserProfile.swift */; };
 		260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C82C57792000343511 /* UserProfileCreationView.swift */; };
+		260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D22C57EF0B00343511 /* ProgressBarView.swift */; };
+		260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */; };
+		260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D72C57F8A300343511 /* UserProfileCreationPage.swift */; };
+		260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */; };
+		260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DB2C580D4C00343511 /* UserProfileInputModel.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -84,6 +89,11 @@
 		260035C32C57703500343511 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		260035C62C5772F500343511 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		260035C82C57792000343511 /* UserProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCreationView.swift; sourceTree = "<group>"; };
+		260035D22C57EF0B00343511 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTextInputPageView.swift; sourceTree = "<group>"; };
+		260035D72C57F8A300343511 /* UserProfileCreationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCreationPage.swift; sourceTree = "<group>"; };
+		260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageInputPageView.swift; sourceTree = "<group>"; };
+		260035DB2C580D4C00343511 /* UserProfileInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInputModel.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,10 +166,23 @@
 			isa = PBXGroup;
 			children = (
 				260035C62C5772F500343511 /* UserProfile.swift */,
-				260035C82C57792000343511 /* UserProfileCreationView.swift */,
 				260035C32C57703500343511 /* UserProfileView.swift */,
+				260035D62C57F1BC00343511 /* CreationView */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		260035D62C57F1BC00343511 /* CreationView */ = {
+			isa = PBXGroup;
+			children = (
+				260035D72C57F8A300343511 /* UserProfileCreationPage.swift */,
+				260035DB2C580D4C00343511 /* UserProfileInputModel.swift */,
+				260035D22C57EF0B00343511 /* ProgressBarView.swift */,
+				260035C82C57792000343511 /* UserProfileCreationView.swift */,
+				260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */,
+				260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */,
+			);
+			path = CreationView;
 			sourceTree = "<group>";
 		};
 		26C965BC2C5241F8000257EA = {
@@ -336,10 +359,15 @@
 				1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */,
 				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				260035C72C5772F500343511 /* UserProfile.swift in Sources */,
+				260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */,
+				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
+				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				260035C42C57703500343511 /* UserProfileView.swift in Sources */,
 				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
+				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
+				260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
 				26C965DA2C538046000257EA /* NotificationManager.swift in Sources */,
 				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
