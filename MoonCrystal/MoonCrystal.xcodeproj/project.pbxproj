@@ -16,6 +16,8 @@
 		1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593632C5382F200C78466 /* LiveActivityManager.swift */; };
 		1E5593692C53888E00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */; };
 		1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */; };
+		1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */; };
+		1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCapacityAttributes.swift; sourceTree = "<group>"; };
 		1E5593632C5382F200C78466 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
 		1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCapacityConverter.swift; sourceTree = "<group>"; };
+		1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormatCapacity.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				1E5593632C5382F200C78466 /* LiveActivityManager.swift */,
 				1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */,
 				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
+				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
+				1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */,
 				26C965CC2C5241F9000257EA /* Assets.xcassets */,
 				26C965CE2C5241F9000257EA /* Preview Content */,
 			);
@@ -257,8 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
+				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
 				1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */,
 				1E5593692C53888E00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
