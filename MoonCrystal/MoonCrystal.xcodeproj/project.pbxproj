@@ -155,9 +155,9 @@
 		260035C52C5772DF00343511 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				260035C32C57703500343511 /* UserProfileView.swift */,
 				260035C62C5772F500343511 /* UserProfile.swift */,
 				260035C82C57792000343511 /* UserProfileCreationView.swift */,
+				260035C32C57703500343511 /* UserProfileView.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
