@@ -12,12 +12,12 @@ import SwiftUI
 struct MoonCrystalWidgetExtentionLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: dynamicCapacityAttributes.self) { context in
-            //            // Lock screen/banner UI goes here
-            //            VStack {
-            //                Text("FreeCapacity \(context.state.capacity)")
-            //            }
-            //            .activityBackgroundTint(Color.cyan)
-            //            .activitySystemActionForegroundColor(Color.black)
+            // Lock screen/banner UI goes here
+            VStack {
+                Text("FreeCapacity \(context.state.capacity)")
+            }
+            .activityBackgroundTint(Color.cyan)
+            .activitySystemActionForegroundColor(Color.black)
             
         } dynamicIsland: { context in
             DynamicIsland {
@@ -33,10 +33,10 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                     }
                 }
             } compactLeading: {
-                Text("Left\(context.state.capacity)")
+                Text("\(context.state.capacity)")
                     .font(.system(size: 8.0))
             } compactTrailing: {
-            
+                
             } minimal: {
                 Text("여유 공간 \(context.state.capacity)")
                     .font(.system(size: 8.0))

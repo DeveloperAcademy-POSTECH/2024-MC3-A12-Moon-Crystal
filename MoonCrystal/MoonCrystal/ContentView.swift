@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = CapacityManager.shared
 
     var body: some View {
-        MainView()
+        VStack{
+            Button {
+                LiveActivityManager.startLiveActivity(freeCapacity: "start")
+            } label: {
+                Text("start")
+            }
+
+        }
     }
 }
 
