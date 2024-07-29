@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCapacityConverter.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
 				26C965CA2C5241F8000257EA /* ContentView.swift */,
+				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
 				26C965CC2C5241F9000257EA /* Assets.xcassets */,
 				26C965CE2C5241F9000257EA /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
+				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
