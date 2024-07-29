@@ -8,8 +8,8 @@
 import Foundation
 
 class CapacityCalculator {
-    @Published var totalStorage : Int64 = 0
-    @Published var freeStorage : Int64 = 0
+    @Published var totalStorage : Int = 0
+    @Published var freeStorage : Int = 0
     
     init() {
         checkDeviceStorage()
@@ -21,7 +21,7 @@ class CapacityCalculator {
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeTotalCapacityKey])
             if let capacity = values.volumeTotalCapacity {
-                self.totalStorage = Int64(capacity)
+                self.totalStorage = capacity
             } else {
                 print("❌ StorageManager/checkDeviceStorage Capacity is unavailable")
             }
@@ -36,7 +36,7 @@ class CapacityCalculator {
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
             if let capacity = values.volumeAvailableCapacityForImportantUsage {
-                self.freeStorage = capacity
+                self.freeStorage = Int(capacity)
             } else {
                 print("❌ StorageManager/checkLeftStorage Capacity is unavailable")
             }
