@@ -26,7 +26,7 @@ struct UserProfileView: View {
                     .multilineTextAlignment(.center)
                     
                 NavigationLink {
-//                    UserProfileCreationView()
+                    UserProfileCreationView()
                 } label: {
                     // TODO: 버튼 이미지 수정
                     Image("ProfileAddButton")
