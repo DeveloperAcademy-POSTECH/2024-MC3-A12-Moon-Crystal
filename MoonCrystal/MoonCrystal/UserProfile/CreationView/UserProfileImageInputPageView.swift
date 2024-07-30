@@ -69,10 +69,13 @@ struct UserProfileImageInputPageView: View {
             }
             .onChange(of: imageSelection) {
                 Task { @MainActor in
-                    if let data = try? await imageSelection?.loadTransferable(type: Data.self) {
-                        userProfileData.imageData = data
-                        uiImage = UIImage(data: data)
-                        return
+                    do {
+                        if let data = try await imageSelection?.loadTransferable(type: Data.self) {
+                            userProfileData.imageData = data
+                            uiImage = UIImage(data: data)
+                        }
+                    } catch {
+                        print("❌ UserProfileImageInputPageView/photoPickerButton: \(error.localizedDescription)")
                     }
                 }
             }
