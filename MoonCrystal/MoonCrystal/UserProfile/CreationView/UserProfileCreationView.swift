@@ -11,6 +11,8 @@ struct UserProfileCreationView: View {
     @State private var currentPage = UserProfileCreationPage.favoriteIdol.rawValue
     @State private var userProfileData = UserProfileInputModel()
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack(spacing: 0) {
             ProgressBarView(currentPage: $currentPage)
@@ -22,6 +24,30 @@ struct UserProfileCreationView: View {
         }
         .navigationTitle("프로필 작성")
         .padding(.horizontal, 20)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    if currentPage > UserProfileCreationPage.favoriteIdol.rawValue {
+                        withAnimation {
+                            currentPage -= 1
+                        }
+                    } else {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.backward")
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.black)
+                        
+                        Text("뒤로")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+            
+        }
     }
     
     @ViewBuilder
@@ -42,7 +68,8 @@ struct UserProfileCreationView: View {
         case .idolImage:
             UserProfileImageInputPageView(
                 currentPage: $currentPage,
-                userProfileData: $userProfileData
+                userProfileData: $userProfileData,
+                page: .idolImage
             )
         default:
             Text("Invalid Page")
