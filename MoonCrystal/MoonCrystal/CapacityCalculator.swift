@@ -8,8 +8,8 @@
 import Foundation
 
 class CapacityCalculator {
-    @Published var totalStorage : Int = 0
-    @Published var freeStorage : Int = 0
+    @Published var totalStorage = 0
+    @Published var freeStorage = 0
     
     init() {
         checkDeviceStorage()
