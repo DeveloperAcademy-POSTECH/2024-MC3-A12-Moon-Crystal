@@ -11,16 +11,21 @@ struct UserProfileTextInputPageView: View {
     @Binding var currentPage: Int
     @Binding var userProfileData: UserProfileInputModel
     
+    @State private var isTextInputTooLong = false
+    
+    private let maxTextCount = 10
+    
     var page: UserProfileCreationPage
     
     var body: some View {
-        VStack(spacing: 44) {
+        VStack(spacing: 19) {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(page.title)
                         .font(.system(size: 28))
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     
                     Text(page.description)
                         .font(.system(size: 16))
@@ -29,15 +34,25 @@ struct UserProfileTextInputPageView: View {
                 Spacer()
             }
             
-            TextField("", text: bindingForCurrentPage())
-                .frame(height: 48)
-                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(.pink, lineWidth: 1)
-                )
+            VStack(alignment: .leading, spacing: 8) {
+                Text(page.warningMessage)
+                    .font(.system(size: 14))
+                    .fontWeight(.light)
+                    .foregroundStyle(isTextInputTooLong ? .pink : .clear)
+                
+                TextField("", text: bindingForCurrentPage())
+                    .frame(height: 48)
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(isTextInputTooLong ? .pink : .gray, lineWidth: 1)
+                    )
+                    .onChange(of: bindingForCurrentPage().wrappedValue) { _, newValue in
+                        isTextInputTooLong = newValue.count > maxTextCount
+                    }
+            }
             
             Spacer()
             
@@ -50,24 +65,11 @@ struct UserProfileTextInputPageView: View {
                     .font(.title2)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(bindingForCurrentPage().wrappedValue.isEmpty ? .gray : .black)
+                    .background(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty ? .gray : .black)
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }
-            .disabled(bindingForCurrentPage().wrappedValue.isEmpty)
-        }
-    }
-    
-    @ViewBuilder
-    private var nextView: some View {
-        if page == .favoriteIdol {
-            UserProfileTextInputPageView(
-                currentPage: $currentPage,
-                userProfileData: $userProfileData, page: .nickname)
-        } else if page == .nickname {
-            UserProfileImageInputPageView(
-                currentPage: $currentPage,
-                userProfileData: $userProfileData)
+            .disabled(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty)
         }
     }
     
@@ -84,5 +86,5 @@ struct UserProfileTextInputPageView: View {
 }
 
 #Preview {
-    UserProfileTextInputPageView(currentPage: .constant(2), userProfileData: .constant(UserProfileInputModel(favoriteIdol: "뉴진스", nickname: "뉴뉴뉴", image: nil)), page: .nickname)
+    UserProfileTextInputPageView(currentPage: .constant(2), userProfileData: .constant(UserProfileInputModel(favoriteIdol: "뉴진스", nickname: "일이삼사오육칠팔구십", image: nil)), page: .nickname)
 }
