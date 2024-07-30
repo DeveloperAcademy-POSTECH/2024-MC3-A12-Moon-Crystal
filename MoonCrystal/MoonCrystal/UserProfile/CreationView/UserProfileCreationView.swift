@@ -24,6 +24,7 @@ struct UserProfileCreationView: View {
         }
         .navigationTitle("프로필 작성")
         .padding(.horizontal, 20)
+        .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
