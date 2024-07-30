@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CapacityCalculator {
+class CapacityCalculator: ObservableObject {
     @Published var totalStorage = 0
     @Published var freeStorage = 0
     
