@@ -9,7 +9,7 @@ import Foundation
 
 extension Int {
     /// Int+Extensions - 분단위를 시간과 분으로 나눠서 반납하는 extension
-    func minuteToWholeTime() -> (hours: Int, minutes: Int) {
+    func minutesToHoursAndMinutes() -> (hours: Int, minutes: Int) {
         let hours = self / 60
         let minutes = self % 60
         return (hours: hours, minutes: minutes)
