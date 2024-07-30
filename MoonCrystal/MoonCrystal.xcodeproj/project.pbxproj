@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */; };
 		1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */; };
 		1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */; };
 		1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityCalculator.swift; sourceTree = "<group>"; };
 		1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCapacityConverter.swift; sourceTree = "<group>"; };
 		1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormatCapacity.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
 				26C965CA2C5241F8000257EA /* ContentView.swift */,
+				1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */,
 				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
 				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
 				1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */,
@@ -150,6 +153,7 @@
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
+				1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */,
 				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
