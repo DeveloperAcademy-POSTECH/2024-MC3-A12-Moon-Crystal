@@ -86,5 +86,5 @@ struct UserProfileTextInputPageView: View {
 }
 
 #Preview {
-    UserProfileTextInputPageView(currentPage: .constant(2), userProfileData: .constant(UserProfileInputModel(favoriteIdol: "뉴진스", nickname: "일이삼사오육칠팔구십", image: nil)), page: .nickname)
+    UserProfileTextInputPageView(currentPage: .constant(2), userProfileData: .constant(UserProfileInputModel(favoriteIdol: "뉴진스", nickname: "일이삼사오육칠팔구십", imageData: nil)), page: .nickname)
 }

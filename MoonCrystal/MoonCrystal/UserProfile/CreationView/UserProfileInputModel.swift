@@ -11,5 +11,5 @@ import SwiftUI
 struct UserProfileInputModel {
      var favoriteIdol = ""
      var nickname = ""
-     var image: UIImage?
+     var imageData: Data?
 }
