@@ -1,5 +1,5 @@
 //
-//  IntExtensions.swift
+//  Int+Extension.swift
 //  MoonCrystal
 //
 //  Created by seonu kim on 7/29/24.
@@ -17,7 +17,7 @@ extension Int {
     
     /// Int+Extensions - 바이트를 GB단위로 바꾸는 extension
     func byteToGB() -> String {
-        let formatter : ByteCountFormatter = ByteCountFormatter()
+        let formatter: ByteCountFormatter = ByteCountFormatter()
         formatter.countStyle = .file
         return formatter.string(fromByteCount: Int64(self))
     }

@@ -1,5 +1,5 @@
 //
-//  CapacityToTime.swift
+//  MediaCapacityConverter.swift
 //  MoonCrystal
 //
 //  Created by seonu kim on 7/27/24.
