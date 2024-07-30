@@ -12,14 +12,16 @@ struct UserProfileCreationView: View {
     @State private var userProfileData = UserProfileInputModel()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ProgressBarView(currentPage: $currentPage)
-            Spacer()
+                .padding(.vertical, 30)
+                .padding(.bottom, 10)
+            
             pageView
-            Spacer()
+                .padding(.bottom, 86)
         }
         .navigationTitle("프로필 작성")
-        .padding()
+        .padding(.horizontal, 20)
     }
     
     @ViewBuilder
@@ -47,7 +49,6 @@ struct UserProfileCreationView: View {
         }
     }
 }
-
 
 #Preview {
     UserProfileCreationView()

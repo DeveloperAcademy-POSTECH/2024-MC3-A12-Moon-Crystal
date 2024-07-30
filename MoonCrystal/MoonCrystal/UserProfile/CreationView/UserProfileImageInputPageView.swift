@@ -24,10 +24,9 @@ struct UserProfileImageInputPageView: View {
                 .font(.title2)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color.blue)
+                .background(.black)
                 .foregroundColor(.white)
                 .cornerRadius(10)
-                .padding()
         }
     }
 }

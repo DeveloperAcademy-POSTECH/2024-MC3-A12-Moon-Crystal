@@ -15,19 +15,29 @@ struct UserProfileTextInputPageView: View {
     
     var body: some View {
         VStack(spacing: 44) {
-            VStack(spacing: 6) {
-                Text(page.title)
-                    .font(.system(size: 28))
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.leading)
-                
-                Text(page.description)
-                    .font(.system(size: 16))
-                    .fontWeight(.regular)
+            HStack {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(page.title)
+                        .font(.system(size: 28))
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.leading)
+                    
+                    Text(page.description)
+                        .font(.system(size: 16))
+                        .fontWeight(.regular)
+                }
+                Spacer()
             }
             
-            TextField("Enter data here", text: bindingForCurrentPage())
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("", text: bindingForCurrentPage())
+                .frame(height: 48)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(.pink, lineWidth: 1)
+                )
             
             Spacer()
             
@@ -40,10 +50,9 @@ struct UserProfileTextInputPageView: View {
                     .font(.title2)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(bindingForCurrentPage().wrappedValue.isEmpty ? Color.gray : Color.blue)
+                    .background(bindingForCurrentPage().wrappedValue.isEmpty ? .gray : .black)
                     .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .padding()
+                    .cornerRadius(12)
             }
             .disabled(bindingForCurrentPage().wrappedValue.isEmpty)
         }
