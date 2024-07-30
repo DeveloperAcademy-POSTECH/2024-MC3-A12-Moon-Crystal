@@ -35,12 +35,9 @@ struct UserProfileImageInputPageView: View {
                     }
                     Spacer()
                 }
-                photoPickerButton
+                PhotoPickerButton(uiImage: $uiImage, imageSelection: $imageSelection, userProfileData: $userProfileData)
                     .padding(.horizontal, 23)
             }
-            
-            Spacer()
-            
             Button {
                 //TODO: 프로필 저장 로직 추가하기
                 presentationMode.wrappedValue.dismiss()
@@ -55,30 +52,6 @@ struct UserProfileImageInputPageView: View {
             }
             .disabled(uiImage == nil)
         }
-    }
-    
-    private var photoPickerButton: some View {
-        PhotosPicker(
-            selection: $imageSelection,
-            matching: .images,
-            photoLibrary: .shared()) {
-                Image(uiImage: uiImage ?? UIImage(named: "ProfileImagePlaceholder")!)
-                    .resizable()
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                
-            }
-            .onChange(of: imageSelection) {
-                Task { @MainActor in
-                    do {
-                        if let data = try await imageSelection?.loadTransferable(type: Data.self) {
-                            userProfileData.imageData = data
-                            uiImage = UIImage(data: data)
-                        }
-                    } catch {
-                        print("❌ UserProfileImageInputPageView/photoPickerButton: \(error.localizedDescription)")
-                    }
-                }
-            }
     }
 }
 
