@@ -5,10 +5,12 @@
 //  Created by zaehorang on 7/25/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-
+    @Query var userProfile: [UserProfile]
+    
     var body: some View {
         VStack{
             Button {
