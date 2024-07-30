@@ -5,8 +5,6 @@
 //  Created by seonu kim on 7/29/24.
 //
 
-import Foundation
-
 /// 비디오 포멧별 1분당  데이터를 byte단위로 정리한 enum입니다.
 enum VideoFormatCapacity: Int, CaseIterable {
     case uhd4k60fps = 461_373_440
