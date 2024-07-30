@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    // TODO: 로컬에서 프로필 저장 유무 받아오기
-    // 이전 뷰에서도 프로필을 보여주니까 해당 값의 유무에 따라 나누면 될 듯
-    var isUserProfileSaved = false
+    var userProfile: UserProfile?
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        if isUserProfileSaved {
-            // TODO: 프로필 뷰 그리기
-            Image("newjeans")
+        if let userProfile {
+            UserProfileDetailView(userProfile: userProfile)
+                .padding(.horizontal, 20)
                 .navigationTitle("프로필")
         } else {
             VStack(spacing: 24) {
@@ -25,16 +25,33 @@ struct UserProfileView: View {
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
                     .lineSpacing(4)
-                    
+                
                 NavigationLink {
                     UserProfileCreationView()
                 } label: {
-                    // TODO: 버튼 이미지 수정
                     Image("ProfileAddButton")
                 }
             }
             .navigationTitle("프로필")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        HStack(spacing: 3) {
+                            Image(systemName: "chevron.backward")
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.black)
+                            
+                            Text("뒤로")
+                                .foregroundColor(.black)
+                        }
+                    }
+                }
+            }
         }
+        
     }
 }
 
