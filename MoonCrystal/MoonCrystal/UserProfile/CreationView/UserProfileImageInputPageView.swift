@@ -13,9 +13,7 @@ struct UserProfileImageInputPageView: View {
     @Binding var userProfileData: UserProfileInputModel
     
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var uiImage: UIImage?
-    @State var imageSelection: PhotosPickerItem?
+    @Environment(\.modelContext) private var modelContext
     
     var page: UserProfileCreationPage
     
@@ -35,22 +33,25 @@ struct UserProfileImageInputPageView: View {
                     }
                     Spacer()
                 }
-                PhotoPickerButton(uiImage: $uiImage, imageSelection: $imageSelection, userProfileData: $userProfileData)
+                PhotoPickerButton(userProfileData: $userProfileData)
                     .padding(.horizontal, 23)
             }
             Button {
-                //TODO: 프로필 저장 로직 추가하기
+                let profile = UserProfile(favoriteIdol: userProfileData.favoriteIdol, 
+                                          nickname: userProfileData.nickname,
+                                          image: userProfileData.imageData!)
+                modelContext.insert(profile)
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("완료하기")
                     .font(.title2)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(uiImage == nil ? .gray : .black)
+                    .background(userProfileData.imageData == nil ? .gray : .black)
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }
-            .disabled(uiImage == nil)
+            .disabled(userProfileData.imageData == nil)
         }
     }
 }
