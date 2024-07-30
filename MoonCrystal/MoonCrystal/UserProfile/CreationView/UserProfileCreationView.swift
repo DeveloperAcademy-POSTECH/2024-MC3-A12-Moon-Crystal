@@ -29,13 +29,7 @@ struct UserProfileCreationView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    if currentPage > UserProfileCreationPage.favoriteIdol.rawValue {
-                        withAnimation {
-                            currentPage -= 1
-                        }
-                    } else {
-                        presentationMode.wrappedValue.dismiss()
-                    }
+                    handleBackButton()
                 } label: {
                     HStack(spacing: 3) {
                         Image(systemName: "chevron.backward")
@@ -47,7 +41,30 @@ struct UserProfileCreationView: View {
                     }
                 }
             }
-            
+        }
+    }
+    
+    private func handleBackButton() {
+        if currentPage > UserProfileCreationPage.favoriteIdol.rawValue {
+            clearUserProfileData()
+            withAnimation {
+                currentPage -= 1
+            }
+        } else {
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    private func clearUserProfileData() {
+        if let page = UserProfileCreationPage(rawValue: currentPage) {
+            switch page {
+            case .nickname:
+                userProfileData.nickname = ""
+            case .idolImage:
+                userProfileData.imageData = nil
+            default:
+                break
+            }
         }
     }
     
