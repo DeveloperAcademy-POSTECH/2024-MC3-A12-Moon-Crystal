@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CapacityCalculator: ObservableObject {
+final class CapacityCalculator: ObservableObject {
     @Published var totalCapacity = 0
     @Published var freeCapacity = 0
     
@@ -16,7 +16,7 @@ class CapacityCalculator: ObservableObject {
         updateFreeCapacity()
     }
     
-    func updateTotalCapacity() {
+    private func updateTotalCapacity() {
         let fileURL = URL(filePath: "/")
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeTotalCapacityKey])
@@ -28,7 +28,6 @@ class CapacityCalculator: ObservableObject {
         } catch {
             print("❌ StorageManager/checkDeviceStorage Error retrieving capacity: \(error.localizedDescription)")
         }
-        self.totalCapacity = 0
     }
     
     func updateFreeCapacity() {
@@ -43,6 +42,5 @@ class CapacityCalculator: ObservableObject {
         } catch {
             print("❌ StorageManager/checkLeftStorage Error retrieving capacity: \(error.localizedDescription)")
         }
-        self.freeCapacity = 0
     }
 }
