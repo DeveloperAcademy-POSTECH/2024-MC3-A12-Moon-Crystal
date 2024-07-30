@@ -35,7 +35,7 @@ enum UserProfileCreationPage: Int {
     var warningMessage: String {
         switch self {
         case .favoriteIdol:
-            return "이름이 너무 길어요. 대신 애칭을 적어주세요"
+            return "이름이 너무 길어요. 대신 애칭을 적어주세요."
         case .nickname:
             return "이름이 너무 길어요."
         case .idolImage:
