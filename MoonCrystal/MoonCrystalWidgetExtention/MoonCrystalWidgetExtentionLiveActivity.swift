@@ -12,7 +12,6 @@ import SwiftUI
 struct MoonCrystalWidgetExtentionLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: dynamicCapacityAttributes.self) { context in
-            // Lock screen/banner UI goes here
             VStack {
                 Text("FreeCapacity \(context.state.capacity)")
             }
@@ -20,8 +19,6 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
             .activitySystemActionForegroundColor(Color.black)
         } dynamicIsland: { context in
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
                 }
                 DynamicIslandExpandedRegion(.trailing) {

@@ -33,7 +33,7 @@ class LiveActivityManager {
     }
     
     // LiveActivity 업데이트
-    static func updateLiveActivity(freeCapacity: String){
+    static func updateLiveActivity(freeCapacity: String) {
         
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             return
@@ -63,7 +63,7 @@ class LiveActivityManager {
     }
     
     // LiveActivity 종료
-    static func endLiveActvity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate){
+    static func endLiveActvity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             return
         }
@@ -71,7 +71,7 @@ class LiveActivityManager {
             if #available(iOS 16.2, *), let state {
                 //3분만 보관
                 let content = ActivityContent(state: state, staleDate: Date(timeIntervalSinceNow: 60 * 3),relevanceScore: activity.content.relevanceScore)
-                await  activity.end(content,dismissalPolicy:dismissalPolicy)
+                await activity.end(content,dismissalPolicy:dismissalPolicy)
             } else {
                 await activity.end(using:state,dismissalPolicy: dismissalPolicy)
             }
