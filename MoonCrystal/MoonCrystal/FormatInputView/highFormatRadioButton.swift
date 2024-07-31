@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct highFormatRadioButton: View {
-    @Binding var selectedType: VideoFormatCapacity
+    @Binding var selectedType: VideoFormatCapacity?
     var format: VideoFormatCapacity
 
     var body: some View {
