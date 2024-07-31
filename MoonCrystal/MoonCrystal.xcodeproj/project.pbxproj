@@ -26,7 +26,7 @@
 		1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */; };
 		1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */; };
 		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
-		1EEF414A2C5A58EA0078CD21 /* highFormatRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41492C5A58EA0078CD21 /* highFormatRadioButton.swift */; };
+		1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -77,7 +77,7 @@
 		1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHalfCircleView.swift; sourceTree = "<group>"; };
 		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
 		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
-		1EEF41492C5A58EA0078CD21 /* highFormatRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = highFormatRadioButton.swift; sourceTree = "<group>"; };
+		1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighFormatRadioButton.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */,
-				1EEF41492C5A58EA0078CD21 /* highFormatRadioButton.swift */,
+				1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */,
 			);
 			path = FormatInputView;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				26C965DA2C538046000257EA /* NotificationManager.swift in Sources */,
 				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
 				1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */,
-				1EEF414A2C5A58EA0078CD21 /* highFormatRadioButton.swift in Sources */,
+				1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */,
 				1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */,
 				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
 				1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */,

@@ -34,7 +34,7 @@ struct FormatInputView: View {
             .frame(height: 260)
             .padding(.top, 34)
             
-            NavigationLink{
+            NavigationLink {
                 if let selectedType = selectedType {
                     // 여기서 selectedType 가지고 InputView로 넘어가면 될 것 같습니다
                 }
@@ -70,7 +70,7 @@ struct FormatInputView: View {
                 .frame(height: 60)
                 .foregroundStyle(.white)
                 .overlay(
-                    ZStack{
+                    ZStack {
                         RoundedRectangle(cornerRadius: 12).stroke(isHighQualitySelected == (type != .defaultQuality) ? Color.pink300 : .black)
                         Text(buttonName)
                             .font(.system(size: 16, weight: selectedType == type ? .semibold : .regular))
@@ -84,7 +84,7 @@ struct FormatInputView: View {
         VStack(spacing: 0) {
             ForEach(VideoFormatCapacity.allCases, id: \.self) { format in
                 if format != .defaultQuality {
-                    highFormatRadioButton(selectedType: $selectedType, format: format)
+                    HighFormatRadioButton(selectedType: $selectedType, format: format)
                         .padding(.top, 32)
                         .padding(.leading, 34)
                 }

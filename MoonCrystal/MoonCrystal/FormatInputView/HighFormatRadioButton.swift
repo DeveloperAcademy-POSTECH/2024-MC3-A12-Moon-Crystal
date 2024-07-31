@@ -1,5 +1,5 @@
 //
-//  highFormatRadioButton.swift
+//  HighFormatRadioButton.swift
 //  MoonCrystal
 //
 //  Created by sungkug_apple_developer_ac on 7/31/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct highFormatRadioButton: View {
+struct HighFormatRadioButton: View {
     @Binding var selectedType: VideoFormatCapacity?
     var format: VideoFormatCapacity
 
