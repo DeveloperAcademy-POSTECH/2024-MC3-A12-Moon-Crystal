@@ -29,6 +29,8 @@
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
 		26C965D02C5241F9000257EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CF2C5241F9000257EA /* Preview Assets.xcassets */; };
+		26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D72C537CB8000257EA /* LocalNotificationType.swift */; };
+		26C965DA2C538046000257EA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D92C538046000257EA /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26C965CC2C5241F9000257EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26C965CF2C5241F9000257EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26C965D72C537CB8000257EA /* LocalNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationType.swift; sourceTree = "<group>"; };
+		26C965D92C538046000257EA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			children = (
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
 				26C965CA2C5241F8000257EA /* ContentView.swift */,
+				26C965D62C537C9D000257EA /* Notification */,
 				1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */,
 				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
 				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
@@ -172,6 +177,15 @@
 				26C965CF2C5241F9000257EA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26C965D62C537C9D000257EA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				26C965D72C537CB8000257EA /* LocalNotificationType.swift */,
+				26C965D92C538046000257EA /* NotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +306,8 @@
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
+				26C965DA2C538046000257EA /* NotificationManager.swift in Sources */,
+				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
 				1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */,
 				1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */,
 				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
