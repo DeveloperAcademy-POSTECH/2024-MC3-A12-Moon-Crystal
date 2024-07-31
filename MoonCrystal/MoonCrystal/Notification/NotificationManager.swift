@@ -12,7 +12,7 @@ import NotificationCenter
 class NotificationManager: NSObject, ObservableObject {
     private let notificationCenter = UNUserNotificationCenter.current()
     @Published var isGranted = false
-    @Published var didTapNotification = false
+    @Published var didTapResultNotification = false
     
     override init() {
         super.init()
@@ -20,7 +20,7 @@ class NotificationManager: NSObject, ObservableObject {
     }
     
     /// Notification 권한 요청 함수
-    func requestAuthorization() async throws {
+    func requestAuthorization() async {
         do {
             try await notificationCenter
                 .requestAuthorization(options: [.sound, .badge, .alert])
@@ -36,7 +36,7 @@ class NotificationManager: NSObject, ObservableObject {
         let currentSettings = await notificationCenter.notificationSettings()
         isGranted = (currentSettings.authorizationStatus == .authorized)
     }
-
+    
     /// Notification 권한 거부 시, 사용자에게 앱 설정 화면을 열도록 안내하는 함수
     func openSettings() {
         if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -63,11 +63,26 @@ class NotificationManager: NSObject, ObservableObject {
             print("❌ NotificationManager/schedule: \(error.localizedDescription)")
         }
     }
+    
+    /// 요청한 Noticifation을 모두 지우는 함수
+    func clearRequests() {
+        notificationCenter.removeAllPendingNotificationRequests()
+    }
 }
 
 //MARK: - Ex_UNUserNotificationCenterDelegate
 extension NotificationManager: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        didTapNotification = true
+        guard let notificationType = NotificationType(rawValue: response.notification.request.identifier) else {
+            print("❌ NotificationManager/userNotificationCenter")
+            return
+        }
+        
+        switch notificationType {
+        case .refresh:
+            didTapResultNotification = false
+        case .result:
+            didTapResultNotification = true
+        }
     }
 }
