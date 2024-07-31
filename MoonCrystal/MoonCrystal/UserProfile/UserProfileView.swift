@@ -25,6 +25,7 @@ struct UserProfileView: View {
                     .font(.system(size: 16))
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
+                    .foregroundStyle(.gray700)
                     .lineSpacing(4)
                 
                 NavigationLink {

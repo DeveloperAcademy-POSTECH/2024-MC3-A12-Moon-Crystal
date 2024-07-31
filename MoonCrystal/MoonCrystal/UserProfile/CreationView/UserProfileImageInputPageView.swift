@@ -49,6 +49,7 @@ struct UserProfileImageInputPageView: View {
                     .font(.system(size: 16))
                     .fontWeight(.regular)
                     .padding()
+                    .frame(height: 68)
                     .frame(maxWidth: .infinity)
                     .background(userProfileData.imageData == nil ? .gray400 : .gray900)
                     .foregroundColor(.white)

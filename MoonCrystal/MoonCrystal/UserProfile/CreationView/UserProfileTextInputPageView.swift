@@ -53,6 +53,16 @@ struct UserProfileTextInputPageView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(isTextInputTooLong ? .pink300 : .clear, lineWidth: 1)
                     )
+                    .overlay(
+                        HStack {
+                            Spacer()
+                            Text("\(bindingForCurrentPage().wrappedValue.count)/\(maxTextCount)")
+                                .font(.system(size: 16))
+                                .fontWeight(.regular)
+                                .foregroundColor(isTextInputTooLong ? .pink300 : .gray300)
+                                .padding(.trailing, 16)
+                        }
+                    )
                     .onChange(of: bindingForCurrentPage().wrappedValue) { _, newValue in
                         isTextInputTooLong = newValue.count > maxTextCount
                     }
@@ -69,6 +79,7 @@ struct UserProfileTextInputPageView: View {
                     .font(.system(size: 16))
                     .fontWeight(.regular)
                     .padding()
+                    .frame(height: 68)
                     .frame(maxWidth: .infinity)
                     .background(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty ? .gray400 : .gray900)
                     .foregroundColor(.white)
