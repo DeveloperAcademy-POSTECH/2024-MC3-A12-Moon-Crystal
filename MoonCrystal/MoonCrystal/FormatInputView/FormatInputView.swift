@@ -71,7 +71,8 @@ struct FormatInputView: View {
                 .foregroundStyle(.white)
                 .overlay(
                     ZStack {
-                        RoundedRectangle(cornerRadius: 12).stroke(isHighQualitySelected == (type != .defaultQuality) ? Color.pink300 : .black)
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(isHighQualitySelected == (type != .defaultQuality) ? Color.pink300 : .black)
                         Text(buttonName)
                             .font(.system(size: 16, weight: selectedType == type ? .semibold : .regular))
                             .foregroundStyle(isHighQualitySelected == (type != .defaultQuality) ? Color.pink300 : .black)
