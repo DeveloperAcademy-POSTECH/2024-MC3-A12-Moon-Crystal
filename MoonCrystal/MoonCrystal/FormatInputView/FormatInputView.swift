@@ -19,7 +19,7 @@ struct FormatInputView: View {
                 Spacer()
             }
             HStack() {
-                formatButton(buttonName: "기본 화면", type: .defaultQuality)
+                formatButton(buttonName: "기본 화질", type: .defaultQuality)
                     .padding(.trailing, 9)
                 formatButton(buttonName: "고화질", type: nil)
             }
