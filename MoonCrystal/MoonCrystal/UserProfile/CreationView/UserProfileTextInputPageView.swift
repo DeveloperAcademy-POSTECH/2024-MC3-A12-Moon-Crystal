@@ -24,12 +24,14 @@ struct UserProfileTextInputPageView: View {
                     Text(page.title)
                         .font(.system(size: 28))
                         .fontWeight(.semibold)
+                        .foregroundStyle(.gray900)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     
                     Text(page.description)
                         .font(.system(size: 16))
                         .fontWeight(.regular)
+                        .foregroundStyle(.gray700)
                 }
                 Spacer()
             }
@@ -38,16 +40,18 @@ struct UserProfileTextInputPageView: View {
                 Text(page.warningMessage)
                     .font(.system(size: 14))
                     .fontWeight(.light)
-                    .foregroundStyle(isTextInputTooLong ? .pink : .clear)
+                    .foregroundStyle(isTextInputTooLong ? .pink300 : .clear)
                 
                 TextField("", text: bindingForCurrentPage())
+                    .font(.system(size: 16))
+                    .fontWeight(.regular)
                     .frame(height: 48)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(isTextInputTooLong ? .pink : .gray, lineWidth: 1)
+                            .stroke(isTextInputTooLong ? .pink300 : .clear, lineWidth: 1)
                     )
                     .onChange(of: bindingForCurrentPage().wrappedValue) { _, newValue in
                         isTextInputTooLong = newValue.count > maxTextCount
@@ -62,10 +66,11 @@ struct UserProfileTextInputPageView: View {
                 }
             } label: {
                 Text("다음")
-                    .font(.title2)
+                    .font(.system(size: 16))
+                    .fontWeight(.regular)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty ? .gray : .black)
+                    .background(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty ? .gray400 : .gray900)
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }

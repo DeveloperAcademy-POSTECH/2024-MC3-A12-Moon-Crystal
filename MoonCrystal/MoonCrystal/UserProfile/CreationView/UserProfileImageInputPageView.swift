@@ -25,11 +25,13 @@ struct UserProfileImageInputPageView: View {
                         Text(page.title)
                             .font(.system(size: 28))
                             .fontWeight(.semibold)
+                            .foregroundStyle(.gray900)
                             .multilineTextAlignment(.leading)
                         
                         Text(page.description)
                             .font(.system(size: 16))
                             .fontWeight(.regular)
+                            .foregroundStyle(.gray700)
                     }
                     Spacer()
                 }
@@ -44,10 +46,11 @@ struct UserProfileImageInputPageView: View {
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("완료하기")
-                    .font(.title2)
+                    .font(.system(size: 16))
+                    .fontWeight(.regular)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(userProfileData.imageData == nil ? .gray : .black)
+                    .background(userProfileData.imageData == nil ? .gray400 : .gray900)
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }

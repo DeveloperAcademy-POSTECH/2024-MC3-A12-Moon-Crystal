@@ -24,6 +24,7 @@ struct UserProfileCreationView: View {
         }
         .navigationTitle("프로필 작성")
         .padding(.horizontal, 20)
+        .background(Color.gray50)
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -34,10 +35,12 @@ struct UserProfileCreationView: View {
                     HStack(spacing: 3) {
                         Image(systemName: "chevron.backward")
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.black)
+                            .foregroundColor(.gray700)
                         
                         Text("뒤로")
-                            .foregroundColor(.black)
+                            .font(.system(size: 17))
+                            .fontWeight(.regular)
+                            .foregroundColor(.gray700)
                     }
                 }
             }

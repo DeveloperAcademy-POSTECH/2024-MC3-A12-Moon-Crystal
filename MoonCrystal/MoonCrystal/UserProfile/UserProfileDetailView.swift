@@ -33,7 +33,7 @@ struct UserProfileDetailView: View {
         }
         .padding(.top, 36)
         .padding(.bottom, 104)
-        .ignoresSafeArea(.all, edges: .bottom)
+        .navigationTitle(isEditing ? "프로필 수정" : "프로필")
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -52,6 +52,9 @@ struct UserProfileDetailView: View {
         VStack(spacing: 16) {
             HStack {
                 Text("최애 사진")
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.gray700)
                 Spacer()
             }
             PhotoPickerButton(userProfileData: $userProfileInputData)
@@ -65,13 +68,18 @@ struct UserProfileDetailView: View {
         VStack(spacing: 16) {
             HStack {
                 Text(title)
+                    .font(.system(size: 16))
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.gray700)
                 Spacer()
             }
             TextField("", text: text)
                 .frame(height: 48)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                .background(.red)
-                .foregroundColor(.white)
+                .background(.white)
+                .font(.system(size: 16))
+                .fontWeight(.regular)
+                .foregroundColor(.gray900)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .disabled(!isEditing)
         }
@@ -85,10 +93,12 @@ struct UserProfileDetailView: View {
             HStack(spacing: 3) {
                 Image(systemName: "chevron.backward")
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray700)
                 
                 Text("뒤로")
-                    .foregroundColor(.black)
+                    .font(.system(size: 17))
+                    .fontWeight(.regular)
+                    .foregroundColor(.gray700)
             }
         }
     }
@@ -103,14 +113,16 @@ struct UserProfileDetailView: View {
                 if let imageData = userProfileInputData.imageData {
                     userProfile.image = imageData
                 }
-                presentationMode.wrappedValue.dismiss()
+                isEditing.toggle()
             } else {
                 // Edit mode
                 isEditing.toggle()
             }
         } label: {
             Text(isEditing ? "저장" : "수정")
-                .foregroundColor(isEditing ? .black : .pink)
+                .font(.system(size: 16))
+                .fontWeight(.regular)
+                .foregroundColor(isEditing ? .gray700 : .pink300)
         }
     }
     

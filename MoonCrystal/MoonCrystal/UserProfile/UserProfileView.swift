@@ -16,12 +16,13 @@ struct UserProfileView: View {
         if let userProfile {
             UserProfileDetailView(userProfile: userProfile)
                 .padding(.horizontal, 20)
-                .navigationTitle("프로필")
+                .background(.gray50)
+                .ignoresSafeArea(.all, edges: .bottom)
         } else {
             VStack(spacing: 24) {
                 // TODO: 텍스트 UI 수정
                 Text("아직 작성된 프로필이 없어요\n프로필을 작성해주세요")
-                    .font(.system(size: 18))
+                    .font(.system(size: 16))
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
                     .lineSpacing(4)
@@ -32,6 +33,8 @@ struct UserProfileView: View {
                     Image("ProfileAddButton")
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.gray50)
             .navigationTitle("프로필")
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -51,7 +54,6 @@ struct UserProfileView: View {
                 }
             }
         }
-        
     }
 }
 
