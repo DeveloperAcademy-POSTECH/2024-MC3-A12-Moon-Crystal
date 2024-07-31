@@ -59,8 +59,7 @@ struct UserProfileDetailView: View {
         VStack(spacing: 16) {
             HStack {
                 Text("최애 사진")
-                    .font(.system(size: 16))
-                    .fontWeight(.semibold)
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundStyle(.gray700)
                 Spacer()
             }
@@ -75,8 +74,7 @@ struct UserProfileDetailView: View {
         VStack(spacing: 16) {
             HStack {
                 Text(title)
-                    .font(.system(size: 16))
-                    .fontWeight(.semibold)
+                    .font(.system(size: 16, weight:.semibold))
                     .foregroundStyle(.gray700)
                 Spacer()
             }
@@ -84,20 +82,19 @@ struct UserProfileDetailView: View {
                 .frame(height: 48)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 .background(.white)
-                .font(.system(size: 16))
-                .fontWeight(.regular)
+                .font(.system(size: 16, weight: .regular))
                 .foregroundColor(.gray900)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(isTextTooLong.wrappedValue ? Color.pink300 : Color.clear, lineWidth: 1)
+                        .stroke(isTextTooLong.wrappedValue ? .pink300 : .clear, lineWidth: 1)
                 )
                 .overlay(
                     HStack {
                         Spacer()
                         Text("\(text.wrappedValue.count)/\(maxTextCount)")
                             .font(.system(size: 14))
-                            .foregroundColor(.gray)
+                            .foregroundColor(.gray300)
                             .padding(.trailing, 16)
                     }
                 )
@@ -119,8 +116,7 @@ struct UserProfileDetailView: View {
                     .foregroundColor(.gray700)
                 
                 Text("뒤로")
-                    .font(.system(size: 17))
-                    .fontWeight(.regular)
+                    .font(.system(size: 17, weight: .regular))
                     .foregroundColor(.gray700)
             }
         }
@@ -147,8 +143,7 @@ struct UserProfileDetailView: View {
             }
         } label: {
             Text(isEditing ? "저장" : "수정")
-                .font(.system(size: 16))
-                .fontWeight(.regular)
+                .font(.system(size: 16, weight: .regular))
                 .foregroundColor(isEditing ? (isSaveDisabled ? .gray400 : .pink300) : .gray700)
         }
     }

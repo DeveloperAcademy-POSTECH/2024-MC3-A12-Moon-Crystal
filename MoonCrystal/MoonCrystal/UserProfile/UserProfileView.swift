@@ -46,10 +46,10 @@ struct UserProfileView: View {
                         HStack(spacing: 3) {
                             Image(systemName: "chevron.backward")
                                 .aspectRatio(contentMode: .fit)
-                                .foregroundColor(.black)
+                                .foregroundColor(.gray700)
                             
                             Text("뒤로")
-                                .foregroundColor(.black)
+                                .foregroundColor(.gray700)
                         }
                     }
                 }

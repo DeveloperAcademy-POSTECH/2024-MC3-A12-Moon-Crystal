@@ -24,7 +24,7 @@ struct UserProfileCreationView: View {
         }
         .navigationTitle("프로필 작성")
         .padding(.horizontal, 20)
-        .background(Color.gray50)
+        .background(.gray50)
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -38,8 +38,7 @@ struct UserProfileCreationView: View {
                             .foregroundColor(.gray700)
                         
                         Text("뒤로")
-                            .font(.system(size: 17))
-                            .fontWeight(.regular)
+                            .font(.system(size: 17, weight: .regular))
                             .foregroundColor(.gray700)
                     }
                 }

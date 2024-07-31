@@ -22,15 +22,13 @@ struct UserProfileTextInputPageView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(page.title)
-                        .font(.system(size: 28))
-                        .fontWeight(.semibold)
+                        .font(.system(size: 28, weight: .semibold))
                         .foregroundStyle(.gray900)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     
                     Text(page.description)
-                        .font(.system(size: 16))
-                        .fontWeight(.regular)
+                        .font(.system(size: 16, weight: .regular))
                         .foregroundStyle(.gray700)
                 }
                 Spacer()
@@ -38,13 +36,11 @@ struct UserProfileTextInputPageView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(page.warningMessage)
-                    .font(.system(size: 14))
-                    .fontWeight(.light)
+                    .font(.system(size: 14, weight: .light))
                     .foregroundStyle(isTextInputTooLong ? .pink300 : .clear)
                 
                 TextField("", text: bindingForCurrentPage())
-                    .font(.system(size: 16))
-                    .fontWeight(.regular)
+                    .font(.system(size: 16, weight: .regular))
                     .frame(height: 48)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     .background(.white)
@@ -57,8 +53,7 @@ struct UserProfileTextInputPageView: View {
                         HStack {
                             Spacer()
                             Text("\(bindingForCurrentPage().wrappedValue.count)/\(maxTextCount)")
-                                .font(.system(size: 16))
-                                .fontWeight(.regular)
+                                .font(.system(size: 16, weight: .regular))
                                 .foregroundColor(isTextInputTooLong ? .pink300 : .gray300)
                                 .padding(.trailing, 16)
                         }
@@ -76,8 +71,7 @@ struct UserProfileTextInputPageView: View {
                 }
             } label: {
                 Text("다음")
-                    .font(.system(size: 16))
-                    .fontWeight(.regular)
+                    .font(.system(size: 16, weight: .regular))
                     .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)
