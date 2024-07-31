@@ -25,6 +25,7 @@
 		1E87A6D42C593D4700BD28D1 /* MainHomeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */; };
 		1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */; };
 		1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */; };
+		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewComponent.swift; sourceTree = "<group>"; };
 		1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHalfCircleView.swift; sourceTree = "<group>"; };
 		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
+		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			path = MainHomeView;
 			sourceTree = "<group>";
 		};
+		1EEF41462C5A1CD60078CD21 /* FormatInputView */ = {
+			isa = PBXGroup;
+			children = (
+				1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */,
+			);
+			path = FormatInputView;
+			sourceTree = "<group>";
+		};
 		26C965BC2C5241F8000257EA = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
 				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
 				1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */,
+				1EEF41462C5A1CD60078CD21 /* FormatInputView */,
 				1E87A6D22C593D1800BD28D1 /* MainHomeView */,
 				1E5593632C5382F200C78466 /* LiveActivityManager.swift */,
 				1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */,
@@ -301,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E87A6D42C593D4700BD28D1 /* MainHomeViewComponent.swift in Sources */,
+				1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */,
 				1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */,
 				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
