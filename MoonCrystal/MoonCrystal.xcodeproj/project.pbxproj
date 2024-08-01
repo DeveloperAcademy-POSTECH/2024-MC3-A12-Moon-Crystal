@@ -183,7 +183,6 @@
 				1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */,
 				1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */,
 				1BF858B62C5B75A200C2204E /* CustomSlider.swift */,
-				1BF858B82C5B75A200C2204E /* RoundedCorner.swift */,
 				1BF858B72C5B75A200C2204E /* TipView.swift */,
 			);
 			path = SelectCapacity;
@@ -515,7 +514,6 @@
 				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				260035C72C5772F500343511 /* UserProfile.swift in Sources */,
 				260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */,
-				1BF858BE2C5B75A200C2204E /* RoundedCorner.swift in Sources */,
 				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
 				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
 				260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */,

@@ -36,6 +36,7 @@ struct FormatInputView: View {
             NavigationLink {
                 if selectedType != nil {
                     // 여기서 selectedType 가지고 InputView로 넘어가면 될 것 같습니다
+                    CapacitySettingView(videoFormat: selectedType)
                 }
             } label: {
                 RoundedRectangle(cornerRadius: 12)
