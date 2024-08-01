@@ -12,6 +12,7 @@ struct CapacitySettingView: View {
     @State var selectedCapacity : Double = 0
     @State var useDirectInput = false
     @State var showTip = false
+    @State var keyboardHeight : CGFloat = 0
     
     var videoFormat: VideoFormatCapacity = .defaultQuality
     var idolGroup = "NCT"
@@ -42,6 +43,7 @@ struct CapacitySettingView: View {
         ZStack {
             Color.gray50.ignoresSafeArea()
             VStack(spacing: 0) {
+                Spacer()
                 HStack {
                     Text(idolGroup + title)
                         .font(.system(size: 28, weight: .semibold))
@@ -51,6 +53,7 @@ struct CapacitySettingView: View {
                         .fixedSize()
                     Spacer()
                 }
+                .padding(.top, 66)
                 
                 VStack(spacing: 24) {
                     Text("\(Int(selectedCapacity))GB")
@@ -104,7 +107,7 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
-                    //정리 시작 페이지로 이동
+                    //TODO- 정리 시작 페이지로 이동
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
@@ -118,14 +121,16 @@ struct CapacitySettingView: View {
                 .padding(.top, 60)
                 
                 NavigationLink {
-                    //홈화면(메인 기본)으로 이동하기
+                    //TODO - 홈으로 이동 연결
                 } label: {
                     Text("홈으로 가기")
                         .underline()
                         .foregroundStyle(.gray500)
                 }
                 .padding(.top, 24)
+                .padding(.bottom, 60)
             }
+            .ignoresSafeArea(.keyboard)
         }
         .sheet(isPresented: $useDirectInput) {
             CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: selectedCapacity.rounded(.down))
@@ -177,5 +182,5 @@ struct TestView : View {
 }
 #Preview {
     TestView()
-//    CapacitySettingView()
+    //    CapacitySettingView()
 }
