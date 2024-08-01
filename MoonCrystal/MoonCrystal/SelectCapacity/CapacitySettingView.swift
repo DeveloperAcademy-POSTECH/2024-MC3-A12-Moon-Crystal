@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CapacitySettingView: View {
+    @Environment(\.dismiss) var dismiss
     @State var selectedCapacity : Double = 0
     @State var useDirectInput = false
     @State var showTip = false
@@ -133,10 +134,22 @@ struct CapacitySettingView: View {
         }
         .sheet(isPresented: $showTip) {
             TipView()
-                .presentationDetents([.height(280)])
+                .presentationDetents([.height(476)])
                 .presentationDragIndicator(.visible)
         }
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.left")
+                        Text("뒤로")
+                    }
+                    .font(.system(size: 17))
+                    .foregroundStyle(.gray900)
+                }
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showTip.toggle()
@@ -147,9 +160,22 @@ struct CapacitySettingView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
+struct TestView : View {
+    var body : some View {
+        NavigationStack {
+            NavigationLink {
+                CapacitySettingView()
+            } label: {
+                Text("dnskdnla")
+            }
+        }
+    }
+}
 #Preview {
-    CapacitySettingView()
+    TestView()
+//    CapacitySettingView()
 }
