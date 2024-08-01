@@ -5,10 +5,10 @@
 //  Created by zaehorang on 7/25/24.
 //
 
+import SwiftData
 import SwiftUI
 
-struct ContentView: View {
-
+struct ContentView: View {    
     var body: some View {
         VStack{
             Button {

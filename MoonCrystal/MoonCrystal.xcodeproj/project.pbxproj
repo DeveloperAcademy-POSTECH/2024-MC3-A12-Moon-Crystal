@@ -27,6 +27,16 @@
 		1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */; };
 		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
 		1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */; };
+		260035C42C57703500343511 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C32C57703500343511 /* UserProfileView.swift */; };
+		260035C72C5772F500343511 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C62C5772F500343511 /* UserProfile.swift */; };
+		260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C82C57792000343511 /* UserProfileCreationView.swift */; };
+		260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D22C57EF0B00343511 /* ProgressBarView.swift */; };
+		260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */; };
+		260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D72C57F8A300343511 /* UserProfileCreationPage.swift */; };
+		260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */; };
+		260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DB2C580D4C00343511 /* UserProfileInputModel.swift */; };
+		260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DD2C5925BC00343511 /* UserProfileDetailView.swift */; };
+		260035E02C5928D000343511 /* PhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DF2C5928D000343511 /* PhotoPickerButton.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -78,6 +88,16 @@
 		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
 		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
 		1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighFormatRadioButton.swift; sourceTree = "<group>"; };
+		260035C32C57703500343511 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		260035C62C5772F500343511 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		260035C82C57792000343511 /* UserProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCreationView.swift; sourceTree = "<group>"; };
+		260035D22C57EF0B00343511 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTextInputPageView.swift; sourceTree = "<group>"; };
+		260035D72C57F8A300343511 /* UserProfileCreationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCreationPage.swift; sourceTree = "<group>"; };
+		260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageInputPageView.swift; sourceTree = "<group>"; };
+		260035DB2C580D4C00343511 /* UserProfileInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInputModel.swift; sourceTree = "<group>"; };
+		260035DD2C5925BC00343511 /* UserProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDetailView.swift; sourceTree = "<group>"; };
+		260035DF2C5928D000343511 /* PhotoPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerButton.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +166,30 @@
 			path = FormatInputView;
 			sourceTree = "<group>";
 		};
+		260035C52C5772DF00343511 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				260035C62C5772F500343511 /* UserProfile.swift */,
+				260035C32C57703500343511 /* UserProfileView.swift */,
+				260035DD2C5925BC00343511 /* UserProfileDetailView.swift */,
+				260035D62C57F1BC00343511 /* CreationView */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		260035D62C57F1BC00343511 /* CreationView */ = {
+			isa = PBXGroup;
+			children = (
+				260035D72C57F8A300343511 /* UserProfileCreationPage.swift */,
+				260035DB2C580D4C00343511 /* UserProfileInputModel.swift */,
+				260035D22C57EF0B00343511 /* ProgressBarView.swift */,
+				260035C82C57792000343511 /* UserProfileCreationView.swift */,
+				260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */,
+				260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */,
+			);
+			path = CreationView;
+			sourceTree = "<group>";
+		};
 		26C965BC2C5241F8000257EA = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +223,8 @@
 				1E87A6D22C593D1800BD28D1 /* MainHomeView */,
 				1E5593632C5382F200C78466 /* LiveActivityManager.swift */,
 				1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */,
+				260035C52C5772DF00343511 /* UserProfile */,
+				260035DF2C5928D000343511 /* PhotoPickerButton.swift */,
 				26C965CC2C5241F9000257EA /* Assets.xcassets */,
 				26C965CE2C5241F9000257EA /* Preview Content */,
 			);
@@ -318,8 +364,18 @@
 				1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */,
 				1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */,
 				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
+				260035C72C5772F500343511 /* UserProfile.swift in Sources */,
+				260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */,
+				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
+				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
+				260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
+				260035C42C57703500343511 /* UserProfileView.swift in Sources */,
+				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
+				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
+				260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */,
+				260035E02C5928D000343511 /* PhotoPickerButton.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
 				26C965DA2C538046000257EA /* NotificationManager.swift in Sources */,
 				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
@@ -351,13 +407,13 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,13 +436,13 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,7 +586,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -566,7 +622,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;

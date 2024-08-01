@@ -5,6 +5,7 @@
 //  Created by zaehorang on 7/25/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -14,5 +15,6 @@ struct MoonCrystalApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: UserProfile.self)
     }
 }

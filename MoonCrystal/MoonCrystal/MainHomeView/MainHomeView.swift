@@ -5,6 +5,7 @@
 //  Created by sungkug_apple_developer_ac on 7/31/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct MainHomeView: View {
@@ -13,6 +14,8 @@ struct MainHomeView: View {
     @State private var progress: Float = 0.0
     @State var uiImageName: UIImage? = nil
     
+    @Query var userProfile: [UserProfile]
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -20,6 +23,7 @@ struct MainHomeView: View {
                     Spacer()
                     NavigationLink {
                         // TODO: UserProfileView 연결
+                        UserProfileView(userProfile: userProfile.first)
                     } label: {
                         profileViewButton
                             .padding(.top, 74)

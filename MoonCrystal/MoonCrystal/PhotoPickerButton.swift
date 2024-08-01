@@ -1,0 +1,42 @@
+//
+//  PhotoPickerButton.swift
+//  MoonCrystal
+//
+//  Created by zaehorang on 7/30/24.
+//
+
+import PhotosUI
+import SwiftUI
+
+struct PhotoPickerButton: View {
+    @State var imageSelection: PhotosPickerItem?
+    @Binding var userProfileData: UserProfileInputModel
+    
+    var body: some View {
+        PhotosPicker(
+            selection: $imageSelection,
+            matching: .images,
+            photoLibrary: .shared()) {
+                if let imageData = userProfileData.imageData, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                } else {
+                    Image("ProfileImagePlaceholder")
+                        .resizable()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                }
+            }
+            .onChange(of: imageSelection) {
+                Task { @MainActor in
+                    do {
+                        if let data = try await imageSelection?.loadTransferable(type: Data.self) {
+                            userProfileData.imageData = data
+                        }
+                    } catch {
+                        print("❌ PhotoPickerButton: \(error.localizedDescription)")
+                    }
+                }
+            }
+    }
+}
