@@ -8,16 +8,9 @@
 import SwiftData
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
     var body: some View {
-        VStack{
-            Button {
-                LiveActivityManager.startLiveActivity(freeCapacity: "start")
-            } label: {
-                Text("start")
-            }
-
-        }
+        MainHomeView()
     }
 }
 
