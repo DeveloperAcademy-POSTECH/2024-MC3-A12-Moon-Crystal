@@ -9,8 +9,10 @@ import SwiftUI
 
 struct CapacityDirectInputView: View {
     @Environment(\.dismiss) var dismiss
+    @FocusState private var isFocused : Bool
     @Binding var selectedCapacity: Double
     @State var tempCapacity: Double = 0.0
+    @State var text = ""
     
     var fullCapacity : Int = 127
     var favoriteIdol = "최애"
@@ -51,6 +53,7 @@ struct CapacityDirectInputView: View {
                 TextField("0", value: $tempCapacity, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
                     .font(.system(size: 34, weight: .semibold))
+                    .focused($isFocused)
                 
                 Spacer()
                 Text("GB")
@@ -81,6 +84,11 @@ struct CapacityDirectInputView: View {
                     }
             }
             .padding(.top, 16)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isFocused = true
+            }
         }
     }
 }
