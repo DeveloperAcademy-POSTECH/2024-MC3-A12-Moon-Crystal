@@ -12,29 +12,30 @@ struct CapacitySettingView: View {
     @State var useDirectInput = false
     @State var showTip = false
     
-    var videoFormat : VideoFormatCapacity = .defaultQuality
+    var videoFormat: VideoFormatCapacity = .defaultQuality
     var idolGroup = "NCT"
     ///Slider의 max값을 결정하는 변수입니다.
-    var maxCapacity : Double {
+    var maxCapacity: Double {
         if videoFormat == .defaultQuality {
             return 20
         }
         return 80
     }
     ///Slider의 간격 기준을 정하는 기준 변수입니다
-    var step : Int {
+    var step: Int {
         if videoFormat == .defaultQuality {
             return 5
         }
         return 20
     }
-    var photoShot : Int {
+    var photoShot: Int {
         return MediaCapacityConverter.capacityToPhoto(capacity: Int(selectedCapacity) * 1_073_741_824)
     }
-    var videoTime : Int {
+    var videoTime: Int {
         return MediaCapacityConverter.capacityToTime(capacity: Int(selectedCapacity) * 1_073_741_824, format: videoFormat)
     }
     let title = "를 위해 \n몇 GB 정리할까요?"
+    let ment = "촬영할 수 있어요"
     
     var body: some View {
         ZStack {
@@ -54,7 +55,7 @@ struct CapacitySettingView: View {
                     Text("\(Int(selectedCapacity))GB")
                         .font(.system(size: 34, weight: .semibold))
                     
-                    CustomSlider(value: $selectedCapacity, step: step, sliderRange: 0...maxCapacity)
+                    CustomSlider(selectedCapacity: $selectedCapacity, step: step, sliderRange: 0...maxCapacity)
                         .frame(height: 54)
                     
                     Button {
@@ -70,20 +71,32 @@ struct CapacitySettingView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     HStack(alignment: .center, spacing: 0) {
-                        Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 찍을 수 있어요")
-                            .padding(.leading, 22)
-                            .padding(.vertical, 24)
+                        if videoTime.minutesToHoursAndMinutes().minutes == 0 {
+                            Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 ")
+                                .font(.system(size: 16, weight: .bold))
+                            Text(ment)
+                                .font(.system(size: 16))
+                        } else {
+                            Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 ")
+                                .font(.system(size: 16, weight: .bold))
+                            Text(ment)
+                                .font(.system(size: 16))
+                        }
                         Spacer()
                     }
+                    .padding(.leading, 22)
+                    .padding(.vertical, 24)
                     .background(.white)
                     .cornerRadius(12)
                     
                     HStack(alignment: .center, spacing: 0) {
-                        Text("사진 \(photoShot)장 찍을 수 있어요")
-                            .padding(.leading, 22)
-                            .padding(.vertical, 24)
+                        Text("사진 \(String(photoShot))장 ")
+                            .font(.system(size: 16, weight: .bold))
+                        Text(ment)
                         Spacer()
                     }
+                    .padding(.leading, 22)
+                    .padding(.vertical, 24)
                     .background(.white)
                     .cornerRadius(12)
                 }

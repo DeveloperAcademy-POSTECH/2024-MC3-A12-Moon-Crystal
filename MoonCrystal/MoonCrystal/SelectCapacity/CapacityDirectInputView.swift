@@ -14,6 +14,7 @@ struct CapacityDirectInputView: View {
     
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
