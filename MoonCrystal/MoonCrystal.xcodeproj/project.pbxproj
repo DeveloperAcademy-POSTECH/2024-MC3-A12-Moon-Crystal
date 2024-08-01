@@ -26,7 +26,6 @@
 		1E5593622C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */; };
 		1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593632C5382F200C78466 /* LiveActivityManager.swift */; };
 		1E5593652C5382F200C78466 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593632C5382F200C78466 /* LiveActivityManager.swift */; };
-		1E5593692C53888E00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */; };
 		1E87A6D42C593D4700BD28D1 /* MainHomeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */; };
 		1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */; };
 		1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */; };
@@ -56,6 +55,9 @@
 		26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */; };
 		26BAEFA42C5BBA2300346BF6 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */; };
 		26BAEFA62C5BBB8800346BF6 /* onboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */; };
+		1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
+		1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
+		1EEF41532C5B2FD40078CD21 /* LiveActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41512C5B2FD40078CD21 /* LiveActivityButtonView.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -135,6 +137,8 @@
 		26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
 		26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingStepView.swift; sourceTree = "<group>"; };
+		1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskAppIntent.swift; sourceTree = "<group>"; };
+		1EEF41512C5B2FD40078CD21 /* LiveActivityButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityButtonView.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 			children = (
 				1E55934B2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift */,
 				1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */,
+				1EEF414F2C5B2FA60078CD21 /* LiveActivityButtonView */,
+				1EEF414B2C5B2B350078CD21 /* LiveActivityIntent */,
 				1E5593532C53800C00C78466 /* Assets.xcassets */,
 				1E5593552C53800C00C78466 /* Info.plist */,
 			);
@@ -279,6 +285,22 @@
 				26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */,
 			);
 			path = OnoboardingView;
+			sourceTree = "<group>";
+		};
+		1EEF414B2C5B2B350078CD21 /* LiveActivityIntent */ = {
+			isa = PBXGroup;
+			children = (
+				1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */,
+			);
+			path = LiveActivityIntent;
+			sourceTree = "<group>";
+		};
+		1EEF414F2C5B2FA60078CD21 /* LiveActivityButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				1EEF41512C5B2FD40078CD21 /* LiveActivityButtonView.swift */,
+			);
+			path = LiveActivityButtonView;
 			sourceTree = "<group>";
 		};
 		26C965BC2C5241F8000257EA = {
@@ -458,6 +480,8 @@
 			files = (
 				1E5593622C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				1E55934C2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift in Sources */,
+				1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
+				1EEF41532C5B2FD40078CD21 /* LiveActivityButtonView.swift in Sources */,
 				1E5593652C5382F200C78466 /* LiveActivityManager.swift in Sources */,
 				1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
 			);
@@ -480,6 +504,7 @@
 				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
 				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
 				260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */,
+				1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				260035C42C57703500343511 /* UserProfileView.swift in Sources */,

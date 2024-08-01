@@ -62,8 +62,22 @@ class LiveActivityManager {
         Activity<dynamicCapacityAttributes>.activities.first(where: {$0.attributes.name == name})
     }
     
+    // LiveActivity 종료버튼 클릭 후 로딩
+    static func showLoadingButton() async {
+        guard let activity = getLiveActivity(name: "RemainingCapacity") else {
+            return
+        }
+        
+        let updatedContent = dynamicCapacityAttributes.ContentState(capacity: activity.content.state.capacity, isLoading: true)
+        let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
+        
+        Task{
+            await activity.update(content)
+        }
+    }
+    
     // LiveActivity 종료
-    static func endLiveActvity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
+    static func endLiveActivity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             return
         }

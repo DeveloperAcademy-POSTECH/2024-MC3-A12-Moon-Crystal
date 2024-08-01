@@ -26,6 +26,23 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack{
                         Text("현재 확보된 용량 \(context.state.capacity)")
+                        if !context.state.isLoading{
+                            LiveActivityButtonView()
+                        } else{
+                            RoundedRectangle(cornerRadius: 20, style: .circular)
+                                .frame(width: .infinity,height: 40)
+                                .foregroundStyle(Color.green)
+                                .overlay(content: {
+                                    ProgressView(timerInterval: Date()...Date(timeIntervalSinceNow: 2), countsDown: false, label: {
+                                        
+                                    }, currentValueLabel: {
+                                        
+                                    })
+                                    .frame(width: 26,height: 26)
+                                    .progressViewStyle(.circular)
+                                    .foregroundStyle(.white)
+                                })
+                        }
                     }
                 }
             } compactLeading: {
