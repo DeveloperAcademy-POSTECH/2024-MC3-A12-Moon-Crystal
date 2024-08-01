@@ -23,6 +23,7 @@ struct CapacityDirectInputView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
+                        .frame(height: 30)
                 }
                 .tint(.gray900)
             }
