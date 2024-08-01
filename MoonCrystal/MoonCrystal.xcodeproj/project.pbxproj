@@ -56,7 +56,9 @@
 		26BAEFEF2C5E181D00346BF6 /* Onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */; };
 		1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
 		1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
-		1EEF41532C5B2FD40078CD21 /* LiveActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41512C5B2FD40078CD21 /* LiveActivityButtonView.swift */; };
+		1EEF41532C5B2FD40078CD21 /* LiveActivityButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */; };
+		1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
+		1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -136,7 +138,8 @@
 		26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding2.json; sourceTree = "<group>"; };
 		26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
 		1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskAppIntent.swift; sourceTree = "<group>"; };
-		1EEF41512C5B2FD40078CD21 /* LiveActivityButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityButtonView.swift; sourceTree = "<group>"; };
+		1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityButtonsView.swift; sourceTree = "<group>"; };
+		1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskAppIntent.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */,
+				1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */,
 			);
 			path = LiveActivityIntent;
 			sourceTree = "<group>";
@@ -295,7 +299,7 @@
 		1EEF414F2C5B2FA60078CD21 /* LiveActivityButtonView */ = {
 			isa = PBXGroup;
 			children = (
-				1EEF41512C5B2FD40078CD21 /* LiveActivityButtonView.swift */,
+				1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */,
 			);
 			path = LiveActivityButtonView;
 			sourceTree = "<group>";
@@ -478,8 +482,9 @@
 				1E5593622C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				1E55934C2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift in Sources */,
 				1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
-				1EEF41532C5B2FD40078CD21 /* LiveActivityButtonView.swift in Sources */,
+				1EEF41532C5B2FD40078CD21 /* LiveActivityButtonsView.swift in Sources */,
 				1E5593652C5382F200C78466 /* LiveActivityManager.swift in Sources */,
+				1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */,
 				1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +522,7 @@
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
 				26C965DA2C538046000257EA /* NotificationManager.swift in Sources */,
 				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
+				1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */,
 				1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */,
 				1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */,
 				2602D5202C5B480800DBE5A1 /* PreCleanupInfoView.swift in Sources */,
