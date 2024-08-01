@@ -70,7 +70,7 @@ struct CapacitySettingView: View {
                             .foregroundStyle(.gray400)
                     }
                 }
-                .padding(.horizontal, 42)
+                .padding(.horizontal, 32)
                 .padding(.bottom, 27)
                 
                 VStack(alignment: .leading, spacing: 16) {
