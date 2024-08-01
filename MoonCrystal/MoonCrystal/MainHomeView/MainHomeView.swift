@@ -29,7 +29,7 @@ struct MainHomeView: View {
                     }
                 }
                 NavigationLink {
-                    DeletedTotalCapacityView()
+                    DeletedTotalCapacityView(userProfile: userProfile.first)
                 } label: {
                     deletedStorageViewButton
                         .padding(.top, 28)

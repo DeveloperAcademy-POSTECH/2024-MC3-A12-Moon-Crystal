@@ -9,7 +9,9 @@ import SwiftUI
 
 struct DeletedTotalCapacityView: View {
     @State var deletedTotalCapacity: String = "72GB"
-    
+
+    var userProfile: UserProfile?
+
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -52,8 +54,7 @@ struct DeletedTotalCapacityView: View {
             .frame(height: 60)
             .padding(.top, 40)
             
-            
-            MyFavoriteIdolInfoView()
+            MyFavoriteIdolInfoView(userProfile: userProfile)
                 .padding(.top, 56)
             Spacer()
         }

@@ -34,7 +34,7 @@ struct FormatInputView: View {
             .frame(height: 260)
             .padding(.top, 34)
             NavigationLink {
-                if let selectedType = selectedType {
+                if selectedType != nil {
                     // 여기서 selectedType 가지고 InputView로 넘어가면 될 것 같습니다
                 }
             } label: {

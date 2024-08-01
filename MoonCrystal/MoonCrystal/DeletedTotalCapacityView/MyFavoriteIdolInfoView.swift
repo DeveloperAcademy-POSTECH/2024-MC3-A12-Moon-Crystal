@@ -8,20 +8,36 @@
 import SwiftUI
 
 struct MyFavoriteIdolInfoView : View {
-    @State var myFavoriteIdol: String = "NCT"
     @State var deletedTotalCapacity: String = "72GB"
+    var userProfile: UserProfile?
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: 307, height:  418)
                 .foregroundStyle(.gray900)
+                .overlay(
+                    Group {
+                        if let userProfile = userProfile, let uiImage = UIImage(data: userProfile.image) {
+                            VStack(spacing: 0) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 307, height:  342)
+                                    .clipShape(.rect(topLeadingRadius: 20, topTrailingRadius: 20))
+                                
+                                Spacer()
+                            }
+                        } else {
+                            Text("아직 등록된 사진이 없어요")
+                                .font(.system(size: 15))
+                                .foregroundStyle(.gray50)
+                                .padding(.bottom, 65)
+                        }
+                    }
+                )
             
             VStack(spacing: 0) {
-                Spacer()
-                Text("아직 등록된 사진이 없어요")
-                    .font(.system(size: 15))
-                    .foregroundStyle(.gray50)
                 Spacer()
                 Divider()
                     .frame(width: 307)
@@ -29,7 +45,7 @@ struct MyFavoriteIdolInfoView : View {
                     .overlay(.gray700)
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("지금까지 \(myFavoriteIdol)를 위해")
+                        Text("지금까지 \(userProfile?.favoriteIdol ?? "최애")를 위해")
                             .font(.system(size: 16))
                             .foregroundStyle(.white)
                         HStack {
@@ -47,7 +63,7 @@ struct MyFavoriteIdolInfoView : View {
                 .padding(.vertical, 18)
             }
             .frame(width: 307, height:  418)
-
+            
             Capsule()
                 .frame(width: 92,height: 40)
                 .foregroundStyle(.pink100)
