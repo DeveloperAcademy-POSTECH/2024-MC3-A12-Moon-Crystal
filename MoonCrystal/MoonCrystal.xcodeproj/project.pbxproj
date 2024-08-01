@@ -50,6 +50,9 @@
 		26BAEF9E2C5BAD0100346BF6 /* Onboarding3.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEF9B2C5BAD0000346BF6 /* Onboarding3.json */; };
 		26BAEF9F2C5BAD0100346BF6 /* Onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEF9C2C5BAD0000346BF6 /* Onboarding1.json */; };
 		26BAEFA02C5BAD0100346BF6 /* Onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEF9D2C5BAD0100346BF6 /* Onboarding2.json */; };
+		26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */; };
+		26BAEFA42C5BBA2300346BF6 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */; };
+		26BAEFA62C5BBB8800346BF6 /* onboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -123,6 +126,9 @@
 		26BAEF9B2C5BAD0000346BF6 /* Onboarding3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding3.json; sourceTree = "<group>"; };
 		26BAEF9C2C5BAD0000346BF6 /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
 		26BAEF9D2C5BAD0100346BF6 /* Onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding2.json; sourceTree = "<group>"; };
+		26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
+		26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingStepView.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -252,6 +258,9 @@
 		26BAEF9A2C5BAC2300346BF6 /* OnoboardingView */ = {
 			isa = PBXGroup;
 			children = (
+				26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */,
+				26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */,
+				26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */,
 			);
 			path = OnoboardingView;
 			sourceTree = "<group>";
@@ -446,6 +455,7 @@
 				1BF858BC2C5B75A200C2204E /* CustomSlider.swift in Sources */,
 				1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */,
 				1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */,
+				26BAEFA62C5BBB8800346BF6 /* onboardingStepView.swift in Sources */,
 				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
 				260035C72C5772F500343511 /* UserProfile.swift in Sources */,
 				260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */,
@@ -456,6 +466,7 @@
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				260035C42C57703500343511 /* UserProfileView.swift in Sources */,
+				26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */,
 				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
 				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
 				1BF858BA2C5B75A200C2204E /* CapacitySettingView.swift in Sources */,
@@ -473,6 +484,7 @@
 				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
 				1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */,
 				1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */,
+				26BAEFA42C5BBA2300346BF6 /* OnboardingStep.swift in Sources */,
 				1E5593692C53888E00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
