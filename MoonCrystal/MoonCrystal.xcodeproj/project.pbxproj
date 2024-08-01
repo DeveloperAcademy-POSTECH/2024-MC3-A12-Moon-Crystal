@@ -59,6 +59,7 @@
 		1EEF41532C5B2FD40078CD21 /* LiveActivityButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */; };
 		1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
 		1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
+		1EEF41572C5B34F80078CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -195,7 +196,7 @@
 			children = (
 				1E55934B2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift */,
 				1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */,
-				1EEF414F2C5B2FA60078CD21 /* LiveActivityButtonView */,
+				1EEF414F2C5B2FA60078CD21 /* LiveActivityView */,
 				1EEF414B2C5B2B350078CD21 /* LiveActivityIntent */,
 				1E5593532C53800C00C78466 /* Assets.xcassets */,
 				1E5593552C53800C00C78466 /* Info.plist */,
@@ -296,12 +297,12 @@
 			path = LiveActivityIntent;
 			sourceTree = "<group>";
 		};
-		1EEF414F2C5B2FA60078CD21 /* LiveActivityButtonView */ = {
+		1EEF414F2C5B2FA60078CD21 /* LiveActivityView */ = {
 			isa = PBXGroup;
 			children = (
 				1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */,
 			);
-			path = LiveActivityButtonView;
+			path = LiveActivityView;
 			sourceTree = "<group>";
 		};
 		26C965BC2C5241F8000257EA = {
@@ -454,6 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EEF41572C5B34F80078CD21 /* Assets.xcassets in Resources */,
 				1E5593542C53800C00C78466 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
