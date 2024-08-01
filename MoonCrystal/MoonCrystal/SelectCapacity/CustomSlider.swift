@@ -31,6 +31,7 @@ struct CustomSlider: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 ZStack {
+                    
                     RoundedRectangle(cornerRadius: radius)
                         .frame(height: trackHeight)
                         .foregroundColor(Color.gray100)
