@@ -99,8 +99,8 @@ struct UserProfileDetailView: View {
                     }
                 )
                 .disabled(!isEditing)
-                .onChange(of: text.wrappedValue) { _, newValue in
-                    isTextTooLong.wrappedValue = newValue.count > maxTextCount
+                .onChange(of: text.wrappedValue) {
+                    isTextTooLong.wrappedValue = text.wrappedValue.count > maxTextCount
                 }
         }
     }

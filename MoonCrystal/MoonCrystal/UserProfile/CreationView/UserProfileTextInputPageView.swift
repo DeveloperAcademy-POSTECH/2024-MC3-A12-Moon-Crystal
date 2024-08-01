@@ -58,8 +58,8 @@ struct UserProfileTextInputPageView: View {
                                 .padding(.trailing, 16)
                         }
                     )
-                    .onChange(of: bindingForCurrentPage().wrappedValue) { _, newValue in
-                        isTextInputTooLong = newValue.count > maxTextCount
+                    .onChange(of: bindingForCurrentPage().wrappedValue) {
+                        isTextInputTooLong = bindingForCurrentPage().wrappedValue.count > maxTextCount
                     }
             }
             
