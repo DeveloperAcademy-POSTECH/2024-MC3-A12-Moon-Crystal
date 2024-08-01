@@ -42,6 +42,10 @@
 		260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DB2C580D4C00343511 /* UserProfileInputModel.swift */; };
 		260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DD2C5925BC00343511 /* UserProfileDetailView.swift */; };
 		260035E02C5928D000343511 /* PhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DF2C5928D000343511 /* PhotoPickerButton.swift */; };
+		2602D51C2C5B474900DBE5A1 /* Arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2602D51A2C5B474900DBE5A1 /* Arrow.json */; };
+		2602D51D2C5B474900DBE5A1 /* Timer.json in Resources */ = {isa = PBXBuildFile; fileRef = 2602D51B2C5B474900DBE5A1 /* Timer.json */; };
+		2602D5202C5B480800DBE5A1 /* PreCleanupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */; };
+		2602D5222C5B5D7B00DBE5A1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2602D5212C5B5D7B00DBE5A1 /* Lottie */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -108,6 +112,9 @@
 		260035DB2C580D4C00343511 /* UserProfileInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInputModel.swift; sourceTree = "<group>"; };
 		260035DD2C5925BC00343511 /* UserProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDetailView.swift; sourceTree = "<group>"; };
 		260035DF2C5928D000343511 /* PhotoPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerButton.swift; sourceTree = "<group>"; };
+		2602D51A2C5B474900DBE5A1 /* Arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Arrow.json; sourceTree = "<group>"; };
+		2602D51B2C5B474900DBE5A1 /* Timer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Timer.json; sourceTree = "<group>"; };
+		2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCleanupInfoView.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2602D5222C5B5D7B00DBE5A1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +220,24 @@
 			path = CreationView;
 			sourceTree = "<group>";
 		};
+		2602D5192C5B472E00DBE5A1 /* LottieView */ = {
+			isa = PBXGroup;
+			children = (
+				2602D51E2C5B475E00DBE5A1 /* JsonFile */,
+				2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */,
+			);
+			path = LottieView;
+			sourceTree = "<group>";
+		};
+		2602D51E2C5B475E00DBE5A1 /* JsonFile */ = {
+			isa = PBXGroup;
+			children = (
+				2602D51A2C5B474900DBE5A1 /* Arrow.json */,
+				2602D51B2C5B474900DBE5A1 /* Timer.json */,
+			);
+			path = JsonFile;
+			sourceTree = "<group>";
+		};
 		26C965BC2C5241F8000257EA = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +274,7 @@
 				1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */,
 				260035C52C5772DF00343511 /* UserProfile */,
 				260035DF2C5928D000343511 /* PhotoPickerButton.swift */,
+				2602D5192C5B472E00DBE5A1 /* LottieView */,
 				26C965CC2C5241F9000257EA /* Assets.xcassets */,
 				26C965CE2C5241F9000257EA /* Preview Content */,
 			);
@@ -306,6 +333,9 @@
 				1E5593572C53800C00C78466 /* PBXTargetDependency */,
 			);
 			name = MoonCrystal;
+			packageProductDependencies = (
+				2602D5212C5B5D7B00DBE5A1 /* Lottie */,
+			);
 			productName = MoonCrystal;
 			productReference = 26C965C52C5241F8000257EA /* MoonCrystal.app */;
 			productType = "com.apple.product-type.application";
@@ -365,6 +395,8 @@
 			files = (
 				26C965D02C5241F9000257EA /* Preview Assets.xcassets in Resources */,
 				26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */,
+				2602D51C2C5B474900DBE5A1 /* Arrow.json in Resources */,
+				2602D51D2C5B474900DBE5A1 /* Timer.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +443,7 @@
 				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
 				1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */,
 				1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */,
+				2602D5202C5B480800DBE5A1 /* PreCleanupInfoView.swift in Sources */,
 				1BF858BB2C5B75A200C2204E /* CapacityDirectInputView.swift in Sources */,
 				1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */,
 				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
@@ -722,6 +755,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2602D5212C5B5D7B00DBE5A1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2602D5182C5B46D700DBE5A1 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26C965BD2C5241F8000257EA /* Project object */;
 }
