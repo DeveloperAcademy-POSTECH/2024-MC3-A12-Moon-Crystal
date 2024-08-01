@@ -153,7 +153,6 @@ struct CapacitySettingView: View {
                     .foregroundStyle(.gray900)
                 }
             }
-            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showTip.toggle()
@@ -168,6 +167,18 @@ struct CapacitySettingView: View {
     }
 }
 
+struct TestView : View {
+    var body : some View {
+        NavigationStack {
+            NavigationLink {
+                CapacitySettingView()
+            } label: {
+                Text("dnskdnla")
+            }
+        }
+    }
+}
 #Preview {
-    CapacitySettingView()
+    TestView()
+//    CapacitySettingView()
 }
