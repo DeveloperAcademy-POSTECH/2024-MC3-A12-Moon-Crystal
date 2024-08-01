@@ -32,6 +32,7 @@ struct MainHomeView: View {
                 }
                 NavigationLink {
                     // TODO: 그동안 삭제된 양 확인하는 뷰 연결
+                    DeletedTotalCapacityView()
                 } label: {
                     deletedStorageViewButton
                         .padding(.top, 28)
@@ -63,7 +64,7 @@ struct MainHomeView: View {
             .background(Color.gray50)
             .edgesIgnoringSafeArea(.all)
         }
-        .tint(.black)
+        .tint(.gray900)
         .onAppear {
             // TODO: 데이터 fetch
             availableTimeText = "1h 30m"
