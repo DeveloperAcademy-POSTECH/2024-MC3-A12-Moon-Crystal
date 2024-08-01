@@ -12,7 +12,6 @@ struct MainHomeView: View {
     @State var availableTimeText = "0h 36m"
     @State var name = "최애"
     @State private var progress: Float = 0.0
-    @State var uiImageName: UIImage? = nil
     
     @Query var userProfile: [UserProfile]
     
@@ -22,7 +21,6 @@ struct MainHomeView: View {
                 HStack {
                     Spacer()
                     NavigationLink {
-                        // TODO: UserProfileView 연결
                         UserProfileView(userProfile: userProfile.first)
                     } label: {
                         profileViewButton
@@ -31,7 +29,6 @@ struct MainHomeView: View {
                     }
                 }
                 NavigationLink {
-                    // TODO: 그동안 삭제된 양 확인하는 뷰 연결
                     DeletedTotalCapacityView()
                 } label: {
                     deletedStorageViewButton
@@ -70,13 +67,12 @@ struct MainHomeView: View {
             availableTimeText = "1h 30m"
             name = "최애"
             progress = 0.8
-            //uiImageName =
         }
     }
     
     var profileViewButton: some View {
         ZStack {
-            if uiImageName == nil {
+            if userProfile.first?.image == nil {
                 Circle()
                     .frame(width: 52, height: 52)
                     .foregroundStyle(.white)
@@ -86,12 +82,14 @@ struct MainHomeView: View {
                     .foregroundStyle(Color.gray700)
                     .frame(width: 24, height: 24)
             } else {
-                Image(uiImage: uiImageName!)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 52, height: 52)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    .overlay(Circle().stroke(Color.gray200, lineWidth: 0.5))
+                if let userProfile = userProfile.first, let uidata =  UIImage(data: userProfile.image) {
+                    Image(uiImage: uidata)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 52, height: 52)
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        .overlay(Circle().stroke(Color.gray200, lineWidth: 0.5))
+                }
             }
         }
     }
