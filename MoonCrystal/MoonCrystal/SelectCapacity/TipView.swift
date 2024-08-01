@@ -93,7 +93,7 @@ struct TipView: View {
     
     private func circleIcon(image : Data?) -> some View {
         ZStack {
-            if let uiimage = UIImage(data: image ?? Data()) {
+            if let image = image, let uiimage = UIImage(data: image) {
                 Image(uiImage: uiimage)
                     .resizable()
                     .scaledToFit()
@@ -108,11 +108,11 @@ struct TipView: View {
                             .font(.system(size: 28, weight: .bold))
                             .foregroundStyle(.gray700)
                     }
-                Circle()
-                    .stroke(.pink300, lineWidth: 2)
-                    .frame(height: 72)
-                    .padding(1)
             }
+            Circle()
+                .stroke(.pink300, lineWidth: 2)
+                .frame(height: 72)
+                .padding(1)
         }
     }
 }

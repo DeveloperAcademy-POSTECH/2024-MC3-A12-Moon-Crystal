@@ -12,8 +12,10 @@ struct CapacityDirectInputView: View {
     @Binding var selectedCapacity: Double
     @State var tempCapacity: Double = 0.0
     
+    var fullCapacity : Int = 127
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
+    let alertMessage = "휴대폰 용량을 초과했어요"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -35,9 +37,15 @@ struct CapacityDirectInputView: View {
             Text(favoriteIdol + title)
                 .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.gray900)
-                .padding(.bottom, 36)
+                .padding(.bottom, 11)
                 .padding(.leading, 24)
                 .fixedSize()
+            
+            Text(alertMessage)
+                .font(.system(size: 14))
+                .foregroundStyle(Int(tempCapacity) < fullCapacity ? .clear : .pink300)
+                .padding(.leading, 24)
+                .padding(.bottom, 8)
             
             HStack {
                 TextField("0", value: $tempCapacity, formatter: NumberFormatter())
@@ -58,11 +66,13 @@ struct CapacityDirectInputView: View {
                 .foregroundStyle(.pink300)
             
             Button {
-                selectedCapacity = tempCapacity
-                dismiss()
+                if Int(tempCapacity) < fullCapacity {
+                    selectedCapacity = tempCapacity
+                    dismiss()
+                }
             } label: {
                 Rectangle()
-                    .foregroundStyle(.gray900)
+                    .foregroundStyle(Int(tempCapacity) < fullCapacity ? .gray900 : .gray400)
                     .frame(height: 65)
                     .overlay {
                         Text("확인")
