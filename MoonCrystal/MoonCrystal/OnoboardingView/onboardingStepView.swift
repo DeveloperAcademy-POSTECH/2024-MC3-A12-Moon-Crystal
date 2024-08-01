@@ -36,7 +36,6 @@ struct onboardingStepView: View {
                 .frame(height: 300)
                 .scaledToFit()
             
-            
             // 페이지 인디케이터
             HStack(spacing: 14) {
                 ForEach(0..<3) { index in

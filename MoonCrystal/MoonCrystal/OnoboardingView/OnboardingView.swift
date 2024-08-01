@@ -58,7 +58,6 @@ struct OnboardingView: View {
                 break
             }
         }
-        
     }
 }
 
