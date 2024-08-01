@@ -22,20 +22,18 @@ struct CustomSlider: View {
             let radius = gr.size.height * 0.2
             let minValue = thumbSize / 2
             let maxValue = gr.size.width - thumbSize / 2
-            
-            //지금 안씀, 필요없을 시 추후 삭제
-            //                        let trackPadding = thumbSize / 2
-            
             let scaleFactor = (maxValue - minValue) / (sliderRange.upperBound - sliderRange.lowerBound)
             let lower = sliderRange.lowerBound
             let sliderVal = min(((self.selectedCapacity - lower) * scaleFactor + minValue), maxValue)
             
             VStack(alignment: .leading, spacing: 0) {
                 ZStack {
+                    
                     RoundedRectangle(cornerRadius: radius)
                         .frame(height: trackHeight)
                         .foregroundColor(Color.gray100)
-                    //                                            .padding(.horizontal, trackPadding)
+                        .padding(.horizontal, minValue)
+                    
                     HStack {
                         Circle()
                             .foregroundColor(Color.pink300)
@@ -63,15 +61,10 @@ struct CustomSlider: View {
                         if value % step == 0 {
                             Text("\(value)")
                                 .font(.system(size: fontSize))
-                                .offset(x:
-                                            offsetForValue(
-                                                value: value,
-                                                scaleFactor: scaleFactor,
-                                                thumbSize: thumbSize,
-                                                minValue: minValue,
-                                                maxValue: maxValue,
-                                                isLast: value == Int(sliderRange.upperBound)
-                                            )
+                                .offset(x: offsetForValue(
+                                    value: value,
+                                    scaleFactor: scaleFactor,
+                                    minValue: minValue)
                                 )
                         }
                     }
@@ -79,19 +72,9 @@ struct CustomSlider: View {
             }
         }
     }
-    func paddingForValue(scaleFactor : CGFloat, thumbSize : CGFloat, step : Int) -> Double {
-        return scaleFactor * CGFloat(step) - thumbSize / 2
-    }
-    
-    private func offsetForValue(value: Int, scaleFactor: CGFloat, thumbSize: CGFloat, minValue: CGFloat, maxValue: CGFloat, isLast: Bool) -> CGFloat {
-        let rawOffset = CGFloat(value) * scaleFactor * 1.05
-        if value == 0 {
-            return rawOffset * 1.05
-        } else if isLast {
-            return rawOffset
-        } else {
-            return rawOffset
-        }
+    private func offsetForValue(value: Int, scaleFactor: CGFloat, minValue: CGFloat) -> CGFloat {
+        let rawOffset = CGFloat(value) * scaleFactor  + minValue / 2
+        return rawOffset
     }
 }
 
