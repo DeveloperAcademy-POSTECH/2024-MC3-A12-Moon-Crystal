@@ -33,7 +33,6 @@ struct FormatInputView: View {
             }
             .frame(height: 260)
             .padding(.top, 34)
-            
             NavigationLink {
                 if let selectedType = selectedType {
                     // 여기서 selectedType 가지고 InputView로 넘어가면 될 것 같습니다
@@ -41,7 +40,7 @@ struct FormatInputView: View {
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 68)
-                    .foregroundStyle(selectedType == nil ? Color.gray400 : Color.gray900)
+                    .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
                     .overlay(
                         Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
                             .foregroundStyle(.white))
@@ -53,11 +52,11 @@ struct FormatInputView: View {
         .padding(.top, 164)
         .padding(.horizontal)
         .ignoresSafeArea()
-        .background(Color.gray50)
+        .background(.gray50)
     }
     
     func formatButton(buttonName: String, type: VideoFormatCapacity?) -> some View {
-        Button(action: {
+        Button {
             selectedType = type
             if type == .defaultQuality {
                 isHighQualitySelected = false
@@ -65,17 +64,17 @@ struct FormatInputView: View {
                 isHighQualitySelected = true
                 selectedType = nil
             }
-        }) {
+        } label: {
             RoundedRectangle(cornerRadius: 12)
                 .frame(height: 60)
                 .foregroundStyle(.white)
                 .overlay(
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(isHighQualitySelected == (type != .defaultQuality) ? Color.pink300 : .black)
+                            .stroke(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .black)
                         Text(buttonName)
                             .font(.system(size: 16, weight: selectedType == type ? .semibold : .regular))
-                            .foregroundStyle(isHighQualitySelected == (type != .defaultQuality) ? Color.pink300 : .black)
+                            .foregroundStyle(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .black)
                     }
                 )
         }
