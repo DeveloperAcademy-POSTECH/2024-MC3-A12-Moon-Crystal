@@ -31,14 +31,14 @@ struct TipView: View {
                             .foregroundStyle(.gray700)
                     }
                 }
-                
+
                 Text(title)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(.leading, 22)
                     .padding(.top, 23)
                     .foregroundColor(.gray700)
                     .fixedSize(horizontal: true, vertical: true)
-                
+
                 ZStack (alignment: .topLeading) {
                     VStack(alignment: .leading, spacing: 16) {
                         infoMessage(informationText: "사진 약 1700장을 삭제")
