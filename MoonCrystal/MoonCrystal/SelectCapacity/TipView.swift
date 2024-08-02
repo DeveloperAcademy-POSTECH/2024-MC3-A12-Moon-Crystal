@@ -31,12 +31,14 @@ struct TipView: View {
                             .foregroundStyle(.gray700)
                     }
                 }
+                
                 Text(title)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(.leading, 22)
                     .padding(.top, 23)
                     .foregroundColor(.gray700)
                     .fixedSize(horizontal: true, vertical: true)
+                
                 ZStack (alignment: .topLeading) {
                     VStack(alignment: .leading, spacing: 16) {
                         infoMessage(informationText: "사진 약 1700장을 삭제")
@@ -58,7 +60,7 @@ struct TipView: View {
         .ignoresSafeArea()
     }
     
-    private func infoMessage(informationText : String) -> some View {
+    private func infoMessage(informationText: String) -> some View {
         let GBInfoText = "5GB를 확보하려면"
         let endingText = "해야해요"
         
@@ -91,7 +93,7 @@ struct TipView: View {
         )
     }
     
-    private func circleIcon(image : Data?) -> some View {
+    private func circleIcon(image: Data?) -> some View {
         ZStack {
             if let image = image, let uiimage = UIImage(data: image) {
                 Image(uiImage: uiimage)
