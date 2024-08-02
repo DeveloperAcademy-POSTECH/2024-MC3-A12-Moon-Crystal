@@ -60,6 +60,7 @@ struct CapacityDirectInputView: View {
                     .font(.system(size: 34, weight: .semibold))
                     .padding(.trailing, 41)
             }
+            .foregroundStyle(.gray700)
             .padding(.leading, 22)
             
             Rectangle()
