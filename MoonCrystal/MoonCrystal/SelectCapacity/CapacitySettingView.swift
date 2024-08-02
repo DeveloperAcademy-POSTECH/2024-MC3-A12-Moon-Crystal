@@ -153,6 +153,7 @@ struct CapacitySettingView: View {
                     .foregroundStyle(.gray900)
                 }
             }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showTip.toggle()
