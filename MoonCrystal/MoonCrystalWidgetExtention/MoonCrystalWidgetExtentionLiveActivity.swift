@@ -12,83 +12,101 @@ import SwiftUI
 struct MoonCrystalWidgetExtentionLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: dynamicCapacityAttributes.self) { context in
-            HStack {
-                VStack(alignment: .leading, spacing: 0) {
-                    HStack(alignment: .center) {
-                        Text("확보시간")
-                            .font(.system(size: 15, weight: .regular))
-                            .foregroundStyle(.white)
-                        Text("+ 0h 0m")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(.pink300)
-                    }
-                    .padding(.bottom, 9)
-                    
-                    HStack(alignment: .center) {
-                        Text("확보용량")
-                            .font(.system(size: 15, weight: .regular))
-                            .foregroundStyle(.white)
-                        Text("+ \(context.state.capacity)")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(.pink300)
-                    }
-                }
-                Spacer()
-                Circle()
-                Circle()
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
-            .activityBackgroundTint(Color.black)
-            .activitySystemActionForegroundColor(Color.black)
+            
+//            HStack {
+//                VStack(alignment: .leading, spacing: 0) {
+//                    Text("전체 확보 시간")
+//                        .font(.system(size: 12, weight: .medium))
+//                        .foregroundStyle(.white)
+//                    
+//                    Text("10h 20m")
+//                        .font(.system(size: 24, weight: .semibold))
+//                        .foregroundStyle(.pink300)
+//                        .padding(.top, 6)
+//        
+//                    Text("현재 정리중")
+//                        .font(.system(size: 12, weight: .medium))
+//                        .foregroundStyle(.white)
+//                        .padding(.top, 14)
+//
+//                    HStack {
+//                        Text("+0h20m")
+//                            .fixedSize()
+//                            .font(.system(size: 16, weight: .semibold))
+//                            .foregroundStyle(.pink300)
+//                        Divider()
+//                            .overlay(.gray300)
+//                            .frame(minHeight: 1)
+//                        
+//                        Text("+100GB")
+//                            .fixedSize()
+//                            .font(.system(size: 16, weight: .semibold))
+//                            .foregroundStyle(.pink300)
+//                    }
+//                    .frame(height: 17)
+//                    .padding(.top, 7)
+//                }
+////                .padding()
+//                Spacer()
+//                Circle()
+//                    .frame(width: 62)
+//                Circle()
+//                    .frame(width: 62)
+////                LiveActivityButtonsView()
+//            }
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .padding()
+//            .activityBackgroundTint(Color.black)
+//            .activitySystemActionForegroundColor(Color.black)
+            
         } dynamicIsland: { context in
             DynamicIsland {
-                DynamicIslandExpandedRegion(.bottom, priority: 1) {
-                    VStack(spacing: 0) {
-                        HStack(alignment: .top, spacing: 0) {
-                            VStack(alignment: .leading, spacing: 0) {
-                                HStack(alignment: .center) {
-                                    Text("확보시간")
-                                        .font(.system(size: 15, weight: .regular))
-                                        .foregroundStyle(.white)
-                                    Text("+ 0h 0m")
-                                        .font(.system(size: 16, weight: .semibold))
-                                        .foregroundStyle(.pink300)
-                                    Spacer()
-                                }
-                                .padding(.bottom, 4)
-                                
-                                HStack(alignment: .center) {
-                                    Text("확보용량")
-                                        .font(.system(size: 15, weight: .regular))
-                                        .foregroundStyle(.white)
-                                    Text("+ \(context.state.capacity)")
-                                        .font(.system(size: 16, weight: .semibold))
-                                        .foregroundStyle(.pink300)
-                                }
-                            }
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                DynamicIslandExpandedRegion(.leading) {
+                    VStack(alignment: .leading, spacing: 7) {
+                        Text("전체 확보 시간")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundStyle(.white)
+                        Text("10h20m")
+                            .fixedSize()
+                            .font(.system(size: 28, weight: .semibold))
+                            .foregroundStyle(.pink300)
+                    }
+                    .padding(.top, 5)
+                    .padding(.leading, 8)
+                }
+                
+                DynamicIslandExpandedRegion(.trailing) {
+                    VStack(alignment: .trailing, spacing: 15) {
+                        Text("현재 정리중")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundStyle(.white)
+                        HStack {
+                            Text("+0h20m")
+                                .fixedSize()
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundStyle(.pink300)
+                            Divider()
+                                .overlay(.gray300)
+                                .frame(minHeight: 1)
                             
-                            VStack(alignment: .leading, spacing: 0) {
-                                HStack{
-                                    Text("촬영가능")
-                                        .font(.system(size: 15, weight: .regular))
-                                        .foregroundStyle(.white)
-                                    Spacer()
-                                }
-                                Text("+ \(context.state.capacity)")
-                                    .font(.system(size: 32, weight: .semibold))
-                                    .foregroundStyle(.pink300)
-                            }
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            Text("+0GB")
+                                .fixedSize()
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundStyle(.pink300)
                         }
-                        .padding(.bottom, 5)
+                        .frame(height: 17)
+                    }
+                    .padding(.top, 5)
+                    .padding(.trailing, 8)
+                }
+                
+                DynamicIslandExpandedRegion(.bottom, priority: 1) {
+                    VStack{
                         LiveActivityButtonsView(isLoading: context.state.isLoading)
                     }
-                    .frame(maxHeight: .infinity)
-                    .padding(.horizontal, 5)
-                    .padding(.bottom, 20)
+                    .padding(.horizontal, 8)
                 }
+                
             } compactLeading: {
                 Text("정리중")
                     .font(.system(size: 12, weight: .semibold))
@@ -100,7 +118,6 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
             } minimal: {}
                 .widgetURL(URL(string: "http://www.apple.com"))
                 .keylineTint(Color.white)
-            
         }
     }
 }
