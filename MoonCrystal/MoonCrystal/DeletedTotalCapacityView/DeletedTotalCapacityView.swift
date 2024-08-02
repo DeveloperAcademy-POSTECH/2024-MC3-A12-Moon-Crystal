@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DeletedTotalCapacityView: View {
+    //TODO: 나중에 정리된 총 용량이 저장되면 그값으로 변환
     @State var deletedTotalCapacity: String = "72GB"
 
     var userProfile: UserProfile?
@@ -31,7 +32,7 @@ struct DeletedTotalCapacityView: View {
             Spacer()
         }
         .padding(.horizontal)
-        .background(Color.gray50)
+        .background(.gray50)
         .edgesIgnoringSafeArea(.all)
     }
     
@@ -72,5 +73,4 @@ struct DeletedTotalCapacityView: View {
     VStack{
         DeletedTotalCapacityView()
     }
-
 }

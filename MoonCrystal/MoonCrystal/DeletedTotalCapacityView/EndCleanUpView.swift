@@ -45,7 +45,6 @@ struct EndCleanUpView: View {
                     )
                     .padding(.top, 65)
             }
-            
             Spacer()
         }
         .padding(.horizontal)

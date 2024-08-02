@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MyFavoriteIdolCardView : View {
-    @State var deletedTotalCapacity: String = "72GB"
-    @State var currentDeletedCapacity = "12GB"
-    @State var isEndView = false
+    //TODO: 나중에 정리된 총 용량이 저장되면 그값으로 변환
+    var deletedTotalCapacity: String = "72GB"
+    var currentDeletedCapacity = "12GB"
+    var isEndView = false
     
     var userProfile: UserProfile?
     
@@ -52,7 +53,7 @@ struct MyFavoriteIdolCardView : View {
         RoundedRectangle(cornerRadius: 20)
             .overlay(
                 Group {
-                    if let userProfile = userProfile, let uiImage = UIImage(data: userProfile.image) {
+                    if let userProfile, let uiImage = UIImage(data: userProfile.image) {
                         VStack(spacing: 0) {
                             Image(uiImage: uiImage)
                                 .resizable()
@@ -79,7 +80,7 @@ struct MyFavoriteIdolCardView : View {
                     .font(.system(size: 16))
                     .foregroundStyle(.white)
                 HStack {
-                    Text("\(deletedTotalCapacity)")
+                    Text("\(deletedTotalCapacity) ")
                         .font(.system(size: 16, weight: .heavy))
                         .foregroundStyle(.pink300)
                     Text("정리했어요")
