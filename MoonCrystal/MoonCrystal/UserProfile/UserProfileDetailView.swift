@@ -63,7 +63,7 @@ struct UserProfileDetailView: View {
                     .foregroundStyle(.gray700)
                 Spacer()
             }
-            PhotoPickerButton(userProfileData: $userProfileInputData)
+            PhotoPickerButton(userProfileData: $userProfileInputData, isEditing: $isEditing)
                 .padding(.horizontal, 23)
                 .disabled(!isEditing)
         }

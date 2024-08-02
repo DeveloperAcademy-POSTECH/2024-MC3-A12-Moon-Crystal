@@ -11,6 +11,7 @@ import SwiftUI
 struct PhotoPickerButton: View {
     @State var imageSelection: PhotosPickerItem?
     @Binding var userProfileData: UserProfileInputModel
+    @Binding var isEditing: Bool
     
     var body: some View {
         PhotosPicker(
@@ -20,7 +21,18 @@ struct PhotoPickerButton: View {
                 if let imageData = userProfileData.imageData, let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)
                         .resizable()
+                        .overlay(
+                            ZStack(alignment: .center) {
+                                if isEditing {
+                                    Color.black.opacity(0.5)
+                                    Image(systemName: "camera")
+                                        .frame(width: 29)
+                                        .tint(.gray200)
+                                }
+                            }
+                        )
                         .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
                 } else {
                     Image("ProfileImagePlaceholder")
                         .resizable()
