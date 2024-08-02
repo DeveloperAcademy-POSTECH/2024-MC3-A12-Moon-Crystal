@@ -31,7 +31,6 @@ struct TipView: View {
                             .foregroundStyle(.gray700)
                     }
                 }
-
                 Text(title)
                     .font(.system(size: 24, weight: .semibold))
                     .padding(.leading, 22)
