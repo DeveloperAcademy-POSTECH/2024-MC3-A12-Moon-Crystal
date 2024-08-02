@@ -24,24 +24,28 @@ struct EndCleanUpView: View {
             .padding(.top, 116)
 
             HStack {
-                Text("포토카드레 당신의 마음을 담았어요")
+                Text("포토카드에 당신의 마음을 담았어요")
                     .font(.system(size: 16))
                 Spacer()
             }
             .padding(.top, 8)
             
-            MyFavoriteIdolInfoView(userProfile: userProfile)
+            MyFavoriteIdolCardView(userProfile: userProfile)
                 .padding(.top, 57)
-            Button{} label: {
+            
+            Button {
+                
+            } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 68)
                     .foregroundStyle(Color.gray900)
                     .overlay(
-                        Text(MainHomeViewComponent.CleanUpButton.title)
+                        Text("확인")
                             .foregroundStyle(.white)
                     )
                     .padding(.top, 65)
             }
+            
             Spacer()
         }
         .padding(.horizontal)

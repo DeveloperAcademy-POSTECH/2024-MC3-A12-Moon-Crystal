@@ -22,45 +22,49 @@ struct DeletedTotalCapacityView: View {
             }
             .padding(.top, 120)
             
-            GeometryReader { geometry in
-                HStack {
-                    VStack(spacing: 4) {
-                        Text("정리한 용량")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundStyle(.gray)
-                        Text("\(deletedTotalCapacity)")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundStyle(.black)
-                    }
-                    .frame(width: geometry.size.width / 2 - 20)
-                    
-                    Divider()
-                        .frame(height: 60)
-                        .frame(minHeight: 1)
-                        .overlay(.gray700)
-                    
-                    VStack(spacing: 4) {
-                        Text("확보한 촬영 시간")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundStyle(.gray)
-                        Text("\(deletedTotalCapacity)")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundStyle(.black)
-                    }
-                    .frame(width: geometry.size.width / 2 - 20)
-                }
-                .frame(width: geometry.size.width, height: 60)
-            }
-            .frame(height: 60)
-            .padding(.top, 40)
+            deletedTotalStatus
+                .frame(height: 60)
+                .padding(.top, 40)
             
-            MyFavoriteIdolInfoView(userProfile: userProfile)
+            MyFavoriteIdolCardView(userProfile: userProfile)
                 .padding(.top, 56)
             Spacer()
         }
         .padding(.horizontal)
         .background(Color.gray50)
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    var deletedTotalStatus: some View {
+        GeometryReader { geometry in
+            HStack {
+                VStack(spacing: 4) {
+                    Text("정리한 용량")
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundStyle(.gray)
+                    Text("\(deletedTotalCapacity)")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(.black)
+                }
+                .frame(width: geometry.size.width / 2 - 20)
+                
+                Divider()
+                    .frame(height: 60)
+                    .frame(minHeight: 1)
+                    .overlay(.gray700)
+                
+                VStack(spacing: 4) {
+                    Text("확보한 촬영 시간")
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundStyle(.gray)
+                    Text("\(deletedTotalCapacity)")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(.black)
+                }
+                .frame(width: geometry.size.width / 2 - 20)
+            }
+            .frame(width: geometry.size.width, height: 60)
+        }
     }
 }
 

@@ -33,7 +33,7 @@
 		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
 		1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */; };
 		1EEF415A2C5BB0B00078CD21 /* DeletedTotalCapacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */; };
-		1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolInfoView.swift */; };
+		1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */; };
 		1EEF415E2C5BDC080078CD21 /* EndCleanUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF415D2C5BDC080078CD21 /* EndCleanUpView.swift */; };
 		260035C42C57703500343511 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C32C57703500343511 /* UserProfileView.swift */; };
 		260035C72C5772F500343511 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C62C5772F500343511 /* UserProfile.swift */; };
@@ -113,7 +113,7 @@
 		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
 		1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighFormatRadioButton.swift; sourceTree = "<group>"; };
 		1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedTotalCapacityView.swift; sourceTree = "<group>"; };
-		1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteIdolInfoView.swift; sourceTree = "<group>"; };
+		1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteIdolCardView.swift; sourceTree = "<group>"; };
 		1EEF415D2C5BDC080078CD21 /* EndCleanUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCleanUpView.swift; sourceTree = "<group>"; };
 		260035C32C57703500343511 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		260035C62C5772F500343511 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */,
-				1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolInfoView.swift */,
+				1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */,
 				1EEF415D2C5BDC080078CD21 /* EndCleanUpView.swift */,
 			);
 			path = DeletedTotalCapacityView;
@@ -486,7 +486,7 @@
 				26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */,
 				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
 				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
-				1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolInfoView.swift in Sources */,
+				1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift in Sources */,
 				1BF858BA2C5B75A200C2204E /* CapacitySettingView.swift in Sources */,
 				260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */,
 				1BF858BD2C5B75A200C2204E /* TipView.swift in Sources */,
