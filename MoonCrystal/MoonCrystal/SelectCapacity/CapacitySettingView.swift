@@ -58,6 +58,7 @@ struct CapacitySettingView: View {
                 VStack(spacing: 24) {
                     Text("\(Int(selectedCapacity))GB")
                         .font(.system(size: 34, weight: .semibold))
+                        .foregroundStyle(.gray800)
                     
                     CustomSlider(selectedCapacity: $selectedCapacity, step: step, sliderRange: 0...maxCapacity)
                         .frame(height: 54)
@@ -67,6 +68,7 @@ struct CapacitySettingView: View {
                     } label: {
                         Text("직접 입력")
                             .underline()
+                            .font(.system(size: 14, weight: .light))
                             .foregroundStyle(.gray400)
                     }
                 }
@@ -97,6 +99,7 @@ struct CapacitySettingView: View {
                     .background(.white)
                     .cornerRadius(12)
                 }
+                .foregroundStyle(.gray800)
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
@@ -107,6 +110,7 @@ struct CapacitySettingView: View {
                         .foregroundStyle(.gray900)
                         .overlay(
                             Text("정리 시작하기")
+                                .font(.system(size: 16))
                                 .foregroundStyle(.white)
                         )
                 }
@@ -118,6 +122,7 @@ struct CapacitySettingView: View {
                 } label: {
                     Text("홈으로 가기")
                         .underline()
+                        .font(.system(size: 15))
                         .foregroundStyle(.gray500)
                 }
                 .padding(.top, 24)
