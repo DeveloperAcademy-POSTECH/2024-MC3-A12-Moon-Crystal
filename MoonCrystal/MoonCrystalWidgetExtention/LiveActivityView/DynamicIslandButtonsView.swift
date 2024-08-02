@@ -1,5 +1,5 @@
 //
-//  LiveActivityButtonsView.swift
+//  DynamicIslandButtonsView.swift
 //  MoonCrystal
 //
 //  Created by sungkug_apple_developer_ac on 8/1/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LiveActivityButtonsView: View {
+struct DynamicIslandButtonsView: View {
     @State var isLoading = false
     
     var body: some View {

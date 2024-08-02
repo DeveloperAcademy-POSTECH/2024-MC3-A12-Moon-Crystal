@@ -15,43 +15,17 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
             
             VStack {
                 HStack(alignment: .top, spacing: 10) {
-                    VStack(alignment: .leading, spacing: 7) {
-                        Text("전체 확보 시간")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(.white)
-                        Text("10h20m")
-                            .fixedSize()
-                            .font(.system(size: 28, weight: .semibold))
-                            .foregroundStyle(.pink300)
-                    }
-                    
+                    //TODO: 여기에 context에서 가져온 값 넣어줘야됌
+                    LiveActivitySaveTimeView(freeCapacity: "10GB")
                     Spacer()
-                    VStack(alignment: .leading, spacing: 15) {
-                        Text("현재 정리중")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(.white)
-                        HStack {
-                            Text("+0h20m")
-                                .fixedSize()
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundStyle(.pink300)
-                            Divider()
-                                .overlay(.gray300)
-                                .frame(minHeight: 1)
-                            
-                            Text("+0GB")
-                                .fixedSize()
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundStyle(.pink300)
-                        }
-                        .frame(height: 17)
-                    }
+                    //TODO: 여기에 context에서 가져온 값 넣어줘야됌
+                    CleanUpStatusView(addedFreeCapacity: "10GB", isLockScreen: true)
                     Spacer()
                 }
                 .padding(.horizontal, 8)
                 
                 Spacer()
-                LiveActivityButtonsView()
+                DynamicIslandButtonsView()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(25)
@@ -61,47 +35,21 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    VStack(alignment: .leading, spacing: 7) {
-                        Text("전체 확보 시간")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(.white)
-                        Text("10h20m")
-                            .fixedSize()
-                            .font(.system(size: 28, weight: .semibold))
-                            .foregroundStyle(.pink300)
-                    }
-                    .padding(.top, 5)
-                    .padding(.leading, 8)
+                    //TODO: 여기에 context 남은용량을 넣어야됨
+                    LiveActivitySaveTimeView(freeCapacity: "10GB")
+                        .padding(.top, 5)
+                        .padding(.leading, 8)
                 }
                 
                 DynamicIslandExpandedRegion(.trailing) {
-                    VStack(alignment: .trailing, spacing: 15) {
-                        Text("현재 정리중")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(.white)
-                        HStack {
-                            Text("+0h20m")
-                                .fixedSize()
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundStyle(.pink300)
-                            Divider()
-                                .overlay(.gray300)
-                                .frame(minHeight: 1)
-                            
-                            Text("+0GB")
-                                .fixedSize()
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundStyle(.pink300)
-                        }
-                        .frame(height: 17)
-                    }
-                    .padding(.top, 5)
-                    .padding(.trailing, 8)
+                    CleanUpStatusView()
+                        .padding(.top, 5)
+                        .padding(.trailing, 8)
                 }
                 
                 DynamicIslandExpandedRegion(.bottom, priority: 1) {
                     VStack{
-                        LiveActivityButtonsView(isLoading: context.state.isLoading)
+                        DynamicIslandButtonsView(isLoading: context.state.isLoading)
                     }
                     .padding(.horizontal, 8)
                 }
