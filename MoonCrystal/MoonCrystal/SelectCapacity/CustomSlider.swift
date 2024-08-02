@@ -72,22 +72,30 @@ struct CustomSlider: View {
                 ZStack {
                     ForEach((0...Int(sliderRange.upperBound)), id: \.self) { value in
                         if value % step == 0 {
-                            Text("\(value)")
-                                .font(.system(size: 12))
-                                .foregroundStyle(.gray500)
-                                .offset(x: offsetForValue(
-                                    value: value,
-                                    scaleFactor: scaleFactor,
-                                    minValue: minValue)
-                                )
+                            let overRange = selectedCapacity > sliderRange.upperBound
+                            let isEndPoint = (value == Int(sliderRange.upperBound))
+                            if isEndPoint, overRange {
+                                Text("직접 입력")
+                                    .offset(x: offsetForValue(value: value, scaleFactor: scaleFactor, minValue: minValue, sliderRange: sliderRange, isEndPoint: isEndPoint, overRange: overRange)
+                                    )
+                            } else {
+                                Text("\(value)")
+                                    .offset(x: offsetForValue(value: value, scaleFactor: scaleFactor, minValue: minValue, sliderRange: sliderRange,isEndPoint: isEndPoint, overRange: overRange))
+                            }
                         }
                     }
                 }
+                .frame(width: 50)
+                .font(.system(size: 12))
+                .foregroundStyle(.gray500)
             }
         }
     }
-    private func offsetForValue(value: Int, scaleFactor: CGFloat, minValue: CGFloat) -> CGFloat {
-        let rawOffset = CGFloat(value) * scaleFactor  + minValue / 2
+    private func offsetForValue(value: Int, scaleFactor: CGFloat, minValue: CGFloat, sliderRange: ClosedRange<Double>, isEndPoint : Bool, overRange: Bool) -> CGFloat {
+        let rawOffset = CGFloat(value) * scaleFactor  - minValue * 0.85
+        if isEndPoint, overRange {
+            return rawOffset - minValue
+        }
         return rawOffset
     }
 }
