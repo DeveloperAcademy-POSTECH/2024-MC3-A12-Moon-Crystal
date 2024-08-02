@@ -15,7 +15,7 @@ class LiveActivityManager {
     static func startLiveActivity(freeCapacity: String) {
         do {
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(capacity: freeCapacity)
+            let contentState = dynamicCapacityAttributes.ContentState(capacity: freeCapacity, cleanUpCapacity: 0)
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -33,13 +33,13 @@ class LiveActivityManager {
     }
     
     // LiveActivity 업데이트
-    static func updateLiveActivity(freeCapacity: String) {
+    static func updateLiveActivity(freeCapacity: String, cleanUpCapacity: Int) {
         
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             return
         }
         
-        let updatedContent = dynamicCapacityAttributes.ContentState(capacity:  freeCapacity)
+        let updatedContent = dynamicCapacityAttributes.ContentState(capacity:  freeCapacity, cleanUpCapacity: 0)
 
         if #available(iOS 16.2, *) {
             
@@ -68,7 +68,7 @@ class LiveActivityManager {
             return
         }
         
-        let updatedContent = dynamicCapacityAttributes.ContentState(capacity: activity.content.state.capacity, isLoading: true)
+        let updatedContent = dynamicCapacityAttributes.ContentState(capacity: activity.content.state.capacity, cleanUpCapacity: 0, isLoading: true)
         let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
         
         Task{

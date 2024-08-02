@@ -18,7 +18,7 @@ struct UpdateTaskAppIntent:LiveActivityIntent {
     func perform() async throws -> some IntentResult {
         
         return await withCheckedContinuation{continuation in
-            LiveActivityManager.updateLiveActivity(freeCapacity: "update")
+            LiveActivityManager.updateLiveActivity(freeCapacity: "update", cleanUpCapacity: 10)
             continuation.resume(returning: IntentResultContainer.result())
         }
         

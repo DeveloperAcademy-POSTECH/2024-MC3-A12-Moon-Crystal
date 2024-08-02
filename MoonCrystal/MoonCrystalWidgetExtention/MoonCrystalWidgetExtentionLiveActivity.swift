@@ -77,11 +77,11 @@ extension dynamicCapacityAttributes {
 
 extension dynamicCapacityAttributes.ContentState {
     fileprivate static var smiley: dynamicCapacityAttributes.ContentState {
-        dynamicCapacityAttributes.ContentState(capacity: "5.8GB")
+        dynamicCapacityAttributes.ContentState(capacity: "5.8GB", cleanUpCapacity: 42)
     }
     
     fileprivate static var starEyes: dynamicCapacityAttributes.ContentState {
-        dynamicCapacityAttributes.ContentState(capacity: "🤩")
+        dynamicCapacityAttributes.ContentState(capacity: "🤩", cleanUpCapacity: 42)
     }
 }
 
