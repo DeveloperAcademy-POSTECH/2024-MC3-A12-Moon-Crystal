@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CapacityDirectInputView: View {
     @Environment(\.dismiss) var dismiss
-    @FocusState private var isFocused : Bool
+    @FocusState private var isFocused: Bool
     @Binding var selectedCapacity: Double
     @State var tempCapacity: Double = 0.0
     @State var text = ""
     
-    var fullCapacity : Int = 127
+    var fullCapacity: Int = 127
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
     let alertMessage = "휴대폰 용량을 초과했어요"

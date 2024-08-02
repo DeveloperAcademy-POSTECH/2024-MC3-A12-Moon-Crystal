@@ -11,9 +11,12 @@ import SwiftUI
 struct CustomSlider: View {
     @Binding var selectedCapacity: Double
     @State var lastCoordinateValue: CGFloat = 0.0
+    @State var isDragging = false
+    
     var step: Int = 20
     var sliderRange: ClosedRange<Double> = 0...80
     var fontSize: CGFloat = 12
+    let markFeedBack = UIImpactFeedbackGenerator()
     
     var body: some View {
         GeometryReader { gr in
@@ -28,7 +31,6 @@ struct CustomSlider: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 ZStack {
-                    
                     RoundedRectangle(cornerRadius: radius)
                         .frame(height: trackHeight)
                         .foregroundColor(Color.gray100)
@@ -50,8 +52,19 @@ struct CustomSlider: View {
                                         }
                                         let nextCoordinateValue = max(minValue, min(maxValue, self.lastCoordinateValue + translation))
                                         self.selectedCapacity = (nextCoordinateValue - minValue) / scaleFactor + lower
+                                        isDragging = true
+                                    }
+                                    .onEnded {_ in
+                                        isDragging = false
                                     }
                             )
+                            .onChange(of: selectedCapacity) { oldValue, newValue in
+                                if Int(newValue) % 1 == 0,
+                                   Int(oldValue) != Int(newValue),
+                                   isDragging {
+                                    markFeedBack.impactOccurred()
+                                }
+                            }
                         Spacer()
                     }
                 }
@@ -60,7 +73,8 @@ struct CustomSlider: View {
                     ForEach((0...Int(sliderRange.upperBound)), id: \.self) { value in
                         if value % step == 0 {
                             Text("\(value)")
-                                .font(.system(size: fontSize))
+                                .font(.system(size: 12))
+                                .foregroundStyle(.gray500)
                                 .offset(x: offsetForValue(
                                     value: value,
                                     scaleFactor: scaleFactor,
