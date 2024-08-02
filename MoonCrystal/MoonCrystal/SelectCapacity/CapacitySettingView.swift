@@ -75,17 +75,10 @@ struct CapacitySettingView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     HStack(alignment: .center, spacing: 0) {
-                        if videoTime.minutesToHoursAndMinutes().minutes == 0 {
-                            Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 ")
-                                .font(.system(size: 16, weight: .bold))
-                            Text(ment)
-                                .font(.system(size: 16))
-                        } else {
-                            Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 ")
-                                .font(.system(size: 16, weight: .bold))
-                            Text(ment)
-                                .font(.system(size: 16))
-                        }
+                        Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 ")
+                            .font(.system(size: 16, weight: .bold))
+                        Text(ment)
+                            .font(.system(size: 16))
                         Spacer()
                     }
                     .padding(.leading, 22)
@@ -155,6 +148,7 @@ struct CapacitySettingView: View {
                     .foregroundStyle(.gray900)
                 }
             }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showTip.toggle()
@@ -169,18 +163,6 @@ struct CapacitySettingView: View {
     }
 }
 
-struct TestView : View {
-    var body : some View {
-        NavigationStack {
-            NavigationLink {
-                CapacitySettingView()
-            } label: {
-                Text("dnskdnla")
-            }
-        }
-    }
-}
 #Preview {
-    TestView()
-    //    CapacitySettingView()
+    CapacitySettingView()
 }
