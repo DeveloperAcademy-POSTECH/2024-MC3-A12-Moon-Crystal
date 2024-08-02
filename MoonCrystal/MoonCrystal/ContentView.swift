@@ -10,7 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MainHomeView()
+//        MainHomeView()
+        Button(action: {
+            LiveActivityManager.startLiveActivity(freeCapacity: "start")
+        }, label: {
+            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+        })
     }
 }
 
