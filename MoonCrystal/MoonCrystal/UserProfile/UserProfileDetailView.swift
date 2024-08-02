@@ -92,7 +92,7 @@ struct UserProfileDetailView: View {
                 .overlay(
                     HStack {
                         Spacer()
-                        Text("\(text.wrappedValue.count)/\(maxTextCount)")
+                        Text(isEditing ? "\(text.wrappedValue.count)/\(maxTextCount)" : "")
                             .font(.system(size: 14))
                             .foregroundColor(.gray300)
                             .padding(.trailing, 16)
