@@ -61,7 +61,7 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.white)
             } compactTrailing: {
-                Text("\(context.state.capacity)")
+                Text("\(context.state.freeCapacity)")
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.pink300)
             } minimal: {}
@@ -80,11 +80,11 @@ extension dynamicCapacityAttributes {
 
 extension dynamicCapacityAttributes.ContentState {
     fileprivate static var smiley: dynamicCapacityAttributes.ContentState {
-        dynamicCapacityAttributes.ContentState(capacity: "5.8GB", cleanUpCapacity: 42)
+        dynamicCapacityAttributes.ContentState(freeCapacity: "5.8GB", cleanUpCapacity: 42)
     }
     
     fileprivate static var starEyes: dynamicCapacityAttributes.ContentState {
-        dynamicCapacityAttributes.ContentState(capacity: "🤩", cleanUpCapacity: 42)
+        dynamicCapacityAttributes.ContentState(freeCapacity: "🤩", cleanUpCapacity: 42)
     }
 }
 
