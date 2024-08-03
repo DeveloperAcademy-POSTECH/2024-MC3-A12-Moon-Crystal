@@ -46,11 +46,9 @@ struct onboardingStepView: View {
                 }
             }
             .padding(.top, 57)
-//            Spacer()
         }
         .frame(maxHeight: .infinity)
         .background(.gray50)
-        
     }
 }
 
