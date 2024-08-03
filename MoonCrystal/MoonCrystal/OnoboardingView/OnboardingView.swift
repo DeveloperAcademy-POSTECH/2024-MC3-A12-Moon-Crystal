@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @Binding var isFirstLaunch: Bool
     @State private var currentStep: OnboardingStep = .first
     
     var body: some View {
@@ -52,13 +53,8 @@ struct OnboardingView: View {
             case .second:
                 currentStep = .third
             case .third:
-                //TODO: 온보딩이 끝난 후의 동작 (예: 메인 화면으로 이동)
-                break
+                isFirstLaunch = false
             }
         }
     }
-}
-
-#Preview {
-    OnboardingView()
 }
