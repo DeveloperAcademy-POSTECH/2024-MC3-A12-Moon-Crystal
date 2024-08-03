@@ -9,6 +9,7 @@ import Lottie
 import SwiftUI
 
 struct PreCleanupInfoView: View {
+    @Environment(\.dismiss) var dismiss
     private let lottieFileName = "Arrow"
     
     private let title = "앱을 나가서\n정리를 시작해 보세요"
@@ -70,8 +71,25 @@ struct PreCleanupInfoView: View {
         .padding()
         .background(.gray50)
         .task {
+            LiveActivityManager.startLiveActivity(freeCapacity: "start")
             await notificationManager.requestAuthorization()
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    LiveActivityManager.endLiveActivity()
+                    dismiss()
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.left")
+                        Text("뒤로")
+                    }
+                    .font(.system(size: 17))
+                    .foregroundStyle(.gray900)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

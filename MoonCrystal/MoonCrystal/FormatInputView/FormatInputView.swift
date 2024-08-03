@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FormatInputView: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var path: [String]
     @State var selectedType: VideoFormatCapacity? = .defaultQuality
     @State var isHighQualitySelected = false
     
@@ -35,8 +37,7 @@ struct FormatInputView: View {
             .padding(.top, 34)
             NavigationLink {
                 if selectedType != nil {
-                    // 여기서 selectedType 가지고 InputView로 넘어가면 될 것 같습니다
-                    CapacitySettingView(videoFormat: selectedType!)
+                    CapacitySettingView(path: $path, videoFormat: selectedType!)
                 }
             } label: {
                 RoundedRectangle(cornerRadius: 12)
@@ -54,6 +55,21 @@ struct FormatInputView: View {
         .padding(.horizontal)
         .ignoresSafeArea()
         .background(.gray50)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.left")
+                        Text("뒤로")
+                    }
+                    .font(.system(size: 17))
+                    .foregroundStyle(.gray900)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
     
     func formatButton(buttonName: String, type: VideoFormatCapacity?) -> some View {
@@ -95,8 +111,4 @@ struct FormatInputView: View {
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
-}
-
-#Preview {
-    FormatInputView()
 }

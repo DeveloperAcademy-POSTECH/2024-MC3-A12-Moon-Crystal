@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DeletedTotalCapacityView: View {
+    @Environment(\.dismiss) var dismiss
     //TODO: 나중에 정리된 총 용량이 저장되면 그값으로 변환
     @State var deletedTotalCapacity: String = "72GB"
 
@@ -34,6 +35,21 @@ struct DeletedTotalCapacityView: View {
         .padding(.horizontal)
         .background(.gray50)
         .edgesIgnoringSafeArea(.all)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.left")
+                        Text("뒤로")
+                    }
+                    .font(.system(size: 17))
+                    .foregroundStyle(.gray900)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
     
     var deletedTotalStatus: some View {

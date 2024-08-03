@@ -9,6 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct MainHomeView: View {
+    // NavigationStack Path 관리
+    @State private var navPath: [String] = []
     @State var availableTimeText = "0h 36m"
     @State var name = "최애"
     @State private var progress: Float = 0.0
@@ -16,7 +18,7 @@ struct MainHomeView: View {
     @Query var userProfile: [UserProfile]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navPath) {
             VStack(spacing: 0) {
                 HStack {
                     Spacer()
@@ -38,7 +40,7 @@ struct MainHomeView: View {
                 availableTime
                     .padding(.leading, 40)
                 Divider()
-                    .foregroundStyle(Color.gray200)
+                    .foregroundStyle(.gray200)
                     .padding(.horizontal, 40)
                     .padding(.top, 33)
                 currentCapacityTitle
@@ -49,8 +51,7 @@ struct MainHomeView: View {
                         .padding(.top, 32)
                         .padding(.horizontal, 50)
                     
-                    NavigationLink {
-                    } label: {
+                    NavigationLink(value: "FormatInput") {
                         cleanUpViewButton
                     }
                     .padding(.top, 260)
@@ -60,6 +61,11 @@ struct MainHomeView: View {
             }
             .background(Color.gray50)
             .edgesIgnoringSafeArea(.all)
+            .navigationDestination(for: String.self) { pathValue in
+                if pathValue == "FormatInput" {
+                    FormatInputView(path: $navPath)
+                }
+            }
         }
         .tint(.gray900)
         .onAppear {

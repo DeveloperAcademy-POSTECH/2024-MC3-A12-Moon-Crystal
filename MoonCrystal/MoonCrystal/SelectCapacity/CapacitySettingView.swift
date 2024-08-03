@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CapacitySettingView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var path: [String]
     @State var selectedCapacity : Double = 0
     @State var useDirectInput = false
     @State var showTip = false
@@ -103,7 +104,7 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
-                    //TODO- 정리 시작 페이지로 이동
+                    PreCleanupInfoView()
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
@@ -118,7 +119,7 @@ struct CapacitySettingView: View {
                 .padding(.top, 60)
                 
                 Button {
-                    //TODO: 홈으로 이동 연결
+                    path.removeAll()
                 } label: {
                     Text("홈으로 가기")
                         .underline()
@@ -166,8 +167,4 @@ struct CapacitySettingView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    CapacitySettingView()
 }
