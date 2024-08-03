@@ -17,8 +17,8 @@ extension Int {
     
     /// Int+Extensions - 바이트를 GB단위로 바꾸는 extension
     func byteToGB() -> String {
-        let formatter: ByteCountFormatter = ByteCountFormatter()
-        formatter.countStyle = .file
-        return formatter.string(fromByteCount: Int64(self))
+        let bytesInGB: Double = 1024 * 1024 * 1024
+        let gbValue: Double = Double(self) / bytesInGB
+        return String(format: "%.0f", gbValue)
     }
 }

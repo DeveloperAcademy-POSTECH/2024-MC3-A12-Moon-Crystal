@@ -11,7 +11,8 @@ import SwiftUI
 struct MainHomeView: View {
     // NavigationStack Path 관리
     @State private var navPath: [String] = []
-    @State var availableTimeText = "0h 36m"
+    @State var totalCapacity = 0
+    @State var freeCapacity = 0
     @State var name = "최애"
     @State private var progress: Float = 0.0
     
@@ -47,7 +48,7 @@ struct MainHomeView: View {
                     .padding(.horizontal, 40)
                     .padding(.top, 39)
                 ZStack {
-                    ProgressHalfCircleView(progress: self.$progress)
+                    ProgressHalfCircleView(progress: self.$progress, totalCapacity: $totalCapacity, freeCapacity: $freeCapacity)
                         .padding(.top, 32)
                         .padding(.horizontal, 50)
                     
@@ -68,12 +69,19 @@ struct MainHomeView: View {
             }
         }
         .tint(.gray900)
-        .onAppear {
+        .task {
             // TODO: 데이터 fetch
-            availableTimeText = "1h 30m"
-            name = "최애"
-            progress = 0.8
+            await fetchCapacityData()
         }
+    }
+    
+    func fetchCapacityData() async {
+        totalCapacity = await CapacityCalculator.updateTotalCapacity()
+        if totalCapacity > 0 {
+            freeCapacity = await CapacityCalculator.updateFreeCapacity()
+            progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
+        }
+        name = userProfile.first?.favoriteIdol ?? "최애"
     }
     
     var profileViewButton: some View {
@@ -127,7 +135,7 @@ struct MainHomeView: View {
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color.gray700)
                     .padding(.top, 38)
-                Text("\(availableTimeText)")
+                Text("\(MediaCapacityConverter.getavailableTimeText(capacity: freeCapacity, format: .defaultQuality))")
                     .font(.system(size: 48, weight: .semibold))
                     .foregroundStyle(Color.gray900)
                     .padding(.top, 16)
