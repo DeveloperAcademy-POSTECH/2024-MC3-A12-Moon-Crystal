@@ -117,8 +117,8 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 60)
                 
-                NavigationLink {
-                    //TODO - 홈으로 이동 연결
+                Button {
+                    //TODO: 홈으로 이동 연결
                 } label: {
                     Text("홈으로 가기")
                         .underline()
