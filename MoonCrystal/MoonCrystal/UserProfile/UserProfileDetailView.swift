@@ -63,7 +63,7 @@ struct UserProfileDetailView: View {
                     .foregroundStyle(.gray700)
                 Spacer()
             }
-            PhotoPickerButton(userProfileData: $userProfileInputData)
+            PhotoPickerButton(userProfileData: $userProfileInputData, isEditing: $isEditing)
                 .padding(.horizontal, 23)
                 .disabled(!isEditing)
         }
@@ -92,7 +92,7 @@ struct UserProfileDetailView: View {
                 .overlay(
                     HStack {
                         Spacer()
-                        Text("\(text.wrappedValue.count)/\(maxTextCount)")
+                        Text(isEditing ? "\(text.wrappedValue.count)/\(maxTextCount)" : "")
                             .font(.system(size: 14))
                             .foregroundColor(.gray300)
                             .padding(.trailing, 16)

@@ -33,7 +33,7 @@ struct UserProfileImageInputPageView: View {
                     }
                     Spacer()
                 }
-                PhotoPickerButton(userProfileData: $userProfileData)
+                PhotoPickerButton(userProfileData: $userProfileData, isEditing: .constant(false))
                     .padding(.horizontal, 23)
             }
             Button {

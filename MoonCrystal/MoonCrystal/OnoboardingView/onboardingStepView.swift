@@ -18,6 +18,7 @@ struct onboardingStepView: View {
                     Text(step.title)
                         .font(.system(size: 28, weight: .semibold))
                         .foregroundStyle(.gray900)
+
                     Spacer()
                 }
                 
@@ -33,7 +34,7 @@ struct onboardingStepView: View {
                 .playing(loopMode: .loop)
                 .padding(.horizontal, 30)
                 .padding(.top, 50)
-                .frame(height: 300)
+                .frame(height: 330)
                 .scaledToFit()
             
             // 페이지 인디케이터
@@ -45,8 +46,8 @@ struct onboardingStepView: View {
                 }
             }
             .padding(.top, 57)
-            Spacer()
         }
+        .frame(maxHeight: .infinity)
         .background(.gray50)
     }
 }

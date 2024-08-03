@@ -10,8 +10,6 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var currentStep: OnboardingStep = .first
     
-    let totalSteps = 3
-    
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $currentStep) {
@@ -31,7 +29,7 @@ struct OnboardingView: View {
                 moveToNextStep()
             } label: {
                 RoundedRectangle(cornerRadius: 12)
-                    .frame(height: 60)
+                    .frame(height: 68)
                     .foregroundStyle(.gray900)
                     .overlay(
                         Text(currentStep.buttonTitle)
@@ -43,7 +41,7 @@ struct OnboardingView: View {
         }
         .padding(.horizontal)
         .background(.gray50)
-        .ignoresSafeArea(.all, edges: .bottom)
+        .ignoresSafeArea(.all, edges: [.top, .bottom])
     }
     
     private func moveToNextStep() {
