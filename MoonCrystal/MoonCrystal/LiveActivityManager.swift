@@ -15,7 +15,7 @@ class LiveActivityManager {
     static func startLiveActivity(freeCapacity: String) {
         do {
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(capacity: freeCapacity)
+            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: 0)
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -33,13 +33,14 @@ class LiveActivityManager {
     }
     
     // LiveActivity 업데이트
-    static func updateLiveActivity(freeCapacity: String) {
+    static func updateLiveActivity(freeCapacity: String, cleanUpCapacity: Int) {
         
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
+            print("❌ LiveActivityManager/updateLiveActivity Not found Activity")
             return
         }
         
-        let updatedContent = dynamicCapacityAttributes.ContentState(capacity:  freeCapacity)
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: 0)
 
         if #available(iOS 16.2, *) {
             
@@ -62,9 +63,25 @@ class LiveActivityManager {
         Activity<dynamicCapacityAttributes>.activities.first(where: {$0.attributes.name == name})
     }
     
-    // LiveActivity 종료
-    static func endLiveActvity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
+    // LiveActivity 종료버튼 클릭 후 로딩
+    static func showLoadingButton() async {
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
+            print("❌ LiveActivityManager/showLoadingButton Not found Activity")
+            return
+        }
+        
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity: activity.content.state.freeCapacity, cleanUpCapacity: 0, isLoading: true)
+        let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
+        
+        Task{
+            await activity.update(content)
+        }
+    }
+    
+    // LiveActivity 종료
+    static func endLiveActivity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
+        guard let activity = getLiveActivity(name: "RemainingCapacity") else {
+            print("❌ LiveActivityManager/endLiveActivity Not found Activity")
             return
         }
         Task{
