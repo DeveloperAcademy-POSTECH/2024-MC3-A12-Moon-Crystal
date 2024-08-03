@@ -15,7 +15,6 @@
 		1BF858BB2C5B75A200C2204E /* CapacityDirectInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */; };
 		1BF858BC2C5B75A200C2204E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B62C5B75A200C2204E /* CustomSlider.swift */; };
 		1BF858BD2C5B75A200C2204E /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B72C5B75A200C2204E /* TipView.swift */; };
-		1BF858BE2C5B75A200C2204E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B82C5B75A200C2204E /* RoundedCorner.swift */; };
 		1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */; };
 		1E356AD62C5CCA5A00869711 /* CleanUpStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */; };
 		1E5593472C53800B00C78466 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5593462C53800B00C78466 /* WidgetKit.framework */; };
@@ -31,11 +30,11 @@
 		1E87A6D42C593D4700BD28D1 /* MainHomeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */; };
 		1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */; };
 		1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */; };
+		1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */; };
 		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
 		1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */; };
 		1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
 		1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
-		1EEF41532C5B2FD40078CD21 /* DynamicIslandButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41512C5B2FD40078CD21 /* DynamicIslandButtonsView.swift */; };
 		1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
 		1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
 		1EEF41572C5B34F80078CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -63,12 +62,6 @@
 		26BAEFED2C5E181D00346BF6 /* Onboarding3.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */; };
 		26BAEFEE2C5E181D00346BF6 /* Onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */; };
 		26BAEFEF2C5E181D00346BF6 /* Onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */; };
-		1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
-		1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
-		1EEF41532C5B2FD40078CD21 /* LiveActivityButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */; };
-		1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
-		1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
-		1EEF41572C5B34F80078CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
@@ -110,7 +103,6 @@
 		1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacityDirectInputView.swift; sourceTree = "<group>"; };
 		1BF858B62C5B75A200C2204E /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		1BF858B72C5B75A200C2204E /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
-		1BF858B82C5B75A200C2204E /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivitySaveTimeView.swift; sourceTree = "<group>"; };
 		1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUpStatusView.swift; sourceTree = "<group>"; };
 		1E5593442C53800B00C78466 /* MoonCrystalWidgetExtentionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoonCrystalWidgetExtentionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,10 +117,10 @@
 		1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewComponent.swift; sourceTree = "<group>"; };
 		1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHalfCircleView.swift; sourceTree = "<group>"; };
 		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
+		1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicIslandButtonsView.swift; sourceTree = "<group>"; };
 		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
 		1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighFormatRadioButton.swift; sourceTree = "<group>"; };
 		1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskAppIntent.swift; sourceTree = "<group>"; };
-		1EEF41512C5B2FD40078CD21 /* DynamicIslandButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIslandButtonsView.swift; sourceTree = "<group>"; };
 		1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskAppIntent.swift; sourceTree = "<group>"; };
 		1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedTotalCapacityView.swift; sourceTree = "<group>"; };
 		1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteIdolCardView.swift; sourceTree = "<group>"; };
@@ -153,9 +145,6 @@
 		26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding3.json; sourceTree = "<group>"; };
 		26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding2.json; sourceTree = "<group>"; };
 		26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
-		1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskAppIntent.swift; sourceTree = "<group>"; };
-		1EEF41512C5B2FD40078CD21 /* LiveActivityButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityButtonsView.swift; sourceTree = "<group>"; };
-		1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskAppIntent.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -250,8 +239,8 @@
 		1EEF414F2C5B2FA60078CD21 /* LiveActivityView */ = {
 			isa = PBXGroup;
 			children = (
-				1EEF41512C5B2FD40078CD21 /* DynamicIslandButtonsView.swift */,
 				1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */,
+				1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */,
 				1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */,
 			);
 			path = LiveActivityView;
@@ -502,11 +491,11 @@
 				1E55934C2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift in Sources */,
 				1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
 				1E356AD62C5CCA5A00869711 /* CleanUpStatusView.swift in Sources */,
-				1EEF41532C5B2FD40078CD21 /* DynamicIslandButtonsView.swift in Sources */,
 				1E5593652C5382F200C78466 /* LiveActivityManager.swift in Sources */,
 				1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */,
 				1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
 				1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */,
+				1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
