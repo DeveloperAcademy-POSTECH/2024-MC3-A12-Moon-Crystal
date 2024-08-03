@@ -11,9 +11,12 @@ import SwiftUI
 struct CustomSlider: View {
     @Binding var selectedCapacity: Double
     @State var lastCoordinateValue: CGFloat = 0.0
+    @State var isDragging = false
+    
     var step: Int = 20
     var sliderRange: ClosedRange<Double> = 0...80
     var fontSize: CGFloat = 12
+    let markFeedBack = UIImpactFeedbackGenerator()
     
     var body: some View {
         GeometryReader { gr in
@@ -22,10 +25,6 @@ struct CustomSlider: View {
             let radius = gr.size.height * 0.2
             let minValue = thumbSize / 2
             let maxValue = gr.size.width - thumbSize / 2
-            
-            //지금 안씀, 필요없을 시 추후 삭제
-            //                        let trackPadding = thumbSize / 2
-            
             let scaleFactor = (maxValue - minValue) / (sliderRange.upperBound - sliderRange.lowerBound)
             let lower = sliderRange.lowerBound
             let sliderVal = min(((self.selectedCapacity - lower) * scaleFactor + minValue), maxValue)
@@ -35,7 +34,8 @@ struct CustomSlider: View {
                     RoundedRectangle(cornerRadius: radius)
                         .frame(height: trackHeight)
                         .foregroundColor(Color.gray100)
-                    //                                            .padding(.horizontal, trackPadding)
+                        .padding(.horizontal, minValue)
+                    
                     HStack {
                         Circle()
                             .foregroundColor(Color.pink300)
@@ -52,8 +52,19 @@ struct CustomSlider: View {
                                         }
                                         let nextCoordinateValue = max(minValue, min(maxValue, self.lastCoordinateValue + translation))
                                         self.selectedCapacity = (nextCoordinateValue - minValue) / scaleFactor + lower
+                                        isDragging = true
+                                    }
+                                    .onEnded {_ in
+                                        isDragging = false
                                     }
                             )
+                            .onChange(of: selectedCapacity) { oldValue, newValue in
+                                if Int(newValue) % 1 == 0,
+                                   Int(oldValue) != Int(newValue),
+                                   isDragging {
+                                    markFeedBack.impactOccurred()
+                                }
+                            }
                         Spacer()
                     }
                 }
@@ -61,37 +72,31 @@ struct CustomSlider: View {
                 ZStack {
                     ForEach((0...Int(sliderRange.upperBound)), id: \.self) { value in
                         if value % step == 0 {
-                            Text("\(value)")
-                                .font(.system(size: fontSize))
-                                .offset(x:
-                                            offsetForValue(
-                                                value: value,
-                                                scaleFactor: scaleFactor,
-                                                thumbSize: thumbSize,
-                                                minValue: minValue,
-                                                maxValue: maxValue,
-                                                isLast: value == Int(sliderRange.upperBound)
-                                            )
-                                )
+                            let overRange = selectedCapacity > sliderRange.upperBound
+                            let isEndPoint = (value == Int(sliderRange.upperBound))
+                            if isEndPoint, overRange {
+                                Text("직접 입력")
+                                    .offset(x: offsetForValue(value: value, scaleFactor: scaleFactor, minValue: minValue, sliderRange: sliderRange, isEndPoint: isEndPoint, overRange: overRange)
+                                    )
+                            } else {
+                                Text("\(value)")
+                                    .offset(x: offsetForValue(value: value, scaleFactor: scaleFactor, minValue: minValue, sliderRange: sliderRange,isEndPoint: isEndPoint, overRange: overRange))
+                            }
                         }
                     }
                 }
+                .frame(width: 50)
+                .font(.system(size: 12))
+                .foregroundStyle(.gray500)
             }
         }
     }
-    func paddingForValue(scaleFactor : CGFloat, thumbSize : CGFloat, step : Int) -> Double {
-        return scaleFactor * CGFloat(step) - thumbSize / 2
-    }
-    
-    private func offsetForValue(value: Int, scaleFactor: CGFloat, thumbSize: CGFloat, minValue: CGFloat, maxValue: CGFloat, isLast: Bool) -> CGFloat {
-        let rawOffset = CGFloat(value) * scaleFactor * 1.05
-        if value == 0 {
-            return rawOffset * 1.05
-        } else if isLast {
-            return rawOffset
-        } else {
-            return rawOffset
+    private func offsetForValue(value: Int, scaleFactor: CGFloat, minValue: CGFloat, sliderRange: ClosedRange<Double>, isEndPoint : Bool, overRange: Bool) -> CGFloat {
+        let rawOffset = CGFloat(value) * scaleFactor  - minValue * 0.85
+        if isEndPoint, overRange {
+            return rawOffset - minValue
         }
+        return rawOffset
     }
 }
 

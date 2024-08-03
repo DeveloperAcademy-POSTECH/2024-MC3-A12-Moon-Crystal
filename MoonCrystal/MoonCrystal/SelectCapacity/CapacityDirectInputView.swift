@@ -9,11 +9,15 @@ import SwiftUI
 
 struct CapacityDirectInputView: View {
     @Environment(\.dismiss) var dismiss
+    @FocusState private var isFocused: Bool
     @Binding var selectedCapacity: Double
     @State var tempCapacity: Double = 0.0
+    @State var text = ""
     
+    var fullCapacity: Int = 127
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
+    let alertMessage = "휴대폰 용량을 초과했어요"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -23,6 +27,7 @@ struct CapacityDirectInputView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
+                        .frame(height: 30)
                 }
                 .tint(.gray900)
             }
@@ -34,20 +39,28 @@ struct CapacityDirectInputView: View {
             Text(favoriteIdol + title)
                 .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.gray900)
-                .padding(.bottom, 36)
+                .padding(.bottom, 11)
                 .padding(.leading, 24)
                 .fixedSize()
+            
+            Text(alertMessage)
+                .font(.system(size: 14))
+                .foregroundStyle(Int(tempCapacity) < fullCapacity ? .clear : .pink300)
+                .padding(.leading, 24)
+                .padding(.bottom, 8)
             
             HStack {
                 TextField("0", value: $tempCapacity, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
                     .font(.system(size: 34, weight: .semibold))
+                    .focused($isFocused)
                 
                 Spacer()
                 Text("GB")
                     .font(.system(size: 34, weight: .semibold))
                     .padding(.trailing, 41)
             }
+            .foregroundStyle(.gray700)
             .padding(.leading, 22)
             
             Rectangle()
@@ -57,11 +70,13 @@ struct CapacityDirectInputView: View {
                 .foregroundStyle(.pink300)
             
             Button {
-                selectedCapacity = tempCapacity
-                dismiss()
+                if Int(tempCapacity) < fullCapacity {
+                    selectedCapacity = tempCapacity
+                    dismiss()
+                }
             } label: {
                 Rectangle()
-                    .foregroundStyle(.gray900)
+                    .foregroundStyle(Int(tempCapacity) < fullCapacity ? .gray900 : .gray400)
                     .frame(height: 65)
                     .overlay {
                         Text("확인")
@@ -70,6 +85,11 @@ struct CapacityDirectInputView: View {
                     }
             }
             .padding(.top, 16)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isFocused = true
+            }
         }
     }
 }

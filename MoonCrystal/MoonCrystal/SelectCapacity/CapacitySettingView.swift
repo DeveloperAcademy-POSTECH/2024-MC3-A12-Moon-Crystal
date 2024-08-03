@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct CapacitySettingView: View {
+    @Environment(\.dismiss) var dismiss
     @State var selectedCapacity : Double = 0
     @State var useDirectInput = false
     @State var showTip = false
+    @State var keyboardHeight : CGFloat = 0
     
     var videoFormat: VideoFormatCapacity = .defaultQuality
     var idolGroup = "NCT"
@@ -41,6 +43,7 @@ struct CapacitySettingView: View {
         ZStack {
             Color.gray50.ignoresSafeArea()
             VStack(spacing: 0) {
+                Spacer()
                 HStack {
                     Text(idolGroup + title)
                         .font(.system(size: 28, weight: .semibold))
@@ -50,10 +53,12 @@ struct CapacitySettingView: View {
                         .fixedSize()
                     Spacer()
                 }
+                .padding(.top, 66)
                 
                 VStack(spacing: 24) {
                     Text("\(Int(selectedCapacity))GB")
                         .font(.system(size: 34, weight: .semibold))
+                        .foregroundStyle(.gray800)
                     
                     CustomSlider(selectedCapacity: $selectedCapacity, step: step, sliderRange: 0...maxCapacity)
                         .frame(height: 54)
@@ -63,25 +68,19 @@ struct CapacitySettingView: View {
                     } label: {
                         Text("직접 입력")
                             .underline()
+                            .font(.system(size: 14, weight: .light))
                             .foregroundStyle(.gray400)
                     }
                 }
-                .padding(.horizontal, 42)
+                .padding(.horizontal, 32)
                 .padding(.bottom, 27)
                 
                 VStack(alignment: .leading, spacing: 16) {
                     HStack(alignment: .center, spacing: 0) {
-                        if videoTime.minutesToHoursAndMinutes().minutes == 0 {
-                            Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 ")
-                                .font(.system(size: 16, weight: .bold))
-                            Text(ment)
-                                .font(.system(size: 16))
-                        } else {
-                            Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 ")
-                                .font(.system(size: 16, weight: .bold))
-                            Text(ment)
-                                .font(.system(size: 16))
-                        }
+                        Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 ")
+                            .font(.system(size: 16, weight: .bold))
+                        Text(ment)
+                            .font(.system(size: 16))
                         Spacer()
                     }
                     .padding(.leading, 22)
@@ -100,31 +99,36 @@ struct CapacitySettingView: View {
                     .background(.white)
                     .cornerRadius(12)
                 }
+                .foregroundStyle(.gray800)
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
-                    //정리 시작 페이지로 이동
+                    //TODO- 정리 시작 페이지로 이동
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
                         .foregroundStyle(.gray900)
                         .overlay(
                             Text("정리 시작하기")
+                                .font(.system(size: 16))
                                 .foregroundStyle(.white)
                         )
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 60)
                 
-                NavigationLink {
-                    //홈화면(메인 기본)으로 이동하기
+                Button {
+                    //TODO: 홈으로 이동 연결
                 } label: {
                     Text("홈으로 가기")
                         .underline()
+                        .font(.system(size: 15))
                         .foregroundStyle(.gray500)
                 }
                 .padding(.top, 24)
+                .padding(.bottom, 60)
             }
+            .ignoresSafeArea(.keyboard)
         }
         .sheet(isPresented: $useDirectInput) {
             CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: selectedCapacity.rounded(.down))
@@ -133,10 +137,23 @@ struct CapacitySettingView: View {
         }
         .sheet(isPresented: $showTip) {
             TipView()
-                .presentationDetents([.height(280)])
+                .presentationDetents([.height(476)])
                 .presentationDragIndicator(.visible)
         }
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.left")
+                        Text("뒤로")
+                    }
+                    .font(.system(size: 17))
+                    .foregroundStyle(.gray900)
+                }
+            }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showTip.toggle()
@@ -147,6 +164,7 @@ struct CapacitySettingView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
