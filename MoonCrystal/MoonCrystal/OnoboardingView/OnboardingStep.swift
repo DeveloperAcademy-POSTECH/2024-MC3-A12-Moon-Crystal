@@ -17,7 +17,7 @@ enum OnboardingStep: Int, CaseIterable {
         case .second:
             return "Onboarding2" // 두 번째 화면의 이미지 이름
         case .third:
-            return "Onboarding3" // 세 번째 화면의 이미지 이름
+            return "3" // 세 번째 화면의 이미지 이름
         }
     }
 

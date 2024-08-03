@@ -40,7 +40,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 60)
             
             
-            HStack(spacing: 49) {
+            HStack(alignment: .center, spacing: 49) {
                 capacityTextView(title: "현재 남은 용량", value: "1GB")
                 Divider()
                     .background(.gray300)
