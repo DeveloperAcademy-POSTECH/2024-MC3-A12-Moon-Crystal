@@ -10,8 +10,6 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var currentStep: OnboardingStep = .first
     
-    let totalSteps = 3
-    
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $currentStep) {
