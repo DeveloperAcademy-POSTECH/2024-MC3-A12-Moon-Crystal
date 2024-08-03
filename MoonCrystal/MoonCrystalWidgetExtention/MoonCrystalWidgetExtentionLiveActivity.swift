@@ -12,7 +12,7 @@ import SwiftUI
 struct MoonCrystalWidgetExtentionLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: dynamicCapacityAttributes.self) { context in
-            
+            // LockScreen LiveActivity UI
             VStack {
                 HStack(alignment: .top, spacing: 10) {
                     //TODO: 여기에 context에서 가져온 값 넣어줘야됌
@@ -33,7 +33,9 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
             .activitySystemActionForegroundColor(Color.black)
             
         } dynamicIsland: { context in
+            // Dynamic Island UI
             DynamicIsland {
+                //Dynamic Island 확장 시 UI
                 DynamicIslandExpandedRegion(.leading) {
                     //TODO: 여기에 context 남은용량을 넣어야됨
                     LiveActivitySaveTimeView(freeCapacity: "10GB")
@@ -63,6 +65,7 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.pink300)
             } minimal: {}
+            // TODO: 나중에 다이나믹 아일랜드 클릭시 넘어가는 페이지 설정
                 .widgetURL(URL(string: "http://www.apple.com"))
                 .keylineTint(Color.white)
         }
