@@ -9,14 +9,17 @@ import SwiftData
 import SwiftUI
 
 struct MainHomeView: View {
-    @State var availableTimeText = "0h 36m"
-    @State var name = "최애"
+    // NavigationStack Path 관리
+    @State private var navPath: [String] = []
+    @State var totalCapacity = 0
+    @State var freeCapacity = 0
+    @State var favoriteIdol = "최애"
     @State private var progress: Float = 0.0
     
     @Query var userProfile: [UserProfile]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navPath) {
             VStack(spacing: 0) {
                 HStack {
                     Spacer()
@@ -38,19 +41,18 @@ struct MainHomeView: View {
                 availableTime
                     .padding(.leading, 40)
                 Divider()
-                    .foregroundStyle(Color.gray200)
+                    .foregroundStyle(.gray200)
                     .padding(.horizontal, 40)
                     .padding(.top, 33)
                 currentCapacityTitle
                     .padding(.horizontal, 40)
                     .padding(.top, 39)
                 ZStack {
-                    ProgressHalfCircleView(progress: self.$progress)
+                    ProgressHalfCircleView(progress: self.$progress, totalCapacity: $totalCapacity, freeCapacity: $freeCapacity)
                         .padding(.top, 32)
                         .padding(.horizontal, 50)
                     
-                    NavigationLink {
-                    } label: {
+                    NavigationLink(value: "FormatInput") {
                         cleanUpViewButton
                     }
                     .padding(.top, 260)
@@ -60,14 +62,25 @@ struct MainHomeView: View {
             }
             .background(Color.gray50)
             .edgesIgnoringSafeArea(.all)
+            .navigationDestination(for: String.self) { pathValue in
+                if pathValue == "FormatInput" {
+                    FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
+                }
+            }
         }
         .tint(.gray900)
-        .onAppear {
-            // TODO: 데이터 fetch
-            availableTimeText = "1h 30m"
-            name = "최애"
-            progress = 0.8
+        .task {
+            await fetchCapacityData()
         }
+    }
+    
+    func fetchCapacityData() async {
+        totalCapacity = await CapacityCalculator.getTotalCapacity()
+        if totalCapacity > 0 {
+            freeCapacity = await CapacityCalculator.getFreeCapacity()
+            progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
+        }
+        favoriteIdol = userProfile.first?.favoriteIdol ?? "최애"
     }
     
     var profileViewButton: some View {
@@ -99,12 +112,13 @@ struct MainHomeView: View {
             RoundedRectangle(cornerRadius: 32)
                 .frame(height: 64)
                 .foregroundStyle(.white)
+                .overlay(RoundedRectangle(cornerRadius: 32).stroke(Color.gray200, lineWidth: 0.5))
             HStack {
                 Image(systemName: "heart.fill")
                     .frame(width: 18, height: 18)
                     .foregroundStyle(Color.pink200)
                     .padding(.trailing, 12)
-                Text("\(name)\(MainHomeViewComponent.deletedStorage.title)")
+                Text("\(favoriteIdol)\(MainHomeViewComponent.deletedStorage.title)")
                     .font(.system(size: 15))
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -121,7 +135,7 @@ struct MainHomeView: View {
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color.gray700)
                     .padding(.top, 38)
-                Text("\(availableTimeText)")
+                Text("\(MediaCapacityConverter.getavailableTimeText(capacity: freeCapacity, format: .defaultQuality))")
                     .font(.system(size: 48, weight: .semibold))
                     .foregroundStyle(Color.gray900)
                     .padding(.top, 16)

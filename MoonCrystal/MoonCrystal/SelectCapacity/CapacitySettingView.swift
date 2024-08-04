@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CapacitySettingView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var path: [String]
     @State var selectedCapacity : Double = 0
     @State var useDirectInput = false
     @State var showTip = false
     @State var keyboardHeight : CGFloat = 0
     
     var videoFormat: VideoFormatCapacity = .defaultQuality
-    var idolGroup = "NCT"
+    var favoriteIdol: String
     ///Slider의 max값을 결정하는 변수입니다.
     var maxCapacity: Double {
         if videoFormat == .defaultQuality {
@@ -45,7 +46,7 @@ struct CapacitySettingView: View {
             VStack(spacing: 0) {
                 Spacer()
                 HStack {
-                    Text(idolGroup + title)
+                    Text(favoriteIdol + title)
                         .font(.system(size: 28, weight: .semibold))
                         .foregroundColor(.gray900)
                         .padding(.bottom, 54)
@@ -103,7 +104,7 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
-                    //TODO- 정리 시작 페이지로 이동
+                    PreCleanupInfoView()
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
@@ -118,7 +119,7 @@ struct CapacitySettingView: View {
                 .padding(.top, 60)
                 
                 Button {
-                    //TODO: 홈으로 이동 연결
+                    path.removeAll()
                 } label: {
                     Text("홈으로 가기")
                         .underline()
@@ -166,8 +167,4 @@ struct CapacitySettingView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    CapacitySettingView()
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProgressHalfCircleView: View {
     @Binding var progress: Float
-    @State var totalCapacity = "128"
-    @State var freeCapacity = "127"
+    @Binding var totalCapacity: Int
+    @Binding var freeCapacity: Int
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -30,7 +30,7 @@ struct ProgressHalfCircleView: View {
                     .padding(.top, 60)
                 
                 VStack{
-                    Text("\(totalCapacity) / \(freeCapacity) GB")
+                    Text("\((totalCapacity - freeCapacity).byteToGB()) / \(totalCapacity.byteToGB()) GB")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(Color("gray700"))
                         .padding(.horizontal, 16)

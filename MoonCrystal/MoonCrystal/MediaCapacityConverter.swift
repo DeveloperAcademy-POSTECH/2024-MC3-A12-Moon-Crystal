@@ -14,4 +14,16 @@ class MediaCapacityConverter {
     static func capacityToPhoto(capacity: Int) -> Int {
         return capacity / 3_145_728
     }
+    
+    static func getavailableTimeText(capacity: Int, format: VideoFormatCapacity) -> String{
+        let availableTime = capacityToTime(capacity: capacity, format: format)
+        var availableTimeText = ""
+        
+        availableTimeText += String(availableTime.minutesToHoursAndMinutes().hours)
+        availableTimeText += "h "
+        availableTimeText += String(availableTime.minutesToHoursAndMinutes().minutes)
+        availableTimeText += "m"
+
+        return availableTimeText
+    }
 }

@@ -9,8 +9,14 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("isFirst") var isFirstLaunch: Bool = true
+
     var body: some View {
-        MainHomeView()
+        if isFirstLaunch {
+            OnboardingView(isFirstLaunch: $isFirstLaunch)
+        } else {
+            MainHomeView()
+        }
     }
 }
 

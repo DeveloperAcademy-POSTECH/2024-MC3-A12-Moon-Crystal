@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DeletedTotalCapacityView: View {
-    //TODO: 나중에 정리된 총 용량이 저장되면 그값으로 변환
-    @State var deletedTotalCapacity: String = "72GB"
+    @Environment(\.dismiss) var dismiss
+    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = 0
 
     var userProfile: UserProfile?
 
@@ -27,13 +27,28 @@ struct DeletedTotalCapacityView: View {
                 .frame(height: 60)
                 .padding(.top, 40)
             
-            MyFavoriteIdolCardView(userProfile: userProfile)
+            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, userProfile: userProfile)
                 .padding(.top, 56)
             Spacer()
         }
         .padding(.horizontal)
         .background(.gray50)
         .edgesIgnoringSafeArea(.all)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 3) {
+                        Image(systemName: "chevron.left")
+                        Text("뒤로")
+                    }
+                    .font(.system(size: 17))
+                    .foregroundStyle(.gray900)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden()
     }
     
     var deletedTotalStatus: some View {
@@ -43,7 +58,7 @@ struct DeletedTotalCapacityView: View {
                     Text("정리한 용량")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(.gray)
-                    Text("\(deletedTotalCapacity)")
+                    Text("\(deletedTotalCapacity.byteToGB())GB")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.black)
                 }
@@ -58,7 +73,7 @@ struct DeletedTotalCapacityView: View {
                     Text("확보한 촬영 시간")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(.gray)
-                    Text("\(deletedTotalCapacity)")
+                    Text("\(MediaCapacityConverter.getavailableTimeText(capacity: deletedTotalCapacity, format: .defaultQuality))")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.black)
                 }

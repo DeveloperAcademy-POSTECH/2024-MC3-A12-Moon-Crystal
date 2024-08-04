@@ -93,7 +93,3 @@ struct CapacityDirectInputView: View {
         }
     }
 }
-
-#Preview {
-    CapacitySettingView()
-}

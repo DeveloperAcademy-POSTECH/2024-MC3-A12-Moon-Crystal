@@ -99,7 +99,3 @@ struct CustomSlider: View {
         return rawOffset
     }
 }
-
-#Preview(body: {
-    CapacitySettingView()
-})

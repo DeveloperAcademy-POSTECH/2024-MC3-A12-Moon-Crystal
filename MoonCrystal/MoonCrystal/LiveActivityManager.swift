@@ -41,7 +41,7 @@ class LiveActivityManager {
         }
         
         let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: 0)
-
+        // TODO: cleanUpCapacity를 인자에서 제거하고 CapacityCalculator에서 값 가져오기로 바꾸기
         if #available(iOS 16.2, *) {
             
             let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
@@ -69,7 +69,7 @@ class LiveActivityManager {
             print("❌ LiveActivityManager/showLoadingButton Not found Activity")
             return
         }
-        
+
         let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity: activity.content.state.freeCapacity, cleanUpCapacity: 0, isLoading: true)
         let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
         
@@ -92,8 +92,7 @@ class LiveActivityManager {
             } else {
                 await activity.end(using:state,dismissalPolicy: dismissalPolicy)
             }
+            // TODO: UserDeault에 전체 정리한 용량 더하기, 현재 정리된 용량 데이터 넣기 -> CapacityCaCulator에 로직 추가해서 실행 예정
         }
     }
-    
-    
 }

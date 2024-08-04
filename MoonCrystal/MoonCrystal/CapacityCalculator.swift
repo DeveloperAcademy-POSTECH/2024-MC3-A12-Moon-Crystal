@@ -7,40 +7,37 @@
 
 import Foundation
 
-final class CapacityCalculator: ObservableObject {
-    @Published var totalCapacity = 0
-    @Published var freeCapacity = 0
-    
-    init() {
-        updateTotalCapacity()
-        updateFreeCapacity()
-    }
-    
-    private func updateTotalCapacity() {
+final class CapacityCalculator {
+    // liveActivityMannager 내에서도 사용해야돼서 obsevableObject는 제거했습니다
+    static func getTotalCapacity() async -> Int {
         let fileURL = URL(filePath: "/")
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeTotalCapacityKey])
             if let capacity = values.volumeTotalCapacity {
-                self.totalCapacity = capacity
+                return capacity
             } else {
                 print("❌ StorageManager/checkDeviceStorage Capacity is unavailable")
+                return 0
             }
         } catch {
             print("❌ StorageManager/checkDeviceStorage Error retrieving capacity: \(error.localizedDescription)")
+            return 0
         }
     }
     
-    func updateFreeCapacity() {
+    static func getFreeCapacity() async -> Int {
         let fileURL = URL(filePath: "/")
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
             if let capacity = values.volumeAvailableCapacityForImportantUsage {
-                self.freeCapacity = Int(capacity)
+                return Int(capacity)
             } else {
                 print("❌ StorageManager/checkLeftStorage Capacity is unavailable")
+                return 0
             }
         } catch {
             print("❌ StorageManager/checkLeftStorage Error retrieving capacity: \(error.localizedDescription)")
+            return 0
         }
     }
 }
