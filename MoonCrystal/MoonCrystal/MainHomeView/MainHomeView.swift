@@ -13,7 +13,7 @@ struct MainHomeView: View {
     @State private var navPath: [String] = []
     @State var totalCapacity = 0
     @State var freeCapacity = 0
-    @State var name = "최애"
+    @State var favoriteIdol = "최애"
     @State private var progress: Float = 0.0
     
     @Query var userProfile: [UserProfile]
@@ -64,13 +64,12 @@ struct MainHomeView: View {
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
                 if pathValue == "FormatInput" {
-                    FormatInputView(path: $navPath, idolGroup: userProfile.first?.favoriteIdol ?? "최애")
+                    FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
                 }
             }
         }
         .tint(.gray900)
         .task {
-            // TODO: 데이터 fetch
             await fetchCapacityData()
         }
     }
@@ -81,7 +80,7 @@ struct MainHomeView: View {
             freeCapacity = await CapacityCalculator.getFreeCapacity()
             progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
         }
-        name = userProfile.first?.favoriteIdol ?? "최애"
+        favoriteIdol = userProfile.first?.favoriteIdol ?? "최애"
     }
     
     var profileViewButton: some View {
@@ -119,7 +118,7 @@ struct MainHomeView: View {
                     .frame(width: 18, height: 18)
                     .foregroundStyle(Color.pink200)
                     .padding(.trailing, 12)
-                Text("\(name)\(MainHomeViewComponent.deletedStorage.title)")
+                Text("\(favoriteIdol)\(MainHomeViewComponent.deletedStorage.title)")
                     .font(.system(size: 15))
                 Spacer()
                 Image(systemName: "chevron.right")

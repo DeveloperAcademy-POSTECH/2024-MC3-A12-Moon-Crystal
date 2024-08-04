@@ -16,7 +16,7 @@ struct CapacitySettingView: View {
     @State var keyboardHeight : CGFloat = 0
     
     var videoFormat: VideoFormatCapacity = .defaultQuality
-    var idolGroup: String
+    var favoriteIdol: String
     ///Slider의 max값을 결정하는 변수입니다.
     var maxCapacity: Double {
         if videoFormat == .defaultQuality {
@@ -46,7 +46,7 @@ struct CapacitySettingView: View {
             VStack(spacing: 0) {
                 Spacer()
                 HStack {
-                    Text(idolGroup + title)
+                    Text(favoriteIdol + title)
                         .font(.system(size: 28, weight: .semibold))
                         .foregroundColor(.gray900)
                         .padding(.bottom, 54)

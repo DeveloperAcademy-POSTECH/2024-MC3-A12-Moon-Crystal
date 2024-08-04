@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct EndCleanUpView: View {
-    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = UserDefaults.standard.integer(forKey: "cleanUpCapacity")
-    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = UserDefaults.standard.integer(forKey: "deletedTotalCapacity")
+    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = 0
+    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = 0
     var userProfile: UserProfile?
     
     var body: some View {

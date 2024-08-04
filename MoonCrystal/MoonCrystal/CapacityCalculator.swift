@@ -9,7 +9,7 @@ import Foundation
 
 final class CapacityCalculator {
     // liveActivityMannager 내에서도 사용해야돼서 obsevableObject는 제거했습니다
-    static func getTotalCapacity() async -> Int{
+    static func getTotalCapacity() async -> Int {
         let fileURL = URL(filePath: "/")
         do {
             let values = try fileURL.resourceValues(forKeys: [.volumeTotalCapacityKey])

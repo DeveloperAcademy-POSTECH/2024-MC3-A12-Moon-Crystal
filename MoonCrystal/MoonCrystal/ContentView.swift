@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("isFirst") var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+    @AppStorage("isFirst") var isFirstLaunch: Bool = true
 
     var body: some View {
         if isFirstLaunch {
