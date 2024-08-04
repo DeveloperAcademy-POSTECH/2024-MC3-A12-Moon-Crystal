@@ -12,7 +12,7 @@ import WidgetKit
 struct dynamicCapacityAttributes: ActivityAttributes {
     
     public struct ContentState: Codable, Hashable {
-        var freeCapacity: String
+        var freeCapacity: Int
         var cleanUpCapacity: Int
         var isLoading = false
         var isCompleted = false

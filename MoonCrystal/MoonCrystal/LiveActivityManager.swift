@@ -12,10 +12,12 @@ import Foundation
 class LiveActivityManager {
     
     // LiveActivity 생성 요청
-    static func startLiveActivity(freeCapacity: String) {
+    static func startLiveActivity() async {
         do {
+            let freeCapacity = await CapacityCalculator.getFreeCapacity()
+            let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: 0)
+            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity)
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -33,14 +35,15 @@ class LiveActivityManager {
     }
     
     // LiveActivity 업데이트
-    static func updateLiveActivity(freeCapacity: String, cleanUpCapacity: Int) {
+    static func updateLiveActivity() async {
         
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             print("❌ LiveActivityManager/updateLiveActivity Not found Activity")
             return
         }
-        
-        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: 0)
+        let freeCapacity = await CapacityCalculator.getFreeCapacity()
+        let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity)
         // TODO: cleanUpCapacity를 인자에서 제거하고 CapacityCalculator에서 값 가져오기로 바꾸기
         if #available(iOS 16.2, *) {
             

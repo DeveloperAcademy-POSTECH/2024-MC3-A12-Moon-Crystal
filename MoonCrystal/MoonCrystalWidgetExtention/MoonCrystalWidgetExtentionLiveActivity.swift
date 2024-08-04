@@ -16,10 +16,10 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
             VStack {
                 HStack(alignment: .top, spacing: 10) {
                     //TODO: 여기에 context에서 가져온 값 넣어줘야됌
-                    LiveActivitySaveTimeView(freeCapacity: "10GB")
+                    LiveActivitySaveTimeView(freeCapacity: context.state.freeCapacity)
                     Spacer()
                     //TODO: 여기에 context에서 가져온 값 넣어줘야됌
-                    CleanUpStatusView(addedFreeCapacity: "10GB", isLockScreen: true)
+                    CleanUpStatusView(cleanUpCapacity: context.state.cleanUpCapacity, isLockScreen: true)
                     Spacer()
                 }
                 .padding(.horizontal, 8)
@@ -38,13 +38,13 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                 //Dynamic Island 확장 시 UI
                 DynamicIslandExpandedRegion(.leading) {
                     //TODO: 여기에 context 남은용량을 넣어야됨
-                    LiveActivitySaveTimeView(freeCapacity: "10GB")
+                    LiveActivitySaveTimeView(freeCapacity: context.state.freeCapacity)
                         .padding(.top, 5)
                         .padding(.leading, 8)
                 }
                 
                 DynamicIslandExpandedRegion(.trailing) {
-                    CleanUpStatusView()
+                    CleanUpStatusView(cleanUpCapacity: context.state.cleanUpCapacity)
                         .padding(.top, 5)
                         .padding(.trailing, 8)
                 }
@@ -80,11 +80,11 @@ extension dynamicCapacityAttributes {
 
 extension dynamicCapacityAttributes.ContentState {
     fileprivate static var smiley: dynamicCapacityAttributes.ContentState {
-        dynamicCapacityAttributes.ContentState(freeCapacity: "5.8GB", cleanUpCapacity: 42)
+        dynamicCapacityAttributes.ContentState(freeCapacity: 5, cleanUpCapacity: 42)
     }
     
     fileprivate static var starEyes: dynamicCapacityAttributes.ContentState {
-        dynamicCapacityAttributes.ContentState(freeCapacity: "🤩", cleanUpCapacity: 42)
+        dynamicCapacityAttributes.ContentState(freeCapacity: 5, cleanUpCapacity: 42)
     }
 }
 

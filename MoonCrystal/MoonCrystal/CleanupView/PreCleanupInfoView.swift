@@ -108,8 +108,10 @@ struct PreCleanupInfoView: View {
                 }
             } else if scenePhase == .background && !isAppBackgroundedByURL {
                 // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
-                LiveActivityManager.startLiveActivity(freeCapacity: "start")
-                self.path.append("CleanUpView")
+                Task {
+                    await LiveActivityManager.startLiveActivity()
+                    self.path.append("CleanUpView")
+                }
             }
         }
         .task {
