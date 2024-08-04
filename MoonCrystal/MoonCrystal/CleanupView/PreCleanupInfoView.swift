@@ -21,7 +21,7 @@ struct PreCleanupInfoView: View {
     
     @Binding var path: [String]
     
-    @State var isSetNotification = false
+    @State var isAppBackgroundedByURL = false
     
     private let lottieFileName = "Arrow"
     private let title = "앱을 나가서\n정리를 시작해 보세요"
@@ -35,7 +35,7 @@ struct PreCleanupInfoView: View {
                     //TODO: 알림 설정
                     if notificationManager.isGranted {
                         // 알림 설정을 끄기 위해 설정으로 가기
-                        isSetNotification = true
+                        isAppBackgroundedByURL = true
                         notificationManager.openSettings()
                     } else {
                         // 알림 설정을 켜기 위해 alert 띄우기
@@ -66,7 +66,7 @@ struct PreCleanupInfoView: View {
                     }
                     
                     Button {
-                        isSetNotification = true
+                        isAppBackgroundedByURL = true
                         notificationManager.openSettings()
                     } label: {
                         Text("알림 허용하기")
@@ -104,9 +104,9 @@ struct PreCleanupInfoView: View {
             if scenePhase == .active {
                 Task {
                     await notificationManager.getCurrentSettings()
-                    isSetNotification = false
+                    isAppBackgroundedByURL = false
                 }
-            } else if scenePhase == .background && !isSetNotification {
+            } else if scenePhase == .background && !isAppBackgroundedByURL {
                 // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
                 LiveActivityManager.startLiveActivity(freeCapacity: "start")
                 self.path.append("CleanUpView")
