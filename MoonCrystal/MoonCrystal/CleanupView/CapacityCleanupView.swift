@@ -10,7 +10,9 @@ import SwiftUI
 
 struct CapacityCleanupView: View {
     @Binding var path: [String]
+    
     private let lottieFileName = "Timer"
+    var favoriteIdol: String
         
     var body: some View {
         VStack(spacing: 0) {
@@ -26,8 +28,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 66)
             
             VStack(spacing: 38) {
-                //TODO: 내부 값 바꾸기
-                Text("NCT를 위해 정리중 ...")
+                Text("\(favoriteIdol)를 위해 정리중 ...")
                     .foregroundStyle(.gray600)
                     .font(.system(size: 15, weight: .regular))
                 
