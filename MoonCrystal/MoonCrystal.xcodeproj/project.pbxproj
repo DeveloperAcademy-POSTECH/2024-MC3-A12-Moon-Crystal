@@ -590,7 +590,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AQCS8SYVV6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
@@ -620,7 +620,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AQCS8SYVV6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
@@ -771,7 +771,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AQCS8SYVV6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;
@@ -809,7 +809,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AQCS8SYVV6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;

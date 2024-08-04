@@ -11,6 +11,8 @@ import SwiftUI
 struct CapacityCleanupView: View {
     @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
         
+    @AppStorage(UserDefaultsKeys.deletedTotalCapacity.rawValue) var deletedTotalCapacity: Int = 0
+
     @Environment(\.scenePhase) var scenePhase
     
     @Binding var path: [String]
@@ -79,9 +81,13 @@ struct CapacityCleanupView: View {
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
-                // 나갔다가 다시 들어왔을 때 업데이트
                 Task {
                     await fetchCleanUpData()
+                    if !LiveActivityManager.isLiveActivityActive() {
+                        path.removeAll()
+                    } else {
+                        await LiveActivityManager.updateLiveActivity()
+                    }
                 }
             }
         }
