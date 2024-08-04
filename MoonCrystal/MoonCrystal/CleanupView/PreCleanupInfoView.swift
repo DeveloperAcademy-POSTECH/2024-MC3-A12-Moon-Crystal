@@ -9,7 +9,9 @@ import Lottie
 import SwiftUI
 
 struct PreCleanupInfoView: View {
+    @Environment(\.scenePhase) var scenePhase
     @Environment(\.dismiss) var dismiss
+    @Binding var path: [String]
     private let lottieFileName = "Arrow"
     
     private let title = "앱을 나가서\n정리를 시작해 보세요"
@@ -120,9 +122,10 @@ struct PreCleanupInfoView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onChange(of: scenePhase) {
+            if scenePhase == .background {
+                self.path.append("CleanUpView")
+            }
+        }
     }
-}
-
-#Preview {
-    PreCleanupInfoView()
 }

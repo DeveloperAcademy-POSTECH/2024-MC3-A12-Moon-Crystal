@@ -9,10 +9,9 @@ import Lottie
 import SwiftUI
 
 struct CapacityCleanupView: View {
+    @Binding var path: [String]
     private let lottieFileName = "Timer"
-    
-    @Environment(\.presentationMode) var presentationMode
-    
+        
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -51,8 +50,8 @@ struct CapacityCleanupView: View {
             .padding(.top, 86)
             
             Button {
-                //TODO: 정리 종료 로직 추가하기
-                presentationMode.wrappedValue.dismiss()
+                //TODO: 정리 종료 후 다이나믹 종료 추가
+                path.removeAll()
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 60)
@@ -69,6 +68,7 @@ struct CapacityCleanupView: View {
             
         }
         .padding(.horizontal)
+        .navigationBarBackButtonHidden()
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
@@ -81,7 +81,4 @@ struct CapacityCleanupView: View {
                 .foregroundStyle(.gray900)
         }
     }
-}
-#Preview {
-    CapacityCleanupView()
 }

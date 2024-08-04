@@ -104,7 +104,7 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
-                    PreCleanupInfoView()
+                    PreCleanupInfoView(path: $path)
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
