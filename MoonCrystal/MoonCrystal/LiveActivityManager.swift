@@ -60,6 +60,7 @@ class LiveActivityManager {
             }
             
         }
+        // TODO: 라이브 액티비티 업데이트 실행완료 후 업데이트 notification 스케쥴 조정 로직 추가
     }
     
     static func getLiveActivity(name: String) -> Activity<dynamicCapacityAttributes>? {

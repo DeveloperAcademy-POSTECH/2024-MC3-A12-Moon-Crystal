@@ -11,8 +11,6 @@ import SwiftUI
 struct CapacityCleanupView: View {
     @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
         
-    @AppStorage(UserDefaultsKeys.deletedTotalCapacity.rawValue) var deletedTotalCapacity: Int = 0
-
     @Environment(\.scenePhase) var scenePhase
     
     @Binding var path: [String]
