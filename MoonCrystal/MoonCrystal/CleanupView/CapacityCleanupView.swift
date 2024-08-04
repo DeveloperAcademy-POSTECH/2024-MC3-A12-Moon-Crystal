@@ -11,6 +11,7 @@ import SwiftUI
 struct CapacityCleanupView: View {
     @AppStorage("seletedVideoFormat") var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
     @AppStorage("targetCapacity") var targetCapacity: Int = 0
+    @Environment(\.scenePhase) var scenePhase
     @Binding var path: [String]
     @State var deletedCapacity = 0
     @State var freeCapacity = 0
@@ -22,7 +23,6 @@ struct CapacityCleanupView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                //TODO: 내부 값 바꾸기
                 Text("지금까지 \(MediaCapacityConverter.capacityToTime(capacity: deletedCapacity, format: seletedVideoFormat))분(\(deletedCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
                     .foregroundStyle(.gray900)
                     .font(.system(size: 28, weight: .semibold))
@@ -43,7 +43,6 @@ struct CapacityCleanupView: View {
                     .scaledToFill()
             }
             .padding(.top, 60)
-            
             
             HStack(alignment: .center, spacing: 49) {
                 capacityTextView(title: "현재 남은 용량", value: "\(String(format: "%.1f", remainingCapacity))GB")
@@ -71,16 +70,27 @@ struct CapacityCleanupView: View {
             .padding(.top, 82)
             .padding(.bottom, 60)
             .ignoresSafeArea(.all, edges: .bottom)
-            
         }
         .padding(.horizontal)
         .navigationBarBackButtonHidden()
         .task {
-            print("cleanUP, \(targetCapacity)")
-            deletedCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
-            freeCapacity = await CapacityCalculator.getFreeCapacity()
-            remainingCapacity = Double(targetCapacity) - deletedCapacity.byteToGB()
+            await fetchCleanUpData()
         }
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                // 나갔다가 다시 들어왔을 때 업데이트
+                Task {
+                    await fetchCleanUpData()
+                }
+            }
+        }
+    }
+    
+    private func fetchCleanUpData() async {
+        print("cleanUp")
+        deletedCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+        freeCapacity = await CapacityCalculator.getFreeCapacity()
+        remainingCapacity = Double(targetCapacity) - deletedCapacity.byteToGB()
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
