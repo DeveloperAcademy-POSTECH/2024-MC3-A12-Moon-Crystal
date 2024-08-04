@@ -15,7 +15,11 @@ struct PreCleanupInfoView: View {
     private let title = "앱을 나가서\n정리를 시작해 보세요"
     private let description = "사진, 앱, 캐시 데이터를 삭제하면 실시간으로\n다이나믹 아일랜드에서 정리 현황을 알려줄게요"
     
+    @State private var showNotificationAlert = false
+    
     @StateObject var notificationManager = NotificationManager()
+    
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         VStack(spacing: 14) {
@@ -24,11 +28,11 @@ struct PreCleanupInfoView: View {
                 Button {
                     //TODO: 알림 설정
                     if notificationManager.isGranted {
-                        print("동의")
-                        //TODO: 내부에서 알림 안받는 로직 추가하기
-                    } else {
-                        //TODO: 얼럿 띄어서 설정 뷰로 넘어가는 로직 추가하기
+                        // 알림 설정을 끄기 위해 설정으로 가기
                         notificationManager.openSettings()
+                    } else {
+                        // 알림 설정을 켜기 위해 alert 띄우기
+                        showNotificationAlert.toggle()
                     }
                 } label: {
                     Circle()
@@ -44,6 +48,25 @@ struct PreCleanupInfoView: View {
                             }
                         }
                 }
+                .alert(
+                    "기기의 알림 설정이 꺼져있어요",
+                    isPresented: $showNotificationAlert
+                ) {
+                    Button {
+                        
+                    } label: {
+                        Text("취소")
+                    }
+                    
+                    Button {
+                        notificationManager.openSettings()
+                    } label: {
+                        Text("알림 허용하기")
+                    }
+                }
+            message: {
+                Text("휴대폰 설정 > 우리 앱 > 알림에서\n알림을 허용해 주세요")
+            }
             }
             
             HStack {
@@ -70,6 +93,13 @@ struct PreCleanupInfoView: View {
         }
         .padding()
         .background(.gray50)
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                Task {
+                    await notificationManager.getCurrentSettings()
+                }
+            }
+        }
         .task {
             LiveActivityManager.startLiveActivity(freeCapacity: "start")
             await notificationManager.requestAuthorization()
