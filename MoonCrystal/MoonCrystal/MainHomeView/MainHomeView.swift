@@ -64,7 +64,7 @@ struct MainHomeView: View {
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
                 if pathValue == "FormatInput" {
-                    FormatInputView(path: $navPath)
+                    FormatInputView(path: $navPath, idolGroup: userProfile.first?.favoriteIdol ?? "최애")
                 }
             }
         }

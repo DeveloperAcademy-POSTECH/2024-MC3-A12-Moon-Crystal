@@ -20,7 +20,7 @@ class MediaCapacityConverter {
         var availableTimeText = ""
         
         availableTimeText += String(availableTime.minutesToHoursAndMinutes().hours)
-        availableTimeText += "h"
+        availableTimeText += "h "
         availableTimeText += String(availableTime.minutesToHoursAndMinutes().minutes)
         availableTimeText += "m"
 

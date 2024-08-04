@@ -16,7 +16,7 @@ struct CapacitySettingView: View {
     @State var keyboardHeight : CGFloat = 0
     
     var videoFormat: VideoFormatCapacity = .defaultQuality
-    var idolGroup = "NCT"
+    var idolGroup: String
     ///Slider의 max값을 결정하는 변수입니다.
     var maxCapacity: Double {
         if videoFormat == .defaultQuality {

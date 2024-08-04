@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DeletedTotalCapacityView: View {
     @Environment(\.dismiss) var dismiss
-    //TODO: 나중에 정리된 총 용량이 저장되면 그값으로 변환
-    @State var deletedTotalCapacity: String = "72GB"
+    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = UserDefaults.standard.integer(forKey: "cleanUpCapacity")
+    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = UserDefaults.standard.integer(forKey: "deletedTotalCapacity")
 
     var userProfile: UserProfile?
 
@@ -28,7 +28,7 @@ struct DeletedTotalCapacityView: View {
                 .frame(height: 60)
                 .padding(.top, 40)
             
-            MyFavoriteIdolCardView(userProfile: userProfile)
+            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, userProfile: userProfile)
                 .padding(.top, 56)
             Spacer()
         }
@@ -59,7 +59,7 @@ struct DeletedTotalCapacityView: View {
                     Text("정리한 용량")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(.gray)
-                    Text("\(deletedTotalCapacity)")
+                    Text("\(deletedTotalCapacity.byteToGB())GB")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.black)
                 }
@@ -74,7 +74,7 @@ struct DeletedTotalCapacityView: View {
                     Text("확보한 촬영 시간")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(.gray)
-                    Text("\(deletedTotalCapacity)")
+                    Text("\(MediaCapacityConverter.getavailableTimeText(capacity: deletedTotalCapacity, format: .defaultQuality))")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.black)
                 }

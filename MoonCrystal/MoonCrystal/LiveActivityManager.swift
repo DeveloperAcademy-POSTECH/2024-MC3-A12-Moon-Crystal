@@ -92,8 +92,7 @@ class LiveActivityManager {
             } else {
                 await activity.end(using:state,dismissalPolicy: dismissalPolicy)
             }
+            
         }
     }
-    
-    
 }

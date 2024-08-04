@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MyFavoriteIdolCardView : View {
     //TODO: 나중에 정리된 총 용량이 저장되면 그값으로 변환
-    var deletedTotalCapacity: String = "72GB"
-    var currentDeletedCapacity = "12GB"
+    var deletedTotalCapacity = 0
+    var currentDeletedCapacity = 0
     var isEndView = false
     
     var userProfile: UserProfile?
@@ -80,7 +80,7 @@ struct MyFavoriteIdolCardView : View {
                     .font(.system(size: 16))
                     .foregroundStyle(.white)
                 HStack {
-                    Text("\(deletedTotalCapacity) ")
+                    Text("\(deletedTotalCapacity.byteToGB())GB ")
                         .font(.system(size: 16, weight: .heavy))
                         .foregroundStyle(.pink300)
                     Text("정리했어요")
