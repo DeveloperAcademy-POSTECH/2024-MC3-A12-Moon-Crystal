@@ -40,4 +40,16 @@ final class CapacityCalculator {
             return 0
         }
     }
+    
+    static func getCleanUpFreeCapacity() async -> Int {
+        let preFreeCapacity = UserDefaults.standard.integer(forKey: "preFreeCapacity")
+        let currentFreeCapacity = await getFreeCapacity()
+        let deletedCapacity = currentFreeCapacity - preFreeCapacity
+        
+        if deletedCapacity > 0 {
+            return deletedCapacity
+        }
+        
+        return 0
+    }
 }

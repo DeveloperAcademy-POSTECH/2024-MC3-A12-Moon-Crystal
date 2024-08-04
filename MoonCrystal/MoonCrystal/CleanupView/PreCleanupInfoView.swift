@@ -9,6 +9,7 @@ import Lottie
 import SwiftUI
 
 struct PreCleanupInfoView: View {
+    @AppStorage("preFreeCapacity") var preFreeCapacity: Int = 0
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.dismiss) var dismiss
     @Binding var path: [String]
@@ -103,6 +104,7 @@ struct PreCleanupInfoView: View {
             }
         }
         .task {
+            preFreeCapacity = await CapacityCalculator.getFreeCapacity()
             LiveActivityManager.startLiveActivity(freeCapacity: "start")
             await notificationManager.requestAuthorization()
         }
