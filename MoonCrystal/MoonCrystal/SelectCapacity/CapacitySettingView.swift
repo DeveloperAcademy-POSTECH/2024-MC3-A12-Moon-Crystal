@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CapacitySettingView: View {
+    @AppStorage("seletedVideoFormat") var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
+    @AppStorage("targetCapacity") var targetCapacity: Int = 0
     @Environment(\.dismiss) var dismiss
     @Binding var path: [String]
     @State var selectedCapacity : Double = 0
@@ -105,6 +107,11 @@ struct CapacitySettingView: View {
                 
                 NavigationLink {
                     PreCleanupInfoView(path: $path)
+                        .onAppear {
+                            // 정리 시작할 때 필요한 값들 설정
+                            seletedVideoFormat = videoFormat
+                            targetCapacity = Int(selectedCapacity)
+                        }
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)

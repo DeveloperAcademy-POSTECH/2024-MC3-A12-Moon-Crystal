@@ -9,7 +9,12 @@ import Lottie
 import SwiftUI
 
 struct CapacityCleanupView: View {
+    @AppStorage("seletedVideoFormat") var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
+    @AppStorage("targetCapacity") var targetCapacity: Int = 0
     @Binding var path: [String]
+    @State var deletedCapacity = 0
+    @State var freeCapacity = 0
+    @State var remainingCapacity = 0.0
     
     private let lottieFileName = "Timer"
     var favoriteIdol: String
@@ -18,7 +23,7 @@ struct CapacityCleanupView: View {
         VStack(spacing: 0) {
             HStack {
                 //TODO: 내부 값 바꾸기
-                Text("지금까지 0분(0GB)\n확보했어요")
+                Text("지금까지 \(MediaCapacityConverter.capacityToTime(capacity: deletedCapacity, format: seletedVideoFormat))분(\(deletedCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
                     .foregroundStyle(.gray900)
                     .font(.system(size: 28, weight: .semibold))
                     .multilineTextAlignment(.leading)
@@ -41,11 +46,12 @@ struct CapacityCleanupView: View {
             
             
             HStack(alignment: .center, spacing: 49) {
-                capacityTextView(title: "현재 남은 용량", value: "1GB")
+                capacityTextView(title: "현재 남은 용량", value: "\(String(format: "%.1f", remainingCapacity))GB")
                 Divider()
                     .background(.gray300)
-                capacityTextView(title: "촬영 가능 시간", value: "0h 2m")
-                
+                capacityTextView(title: "촬영 가능 시간", 
+                                  value: MediaCapacityConverter.getavailableTimeText(
+                                    capacity: freeCapacity, format: seletedVideoFormat))
             }
             .frame(height: 60)
             .padding(.top, 86)
@@ -61,7 +67,6 @@ struct CapacityCleanupView: View {
                         Text("정리 종료하기")
                             .font(.system(size: 16, weight: .regular))
                             .foregroundStyle(.white))
-                    
             }
             .padding(.top, 82)
             .padding(.bottom, 60)
@@ -70,6 +75,12 @@ struct CapacityCleanupView: View {
         }
         .padding(.horizontal)
         .navigationBarBackButtonHidden()
+        .task {
+            print("cleanUP, \(targetCapacity)")
+            deletedCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+            freeCapacity = await CapacityCalculator.getFreeCapacity()
+            remainingCapacity = Double(targetCapacity) - deletedCapacity.byteToGB()
+        }
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
