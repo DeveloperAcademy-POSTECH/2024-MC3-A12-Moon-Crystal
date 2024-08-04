@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CleanUpStatusView: View {
-    @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
 
     @State var cleanUpCapacity = 0
     
+    var seletedVideoFormat: VideoFormatCapacity
     var isLockScreen = false
     
     var body: some View {
@@ -27,7 +27,7 @@ struct CleanUpStatusView: View {
                 Divider()
                     .overlay(.gray300)
                     .frame(minHeight: 1)
-                Text("+\(cleanUpCapacity.byteToGBStr(format: "%.0f"))GB")
+                Text("+\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB")
                     .fixedSize()
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.pink300)

@@ -123,6 +123,8 @@
 		1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewComponent.swift; sourceTree = "<group>"; };
 		1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHalfCircleView.swift; sourceTree = "<group>"; };
 		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
+		1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonCrystal.entitlements; sourceTree = "<group>"; };
+		1EAA7F272C5F749100BF140D /* MoonCrystalWidgetExtentionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonCrystalWidgetExtentionExtension.entitlements; sourceTree = "<group>"; };
 		1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicIslandButtonsView.swift; sourceTree = "<group>"; };
 		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		26C965BC2C5241F8000257EA = {
 			isa = PBXGroup;
 			children = (
+				1EAA7F272C5F749100BF140D /* MoonCrystalWidgetExtentionExtension.entitlements */,
 				26C965C72C5241F8000257EA /* MoonCrystal */,
 				1E55934A2C53800B00C78466 /* MoonCrystalWidgetExtention */,
 				1E5593452C53800B00C78466 /* Frameworks */,
@@ -348,6 +351,7 @@
 		26C965C72C5241F8000257EA /* MoonCrystal */ = {
 			isa = PBXGroup;
 			children = (
+				1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */,
 				1BF858B22C5B753B00C2204E /* SelectCapacity */,
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
 				26C965CA2C5241F8000257EA /* ContentView.swift */,
@@ -583,9 +587,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AQCS8SYVV6;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
@@ -612,9 +617,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AQCS8SYVV6;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
@@ -761,10 +767,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystal/MoonCrystal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = AQCS8SYVV6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;
@@ -798,10 +805,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystal/MoonCrystal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = AQCS8SYVV6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;

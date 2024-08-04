@@ -16,8 +16,9 @@ class LiveActivityManager {
         do {
             let freeCapacity = await CapacityCalculator.getFreeCapacity()
             let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+            let videoFormat = UserDefaults.standard.integer(forKey: UserDefaultsKeys.seletedVideoFormat.rawValue)
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity)
+            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: videoFormat)
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -43,8 +44,7 @@ class LiveActivityManager {
         }
         let freeCapacity = await CapacityCalculator.getFreeCapacity()
         let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
-        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity)
-        // TODO: cleanUpCapacity를 인자에서 제거하고 CapacityCalculator에서 값 가져오기로 바꾸기
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity,  videoFormatRaw: activity.content.state.videoFormatRaw)
         if #available(iOS 16.2, *) {
             
             let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))

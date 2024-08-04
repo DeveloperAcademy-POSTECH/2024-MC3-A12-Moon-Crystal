@@ -16,6 +16,7 @@ struct dynamicCapacityAttributes: ActivityAttributes {
         var cleanUpCapacity: Int
         var isLoading = false
         var isCompleted = false
+        var videoFormatRaw = VideoFormatCapacity.defaultQuality.rawValue
     }
     
     var name: String

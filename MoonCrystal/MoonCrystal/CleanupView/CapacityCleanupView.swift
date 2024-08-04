@@ -10,9 +10,7 @@ import SwiftUI
 
 struct CapacityCleanupView: View {
     @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
-    
-    @AppStorage(UserDefaultsKeys.targetCapacity.rawValue) var targetCapacity: Int = 0
-    
+        
     @Environment(\.scenePhase) var scenePhase
     
     @Binding var path: [String]
@@ -20,9 +18,7 @@ struct CapacityCleanupView: View {
     @State var cleanUpCapacity = 0
     
     @State var freeCapacity = 0
-    
-    @State var remainingCapacity = 0.0
-    
+        
     private let lottieFileName = "Timer"
     var userProfile: UserProfile?
         
@@ -51,7 +47,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 60)
             
             HStack(alignment: .center, spacing: 49) {
-                capacityTextView(title: "현재 남은 용량", value: "\(String(format: "%.1f", remainingCapacity))GB")
+                capacityTextView(title: "현재 남은 용량", value: "\(String(format: "%.1f", freeCapacity))GB")
                 Divider()
                     .background(.gray300)
                 capacityTextView(title: "촬영 가능 시간", 
@@ -94,7 +90,6 @@ struct CapacityCleanupView: View {
     private func fetchCleanUpData() async {
         cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
         freeCapacity = await CapacityCalculator.getFreeCapacity()
-        remainingCapacity = Double(targetCapacity) - cleanUpCapacity.byteToGB()
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
