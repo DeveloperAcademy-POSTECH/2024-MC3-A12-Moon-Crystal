@@ -9,7 +9,7 @@ import Lottie
 import SwiftUI
 
 struct PreCleanupInfoView: View {
-    @AppStorage("preFreeCapacity") var preFreeCapacity: Int = 0
+    @AppStorage(UserDefaultsKeys.preFreeCapacity.rawValue) var preFreeCapacity: Int = 0
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.dismiss) var dismiss
     @Binding var path: [String]

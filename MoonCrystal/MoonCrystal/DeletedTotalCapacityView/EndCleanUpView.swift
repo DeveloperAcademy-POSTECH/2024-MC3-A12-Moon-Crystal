@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct EndCleanUpView: View {
-    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = 0
-    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = 0
+    @AppStorage(UserDefaultsKeys.deletedTotalCapacity.rawValue) var deletedTotalCapacity: Int = 0
     var userProfile: UserProfile?
+    var cleanUpCapacity = 0
     
     var body: some View {
         VStack(spacing: 0) {
@@ -53,8 +53,4 @@ struct EndCleanUpView: View {
         .background(Color.gray50)
         .edgesIgnoringSafeArea(.all)
     }
-}
-
-#Preview {
-    EndCleanUpView()
 }

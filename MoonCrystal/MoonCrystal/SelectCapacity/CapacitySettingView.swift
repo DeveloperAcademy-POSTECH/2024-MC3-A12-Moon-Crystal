@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CapacitySettingView: View {
-    @AppStorage("seletedVideoFormat") var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
-    @AppStorage("targetCapacity") var targetCapacity: Int = 0
+    @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
+    @AppStorage(UserDefaultsKeys.targetCapacity.rawValue) var targetCapacity: Int = 0
     @Environment(\.dismiss) var dismiss
     @Binding var path: [String]
     @State var selectedCapacity : Double = 0
