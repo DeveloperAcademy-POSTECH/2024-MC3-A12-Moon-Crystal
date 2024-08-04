@@ -18,7 +18,7 @@ struct CapacityCleanupView: View {
     @State var remainingCapacity = 0.0
     
     private let lottieFileName = "Timer"
-    var favoriteIdol: String
+    var userProfile: UserProfile?
         
     var body: some View {
         VStack(spacing: 0) {
@@ -33,7 +33,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 66)
             
             VStack(spacing: 38) {
-                Text("\(favoriteIdol)를 위해 정리중 ...")
+                Text("\(userProfile?.favoriteIdol ?? "최애")를 위해 정리중 ...")
                     .foregroundStyle(.gray600)
                     .font(.system(size: 15, weight: .regular))
                 
@@ -55,9 +55,12 @@ struct CapacityCleanupView: View {
             .frame(height: 60)
             .padding(.top, 86)
             
-            Button {
-                //TODO: 정리 종료 후 다이나믹 종료 추가
-                path.removeAll()
+            NavigationLink {
+                EndCleanUpView(path: $path, userProfile: userProfile, cleanUpCapacity: deletedCapacity)
+                    .onAppear {
+                        // 종료 클릭 시 다이나믹 종료
+                        LiveActivityManager.endLiveActivity()
+                    }
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 60)
@@ -87,7 +90,6 @@ struct CapacityCleanupView: View {
     }
     
     private func fetchCleanUpData() async {
-        print("cleanUp")
         deletedCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
         freeCapacity = await CapacityCalculator.getFreeCapacity()
         remainingCapacity = Double(targetCapacity) - deletedCapacity.byteToGB()

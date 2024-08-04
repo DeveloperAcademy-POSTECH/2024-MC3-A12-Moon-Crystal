@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EndCleanUpView: View {
     @AppStorage(UserDefaultsKeys.deletedTotalCapacity.rawValue) var deletedTotalCapacity: Int = 0
+    @Binding var path: [String]
     var userProfile: UserProfile?
     var cleanUpCapacity = 0
     
@@ -32,11 +33,11 @@ struct EndCleanUpView: View {
             }
             .padding(.top, 8)
             
-            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, currentDeletedCapacity: cleanUpCapacity , userProfile: userProfile)
+            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, currentDeletedCapacity: cleanUpCapacity , isEndView: true, userProfile: userProfile)
                 .padding(.top, 57)
             
             Button {
-                
+                path.removeAll()
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 68)
@@ -52,5 +53,7 @@ struct EndCleanUpView: View {
         .padding(.horizontal)
         .background(Color.gray50)
         .edgesIgnoringSafeArea(.all)
+        .navigationBarBackButtonHidden()
+        
     }
 }

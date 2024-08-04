@@ -65,7 +65,7 @@ struct MainHomeView: View {
                 if pathValue == "FormatInput" {
                     FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
                 } else if pathValue == "CleanUpView" {
-                    CapacityCleanupView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
+                    CapacityCleanupView(path: $navPath, userProfile: userProfile.first)
                 }
             }
         }
