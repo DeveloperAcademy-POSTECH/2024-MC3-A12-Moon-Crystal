@@ -115,13 +115,14 @@ struct CapacitySettingView: View {
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
-                        .foregroundStyle(.gray900)
+                        .foregroundStyle(selectedCapacity == 0 ? .gray400 : .gray900)
                         .overlay(
                             Text("정리 시작하기")
                                 .font(.system(size: 16))
                                 .foregroundStyle(.white)
                         )
                 }
+                .disabled(selectedCapacity == 0)
                 .padding(.horizontal, 20)
                 .padding(.top, 60)
                 
