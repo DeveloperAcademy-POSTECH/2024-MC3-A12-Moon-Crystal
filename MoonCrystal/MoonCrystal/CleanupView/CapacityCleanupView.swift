@@ -13,7 +13,7 @@ struct CapacityCleanupView: View {
     @AppStorage(UserDefaultsKeys.targetCapacity.rawValue) var targetCapacity: Int = 0
     @Environment(\.scenePhase) var scenePhase
     @Binding var path: [String]
-    @State var deletedCapacity = 0
+    @State var cleanUpCapacity = 0
     @State var freeCapacity = 0
     @State var remainingCapacity = 0.0
     
@@ -23,7 +23,7 @@ struct CapacityCleanupView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text("지금까지 \(MediaCapacityConverter.capacityToTime(capacity: deletedCapacity, format: seletedVideoFormat))분(\(deletedCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
+                Text("지금까지 \(MediaCapacityConverter.capacityToTime(capacity: cleanUpCapacity, format: seletedVideoFormat))분(\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
                     .foregroundStyle(.gray900)
                     .font(.system(size: 28, weight: .semibold))
                     .multilineTextAlignment(.leading)
@@ -56,11 +56,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 86)
             
             NavigationLink {
-                EndCleanUpView(path: $path, userProfile: userProfile, cleanUpCapacity: deletedCapacity)
-                    .onAppear {
-                        // 종료 클릭 시 다이나믹 종료
-                        LiveActivityManager.endLiveActivity()
-                    }
+                EndCleanUpView(path: $path, userProfile: userProfile, cleanUpCapacity: cleanUpCapacity)
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 60)
@@ -90,9 +86,9 @@ struct CapacityCleanupView: View {
     }
     
     private func fetchCleanUpData() async {
-        deletedCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+        cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
         freeCapacity = await CapacityCalculator.getFreeCapacity()
-        remainingCapacity = Double(targetCapacity) - deletedCapacity.byteToGB()
+        remainingCapacity = Double(targetCapacity) - cleanUpCapacity.byteToGB()
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
