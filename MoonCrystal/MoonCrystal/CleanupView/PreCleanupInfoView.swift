@@ -10,12 +10,19 @@ import SwiftUI
 
 struct PreCleanupInfoView: View {
     @AppStorage(UserDefaultsKeys.preFreeCapacity.rawValue) var preFreeCapacity: Int = 0
+    
     @Environment(\.scenePhase) var scenePhase
+    
     @Environment(\.dismiss) var dismiss
+    
     @State private var showNotificationAlert = false
+    
     @StateObject var notificationManager = NotificationManager()
+    
     @Binding var path: [String]
+    
     @State var isSetNotification = false
+    
     private let lottieFileName = "Arrow"
     private let title = "앱을 나가서\n정리를 시작해 보세요"
     private let description = "사진, 앱, 캐시 데이터를 삭제하면 실시간으로\n다이나믹 아일랜드에서 정리 현황을 알려줄게요"
@@ -99,7 +106,7 @@ struct PreCleanupInfoView: View {
                     await notificationManager.getCurrentSettings()
                     isSetNotification = false
                 }
-            } else if scenePhase == .background && !isSetNotification{
+            } else if scenePhase == .background && !isSetNotification {
                 // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
                 LiveActivityManager.startLiveActivity(freeCapacity: "start")
                 self.path.append("CleanUpView")

@@ -10,11 +10,17 @@ import SwiftUI
 
 struct CapacityCleanupView: View {
     @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
+    
     @AppStorage(UserDefaultsKeys.targetCapacity.rawValue) var targetCapacity: Int = 0
+    
     @Environment(\.scenePhase) var scenePhase
+    
     @Binding var path: [String]
+    
     @State var cleanUpCapacity = 0
+    
     @State var freeCapacity = 0
+    
     @State var remainingCapacity = 0.0
     
     private let lottieFileName = "Timer"
