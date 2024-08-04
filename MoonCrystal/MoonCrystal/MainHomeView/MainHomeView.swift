@@ -9,7 +9,6 @@ import SwiftData
 import SwiftUI
 
 struct MainHomeView: View {
-    // NavigationStack Path 관리
     @State private var navPath: [String] = []
     @State var totalCapacity = 0
     @State var freeCapacity = 0
@@ -65,6 +64,8 @@ struct MainHomeView: View {
             .navigationDestination(for: String.self) { pathValue in
                 if pathValue == "FormatInput" {
                     FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
+                } else if pathValue == "CleanUpView" {
+                    CapacityCleanupView(path: $navPath, userProfile: userProfile.first)
                 }
             }
         }
@@ -72,9 +73,16 @@ struct MainHomeView: View {
         .task {
             await fetchCapacityData()
         }
+        .onChange(of: navPath) {
+            if navPath.isEmpty {
+                Task {
+                    await fetchCapacityData()
+                }
+            }
+        }
     }
     
-    func fetchCapacityData() async {
+    private func fetchCapacityData() async {
         totalCapacity = await CapacityCalculator.getTotalCapacity()
         if totalCapacity > 0 {
             freeCapacity = await CapacityCalculator.getFreeCapacity()

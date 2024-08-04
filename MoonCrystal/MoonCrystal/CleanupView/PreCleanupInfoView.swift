@@ -9,17 +9,23 @@ import Lottie
 import SwiftUI
 
 struct PreCleanupInfoView: View {
-    @Environment(\.dismiss) var dismiss
-    private let lottieFileName = "Arrow"
+    @AppStorage(UserDefaultsKeys.preFreeCapacity.rawValue) var preFreeCapacity: Int = 0
     
-    private let title = "앱을 나가서\n정리를 시작해 보세요"
-    private let description = "사진, 앱, 캐시 데이터를 삭제하면 실시간으로\n다이나믹 아일랜드에서 정리 현황을 알려줄게요"
+    @Environment(\.scenePhase) var scenePhase
+    
+    @Environment(\.dismiss) var dismiss
     
     @State private var showNotificationAlert = false
     
     @StateObject var notificationManager = NotificationManager()
     
-    @Environment(\.scenePhase) var scenePhase
+    @Binding var path: [String]
+    
+    @State var isAppBackgroundedByURL = false
+    
+    private let lottieFileName = "Arrow"
+    private let title = "앱을 나가서\n정리를 시작해 보세요"
+    private let description = "사진, 앱, 캐시 데이터를 삭제하면 실시간으로\n다이나믹 아일랜드에서 정리 현황을 알려줄게요"
     
     var body: some View {
         VStack(spacing: 14) {
@@ -29,6 +35,7 @@ struct PreCleanupInfoView: View {
                     //TODO: 알림 설정
                     if notificationManager.isGranted {
                         // 알림 설정을 끄기 위해 설정으로 가기
+                        isAppBackgroundedByURL = true
                         notificationManager.openSettings()
                     } else {
                         // 알림 설정을 켜기 위해 alert 띄우기
@@ -59,14 +66,14 @@ struct PreCleanupInfoView: View {
                     }
                     
                     Button {
+                        isAppBackgroundedByURL = true
                         notificationManager.openSettings()
                     } label: {
                         Text("알림 허용하기")
                     }
+                } message: {
+                    Text("휴대폰 설정 > 우리 앱 > 알림에서\n알림을 허용해 주세요")
                 }
-            message: {
-                Text("휴대폰 설정 > 우리 앱 > 알림에서\n알림을 허용해 주세요")
-            }
             }
             
             HStack {
@@ -97,11 +104,16 @@ struct PreCleanupInfoView: View {
             if scenePhase == .active {
                 Task {
                     await notificationManager.getCurrentSettings()
+                    isAppBackgroundedByURL = false
                 }
+            } else if scenePhase == .background && !isAppBackgroundedByURL {
+                // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
+                LiveActivityManager.startLiveActivity(freeCapacity: "start")
+                self.path.append("CleanUpView")
             }
         }
         .task {
-            LiveActivityManager.startLiveActivity(freeCapacity: "start")
+            preFreeCapacity = await CapacityCalculator.getFreeCapacity()
             await notificationManager.requestAuthorization()
         }
         .toolbar {
@@ -121,8 +133,4 @@ struct PreCleanupInfoView: View {
         }
         .navigationBarBackButtonHidden()
     }
-}
-
-#Preview {
-    PreCleanupInfoView()
 }

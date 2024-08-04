@@ -9,15 +9,27 @@ import Lottie
 import SwiftUI
 
 struct CapacityCleanupView: View {
+    @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
+    
+    @AppStorage(UserDefaultsKeys.targetCapacity.rawValue) var targetCapacity: Int = 0
+    
+    @Environment(\.scenePhase) var scenePhase
+    
+    @Binding var path: [String]
+    
+    @State var cleanUpCapacity = 0
+    
+    @State var freeCapacity = 0
+    
+    @State var remainingCapacity = 0.0
+    
     private let lottieFileName = "Timer"
-    
-    @Environment(\.presentationMode) var presentationMode
-    
+    var userProfile: UserProfile?
+        
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                //TODO: 내부 값 바꾸기
-                Text("지금까지 0분(0GB)\n확보했어요")
+                Text("지금까지 \(MediaCapacityConverter.capacityToTime(capacity: cleanUpCapacity, format: seletedVideoFormat))분(\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
                     .foregroundStyle(.gray900)
                     .font(.system(size: 28, weight: .semibold))
                     .multilineTextAlignment(.leading)
@@ -27,8 +39,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 66)
             
             VStack(spacing: 38) {
-                //TODO: 내부 값 바꾸기
-                Text("NCT를 위해 정리중 ...")
+                Text("\(userProfile?.favoriteIdol ?? "최애")를 위해 정리중 ...")
                     .foregroundStyle(.gray600)
                     .font(.system(size: 15, weight: .regular))
                 
@@ -39,20 +50,19 @@ struct CapacityCleanupView: View {
             }
             .padding(.top, 60)
             
-            
             HStack(alignment: .center, spacing: 49) {
-                capacityTextView(title: "현재 남은 용량", value: "1GB")
+                capacityTextView(title: "현재 남은 용량", value: "\(String(format: "%.1f", remainingCapacity))GB")
                 Divider()
                     .background(.gray300)
-                capacityTextView(title: "촬영 가능 시간", value: "0h 2m")
-                
+                capacityTextView(title: "촬영 가능 시간", 
+                                  value: MediaCapacityConverter.getavailableTimeText(
+                                    capacity: freeCapacity, format: seletedVideoFormat))
             }
             .frame(height: 60)
             .padding(.top, 86)
             
-            Button {
-                //TODO: 정리 종료 로직 추가하기
-                presentationMode.wrappedValue.dismiss()
+            NavigationLink {
+                EndCleanUpView(path: $path, userProfile: userProfile, cleanUpCapacity: cleanUpCapacity)
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 60)
@@ -61,14 +71,30 @@ struct CapacityCleanupView: View {
                         Text("정리 종료하기")
                             .font(.system(size: 16, weight: .regular))
                             .foregroundStyle(.white))
-                    
             }
             .padding(.top, 82)
             .padding(.bottom, 60)
             .ignoresSafeArea(.all, edges: .bottom)
-            
         }
         .padding(.horizontal)
+        .navigationBarBackButtonHidden()
+        .task {
+            await fetchCleanUpData()
+        }
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                // 나갔다가 다시 들어왔을 때 업데이트
+                Task {
+                    await fetchCleanUpData()
+                }
+            }
+        }
+    }
+    
+    private func fetchCleanUpData() async {
+        cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+        freeCapacity = await CapacityCalculator.getFreeCapacity()
+        remainingCapacity = Double(targetCapacity) - cleanUpCapacity.byteToGB()
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
@@ -81,7 +107,4 @@ struct CapacityCleanupView: View {
                 .foregroundStyle(.gray900)
         }
     }
-}
-#Preview {
-    CapacityCleanupView()
 }

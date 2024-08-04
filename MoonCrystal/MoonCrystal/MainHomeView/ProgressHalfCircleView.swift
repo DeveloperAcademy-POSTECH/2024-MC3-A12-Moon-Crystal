@@ -30,7 +30,7 @@ struct ProgressHalfCircleView: View {
                     .padding(.top, 60)
                 
                 VStack{
-                    Text("\((totalCapacity - freeCapacity).byteToGB()) / \(totalCapacity.byteToGB()) GB")
+                    Text("\((totalCapacity - freeCapacity).byteToGBStr()) / \(totalCapacity.byteToGBStr()) GB")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(Color("gray700"))
                         .padding(.horizontal, 16)

@@ -39,7 +39,7 @@ struct MyFavoriteIdolCardView : View {
                     .frame(width: 92,height: 40)
                     .foregroundStyle(.pink100)
                     .overlay(
-                        Text("+ \(currentDeletedCapacity.byteToGB())GB")
+                        Text("+ \(currentDeletedCapacity.byteToGBStr())GB")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundStyle(.gray900)
                     )
@@ -79,7 +79,7 @@ struct MyFavoriteIdolCardView : View {
                     .font(.system(size: 16))
                     .foregroundStyle(.white)
                 HStack {
-                    Text("\(deletedTotalCapacity.byteToGB())GB ")
+                    Text("\(deletedTotalCapacity.byteToGBStr())GB ")
                         .font(.system(size: 16, weight: .heavy))
                         .foregroundStyle(.pink300)
                     Text("정리했어요")

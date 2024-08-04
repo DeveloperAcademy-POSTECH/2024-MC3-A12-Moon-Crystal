@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DeletedTotalCapacityView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = 0
+    @AppStorage(UserDefaultsKeys.deletedTotalCapacity.rawValue) var deletedTotalCapacity: Int = 0
 
     var userProfile: UserProfile?
 
@@ -58,7 +58,7 @@ struct DeletedTotalCapacityView: View {
                     Text("정리한 용량")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(.gray)
-                    Text("\(deletedTotalCapacity.byteToGB())GB")
+                    Text("\(deletedTotalCapacity.byteToGBStr())GB")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.black)
                 }

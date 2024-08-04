@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct EndCleanUpView: View {
-    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = 0
-    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = 0
+    @AppStorage(UserDefaultsKeys.deletedTotalCapacity.rawValue) var deletedTotalCapacity: Int = 0
+    @Binding var path: [String]
     var userProfile: UserProfile?
+    var cleanUpCapacity = 0
     
     var body: some View {
         VStack(spacing: 0) {
@@ -32,11 +33,11 @@ struct EndCleanUpView: View {
             }
             .padding(.top, 8)
             
-            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, currentDeletedCapacity: cleanUpCapacity , userProfile: userProfile)
+            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, currentDeletedCapacity: cleanUpCapacity , isEndView: true, userProfile: userProfile)
                 .padding(.top, 57)
             
             Button {
-                
+                path.removeAll()
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 68)
@@ -52,9 +53,13 @@ struct EndCleanUpView: View {
         .padding(.horizontal)
         .background(Color.gray50)
         .edgesIgnoringSafeArea(.all)
+        .navigationBarBackButtonHidden()
+        .onAppear {
+            // 종료 클릭 시 다이나믹 종료
+            LiveActivityManager.endLiveActivity()
+            // 정리된 용량 전체 정리용량에 추가하기
+            deletedTotalCapacity += cleanUpCapacity
+        }
+        
     }
-}
-
-#Preview {
-    EndCleanUpView()
 }
