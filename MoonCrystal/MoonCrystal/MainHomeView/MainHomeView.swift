@@ -113,6 +113,7 @@ struct MainHomeView: View {
             RoundedRectangle(cornerRadius: 32)
                 .frame(height: 64)
                 .foregroundStyle(.white)
+                .overlay(RoundedRectangle(cornerRadius: 32).stroke(Color.gray200, lineWidth: 0.5))
             HStack {
                 Image(systemName: "heart.fill")
                     .frame(width: 18, height: 18)
