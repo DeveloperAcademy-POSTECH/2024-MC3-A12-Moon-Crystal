@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EndCleanUpView: View {
+    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = UserDefaults.standard.integer(forKey: "cleanUpCapacity")
+    @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = UserDefaults.standard.integer(forKey: "deletedTotalCapacity")
     var userProfile: UserProfile?
     
     var body: some View {
@@ -30,7 +32,7 @@ struct EndCleanUpView: View {
             }
             .padding(.top, 8)
             
-            MyFavoriteIdolCardView(userProfile: userProfile)
+            MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, currentDeletedCapacity: cleanUpCapacity , userProfile: userProfile)
                 .padding(.top, 57)
             
             Button {

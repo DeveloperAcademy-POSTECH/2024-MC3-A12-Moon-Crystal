@@ -76,9 +76,9 @@ struct MainHomeView: View {
     }
     
     func fetchCapacityData() async {
-        totalCapacity = await CapacityCalculator.updateTotalCapacity()
+        totalCapacity = await CapacityCalculator.getTotalCapacity()
         if totalCapacity > 0 {
-            freeCapacity = await CapacityCalculator.updateFreeCapacity()
+            freeCapacity = await CapacityCalculator.getFreeCapacity()
             progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
         }
         name = userProfile.first?.favoriteIdol ?? "최애"

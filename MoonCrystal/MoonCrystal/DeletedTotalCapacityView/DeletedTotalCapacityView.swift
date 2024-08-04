@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DeletedTotalCapacityView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage("cleanUpCapacity") var cleanUpCapacity: Int = UserDefaults.standard.integer(forKey: "cleanUpCapacity")
     @AppStorage("deletedTotalCapacity") var deletedTotalCapacity: Int = UserDefaults.standard.integer(forKey: "deletedTotalCapacity")
 
     var userProfile: UserProfile?
