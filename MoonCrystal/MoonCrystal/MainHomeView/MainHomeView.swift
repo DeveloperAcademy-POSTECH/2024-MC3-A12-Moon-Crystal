@@ -73,6 +73,13 @@ struct MainHomeView: View {
         .task {
             await fetchCapacityData()
         }
+        .onChange(of: navPath) {
+            if navPath.isEmpty {
+                Task {
+                    await fetchCapacityData()
+                }
+            }
+        }
     }
     
     private func fetchCapacityData() async {
