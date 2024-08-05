@@ -14,7 +14,7 @@ struct CapacityDirectInputView: View {
     @State var tempCapacity = 0
     @State var text = ""
     
-    var totalCapacity: Int = 127
+    var totalCapacity: Int
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
     let alertMessage = "휴대폰 용량을 초과했어요"
@@ -92,8 +92,4 @@ struct CapacityDirectInputView: View {
             CustomNumPad(selectedNumber: $tempCapacity)
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
