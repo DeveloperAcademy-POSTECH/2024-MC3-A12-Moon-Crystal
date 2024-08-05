@@ -28,12 +28,4 @@ extension Int {
         let gbValue: Double = Double(self) / bytesInGB
         return gbValue
     }
-    
-    private func getFreeDiskSpace(_ byteCount: Int64) -> String {
-        let formatter = ByteCountFormatter()
-        formatter.allowedUnits = .useGB
-        formatter.countStyle = .file
-        formatter.includesUnit = false
-        return formatter.string(fromByteCount: byteCount)
-    }
 }
