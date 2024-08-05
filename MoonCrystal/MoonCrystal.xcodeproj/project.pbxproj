@@ -11,6 +11,7 @@
 		1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */; };
 		1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */; };
 		1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */; };
+		1BC4CF962C606B190012B7F0 /* CustomNumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */; };
 		1BF858BA2C5B75A200C2204E /* CapacitySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */; };
 		1BF858BB2C5B75A200C2204E /* CapacityDirectInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */; };
 		1BF858BC2C5B75A200C2204E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B62C5B75A200C2204E /* CustomSlider.swift */; };
@@ -105,6 +106,7 @@
 		1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormatCapacity.swift; sourceTree = "<group>"; };
 		1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityCalculator.swift; sourceTree = "<group>"; };
+		1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumPad.swift; sourceTree = "<group>"; };
 		1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacitySettingView.swift; sourceTree = "<group>"; };
 		1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacityDirectInputView.swift; sourceTree = "<group>"; };
 		1BF858B62C5B75A200C2204E /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */,
 				1BF858B62C5B75A200C2204E /* CustomSlider.swift */,
 				1BF858B72C5B75A200C2204E /* TipView.swift */,
+				1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */,
 			);
 			path = SelectCapacity;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */,
 				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
 				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
+				1BC4CF962C606B190012B7F0 /* CustomNumPad.swift in Sources */,
 				1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift in Sources */,
 				1BF858BA2C5B75A200C2204E /* CapacitySettingView.swift in Sources */,
 				260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */,

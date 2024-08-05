@@ -16,6 +16,7 @@ struct CapacitySettingView: View {
     @State var showTip = false
     @State var keyboardHeight : CGFloat = 0
     
+    var totalCapacity : Int
     var videoFormat: VideoFormatCapacity = .defaultQuality
     var favoriteIdol: String
     ///Slider의 max값을 결정하는 변수입니다.
@@ -137,8 +138,8 @@ struct CapacitySettingView: View {
             .ignoresSafeArea(.keyboard)
         }
         .sheet(isPresented: $useDirectInput) {
-            CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: selectedCapacity.rounded(.down))
-                .presentationDetents([.height(250)])
+            CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: Int(selectedCapacity), totalCapacity: totalCapacity)
+                .presentationDetents([.height(588)])
                 .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $showTip) {

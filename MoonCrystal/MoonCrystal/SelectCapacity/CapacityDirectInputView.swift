@@ -11,10 +11,10 @@ struct CapacityDirectInputView: View {
     @Environment(\.dismiss) var dismiss
     @FocusState private var isFocused: Bool
     @Binding var selectedCapacity: Double
-    @State var tempCapacity: Double = 0.0
+    @State var tempCapacity = 0
     @State var text = ""
     
-    var fullCapacity: Int = 127
+    var totalCapacity: Int
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
     let alertMessage = "휴대폰 용량을 초과했어요"
@@ -27,41 +27,44 @@ struct CapacityDirectInputView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
+                        .font(.system(size: 16, weight: .semibold))
                         .frame(height: 30)
                 }
                 .tint(.gray900)
             }
             .padding(.horizontal, 20)
             .padding(.top, 14)
-            .padding(.bottom, 22)
-            
+            .padding(.bottom, 2)
             
             Text(favoriteIdol + title)
                 .font(.system(size: 24, weight: .semibold))
+                .frame(height: 67)
                 .foregroundColor(.gray900)
-                .padding(.bottom, 11)
+                .padding(.bottom, 31)
                 .padding(.leading, 24)
                 .fixedSize()
             
             Text(alertMessage)
                 .font(.system(size: 14))
-                .foregroundStyle(Int(tempCapacity) < fullCapacity ? .clear : .pink300)
+                .foregroundStyle(tempCapacity <= totalCapacity ? .clear : .pink300)
                 .padding(.leading, 24)
                 .padding(.bottom, 8)
             
             HStack {
-                TextField("0", value: $tempCapacity, formatter: NumberFormatter())
-                    .keyboardType(.numberPad)
-                    .font(.system(size: 34, weight: .semibold))
-                    .focused($isFocused)
-                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    Text("\(tempCapacity)")
+                        .font(.system(size: 34, weight: .semibold))
+                }
+                .defaultScrollAnchor(.trailing)
                 Spacer()
                 Text("GB")
                     .font(.system(size: 34, weight: .semibold))
                     .padding(.trailing, 41)
             }
+            .frame(height: 41)
             .foregroundStyle(.gray700)
             .padding(.leading, 22)
+            .padding(.bottom, 5.5)
             
             Rectangle()
                 .frame(height: 1)
@@ -70,13 +73,13 @@ struct CapacityDirectInputView: View {
                 .foregroundStyle(.pink300)
             
             Button {
-                if Int(tempCapacity) < fullCapacity {
-                    selectedCapacity = tempCapacity
+                if tempCapacity <= totalCapacity {
+                    selectedCapacity = Double(tempCapacity)
                     dismiss()
                 }
             } label: {
                 Rectangle()
-                    .foregroundStyle(Int(tempCapacity) < fullCapacity ? .gray900 : .gray400)
+                    .foregroundStyle(tempCapacity <= totalCapacity ? .gray900 : .gray400)
                     .frame(height: 65)
                     .overlay {
                         Text("확인")
@@ -84,12 +87,9 @@ struct CapacityDirectInputView: View {
                             .foregroundStyle(Color.white)
                     }
             }
-            .padding(.top, 16)
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                isFocused = true
-            }
+            .padding(.top, 20)
+            
+            CustomNumPad(selectedNumber: $tempCapacity)
         }
     }
 }

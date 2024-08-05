@@ -14,6 +14,7 @@ struct FormatInputView: View {
     @State var isHighQualitySelected = false
     
     var favoriteIdol: String
+    var totalCapacity: Int
 
     var body: some View {
         VStack(spacing: 0) {
@@ -39,7 +40,7 @@ struct FormatInputView: View {
             .padding(.top, 34)
             NavigationLink {
                 if let selectedType {
-                    CapacitySettingView(path: $path, videoFormat: selectedType, favoriteIdol: favoriteIdol)
+                    CapacitySettingView(path: $path, totalCapacity: totalCapacity, videoFormat: selectedType, favoriteIdol: favoriteIdol)
                 }
             } label: {
                 RoundedRectangle(cornerRadius: 12)
