@@ -11,7 +11,7 @@ struct CapacityDirectInputView: View {
     @Environment(\.dismiss) var dismiss
     @FocusState private var isFocused: Bool
     @Binding var selectedCapacity: Double
-    @State var tempCapacity: String = "0"
+    @State var tempCapacity = 0
     @State var text = ""
     
     var totalCapacity: Int = 127
@@ -27,24 +27,26 @@ struct CapacityDirectInputView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
+                        .font(.system(size: 16, weight: .semibold))
                         .frame(height: 30)
                 }
                 .tint(.gray900)
             }
             .padding(.horizontal, 20)
             .padding(.top, 14)
-            .padding(.bottom, 22)
+            .padding(.bottom, 2)
             
             Text(favoriteIdol + title)
                 .font(.system(size: 24, weight: .semibold))
+                .frame(height: 67)
                 .foregroundColor(.gray900)
-                .padding(.bottom, 11)
+                .padding(.bottom, 31)
                 .padding(.leading, 24)
                 .fixedSize()
             
             Text(alertMessage)
                 .font(.system(size: 14))
-                .foregroundStyle(Int(tempCapacity) ?? 0 <= totalCapacity ? .clear : .pink300)
+                .foregroundStyle(tempCapacity <= totalCapacity ? .clear : .pink300)
                 .padding(.leading, 24)
                 .padding(.bottom, 8)
             
@@ -59,8 +61,10 @@ struct CapacityDirectInputView: View {
                     .font(.system(size: 34, weight: .semibold))
                     .padding(.trailing, 41)
             }
+            .frame(height: 41)
             .foregroundStyle(.gray700)
             .padding(.leading, 22)
+            .padding(.bottom, 5.5)
             
             Rectangle()
                 .frame(height: 1)
@@ -69,13 +73,13 @@ struct CapacityDirectInputView: View {
                 .foregroundStyle(.pink300)
             
             Button {
-                if Int(tempCapacity) ?? 0 <= totalCapacity {
-                    selectedCapacity = Double(tempCapacity) ?? selectedCapacity
+                if tempCapacity <= totalCapacity {
+                    selectedCapacity = Double(tempCapacity)
                     dismiss()
                 }
             } label: {
                 Rectangle()
-                    .foregroundStyle(Int(tempCapacity) ?? 0 <= totalCapacity ? .gray900 : .gray400)
+                    .foregroundStyle(tempCapacity <= totalCapacity ? .gray900 : .gray400)
                     .frame(height: 65)
                     .overlay {
                         Text("확인")
@@ -83,8 +87,9 @@ struct CapacityDirectInputView: View {
                             .foregroundStyle(Color.white)
                     }
             }
-            .padding(.top, 16)
-            CustomNumPad(string: $tempCapacity)
+            .padding(.top, 20)
+            
+            CustomNumPad(selectedNumber: $tempCapacity)
         }
     }
 }

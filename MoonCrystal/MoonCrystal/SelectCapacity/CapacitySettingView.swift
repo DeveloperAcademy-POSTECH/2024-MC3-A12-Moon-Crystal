@@ -138,8 +138,8 @@ struct CapacitySettingView: View {
             .ignoresSafeArea(.keyboard)
         }
         .sheet(isPresented: $useDirectInput) {
-            CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: String(Int(selectedCapacity)), totalCapacity: totalCapacity)
-                .presentationDetents([.height(550)])
+            CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: Int(selectedCapacity), totalCapacity: totalCapacity)
+                .presentationDetents([.height(588)])
                 .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $showTip) {
