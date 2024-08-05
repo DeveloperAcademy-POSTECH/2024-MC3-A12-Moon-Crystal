@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct LiveActivitySaveTimeView: View {
-    @State var freeCapacity = ""
+    @State var freeCapacity = 0
+    
+    var seletedVideoFormat: VideoFormatCapacity
     
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             Text("전체 확보 시간")
                 .font(.system(size: 12, weight: .medium))
                 .foregroundStyle(.white)
-            Text("10h20m")
+            Text(MediaCapacityConverter.getavailableTimeText(capacity: freeCapacity, format: seletedVideoFormat))
                 .fixedSize()
                 .font(.system(size: 28, weight: .semibold))
                 .foregroundStyle(.pink300)

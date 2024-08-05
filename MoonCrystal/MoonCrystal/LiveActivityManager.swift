@@ -12,10 +12,13 @@ import Foundation
 class LiveActivityManager {
     
     // LiveActivity 생성 요청
-    static func startLiveActivity(freeCapacity: String) {
+    static func startLiveActivity() async {
         do {
+            let freeCapacity = await CapacityCalculator.getFreeCapacity()
+            let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+            let videoFormat = UserDefaults.standard.integer(forKey: UserDefaultsKeys.seletedVideoFormat.rawValue)
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: 0)
+            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: videoFormat)
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -33,15 +36,15 @@ class LiveActivityManager {
     }
     
     // LiveActivity 업데이트
-    static func updateLiveActivity(freeCapacity: String, cleanUpCapacity: Int) {
+    static func updateLiveActivity() async {
         
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             print("❌ LiveActivityManager/updateLiveActivity Not found Activity")
             return
         }
-        
-        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: 0)
-        // TODO: cleanUpCapacity를 인자에서 제거하고 CapacityCalculator에서 값 가져오기로 바꾸기
+        let freeCapacity = await CapacityCalculator.getFreeCapacity()
+        let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: activity.content.state.videoFormatRaw)
         if #available(iOS 16.2, *) {
             
             let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
@@ -57,6 +60,7 @@ class LiveActivityManager {
             }
             
         }
+        // TODO: 라이브 액티비티 업데이트 실행완료 후 업데이트 notification 스케쥴 조정 로직 추가
     }
     
     static func getLiveActivity(name: String) -> Activity<dynamicCapacityAttributes>? {
@@ -70,7 +74,7 @@ class LiveActivityManager {
             return
         }
 
-        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity: activity.content.state.freeCapacity, cleanUpCapacity: 0, isLoading: true)
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity: activity.content.state.freeCapacity, cleanUpCapacity: 0, isLoading: true, videoFormatRaw: activity.content.state.videoFormatRaw)
         let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
         
         Task{
@@ -87,12 +91,24 @@ class LiveActivityManager {
         Task{
             if #available(iOS 16.2, *), let state {
                 //3분만 보관
-                let content = ActivityContent(state: state, staleDate: Date(timeIntervalSinceNow: 60 * 3),relevanceScore: activity.content.relevanceScore)
+                let content = ActivityContent(state: state, staleDate: Date(timeIntervalSinceNow: 60 * 3), relevanceScore: activity.content.relevanceScore)
                 await activity.end(content,dismissalPolicy:dismissalPolicy)
             } else {
-                await activity.end(using:state,dismissalPolicy: dismissalPolicy)
+                await activity.end(using:state, dismissalPolicy: dismissalPolicy)
             }
-            // TODO: UserDeault에 전체 정리한 용량 더하기, 현재 정리된 용량 데이터 넣기 -> CapacityCaCulator에 로직 추가해서 실행 예정
+            // 종료 후 정리된 용량 총 정리 데이터에 더함
+            var deletedTotalCapacity = UserDefaults.standard.integer(forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
+            var cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+            deletedTotalCapacity += cleanUpCapacity
+            UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
         }
+    }
+    
+    static func isLiveActivityActive() -> Bool {
+        guard let activity = getLiveActivity(name: "RemainingCapacity") else {
+            return false
+        }
+        
+        return activity.activityState == .active
     }
 }

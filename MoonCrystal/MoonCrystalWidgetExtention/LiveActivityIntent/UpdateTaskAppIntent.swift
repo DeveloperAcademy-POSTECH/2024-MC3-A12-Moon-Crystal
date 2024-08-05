@@ -18,9 +18,10 @@ struct UpdateTaskAppIntent: LiveActivityIntent {
     func perform() async throws -> some IntentResult {
         
         return await withCheckedContinuation{continuation in
-            //TODO: 나중에 여기서 현재 용량 조회 로직을 사용할 수 있어야됨
-            LiveActivityManager.updateLiveActivity(freeCapacity: "update", cleanUpCapacity: 10)
-            continuation.resume(returning: IntentResultContainer.result())
+            Task {
+                await LiveActivityManager.updateLiveActivity()
+                continuation.resume(returning: IntentResultContainer.result())
+            }
         }
         
     }

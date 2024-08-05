@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct CleanUpStatusView: View {
-    @State var addedFreeCapacity = "0GB"
+
+    @State var cleanUpCapacity = 0
+    
+    var seletedVideoFormat: VideoFormatCapacity
     var isLockScreen = false
     
     var body: some View {
@@ -17,14 +20,14 @@ struct CleanUpStatusView: View {
                 .font(.system(size: 12, weight: .medium))
                 .foregroundStyle(.white)
             HStack {
-                Text("+0h20m")
+                Text("+\(MediaCapacityConverter.getavailableTimeText(capacity: cleanUpCapacity, format: seletedVideoFormat))")
                     .fixedSize()
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.pink300)
                 Divider()
                     .overlay(.gray300)
                     .frame(minHeight: 1)
-                Text("+\(addedFreeCapacity)")
+                Text("+\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB")
                     .fixedSize()
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.pink300)

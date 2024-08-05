@@ -9,7 +9,6 @@ import Foundation
 
 enum UserDefaultsKeys: String {
     case isFirst
-    case targetCapacity
     case seletedVideoFormat
     case deletedTotalCapacity
     case preFreeCapacity
