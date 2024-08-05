@@ -14,7 +14,7 @@ struct CapacityDirectInputView: View {
     @State var tempCapacity: String = "0"
     @State var text = ""
     
-    var fullCapacity: Int = 127
+    var totalCapacity: Int = 127
     var favoriteIdol = "최애"
     let title = "를 위해 \n몇 GB 정리할까요?"
     let alertMessage = "휴대폰 용량을 초과했어요"
@@ -35,7 +35,6 @@ struct CapacityDirectInputView: View {
             .padding(.top, 14)
             .padding(.bottom, 22)
             
-            
             Text(favoriteIdol + title)
                 .font(.system(size: 24, weight: .semibold))
                 .foregroundColor(.gray900)
@@ -45,7 +44,7 @@ struct CapacityDirectInputView: View {
             
             Text(alertMessage)
                 .font(.system(size: 14))
-                .foregroundStyle(Int(tempCapacity) ?? 0 < fullCapacity ? .clear : .pink300)
+                .foregroundStyle(Int(tempCapacity) ?? 0 <= totalCapacity ? .clear : .pink300)
                 .padding(.leading, 24)
                 .padding(.bottom, 8)
             
@@ -70,13 +69,13 @@ struct CapacityDirectInputView: View {
                 .foregroundStyle(.pink300)
             
             Button {
-                if Int(tempCapacity) ?? 0 < fullCapacity {
+                if Int(tempCapacity) ?? 0 <= totalCapacity {
                     selectedCapacity = Double(tempCapacity) ?? selectedCapacity
                     dismiss()
                 }
             } label: {
                 Rectangle()
-                    .foregroundStyle(Int(tempCapacity) ?? 0 < fullCapacity ? .gray900 : .gray400)
+                    .foregroundStyle(Int(tempCapacity) ?? 0 <= totalCapacity ? .gray900 : .gray400)
                     .frame(height: 65)
                     .overlay {
                         Text("확인")

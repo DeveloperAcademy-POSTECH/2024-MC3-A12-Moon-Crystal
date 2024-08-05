@@ -63,7 +63,7 @@ struct MainHomeView: View {
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
                 if pathValue == "FormatInput" {
-                    FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
+                    FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", totalCapacity: Int(totalCapacity.byteToGB()))
                 } else if pathValue == "CleanUpView" {
                     CapacityCleanupView(path: $navPath, userProfile: userProfile.first)
                 }
