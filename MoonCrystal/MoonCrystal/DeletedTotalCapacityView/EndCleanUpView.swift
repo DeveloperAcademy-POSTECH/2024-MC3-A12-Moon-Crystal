@@ -58,7 +58,6 @@ struct EndCleanUpView: View {
             // 종료 클릭 시 다이나믹 종료
             LiveActivityManager.endLiveActivity()
             // 정리된 용량 전체 정리용량에 추가하기
-            deletedTotalCapacity += cleanUpCapacity
         }
         
     }

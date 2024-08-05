@@ -17,13 +17,14 @@ extension Int {
     
     /// Int+Extensions - 바이트를 GB단위로 바꾸는 extension
     func byteToGBStr(format: String = "%.0f") -> String {
-        let bytesInGB: Double = 1024 * 1024 * 1024
-        let gbValue: Double = Double(self) / bytesInGB
+        // 1024 바이트 단위로 안나뉘어서 바꿈
+        let bytesInGB: Double = 1000 * 1000 * 1000
+        let gbValue: Double = Double(Int64(self)) / bytesInGB
         return String(format: format, gbValue)
     }
     
     func byteToGB(format: String = "%.0f") -> Double {
-        let bytesInGB: Double = 1024 * 1024 * 1024
+        let bytesInGB: Double = 1000 * 1000 * 1000
         let gbValue: Double = Double(self) / bytesInGB
         return gbValue
     }
