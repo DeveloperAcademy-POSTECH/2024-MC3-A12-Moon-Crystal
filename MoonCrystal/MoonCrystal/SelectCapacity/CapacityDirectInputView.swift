@@ -11,7 +11,7 @@ struct CapacityDirectInputView: View {
     @Environment(\.dismiss) var dismiss
     @FocusState private var isFocused: Bool
     @Binding var selectedCapacity: Double
-    @State var tempCapacity: Double = 0.0
+    @State var tempCapacity: String = "0"
     @State var text = ""
     
     var fullCapacity: Int = 127
@@ -45,16 +45,16 @@ struct CapacityDirectInputView: View {
             
             Text(alertMessage)
                 .font(.system(size: 14))
-                .foregroundStyle(Int(tempCapacity) < fullCapacity ? .clear : .pink300)
+                .foregroundStyle(Int(tempCapacity) ?? 0 < fullCapacity ? .clear : .pink300)
                 .padding(.leading, 24)
                 .padding(.bottom, 8)
             
             HStack {
-                TextField("0", value: $tempCapacity, formatter: NumberFormatter())
-                    .keyboardType(.numberPad)
-                    .font(.system(size: 34, weight: .semibold))
-                    .focused($isFocused)
-                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    Text("\(tempCapacity)")
+                        .font(.system(size: 34, weight: .semibold))
+                }
+                .defaultScrollAnchor(.trailing)
                 Spacer()
                 Text("GB")
                     .font(.system(size: 34, weight: .semibold))
@@ -70,13 +70,13 @@ struct CapacityDirectInputView: View {
                 .foregroundStyle(.pink300)
             
             Button {
-                if Int(tempCapacity) < fullCapacity {
-                    selectedCapacity = tempCapacity
+                if Int(tempCapacity) ?? 0 < fullCapacity {
+                    selectedCapacity = Double(tempCapacity) ?? selectedCapacity
                     dismiss()
                 }
             } label: {
                 Rectangle()
-                    .foregroundStyle(Int(tempCapacity) < fullCapacity ? .gray900 : .gray400)
+                    .foregroundStyle(Int(tempCapacity) ?? 0 < fullCapacity ? .gray900 : .gray400)
                     .frame(height: 65)
                     .overlay {
                         Text("확인")
@@ -85,11 +85,11 @@ struct CapacityDirectInputView: View {
                     }
             }
             .padding(.top, 16)
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                isFocused = true
-            }
+            CustomNumPad(string: $tempCapacity)
         }
     }
+}
+
+#Preview {
+    ContentView()
 }
