@@ -45,12 +45,19 @@ struct PreCleanupInfoView: View {
                     Circle()
                         .frame(width: 52)
                         .foregroundStyle(.white)
+                        .overlay(Circle().stroke(.gray200, lineWidth: 0.5))
                         .overlay {
                             if notificationManager.isGranted {
                                 Image(systemName: "bell")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 21)
                                     .tint(.gray600)
                             } else {
                                 Image(systemName: "bell.slash")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 21)
                                     .tint(.gray600)
                             }
                         }
