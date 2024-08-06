@@ -133,7 +133,7 @@ struct MainHomeView: View {
                     .frame(width: 18, height: 18)
                     .foregroundStyle(Color.pink200)
                     .padding(.trailing, 12)
-                Text("\(favoriteIdol)\(MainHomeViewComponent.deletedStorage.title)")
+                Text("\(MainHomeViewComponent.deletedStorage.title)")
                     .font(.system(size: 15))
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -146,7 +146,7 @@ struct MainHomeView: View {
     var availableTime: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0.0) {
-                Text(MainHomeViewComponent.availableTime.title)
+                Text("\(favoriteIdol)\(MainHomeViewComponent.availableTime.title)")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color.gray700)
                     .padding(.top, 38)
