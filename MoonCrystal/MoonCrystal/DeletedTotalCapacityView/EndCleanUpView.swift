@@ -27,8 +27,9 @@ struct EndCleanUpView: View {
             .padding(.top, 116)
             
             HStack {
-                Text("포토카드에 당신의 마음을 담았어요")
+                Text("포토카드에 \(userProfile?.nickname ?? "당신")의 마음을 담았어요")
                     .font(.system(size: 16))
+                    .foregroundStyle(.gray700)
                 Spacer()
             }
             .padding(.top, 8)

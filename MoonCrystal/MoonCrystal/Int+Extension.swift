@@ -20,6 +20,10 @@ extension Int {
         // 1024 바이트 단위로 안나뉘어서 바꿈
         let bytesInGB: Double = 1000 * 1000 * 1000
         let gbValue: Double = Double(Int64(self)) / bytesInGB
+        // 값이 0.1보다 작을 때 소수점 안보이게 만듦
+        if gbValue < 0.1 {
+            return String(format: "%.0f", gbValue)
+        }
         return String(format: format, gbValue)
     }
     

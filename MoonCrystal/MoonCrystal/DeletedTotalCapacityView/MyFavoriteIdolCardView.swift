@@ -39,7 +39,7 @@ struct MyFavoriteIdolCardView : View {
                     .frame(width: 92,height: 40)
                     .foregroundStyle(.pink100)
                     .overlay(
-                        Text("+ \(currentDeletedCapacity.byteToGBStr())GB")
+                        Text("+ \(currentDeletedCapacity.byteToGBStr(format: "%.1f"))GB")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundStyle(.gray900)
                     )
@@ -78,11 +78,11 @@ struct MyFavoriteIdolCardView : View {
                 Text("지금까지 \(userProfile?.favoriteIdol ?? "최애")를 위해")
                     .font(.system(size: 16))
                     .foregroundStyle(.white)
-                HStack {
-                    Text("\(deletedTotalCapacity.byteToGBStr())GB ")
+                HStack(spacing: 0) {
+                    Text("\(deletedTotalCapacity.byteToGBStr(format: "%.1f"))GB")
                         .font(.system(size: 16, weight: .heavy))
                         .foregroundStyle(.pink300)
-                    Text("정리했어요")
+                    Text(" 정리했어요")
                         .font(.system(size: 16))
                         .foregroundStyle(.white)
                 }
