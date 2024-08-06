@@ -18,7 +18,7 @@ struct HighFormatRadioButton: View {
             }, label: {
                 HStack {
                     Circle()
-                        .stroke(selectedType == format ? Color.pink300 : Color.gray, lineWidth: 1)
+                        .stroke(selectedType == format ? Color.pink300 : Color.gray400, lineWidth: 1)
                         .frame(width: 18, height: 18)
                         .overlay(
                             Circle()
@@ -26,9 +26,10 @@ struct HighFormatRadioButton: View {
                                 .frame(width: 12, height: 12)
                         )
                     Text(format.detailInfo)
-                        .foregroundColor(.black)
+                        .foregroundColor(.gray800)
                         .font(.system(size: 16, weight: selectedType == format ? .bold : .regular))
                 }
+                .frame(height: 19)
             })
             Spacer()
         }

@@ -76,7 +76,7 @@ class LiveActivityManager {
             print("❌ LiveActivityManager/endLiveActivity Not found Activity")
             Task {
                 var deletedTotalCapacity = UserDefaults.standard.integer(forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
-                var cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+                let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
                 deletedTotalCapacity += cleanUpCapacity
                 UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
             }
@@ -92,7 +92,7 @@ class LiveActivityManager {
             }
             // 종료 후 정리된 용량 총 정리 데이터에 더함
             var deletedTotalCapacity = UserDefaults.standard.integer(forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
-            var cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+            let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             deletedTotalCapacity += cleanUpCapacity
             UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
             // 다이나믹 아일랜드 실행 후 종료버튼으로 꺼짐 확인용
