@@ -25,7 +25,7 @@ struct EndCleanUpView: View {
                 Spacer()
             }
             .padding(.top, 116)
-
+            
             HStack {
                 Text("포토카드에 당신의 마음을 담았어요")
                     .font(.system(size: 16))
@@ -57,7 +57,6 @@ struct EndCleanUpView: View {
         .onAppear {
             // 종료 클릭 시 다이나믹 종료
             LiveActivityManager.endLiveActivity()
-            // 정리된 용량 전체 정리용량에 추가하기
         }
         
     }

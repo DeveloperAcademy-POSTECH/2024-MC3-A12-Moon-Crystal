@@ -81,11 +81,7 @@ struct CapacityCleanupView: View {
             if scenePhase == .active {
                 Task {
                     await fetchCleanUpData()
-                    if !LiveActivityManager.isLiveActivityActive() {
-                        path.removeAll()
-                    } else {
-                        await LiveActivityManager.updateLiveActivity()
-                    }
+                    await LiveActivityManager.updateLiveActivity()
                 }
             }
         }

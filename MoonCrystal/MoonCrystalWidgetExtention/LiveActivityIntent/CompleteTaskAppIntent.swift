@@ -17,8 +17,6 @@ struct CompleteTaskAppIntent: LiveActivityIntent {
     
     func perform() async throws -> some IntentResult {
         
-        await LiveActivityManager.showLoadingButton()
-        sleep(2)
         return await withCheckedContinuation{continuation in
             LiveActivityManager.endLiveActivity()
             continuation.resume(returning: IntentResultContainer.result())

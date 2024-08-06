@@ -30,6 +30,10 @@ class LiveActivityManager {
 
                 let _ = try Activity<dynamicCapacityAttributes>.request(attributes:  activityData, contentState: contentState)
             }
+            
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
+
+            
         } catch {
             print("❌ LiveActivityManager/startLiveActivity LiveActivity start error:\(error)")
         }
@@ -67,28 +71,19 @@ class LiveActivityManager {
         Activity<dynamicCapacityAttributes>.activities.first(where: {$0.attributes.name == name})
     }
     
-    // LiveActivity 종료버튼 클릭 후 로딩
-    static func showLoadingButton() async {
-        guard let activity = getLiveActivity(name: "RemainingCapacity") else {
-            print("❌ LiveActivityManager/showLoadingButton Not found Activity")
-            return
-        }
-
-        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity: activity.content.state.freeCapacity, cleanUpCapacity: 0, isLoading: true, videoFormatRaw: activity.content.state.videoFormatRaw)
-        let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
-        
-        Task{
-            await activity.update(content)
-        }
-    }
-    
     // LiveActivity 종료
     static func endLiveActivity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             print("❌ LiveActivityManager/endLiveActivity Not found Activity")
+            Task {
+                var deletedTotalCapacity = UserDefaults.standard.integer(forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
+                var cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
+                deletedTotalCapacity += cleanUpCapacity
+                UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
+            }
             return
         }
-        Task{
+        Task {
             if #available(iOS 16.2, *), let state {
                 //3분만 보관
                 let content = ActivityContent(state: state, staleDate: Date(timeIntervalSinceNow: 60 * 3), relevanceScore: activity.content.relevanceScore)
@@ -101,6 +96,7 @@ class LiveActivityManager {
             var cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             deletedTotalCapacity += cleanUpCapacity
             UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
+            UserDefaults.standard.set(false, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
         }
     }
     

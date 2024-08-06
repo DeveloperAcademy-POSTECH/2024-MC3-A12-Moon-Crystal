@@ -9,6 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct MainHomeView: View {
+    @AppStorage(UserDefaultsKeys.runLiveActivity.rawValue) var runLiveActivity: Bool = false
+
     @State private var navPath: [String] = []
     @State var totalCapacity = 0
     @State var freeCapacity = 0
@@ -72,6 +74,11 @@ struct MainHomeView: View {
         .tint(.gray900)
         .task {
             await fetchCapacityData()
+        }
+        .onChange(of: runLiveActivity) {
+            if !runLiveActivity {
+                navPath.removeAll()
+            }
         }
         .onChange(of: navPath) {
             if navPath.isEmpty {

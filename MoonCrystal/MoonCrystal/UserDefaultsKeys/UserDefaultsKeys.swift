@@ -12,4 +12,5 @@ enum UserDefaultsKeys: String {
     case seletedVideoFormat
     case deletedTotalCapacity
     case preFreeCapacity
+    case runLiveActivity
 }
