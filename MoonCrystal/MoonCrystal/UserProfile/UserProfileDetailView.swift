@@ -126,7 +126,7 @@ struct UserProfileDetailView: View {
     private var editSaveButton: some View {
         let isSaveDisabled = isFavoriteIdolTooLong || isNicknameTooLong
         
-       return Button {
+        return Button {
             if isEditing {
                 if isSaveDisabled { return }
                 

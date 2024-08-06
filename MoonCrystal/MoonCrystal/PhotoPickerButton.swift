@@ -21,6 +21,8 @@ struct PhotoPickerButton: View {
                 if let imageData = userProfileData.imageData, let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)
                         .resizable()
+                        .scaledToFill()
+                        .frame(width: 307, height: 338)
                         .overlay(
                             ZStack(alignment: .center) {
                                 if isEditing {
