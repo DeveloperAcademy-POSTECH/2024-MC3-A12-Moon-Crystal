@@ -14,7 +14,6 @@ struct MainHomeView: View {
     @State private var navPath: [String] = []
     @State var totalCapacity = 0
     @State var freeCapacity = 0
-    @State var favoriteIdol = "최애"
     @State private var progress: Float = 0.0
     
     @Query var userProfile: [UserProfile]
@@ -95,7 +94,6 @@ struct MainHomeView: View {
             freeCapacity = await CapacityCalculator.getFreeCapacity()
             progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
         }
-        favoriteIdol = userProfile.first?.favoriteIdol ?? "최애"
     }
     
     var profileViewButton: some View {
@@ -146,7 +144,7 @@ struct MainHomeView: View {
     var availableTime: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0.0) {
-                Text("\(favoriteIdol)\(MainHomeViewComponent.availableTime.title)")
+                Text("\(userProfile.first?.favoriteIdol ?? "최애")\(MainHomeViewComponent.availableTime.title)")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color.gray700)
                     .padding(.top, 38)
