@@ -11,6 +11,7 @@ import SwiftUI
 struct TipView: View {
     @Environment(\.dismiss) var dismiss
     let title = "정리를 시작하기 전,\n얼마나 삭제할 지 감이 안 온다면?"
+    var profileImage: Data?
     
     var body: some View {
         ZStack {
@@ -48,7 +49,7 @@ struct TipView: View {
                     .padding(.trailing, 20)
                     
                     //나중에 이미지 연결할 때 이미지데이터 넣어주세요.
-                    circleIcon(image: nil)
+                    circleIcon(image: profileImage)
                         .frame(height: 72)
                         .offset(x: -48, y: -32)
                     
@@ -98,9 +99,10 @@ struct TipView: View {
             if let image = image, let uiimage = UIImage(data: image) {
                 Image(uiImage: uiimage)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .clipShape(Circle())
-                    .frame(width: 63)
+                    .padding(4.5)
+                    .frame(width: 72)
             } else {
                 Circle()
                     .frame(height: 72)
@@ -117,8 +119,4 @@ struct TipView: View {
                 .padding(1)
         }
     }
-}
-
-#Preview {
-    TipView()
 }
