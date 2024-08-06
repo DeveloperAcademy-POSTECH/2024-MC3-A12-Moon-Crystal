@@ -128,7 +128,7 @@ struct MainHomeView: View {
                 .frame(height: 64)
                 .foregroundStyle(.white)
                 .overlay(RoundedRectangle(cornerRadius: 32).stroke(Color.gray200, lineWidth: 0.5))
-            HStack {
+            HStack(spacing: 0) {
                 Image(systemName: "heart.fill")
                     .frame(width: 18, height: 18)
                     .foregroundStyle(Color.pink200)

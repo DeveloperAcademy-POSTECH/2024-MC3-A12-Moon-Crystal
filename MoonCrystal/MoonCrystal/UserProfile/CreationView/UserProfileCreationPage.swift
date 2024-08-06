@@ -28,7 +28,7 @@ enum UserProfileCreationPage: Int {
         case .nickname:
             return "팬덤 이름 또는 원하는 닉네임을 적어도 좋아요"
         case .idolImage:
-            return "홈 화면 프로필 아이콘, 팁에 사용되어요"
+            return "홈 화면 프로필 아이콘, 팁에 사용됩니다"
         }
     }
     

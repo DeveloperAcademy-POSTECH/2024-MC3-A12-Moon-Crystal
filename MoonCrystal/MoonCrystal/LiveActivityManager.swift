@@ -30,9 +30,8 @@ class LiveActivityManager {
 
                 let _ = try Activity<dynamicCapacityAttributes>.request(attributes:  activityData, contentState: contentState)
             }
-            
+            // 다이나믹 아일랜드 실행 후 종료버튼으로 꺼짐 확인용
             UserDefaults.standard.set(true, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
-
             
         } catch {
             print("❌ LiveActivityManager/startLiveActivity LiveActivity start error:\(error)")
@@ -96,6 +95,7 @@ class LiveActivityManager {
             var cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             deletedTotalCapacity += cleanUpCapacity
             UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
+            // 다이나믹 아일랜드 실행 후 종료버튼으로 꺼짐 확인용
             UserDefaults.standard.set(false, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
         }
     }

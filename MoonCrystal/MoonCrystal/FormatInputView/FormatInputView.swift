@@ -68,8 +68,8 @@ struct FormatInputView: View {
                         Image(systemName: "chevron.left")
                         Text("뒤로")
                     }
-                    .font(.system(size: 17))
-                    .foregroundStyle(.gray900)
+                    .font(.system(size: 16))
+                    .foregroundStyle(.gray700)
                 }
             }
         }

@@ -52,4 +52,5 @@ final class CapacityCalculator {
         
         return 0
     }
+    
 }
