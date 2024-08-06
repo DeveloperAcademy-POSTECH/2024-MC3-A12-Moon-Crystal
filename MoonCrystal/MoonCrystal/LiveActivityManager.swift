@@ -99,6 +99,8 @@ class LiveActivityManager {
             if !isActive {
                 UserDefaults.standard.set(false, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
             }
+   
+            await requestNotification.schedule(localNotification: LocalNotification(type: .result, favoritIdol: "최애",deletedCapacity: cleanUpCapacity.byteToGBStr(format: "%.1f"), deletedTotalCapacity: deletedTotalCapacity.byteToGBStr(format: "%.1f"), timeInterval: 1))
         }
     }
     
