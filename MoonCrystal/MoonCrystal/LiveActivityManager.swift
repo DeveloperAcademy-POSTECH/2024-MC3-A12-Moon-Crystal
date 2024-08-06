@@ -71,7 +71,7 @@ class LiveActivityManager {
     }
     
     // LiveActivity 종료
-    static func endLiveActivity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate) {
+    static func endLiveActivity(contentState state: dynamicCapacityAttributes.ContentState? = nil, dismissalPolicy: ActivityUIDismissalPolicy = .immediate, isActive: Bool = false) {
         guard let activity = getLiveActivity(name: "RemainingCapacity") else {
             print("❌ LiveActivityManager/endLiveActivity Not found Activity")
             Task {
@@ -96,7 +96,9 @@ class LiveActivityManager {
             deletedTotalCapacity += cleanUpCapacity
             UserDefaults.standard.set(deletedTotalCapacity, forKey: UserDefaultsKeys.deletedTotalCapacity.rawValue)
             // 다이나믹 아일랜드 실행 후 종료버튼으로 꺼짐 확인용
-            UserDefaults.standard.set(false, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
+            if !isActive {
+                UserDefaults.standard.set(false, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
+            }
         }
     }
     

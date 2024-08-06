@@ -56,8 +56,7 @@ struct EndCleanUpView: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             // 종료 클릭 시 다이나믹 종료
-            LiveActivityManager.endLiveActivity()
+            LiveActivityManager.endLiveActivity(isActive: true)
         }
-        
     }
 }
