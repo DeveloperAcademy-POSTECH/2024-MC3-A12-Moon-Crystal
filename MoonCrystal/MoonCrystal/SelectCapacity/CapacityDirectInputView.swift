@@ -15,7 +15,7 @@ struct CapacityDirectInputView: View {
     @State var text = ""
     
     var totalCapacity: Int
-    var favoriteIdol = "최애"
+    var favoriteIdol: String
     let title = "를 위해 \n몇 GB 정리할까요?"
     let alertMessage = "휴대폰 용량을 초과했어요"
     
@@ -54,15 +54,16 @@ struct CapacityDirectInputView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     Text("\(tempCapacity)")
                         .font(.system(size: 34, weight: .semibold))
+                        .foregroundStyle(tempCapacity == 0 ? .gray400 : .gray700)
                 }
                 .defaultScrollAnchor(.trailing)
                 Spacer()
                 Text("GB")
                     .font(.system(size: 34, weight: .semibold))
                     .padding(.trailing, 41)
+                    .foregroundStyle(.gray700)
             }
             .frame(height: 41)
-            .foregroundStyle(.gray700)
             .padding(.leading, 22)
             .padding(.bottom, 5.5)
             

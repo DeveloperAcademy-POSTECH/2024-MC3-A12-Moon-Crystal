@@ -19,6 +19,8 @@ struct CapacitySettingView: View {
     var totalCapacity : Int
     var videoFormat: VideoFormatCapacity = .defaultQuality
     var favoriteIdol: String
+    var profileImage: Data?
+    
     ///Slider의 max값을 결정하는 변수입니다.
     var maxCapacity: Double {
         if videoFormat == .defaultQuality {
@@ -138,12 +140,12 @@ struct CapacitySettingView: View {
             .ignoresSafeArea(.keyboard)
         }
         .sheet(isPresented: $useDirectInput) {
-            CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: Int(selectedCapacity), totalCapacity: totalCapacity)
+            CapacityDirectInputView(selectedCapacity: $selectedCapacity, tempCapacity: Int(selectedCapacity), totalCapacity: totalCapacity, favoriteIdol: favoriteIdol)
                 .presentationDetents([.height(588)])
                 .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $showTip) {
-            TipView()
+            TipView(profileImage: profileImage)
                 .presentationDetents([.height(476)])
                 .presentationDragIndicator(.visible)
         }

@@ -15,6 +15,7 @@ struct FormatInputView: View {
     
     var favoriteIdol: String
     var totalCapacity: Int
+    var profileImage: Data?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -40,7 +41,7 @@ struct FormatInputView: View {
             .padding(.top, 34)
             NavigationLink {
                 if let selectedType {
-                    CapacitySettingView(path: $path, totalCapacity: totalCapacity, videoFormat: selectedType, favoriteIdol: favoriteIdol)
+                    CapacitySettingView(path: $path, totalCapacity: totalCapacity, videoFormat: selectedType, favoriteIdol: favoriteIdol, profileImage: profileImage)
                 }
             } label: {
                 RoundedRectangle(cornerRadius: 12)
