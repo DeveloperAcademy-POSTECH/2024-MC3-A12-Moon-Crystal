@@ -108,7 +108,7 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 
                 NavigationLink {
-                    PreCleanupInfoView(path: $path)
+                    PreCleanupInfoView(path: $path, favoritIdol: favoriteIdol)
                         .onAppear {
                             // 정리 시작할 때 필요한 값들 설정
                             seletedVideoFormat = videoFormat

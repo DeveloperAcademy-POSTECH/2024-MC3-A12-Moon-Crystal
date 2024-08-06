@@ -8,6 +8,7 @@
 import Foundation
 import NotificationCenter
 
+// wigetExtention에서 충돌나는 부분(openSettings)이 있어 따로 빼둠
 class requestNotification {
     static func schedule(localNotification: LocalNotification) async {
         let notificationCenter = UNUserNotificationCenter.current()

@@ -17,6 +17,7 @@ struct dynamicCapacityAttributes: ActivityAttributes {
         var isLoading = false
         var isCompleted = false
         var videoFormatRaw = VideoFormatCapacity.defaultQuality.rawValue
+        var favoritIdol = "최애"
     }
     
     var name: String

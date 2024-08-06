@@ -12,13 +12,13 @@ import Foundation
 class LiveActivityManager {
     
     // LiveActivity 생성 요청
-    static func startLiveActivity() async {
+    static func startLiveActivity(favoritIdol: String?) async {
         do {
             let freeCapacity = await CapacityCalculator.getFreeCapacity()
             let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             let videoFormat = UserDefaults.standard.integer(forKey: UserDefaultsKeys.seletedVideoFormat.rawValue)
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: videoFormat)
+            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: videoFormat, favoritIdol: favoritIdol ?? "최애")
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -47,7 +47,7 @@ class LiveActivityManager {
         }
         let freeCapacity = await CapacityCalculator.getFreeCapacity()
         let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
-        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: activity.content.state.videoFormatRaw)
+        let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: activity.content.state.videoFormatRaw, favoritIdol: activity.content.state.favoritIdol)
         if #available(iOS 16.2, *) {
             
             let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
@@ -98,9 +98,8 @@ class LiveActivityManager {
             // 다이나믹 아일랜드 실행 후 종료버튼으로 꺼짐 확인용
             if !isActive {
                 UserDefaults.standard.set(false, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
+                await requestNotification.schedule(localNotification: LocalNotification(type: .result, favoritIdol: activity.content.state.favoritIdol, deletedCapacity: cleanUpCapacity.byteToGBStr(format: "%.1f"), deletedTotalCapacity: deletedTotalCapacity.byteToGBStr(format: "%.1f"), timeInterval: 1))
             }
-   
-            await requestNotification.schedule(localNotification: LocalNotification(type: .result, favoritIdol: "최애",deletedCapacity: cleanUpCapacity.byteToGBStr(format: "%.1f"), deletedTotalCapacity: deletedTotalCapacity.byteToGBStr(format: "%.1f"), timeInterval: 1))
         }
     }
     
