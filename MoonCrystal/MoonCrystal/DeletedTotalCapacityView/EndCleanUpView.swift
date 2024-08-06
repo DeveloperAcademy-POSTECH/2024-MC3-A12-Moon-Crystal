@@ -25,10 +25,11 @@ struct EndCleanUpView: View {
                 Spacer()
             }
             .padding(.top, 116)
-
+            
             HStack {
-                Text("포토카드에 당신의 마음을 담았어요")
+                Text("포토카드에 \(userProfile?.nickname ?? "당신")의 마음을 담았어요")
                     .font(.system(size: 16))
+                    .foregroundStyle(.gray700)
                 Spacer()
             }
             .padding(.top, 8)
@@ -56,9 +57,7 @@ struct EndCleanUpView: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             // 종료 클릭 시 다이나믹 종료
-            LiveActivityManager.endLiveActivity()
-            // 정리된 용량 전체 정리용량에 추가하기
+            LiveActivityManager.endLiveActivity(isActive: true)
         }
-        
     }
 }

@@ -68,8 +68,8 @@ struct FormatInputView: View {
                         Image(systemName: "chevron.left")
                         Text("뒤로")
                     }
-                    .font(.system(size: 17))
-                    .foregroundStyle(.gray900)
+                    .font(.system(size: 16))
+                    .foregroundStyle(.gray700)
                 }
             }
         }
@@ -92,10 +92,10 @@ struct FormatInputView: View {
                 .overlay(
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .black)
+                            .stroke(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .clear)
                         Text(buttonName)
                             .font(.system(size: 16, weight: selectedType == type ? .semibold : .regular))
-                            .foregroundStyle(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .black)
+                            .foregroundStyle(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .gray600)
                     }
                 )
         }

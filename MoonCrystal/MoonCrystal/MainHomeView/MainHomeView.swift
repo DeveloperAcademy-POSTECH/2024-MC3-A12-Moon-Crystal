@@ -9,10 +9,11 @@ import SwiftData
 import SwiftUI
 
 struct MainHomeView: View {
+    @AppStorage(UserDefaultsKeys.runLiveActivity.rawValue) var runLiveActivity: Bool = false
+
     @State private var navPath: [String] = []
     @State var totalCapacity = 0
     @State var freeCapacity = 0
-    @State var favoriteIdol = "최애"
     @State private var progress: Float = 0.0
     
     @Query var userProfile: [UserProfile]
@@ -73,6 +74,11 @@ struct MainHomeView: View {
         .task {
             await fetchCapacityData()
         }
+        .onChange(of: runLiveActivity) {
+            if !runLiveActivity {
+                navPath.removeAll()
+            }
+        }
         .onChange(of: navPath) {
             if navPath.isEmpty {
                 Task {
@@ -88,7 +94,6 @@ struct MainHomeView: View {
             freeCapacity = await CapacityCalculator.getFreeCapacity()
             progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
         }
-        favoriteIdol = userProfile.first?.favoriteIdol ?? "최애"
     }
     
     var profileViewButton: some View {
@@ -121,12 +126,12 @@ struct MainHomeView: View {
                 .frame(height: 64)
                 .foregroundStyle(.white)
                 .overlay(RoundedRectangle(cornerRadius: 32).stroke(Color.gray200, lineWidth: 0.5))
-            HStack {
+            HStack(spacing: 0) {
                 Image(systemName: "heart.fill")
                     .frame(width: 18, height: 18)
                     .foregroundStyle(Color.pink200)
                     .padding(.trailing, 12)
-                Text("\(favoriteIdol)\(MainHomeViewComponent.deletedStorage.title)")
+                Text("\(MainHomeViewComponent.deletedStorage.title)")
                     .font(.system(size: 15))
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -139,7 +144,7 @@ struct MainHomeView: View {
     var availableTime: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0.0) {
-                Text(MainHomeViewComponent.availableTime.title)
+                Text("\(userProfile.first?.favoriteIdol ?? "최애")\(MainHomeViewComponent.availableTime.title)")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color.gray700)
                     .padding(.top, 38)

@@ -116,7 +116,7 @@ struct UserProfileDetailView: View {
                     .foregroundColor(.gray700)
                 
                 Text("뒤로")
-                    .font(.system(size: 17, weight: .regular))
+                    .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.gray700)
             }
         }

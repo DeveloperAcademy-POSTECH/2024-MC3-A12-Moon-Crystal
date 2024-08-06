@@ -16,6 +16,9 @@
 		1BF858BB2C5B75A200C2204E /* CapacityDirectInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */; };
 		1BF858BC2C5B75A200C2204E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B62C5B75A200C2204E /* CustomSlider.swift */; };
 		1BF858BD2C5B75A200C2204E /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B72C5B75A200C2204E /* TipView.swift */; };
+		1E26D7272C62583D007E6059 /* LocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D72C537CB8000257EA /* LocalNotificationType.swift */; };
+		1E26D72A2C625A6D007E6059 /* requestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D7292C625A6D007E6059 /* requestNotification.swift */; };
+		1E26D72B2C625A6D007E6059 /* requestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D7292C625A6D007E6059 /* requestNotification.swift */; };
 		1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */; };
 		1E356AD62C5CCA5A00869711 /* CleanUpStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */; };
 		1E5593472C53800B00C78466 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5593462C53800B00C78466 /* WidgetKit.framework */; };
@@ -111,6 +114,7 @@
 		1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacityDirectInputView.swift; sourceTree = "<group>"; };
 		1BF858B62C5B75A200C2204E /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		1BF858B72C5B75A200C2204E /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		1E26D7292C625A6D007E6059 /* requestNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestNotification.swift; sourceTree = "<group>"; };
 		1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivitySaveTimeView.swift; sourceTree = "<group>"; };
 		1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUpStatusView.swift; sourceTree = "<group>"; };
 		1E5593442C53800B00C78466 /* MoonCrystalWidgetExtentionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoonCrystalWidgetExtentionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +200,14 @@
 				1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */,
 			);
 			path = SelectCapacity;
+			sourceTree = "<group>";
+		};
+		1E26D7282C625A57007E6059 /* RequestNotification */ = {
+			isa = PBXGroup;
+			children = (
+				1E26D7292C625A6D007E6059 /* requestNotification.swift */,
+			);
+			path = RequestNotification;
 			sourceTree = "<group>";
 		};
 		1E5593452C53800B00C78466 /* Frameworks */ = {
@@ -361,6 +373,7 @@
 				1EB4BE952C5F3E8100BEE5DB /* UserDefaultsKeys */,
 				26C965D62C537C9D000257EA /* Notification */,
 				1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */,
+				1E26D7282C625A57007E6059 /* RequestNotification */,
 				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
 				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
 				1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */,
@@ -520,7 +533,9 @@
 				1E99CC912C5F6B0F002A7156 /* CapacityCalculator.swift in Sources */,
 				1EAA7F252C5F722000BF140D /* UserDefaultsKeys.swift in Sources */,
 				1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */,
+				1E26D7272C62583D007E6059 /* LocalNotificationType.swift in Sources */,
 				1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
+				1E26D72B2C625A6D007E6059 /* requestNotification.swift in Sources */,
 				1EAA7F232C5F6F9100BF140D /* MediaCapacityConverter.swift in Sources */,
 				1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */,
 				1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */,
@@ -549,6 +564,7 @@
 				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
 				260035C42C57703500343511 /* UserProfileView.swift in Sources */,
 				26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */,
+				1E26D72A2C625A6D007E6059 /* requestNotification.swift in Sources */,
 				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
 				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
 				1BC4CF962C606B190012B7F0 /* CustomNumPad.swift in Sources */,

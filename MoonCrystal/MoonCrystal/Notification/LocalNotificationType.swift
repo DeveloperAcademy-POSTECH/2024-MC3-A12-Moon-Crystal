@@ -20,8 +20,8 @@ enum NotificationType: String {
             guard let favoritIdol = favoritIdol, let data = deletedCapacity, let total = deletedTotalCapacity else {
                 return ("Result Notification", "지금까지 정리된 내용을 확인할 수 없습니다.")
             }
-            let title = "\(data) 정리 완료!"
-            let body = "지금까지 \(favoritIdol)를 위해 \(total)를 정리했어요"
+            let title = "\(data)GB 정리 완료!"
+            let body = "지금까지 \(favoritIdol)를 위해 \(total)GB를 정리했어요"
             return (title, body)
         }
     }

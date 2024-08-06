@@ -27,6 +27,8 @@ struct PreCleanupInfoView: View {
     private let title = "앱을 나가서\n정리를 시작해 보세요"
     private let description = "사진, 앱, 캐시 데이터를 삭제하면 실시간으로\n다이나믹 아일랜드에서 정리 현황을 알려줄게요"
     
+    var favoritIdol = "최애"
+    
     var body: some View {
         VStack(spacing: 14) {
             HStack {
@@ -45,12 +47,19 @@ struct PreCleanupInfoView: View {
                     Circle()
                         .frame(width: 52)
                         .foregroundStyle(.white)
+                        .overlay(Circle().stroke(.gray200, lineWidth: 0.5))
                         .overlay {
                             if notificationManager.isGranted {
                                 Image(systemName: "bell")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 21)
                                     .tint(.gray600)
                             } else {
                                 Image(systemName: "bell.slash")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 21)
                                     .tint(.gray600)
                             }
                         }
@@ -109,7 +118,7 @@ struct PreCleanupInfoView: View {
             } else if scenePhase == .background && !isAppBackgroundedByURL {
                 // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
                 Task {
-                    await LiveActivityManager.startLiveActivity()
+                    await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
                     self.path.append("CleanUpView")
                 }
             }
@@ -128,8 +137,8 @@ struct PreCleanupInfoView: View {
                         Image(systemName: "chevron.left")
                         Text("뒤로")
                     }
-                    .font(.system(size: 17))
-                    .foregroundStyle(.gray900)
+                    .font(.system(size: 16))
+                    .foregroundStyle(.gray700)
                 }
             }
         }
