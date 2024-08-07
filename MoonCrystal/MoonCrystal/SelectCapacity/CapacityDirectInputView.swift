@@ -37,7 +37,7 @@ struct CapacityDirectInputView: View {
             .padding(.bottom, 2)
             
             Text(favoriteIdol + title)
-                .font(.system(size: 24, weight: .semibold))
+                .font(.system(size: 24, weight: .bold))
                 .frame(height: 67)
                 .foregroundColor(.gray900)
                 .padding(.bottom, 31)

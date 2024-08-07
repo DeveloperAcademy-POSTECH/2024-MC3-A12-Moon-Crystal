@@ -54,7 +54,7 @@ struct UserProfileDetailView: View {
         VStack(spacing: 16) {
             HStack {
                 Text("최애 사진")
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: 16, weight: .bold))
                     .foregroundStyle(.gray700)
                 Spacer()
             }
@@ -69,7 +69,7 @@ struct UserProfileDetailView: View {
         VStack(spacing: 16) {
             HStack {
                 Text(title)
-                    .font(.system(size: 16, weight:.semibold))
+                    .font(.system(size: 16, weight:.bold))
                     .foregroundStyle(.gray700)
                 Spacer()
             }

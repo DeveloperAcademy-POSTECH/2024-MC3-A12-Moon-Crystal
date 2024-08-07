@@ -23,7 +23,7 @@ struct UserProfileImageInputPageView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(page.title)
-                            .font(.system(size: 28, weight: .semibold))
+                            .font(.system(size: 28, weight: .bold))
                             .foregroundStyle(.gray900)
                             .multilineTextAlignment(.leading)
                             .fixedSize()
@@ -45,7 +45,7 @@ struct UserProfileImageInputPageView: View {
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("완료하기")
-                    .font(.system(size: 16, weight: .regular))
+                    .font(.system(size: 15, weight: .regular))
                     .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)

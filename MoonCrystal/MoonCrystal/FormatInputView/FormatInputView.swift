@@ -21,7 +21,7 @@ struct FormatInputView: View {
         VStack(spacing: 0) {
             HStack {
                 Text("어떤 화질로\n촬영하실 건가요?")
-                    .font(.system(size: 28, weight: .semibold))
+                    .font(.system(size: 28, weight: .bold))
                 Spacer()
             }
             HStack() {
@@ -49,6 +49,7 @@ struct FormatInputView: View {
                     .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
                     .overlay(
                         Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
+                            .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(.white))
             }
             .disabled(selectedType == nil)
@@ -94,7 +95,7 @@ struct FormatInputView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .clear)
                         Text(buttonName)
-                            .font(.system(size: 16, weight: selectedType == type ? .semibold : .regular))
+                            .font(.system(size: 16, weight: selectedType == type ? .bold : .regular))
                             .foregroundStyle(isHighQualitySelected == (type != .defaultQuality) ? .pink300 : .gray600)
                     }
                 )

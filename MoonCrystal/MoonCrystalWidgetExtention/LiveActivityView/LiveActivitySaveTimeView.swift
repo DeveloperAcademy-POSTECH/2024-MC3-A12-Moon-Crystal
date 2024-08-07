@@ -14,7 +14,7 @@ struct LiveActivitySaveTimeView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
-            Text("전체 확보 시간")
+            Text("촬영 가능 시간")
                 .font(.system(size: 12, weight: .medium))
                 .foregroundStyle(.white)
             Text(MediaCapacityConverter.getavailableTimeText(capacity: freeCapacity, format: seletedVideoFormat))

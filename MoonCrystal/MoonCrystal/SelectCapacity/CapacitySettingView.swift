@@ -51,7 +51,7 @@ struct CapacitySettingView: View {
                 Spacer()
                 HStack {
                     Text(favoriteIdol + title)
-                        .font(.system(size: 28, weight: .semibold))
+                        .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.gray900)
                         .padding(.bottom, 54)
                         .padding(.leading, 20)
@@ -119,7 +119,7 @@ struct CapacitySettingView: View {
                         .foregroundStyle(.gray900)
                         .overlay(
                             Text("정리 시작하기")
-                                .font(.system(size: 16))
+                                .font(.system(size: 15, weight: .regular))
                                 .foregroundStyle(.white)
                         )
                 }
@@ -131,7 +131,7 @@ struct CapacitySettingView: View {
                 } label: {
                     Text("홈으로 가기")
                         .underline()
-                        .font(.system(size: 15))
+                        .font(.system(size: 15, weight: .regular))
                         .foregroundStyle(.gray500)
                 }
                 .padding(.top, 24)

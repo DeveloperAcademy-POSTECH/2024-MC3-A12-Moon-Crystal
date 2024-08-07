@@ -60,6 +60,7 @@ struct MainHomeView: View {
                     .padding(.top, 260)
                     .padding(.horizontal)
                 }
+                
                 Spacer()
             }
             .background(Color.gray50)
@@ -184,6 +185,7 @@ struct MainHomeView: View {
             .foregroundStyle(Color.gray900)
             .overlay(
                 Text(MainHomeViewComponent.CleanUpButton.title)
+                    .font(.system(size: 15, weight: .regular))
                     .foregroundStyle(.white))
     }
 }

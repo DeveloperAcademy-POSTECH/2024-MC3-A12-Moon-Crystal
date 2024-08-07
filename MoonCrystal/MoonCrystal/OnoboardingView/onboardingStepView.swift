@@ -16,7 +16,7 @@ struct onboardingStepView: View {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Text(step.title)
-                        .font(.system(size: 28, weight: .semibold))
+                        .font(.system(size: 28, weight: .bold))
                         .foregroundStyle(.gray900)
 
                     Spacer()
