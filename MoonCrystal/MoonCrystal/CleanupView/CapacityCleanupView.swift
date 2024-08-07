@@ -25,7 +25,7 @@ struct CapacityCleanupView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text("지금까지 \(MediaCapacityConverter.capacityToTime(capacity: cleanUpCapacity, format: seletedVideoFormat))분(\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
+                Text("지금까지 \(MediaCapacityConverter.capacityToHourAndMinute(capacity: cleanUpCapacity, format: seletedVideoFormat))(\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
                     .foregroundStyle(.gray900)
                     .font(.system(size: 28, weight: .semibold))
                     .multilineTextAlignment(.leading)
