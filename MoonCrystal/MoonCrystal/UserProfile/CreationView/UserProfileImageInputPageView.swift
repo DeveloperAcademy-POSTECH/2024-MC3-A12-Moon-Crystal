@@ -23,7 +23,7 @@ struct UserProfileImageInputPageView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(page.title)
-                            .font(.system(size: 28, weight: .semibold))
+                            .font(.system(size: 28, weight: .bold))
                             .foregroundStyle(.gray900)
                             .multilineTextAlignment(.leading)
                             .fixedSize()

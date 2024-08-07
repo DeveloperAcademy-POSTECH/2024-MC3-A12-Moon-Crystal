@@ -51,7 +51,7 @@ struct CapacitySettingView: View {
                 Spacer()
                 HStack {
                     Text(favoriteIdol + title)
-                        .font(.system(size: 28, weight: .semibold))
+                        .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.gray900)
                         .padding(.bottom, 54)
                         .padding(.leading, 20)

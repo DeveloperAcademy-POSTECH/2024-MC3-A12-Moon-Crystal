@@ -27,7 +27,7 @@ struct CapacityCleanupView: View {
             HStack {
                 Text("지금까지 \(MediaCapacityConverter.capacityToHourAndMinute(capacity: cleanUpCapacity, format: seletedVideoFormat))(\(cleanUpCapacity.byteToGBStr(format: "%.1f"))GB)\n확보했어요")
                     .foregroundStyle(.gray900)
-                    .font(.system(size: 28, weight: .semibold))
+                    .font(.system(size: 28, weight: .bold))
                     .multilineTextAlignment(.leading)
                     .frame(height: 74)
                 Spacer()
@@ -98,7 +98,7 @@ struct CapacityCleanupView: View {
                 .font(.system(size: 12, weight: .regular))
                 .foregroundStyle(.gray600)
             Text(value)
-                .font(.system(size: 20, weight: .semibold))
+                .font(.system(size: 20, weight: .bold))
                 .foregroundStyle(.gray900)
         }
     }

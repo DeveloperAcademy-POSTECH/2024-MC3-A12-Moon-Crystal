@@ -89,7 +89,7 @@ struct PreCleanupInfoView: View {
                 VStack(alignment: .leading, spacing: 22) {
                     Text(title)
                         .foregroundStyle(.gray900)
-                        .font(.system(size: 28, weight: .semibold))
+                        .font(.system(size: 28, weight: .bold))
                         .multilineTextAlignment(.leading)
                     Text(description)
                         .foregroundStyle(.gray600)

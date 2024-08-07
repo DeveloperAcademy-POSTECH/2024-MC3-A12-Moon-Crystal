@@ -19,7 +19,7 @@ struct TipView: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .top, spacing: 0) {
                     Text("Tip")
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 20, weight: .bold))
                         .padding(.leading, 20)
                     Spacer()
                     Button {
@@ -34,7 +34,7 @@ struct TipView: View {
                 }
                 
                 Text(title)
-                    .font(.system(size: 24, weight: .semibold))
+                    .font(.system(size: 24, weight: .bold))
                     .padding(.leading, 22)
                     .padding(.top, 23)
                     .foregroundColor(.gray700)

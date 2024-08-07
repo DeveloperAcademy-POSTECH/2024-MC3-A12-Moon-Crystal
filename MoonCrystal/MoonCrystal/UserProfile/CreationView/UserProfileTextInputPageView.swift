@@ -20,7 +20,7 @@ struct UserProfileTextInputPageView: View {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(page.title)
-                        .font(.system(size: 28, weight: .semibold))
+                        .font(.system(size: 28, weight: .bold))
                         .foregroundStyle(.gray900)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
