@@ -16,6 +16,8 @@ struct MainHomeView: View {
     @State var freeCapacity = 0
     @State private var progress: Float = 0.0
     
+    @AppStorage(UserDefaultsKeys.hasSeenGuide.rawValue) var hasSeenGuide: Bool = false
+    
     @Query var userProfile: [UserProfile]
     
     var body: some View {
@@ -71,6 +73,16 @@ struct MainHomeView: View {
             }
         }
         .tint(.gray900)
+        .overlay {
+            if !hasSeenGuide {
+                Button {
+                    hasSeenGuide = true
+                } label: {
+                    Image("ProfileTip")
+                        .ignoresSafeArea(.all)
+                }
+            }
+        }
         .task {
             await fetchCapacityData()
         }

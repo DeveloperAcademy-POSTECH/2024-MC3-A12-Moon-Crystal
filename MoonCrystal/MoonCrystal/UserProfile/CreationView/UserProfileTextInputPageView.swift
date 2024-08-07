@@ -11,14 +11,12 @@ struct UserProfileTextInputPageView: View {
     @Binding var currentPage: Int
     @Binding var userProfileData: UserProfileInputModel
     
-    @State private var isTextInputTooLong = false
-    
     private let maxTextCount = 10
     
     var page: UserProfileCreationPage
     
     var body: some View {
-        VStack(spacing: 19) {
+        VStack(spacing: 44) {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(page.title)
@@ -35,10 +33,6 @@ struct UserProfileTextInputPageView: View {
             }
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(page.warningMessage)
-                    .font(.system(size: 14, weight: .light))
-                    .foregroundStyle(isTextInputTooLong ? .pink300 : .clear)
-                
                 TextField("", text: bindingForCurrentPage())
                     .font(.system(size: 16, weight: .regular))
                     .frame(height: 48)
@@ -46,20 +40,19 @@ struct UserProfileTextInputPageView: View {
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(isTextInputTooLong ? .pink300 : .clear, lineWidth: 1)
-                    )
-                    .overlay(
                         HStack {
                             Spacer()
                             Text("\(bindingForCurrentPage().wrappedValue.count)/\(maxTextCount)")
                                 .font(.system(size: 16, weight: .regular))
-                                .foregroundColor(isTextInputTooLong ? .pink300 : .gray300)
+                                .foregroundColor(.gray300)
                                 .padding(.trailing, 16)
                         }
                     )
                     .onChange(of: bindingForCurrentPage().wrappedValue) {
-                        isTextInputTooLong = bindingForCurrentPage().wrappedValue.count > maxTextCount
+                        if bindingForCurrentPage().wrappedValue.count > maxTextCount {
+                            // 최대 글자 수를 초과하면 초과 부분을 제거
+                            bindingForCurrentPage().wrappedValue = String(bindingForCurrentPage().wrappedValue.prefix(maxTextCount))
+                        }
                     }
             }
             
@@ -75,11 +68,11 @@ struct UserProfileTextInputPageView: View {
                     .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)
-                    .background(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty ? .gray400 : .gray900)
+                    .background(bindingForCurrentPage().wrappedValue.isEmpty ? .gray400 : .gray900)
                     .foregroundColor(.white)
                     .cornerRadius(12)
             }
-            .disabled(isTextInputTooLong || bindingForCurrentPage().wrappedValue.isEmpty)
+            .disabled(bindingForCurrentPage().wrappedValue.isEmpty)
         }
     }
     

@@ -21,6 +21,9 @@ struct PhotoPickerButton: View {
                 if let imageData = userProfileData.imageData, let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)
                         .resizable()
+                        .scaledToFill()
+                        .frame(width: 307, height: 338)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                         .overlay(
                             ZStack(alignment: .center) {
                                 if isEditing {
@@ -31,7 +34,7 @@ struct PhotoPickerButton: View {
                                 }
                             }
                         )
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
                         
                 } else {
                     Image("ProfileImagePlaceholder")

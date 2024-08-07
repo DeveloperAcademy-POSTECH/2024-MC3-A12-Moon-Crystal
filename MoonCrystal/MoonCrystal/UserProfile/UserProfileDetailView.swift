@@ -16,9 +16,6 @@ struct UserProfileDetailView: View {
     @State private var isEditing = false
     @State private var userProfileInputData = UserProfileInputModel()
     
-    @State private var isFavoriteIdolTooLong = false
-    @State private var isNicknameTooLong = false
-    
     private let maxTextCount = 10
     
     init(userProfile: UserProfile) {
@@ -32,11 +29,9 @@ struct UserProfileDetailView: View {
         VStack(spacing: 36) {
             profileImageSection
             textInputSection(title: "좋아하는 아이돌 이름",
-                             text: $userProfileInputData.favoriteIdol,
-                             isTextTooLong: $isFavoriteIdolTooLong)
+                             text: $userProfileInputData.favoriteIdol)
             textInputSection(title: "팬덤이름",
-                             text: $userProfileInputData.nickname,
-                             isTextTooLong: $isNicknameTooLong)
+                             text: $userProfileInputData.nickname)
         }
         .padding(.top, 36)
         .padding(.bottom, 104)
@@ -70,7 +65,7 @@ struct UserProfileDetailView: View {
     }
     
     // 텍스트 입력 섹션
-    private func textInputSection(title: String, text: Binding<String>, isTextTooLong: Binding<Bool>) -> some View {
+    private func textInputSection(title: String, text: Binding<String>) -> some View {
         VStack(spacing: 16) {
             HStack {
                 Text(title)
@@ -86,10 +81,6 @@ struct UserProfileDetailView: View {
                 .foregroundColor(.gray900)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(isTextTooLong.wrappedValue ? .pink300 : .clear, lineWidth: 1)
-                )
-                .overlay(
                     HStack {
                         Spacer()
                         Text(isEditing ? "\(text.wrappedValue.count)/\(maxTextCount)" : "")
@@ -100,7 +91,10 @@ struct UserProfileDetailView: View {
                 )
                 .disabled(!isEditing)
                 .onChange(of: text.wrappedValue) {
-                    isTextTooLong.wrappedValue = text.wrappedValue.count > maxTextCount
+                    if text.wrappedValue.count > maxTextCount {
+                        // 최대 글자 수를 초과하면 초과 부분을 제거
+                        text.wrappedValue = String(text.wrappedValue.prefix(maxTextCount))
+                    }
                 }
         }
     }
@@ -124,12 +118,8 @@ struct UserProfileDetailView: View {
     
     // 수정 & 저장 버튼
     private var editSaveButton: some View {
-        let isSaveDisabled = isFavoriteIdolTooLong || isNicknameTooLong
-        
-       return Button {
+         Button {
             if isEditing {
-                if isSaveDisabled { return }
-                
                 // Save changes
                 userProfile.favoriteIdol = userProfileInputData.favoriteIdol
                 userProfile.nickname = userProfileInputData.nickname
@@ -144,7 +134,7 @@ struct UserProfileDetailView: View {
         } label: {
             Text(isEditing ? "저장" : "수정")
                 .font(.system(size: 16, weight: .regular))
-                .foregroundColor(isEditing ? (isSaveDisabled ? .gray400 : .pink300) : .gray700)
+                .foregroundColor(isEditing ? .pink300 : .gray700)
         }
     }
     
