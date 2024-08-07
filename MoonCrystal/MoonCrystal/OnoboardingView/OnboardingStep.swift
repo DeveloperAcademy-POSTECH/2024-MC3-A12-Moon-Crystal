@@ -50,7 +50,7 @@ enum OnboardingStep: Int, CaseIterable {
         case .second:
             return "계속"
         case .third:
-            return "완료하기"
+            return "시작하기"
         }
     }
 }
