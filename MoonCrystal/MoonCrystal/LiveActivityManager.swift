@@ -23,11 +23,9 @@ class LiveActivityManager {
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
                     let content = ActivityContent(state: contentState, staleDate:  Date(timeIntervalSinceNow: 10))
-                    print("1\(contentState), \(12)")
                     let _ = try Activity<dynamicCapacityAttributes>.request(attributes:  activityData, content: content)
                 }
             } else {
-                        print("2")
 
                 let _ = try Activity<dynamicCapacityAttributes>.request(attributes:  activityData, contentState: contentState)
             }
