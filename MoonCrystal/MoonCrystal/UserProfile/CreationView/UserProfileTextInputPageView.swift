@@ -64,7 +64,7 @@ struct UserProfileTextInputPageView: View {
                 }
             } label: {
                 Text("다음")
-                    .font(.system(size: 16, weight: .regular))
+                    .font(.system(size: 15, weight: .regular))
                     .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)

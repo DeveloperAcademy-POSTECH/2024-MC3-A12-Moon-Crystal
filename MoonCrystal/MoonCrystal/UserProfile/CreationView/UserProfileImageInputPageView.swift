@@ -45,7 +45,7 @@ struct UserProfileImageInputPageView: View {
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("완료하기")
-                    .font(.system(size: 16, weight: .regular))
+                    .font(.system(size: 15, weight: .regular))
                     .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)

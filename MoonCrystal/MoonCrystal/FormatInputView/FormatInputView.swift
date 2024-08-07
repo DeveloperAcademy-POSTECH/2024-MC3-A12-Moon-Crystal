@@ -49,6 +49,7 @@ struct FormatInputView: View {
                     .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
                     .overlay(
                         Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
+                            .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(.white))
             }
             .disabled(selectedType == nil)
