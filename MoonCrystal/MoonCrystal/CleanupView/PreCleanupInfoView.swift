@@ -115,7 +115,7 @@ struct PreCleanupInfoView: View {
                     await notificationManager.getCurrentSettings()
                     isAppBackgroundedByURL = false
                 }
-            } else if scenePhase == .background && !isAppBackgroundedByURL {
+            } else if scenePhase == .inactive && !isAppBackgroundedByURL {
                 // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
                 Task {
                     await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
