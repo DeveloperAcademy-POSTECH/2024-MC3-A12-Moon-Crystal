@@ -43,6 +43,15 @@ struct OnboardingView: View {
         .padding(.horizontal)
         .background(.gray50)
         .ignoresSafeArea(.all, edges: [.top, .bottom])
+        .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
+                            .onEnded { value in
+                                let horizontalAmount = value.translation.width
+                                if horizontalAmount < 0 && currentStep != .third {
+                                    moveToNextStep()
+                                } else if horizontalAmount > 0 && currentStep != .first {
+                                    moveToBackStep()
+                                }
+                            })
     }
     
     private func moveToNextStep() {
@@ -54,6 +63,19 @@ struct OnboardingView: View {
                 currentStep = .third
             case .third:
                 isFirstLaunch = false
+            }
+        }
+    }
+    
+    private func moveToBackStep() {
+        withAnimation {
+            switch currentStep {
+            case .first:
+                break
+            case .second:
+                currentStep = .first
+            case .third:
+                currentStep = .second
             }
         }
     }
