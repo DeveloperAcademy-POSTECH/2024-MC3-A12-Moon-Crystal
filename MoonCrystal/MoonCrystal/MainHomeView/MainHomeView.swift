@@ -10,13 +10,12 @@ import SwiftUI
 
 struct MainHomeView: View {
     @AppStorage(UserDefaultsKeys.runLiveActivity.rawValue) var runLiveActivity: Bool = false
-
+    @AppStorage(UserDefaultsKeys.hasSeenGuide.rawValue) var hasSeenGuide: Bool = false
+    
     @State private var navPath: [String] = []
     @State var totalCapacity = 0
     @State var freeCapacity = 0
     @State private var progress: Float = 0.0
-    
-    @AppStorage(UserDefaultsKeys.hasSeenGuide.rawValue) var hasSeenGuide: Bool = false
     
     @Query var userProfile: [UserProfile]
     
@@ -63,7 +62,18 @@ struct MainHomeView: View {
                 
                 Spacer()
             }
-            .background(Color.gray50)
+            .background(.gray50)
+            .overlay {
+                if !hasSeenGuide {
+                    Button {
+                        hasSeenGuide = true
+                    } label: {
+                        Image("ProfileTip")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                }
+            }
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
                 if pathValue == "FormatInput" {
@@ -74,16 +84,6 @@ struct MainHomeView: View {
             }
         }
         .tint(.gray900)
-        .overlay {
-            if !hasSeenGuide {
-                Button {
-                    hasSeenGuide = true
-                } label: {
-                    Image("ProfileTip")
-                        .ignoresSafeArea(.all)
-                }
-            }
-        }
         .task {
             await fetchCapacityData()
         }
@@ -193,4 +193,3 @@ struct MainHomeView: View {
 #Preview {
     MainHomeView()
 }
-
