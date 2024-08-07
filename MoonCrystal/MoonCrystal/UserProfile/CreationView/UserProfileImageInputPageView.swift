@@ -26,6 +26,7 @@ struct UserProfileImageInputPageView: View {
                             .font(.system(size: 28, weight: .semibold))
                             .foregroundStyle(.gray900)
                             .multilineTextAlignment(.leading)
+                            .fixedSize()
                         
                         Text(page.description)
                             .font(.system(size: 16, weight: .regular))
