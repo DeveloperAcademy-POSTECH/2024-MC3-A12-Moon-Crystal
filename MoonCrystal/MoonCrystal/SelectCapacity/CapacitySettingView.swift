@@ -39,7 +39,7 @@ struct CapacitySettingView: View {
         return MediaCapacityConverter.capacityToPhoto(capacity: Int(selectedCapacity) * 1_073_741_824)
     }
     var videoTime: Int {
-        return MediaCapacityConverter.capacityToTime(capacity: Int(selectedCapacity) * 1_073_741_824, format: videoFormat)
+        return MediaCapacityConverter.capacityToMinute(capacity: Int(selectedCapacity) * 1_073_741_824, format: videoFormat)
     }
     let title = "를 위해 \n몇 GB 정리할까요?"
     let ment = "촬영할 수 있어요"
