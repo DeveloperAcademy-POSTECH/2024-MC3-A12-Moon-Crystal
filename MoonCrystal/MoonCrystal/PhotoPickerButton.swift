@@ -34,8 +34,6 @@ struct PhotoPickerButton: View {
                             }
                         )
                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                        
-                        
                 } else {
                     Image("ProfileImagePlaceholder")
                         .resizable()

@@ -19,10 +19,8 @@ struct UserProfileCreationView: View {
                 .padding(.top, 42)
                 .padding(.bottom, 40)
         
-            
             pageView
                 .padding(.bottom, 86)
-//            Spacer()
         }
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
