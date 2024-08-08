@@ -75,7 +75,7 @@ struct MyFavoriteIdolCardView : View {
     var cardDescription: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("지금까지 \(userProfile?.favoriteIdol ?? "최애")를 위해")
+                Text("지금까지 \(JosaFomatter.postPositionText(userProfile?.favoriteIdol ?? "최애")) 위해")
                     .font(.system(size: 16))
                     .foregroundStyle(.white)
                 HStack(spacing: 0) {

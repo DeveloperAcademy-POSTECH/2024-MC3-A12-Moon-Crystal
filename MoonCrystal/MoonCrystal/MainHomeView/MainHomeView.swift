@@ -157,7 +157,7 @@ struct MainHomeView: View {
     var availableTime: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0.0) {
-                Text("\(userProfile.first?.favoriteIdol ?? "최애")\(MainHomeViewComponent.availableTime.title)")
+                Text("\(JosaFomatter.postPositionText(userProfile.first?.favoriteIdol ?? "최애"))\(MainHomeViewComponent.availableTime.title)")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color.gray700)
                     .padding(.top, 38)

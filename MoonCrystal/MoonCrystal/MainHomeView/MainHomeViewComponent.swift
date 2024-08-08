@@ -16,7 +16,7 @@ enum MainHomeViewComponent {
         case .deletedStorage:
             return "최애를 위해 지금까지 지운 용량"
         case .availableTime:
-            return "를 촬영할 수 있는 시간"
+            return " 촬영할 수 있는 시간"
         case .currentCapacity:
             return "현재 저장 용량"
         case .CleanUpButton:
