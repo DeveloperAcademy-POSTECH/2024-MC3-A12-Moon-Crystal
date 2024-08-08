@@ -41,7 +41,7 @@ struct CapacitySettingView: View {
     var videoTime: Int {
         return MediaCapacityConverter.capacityToMinute(capacity: Int(selectedCapacity) * 1_073_741_824, format: videoFormat)
     }
-    let title = "를 위해 \n몇 GB 정리할까요?"
+    let title = " 위해 \n몇 GB 정리할까요?"
     let ment = "촬영할 수 있어요"
     
     var body: some View {
@@ -50,7 +50,7 @@ struct CapacitySettingView: View {
             VStack(spacing: 0) {
                 Spacer()
                 HStack {
-                    Text(favoriteIdol + title)
+                    Text(JosaFomatter.postPositionText(favoriteIdol) + title)
                         .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.gray900)
                         .padding(.bottom, 54)

@@ -21,7 +21,7 @@ enum NotificationType: String {
                 return ("Result Notification", "지금까지 정리된 내용을 확인할 수 없습니다.")
             }
             let title = "\(data)GB 정리 완료!"
-            let body = "지금까지 \(favoritIdol)를 위해 \(total)GB를 정리했어요"
+            let body = "지금까지 \(JosaFomatter.postPositionText(favoritIdol)) 위해 \(total)GB를 정리했어요"
             return (title, body)
         }
     }

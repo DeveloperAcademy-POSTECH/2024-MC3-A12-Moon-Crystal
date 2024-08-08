@@ -35,7 +35,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 66)
             
             VStack(spacing: 38) {
-                Text("\(userProfile?.favoriteIdol ?? "최애")를 위해 정리중 ...")
+                Text("\(JosaFomatter.postPositionText(userProfile?.favoriteIdol ?? "최애")) 위해 정리중 ...")
                     .foregroundStyle(.gray600)
                     .font(.system(size: 15, weight: .regular))
                 

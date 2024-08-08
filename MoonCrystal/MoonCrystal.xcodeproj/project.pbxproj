@@ -39,6 +39,8 @@
 		1EAA7F232C5F6F9100BF140D /* MediaCapacityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */; };
 		1EAA7F242C5F70CA00BF140D /* VideoFormatCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */; };
 		1EAA7F252C5F722000BF140D /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */; };
+		1EAEBAD12C647AEA00D6C28A /* JosaFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */; };
+		1EAEBAD22C64817100D6C28A /* JosaFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */; };
 		1EB4BE972C5F3E8B00BEE5DB /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */; };
 		1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */; };
 		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
@@ -131,6 +133,7 @@
 		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
 		1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonCrystal.entitlements; sourceTree = "<group>"; };
 		1EAA7F272C5F749100BF140D /* MoonCrystalWidgetExtentionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonCrystalWidgetExtentionExtension.entitlements; sourceTree = "<group>"; };
+		1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JosaFomatter.swift; sourceTree = "<group>"; };
 		1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicIslandButtonsView.swift; sourceTree = "<group>"; };
 		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
@@ -240,6 +243,14 @@
 				1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */,
 			);
 			path = MainHomeView;
+			sourceTree = "<group>";
+		};
+		1EAEBACF2C647AC700D6C28A /* JosaFomatter */ = {
+			isa = PBXGroup;
+			children = (
+				1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */,
+			);
+			path = JosaFomatter;
 			sourceTree = "<group>";
 		};
 		1EB4BE952C5F3E8100BEE5DB /* UserDefaultsKeys */ = {
@@ -377,6 +388,7 @@
 				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
 				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
 				1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */,
+				1EAEBACF2C647AC700D6C28A /* JosaFomatter */,
 				1EEF41582C5BB0820078CD21 /* DeletedTotalCapacityView */,
 				1EEF41462C5A1CD60078CD21 /* FormatInputView */,
 				1E87A6D22C593D1800BD28D1 /* MainHomeView */,
@@ -536,6 +548,7 @@
 				1E26D7272C62583D007E6059 /* LocalNotificationType.swift in Sources */,
 				1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
 				1E26D72B2C625A6D007E6059 /* requestNotification.swift in Sources */,
+				1EAEBAD22C64817100D6C28A /* JosaFomatter.swift in Sources */,
 				1EAA7F232C5F6F9100BF140D /* MediaCapacityConverter.swift in Sources */,
 				1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */,
 				1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */,
@@ -573,6 +586,7 @@
 				260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */,
 				1BF858BD2C5B75A200C2204E /* TipView.swift in Sources */,
 				1EEF415E2C5BDC080078CD21 /* EndCleanUpView.swift in Sources */,
+				1EAEBAD12C647AEA00D6C28A /* JosaFomatter.swift in Sources */,
 				260035E02C5928D000343511 /* PhotoPickerButton.swift in Sources */,
 				1EEF415A2C5BB0B00078CD21 /* DeletedTotalCapacityView.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,

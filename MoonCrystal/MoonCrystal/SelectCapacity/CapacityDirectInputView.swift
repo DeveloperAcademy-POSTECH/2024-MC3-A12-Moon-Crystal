@@ -16,7 +16,7 @@ struct CapacityDirectInputView: View {
     
     var totalCapacity: Int
     var favoriteIdol: String
-    let title = "를 위해 \n몇 GB 정리할까요?"
+    let title = " 위해 \n몇 GB 정리할까요?"
     let alertMessage = "휴대폰 용량을 초과했어요"
     
     var body: some View {
@@ -36,7 +36,7 @@ struct CapacityDirectInputView: View {
             .padding(.top, 14)
             .padding(.bottom, 2)
             
-            Text(favoriteIdol + title)
+            Text(JosaFomatter.postPositionText(favoriteIdol) + title)
                 .font(.system(size: 24, weight: .bold))
                 .frame(height: 67)
                 .foregroundColor(.gray900)
