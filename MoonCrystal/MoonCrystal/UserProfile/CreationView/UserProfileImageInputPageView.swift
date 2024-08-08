@@ -18,8 +18,7 @@ struct UserProfileImageInputPageView: View {
     var page: UserProfileCreationPage
     
     var body: some View {
-        VStack(spacing: 40) {
-            VStack(spacing: 42) {
+        VStack(spacing: 0) {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(page.title)
@@ -34,9 +33,13 @@ struct UserProfileImageInputPageView: View {
                     }
                     Spacer()
                 }
+            
                 PhotoPickerButton(userProfileData: $userProfileData, isEditing: .constant(false))
                     .padding(.horizontal, 23)
-            }
+                    .padding(.top, 42)
+            
+            Spacer()
+            
             Button {
                 let profile = UserProfile(favoriteIdol: userProfileData.favoriteIdol, 
                                           nickname: userProfileData.nickname,
@@ -46,15 +49,17 @@ struct UserProfileImageInputPageView: View {
             } label: {
                 Text("완료하기")
                     .font(.system(size: 15, weight: .regular))
-                    .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)
                     .background(userProfileData.imageData == nil ? .gray400 : .gray900)
                     .foregroundColor(.white)
                     .cornerRadius(12)
+                    .padding(.horizontal)
             }
             .disabled(userProfileData.imageData == nil)
         }
+        .background(.gray50)
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 

@@ -32,6 +32,7 @@ struct UserProfileDetailView: View {
                              text: $userProfileInputData.favoriteIdol)
             textInputSection(title: "팬덤이름",
                              text: $userProfileInputData.nickname)
+            Spacer()
         }
         .padding(.top, 36)
         .padding(.bottom, 104)
