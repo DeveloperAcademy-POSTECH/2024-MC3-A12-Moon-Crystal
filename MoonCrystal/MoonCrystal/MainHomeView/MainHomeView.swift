@@ -16,6 +16,7 @@ struct MainHomeView: View {
     @State var totalCapacity = 0
     @State var freeCapacity = 0
     @State private var progress: Float = 0.0
+    @State var selectedType: VideoFormatCapacity? = .defaultQuality
     
     @Query var userProfile: [UserProfile]
     
@@ -65,10 +66,23 @@ struct MainHomeView: View {
             .background(.gray50)
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
+                // 네비게이션 링크 연결 방식 통일
                 if pathValue == "FormatInput" {
-                    FormatInputView(path: $navPath, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", totalCapacity: Int(totalCapacity.byteToGB()), profileImage: userProfile.first?.image)
+                    
+                    FormatInputView(path: $navPath, selectedType: $selectedType, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", totalCapacity: Int(totalCapacity.byteToGB()), profileImage: userProfile.first?.image)
+                    
+                } else if pathValue == "SettingView" {
+                    
+                    CapacitySettingView(path: $navPath, totalCapacity: Int(totalCapacity.byteToGB()), videoFormat: selectedType!, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", profileImage: userProfile.first?.image)
+                    
+                } else if pathValue == "PreCleanUpView" {
+                    
+                    PreCleanupInfoView(path: $navPath, favoritIdol: userProfile.first?.favoriteIdol ?? "최애", videoFormat: selectedType!)
+                    
                 } else if pathValue == "CleanUpView" {
+                    
                     CapacityCleanupView(path: $navPath, userProfile: userProfile.first)
+        
                 }
             }
         }
