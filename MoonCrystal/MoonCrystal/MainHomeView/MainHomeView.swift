@@ -63,17 +63,6 @@ struct MainHomeView: View {
                 Spacer()
             }
             .background(.gray50)
-            .overlay {
-                if !hasSeenGuide {
-                    Button {
-                        hasSeenGuide = true
-                    } label: {
-                        Image("ProfileTip")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                }
-            }
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
                 if pathValue == "FormatInput" {
@@ -84,6 +73,18 @@ struct MainHomeView: View {
             }
         }
         .tint(.gray900)
+        .overlay {
+            if !hasSeenGuide {
+                Button {
+                    hasSeenGuide = true
+                } label: {
+                    Image("ProfileTip")
+                        .resizable()
+                        .scaledToFill()
+                }
+            }
+        }
+        .ignoresSafeArea(.all)
         .task {
             await fetchCapacityData()
         }

@@ -16,6 +16,7 @@ struct UserProfileView: View {
         if let userProfile {
             UserProfileDetailView(userProfile: userProfile)
                 .padding(.horizontal, 20)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.gray50)
                 .ignoresSafeArea(.all, edges: .bottom)
         } else {
