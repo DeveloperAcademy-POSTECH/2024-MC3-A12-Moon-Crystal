@@ -173,6 +173,7 @@
 		26C965CF2C5241F9000257EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26C965D72C537CB8000257EA /* LocalNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationType.swift; sourceTree = "<group>"; };
 		26C965D92C538046000257EA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		26DB1C102C65DE4000DC8C14 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				26BAEFF32C65AF4D00346BF6 /* Info.plist */,
+				26DB1C102C65DE4000DC8C14 /* PrivacyInfo.xcprivacy */,
 				1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */,
 				1BF858B22C5B753B00C2204E /* SelectCapacity */,
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
