@@ -9,6 +9,8 @@ import Lottie
 import SwiftUI
 
 struct PreCleanupInfoView: View {
+    @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
+
     @AppStorage(UserDefaultsKeys.preFreeCapacity.rawValue) var preFreeCapacity: Int = 0
     
     @Environment(\.scenePhase) var scenePhase
@@ -28,6 +30,7 @@ struct PreCleanupInfoView: View {
     private let description = "사진, 앱, 캐시 데이터를 삭제하면 실시간으로\n다이나믹 아일랜드에서 정리 현황을 알려줄게요"
     
     var favoritIdol = "최애"
+    var videoFormat: VideoFormatCapacity = .defaultQuality
     
     var body: some View {
         VStack(spacing: 14) {
@@ -109,6 +112,10 @@ struct PreCleanupInfoView: View {
         }
         .padding()
         .background(.gray50)
+        .onAppear {
+            // 정리 시작할 때 필요한 값들 설정
+            seletedVideoFormat = videoFormat
+        }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
                 Task {

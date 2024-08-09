@@ -10,7 +10,7 @@ import SwiftUI
 struct FormatInputView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var path: [String]
-    @State var selectedType: VideoFormatCapacity? = .defaultQuality
+    @Binding var selectedType: VideoFormatCapacity?
     @State var isHighQualitySelected = false
     
     var favoriteIdol: String
@@ -39,11 +39,10 @@ struct FormatInputView: View {
             }
             .frame(height: 260)
             .padding(.top, 34)
-            NavigationLink {
-                if let selectedType {
-                    CapacitySettingView(path: $path, totalCapacity: totalCapacity, videoFormat: selectedType, favoriteIdol: favoriteIdol, profileImage: profileImage)
-                }
-            } label: {
+
+            Button(action: {
+                self.path.append("SettingView")
+            }, label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 68)
                     .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
@@ -51,7 +50,7 @@ struct FormatInputView: View {
                         Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
                             .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(.white))
-            }
+            })
             .disabled(selectedType == nil)
             .padding(.top, 42)
             Spacer()
