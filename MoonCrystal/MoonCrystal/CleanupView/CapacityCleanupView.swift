@@ -47,7 +47,7 @@ struct CapacityCleanupView: View {
             .padding(.top, 60)
             
             HStack(alignment: .center, spacing: 49) {
-                capacityTextView(title: "사용 가능 용량", value: "\(String(format: "%.1f", freeCapacity))GB")
+                capacityTextView(title: "사용 가능 용량", value: "\(freeCapacity.byteToGBStr(format: "%.1f"))GB")
                 Divider()
                     .background(.gray300)
                 capacityTextView(title: "촬영 가능 시간", 
@@ -90,6 +90,7 @@ struct CapacityCleanupView: View {
     private func fetchCleanUpData() async {
         cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
         freeCapacity = await CapacityCalculator.getFreeCapacity()
+        print("fetch\(freeCapacity)")
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
