@@ -13,6 +13,7 @@ struct UserProfileDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State var keyboardHeight : CGFloat = 0
     @State private var isEditing = false
     @State private var userProfileInputData = UserProfileInputModel()
     
@@ -26,16 +27,22 @@ struct UserProfileDetailView: View {
     }
     
     var body: some View {
-        VStack(spacing: 36) {
-            profileImageSection
-            textInputSection(title: "좋아하는 아이돌 이름",
-                             text: $userProfileInputData.favoriteIdol)
-            textInputSection(title: "팬덤이름",
-                             text: $userProfileInputData.nickname)
-            Spacer()
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 36) {
+                profileImageSection
+                textInputSection(title: "좋아하는 아이돌 이름",
+                                 text: $userProfileInputData.favoriteIdol)
+                textInputSection(title: "팬덤 이름",
+                                 text: $userProfileInputData.nickname)
+            }
+            .padding(.top, 0)
+            .padding(.bottom, 104)
+            .offset(y: keyboardHeight == 0 ? 0 : -(keyboardHeight / 2) - 90)
+            .animation(.easeOut, value: 0.3)
+            .keyboardHeight($keyboardHeight)
         }
         .padding(.top, 36)
-        .padding(.bottom, 104)
+        .padding(.bottom, 0)
         .navigationTitle(isEditing ? "프로필 수정" : "프로필")
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -119,7 +126,7 @@ struct UserProfileDetailView: View {
     
     // 수정 & 저장 버튼
     private var editSaveButton: some View {
-         Button {
+        Button {
             if isEditing {
                 // Save changes
                 userProfile.favoriteIdol = userProfileInputData.favoriteIdol
@@ -138,5 +145,4 @@ struct UserProfileDetailView: View {
                 .foregroundColor(isEditing ? .pink300 : .gray700)
         }
     }
-    
 }

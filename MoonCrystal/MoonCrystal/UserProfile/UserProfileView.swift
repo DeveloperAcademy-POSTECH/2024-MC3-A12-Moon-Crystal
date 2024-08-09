@@ -12,6 +12,8 @@ struct UserProfileView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    
+    
     var body: some View {
         if let userProfile {
             UserProfileDetailView(userProfile: userProfile)
