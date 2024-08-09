@@ -163,6 +163,7 @@
 		26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding3.json; sourceTree = "<group>"; };
 		26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding2.json; sourceTree = "<group>"; };
 		26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
+		26BAEFF32C65AF4D00346BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -377,6 +378,7 @@
 		26C965C72C5241F8000257EA /* MoonCrystal */ = {
 			isa = PBXGroup;
 			children = (
+				26BAEFF32C65AF4D00346BF6 /* Info.plist */,
 				1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */,
 				1BF858B22C5B753B00C2204E /* SelectCapacity */,
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
@@ -624,7 +626,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
@@ -654,7 +656,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
@@ -805,9 +807,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonCrystal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -844,9 +847,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LYC8XX4ZNC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonCrystal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
