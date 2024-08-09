@@ -14,6 +14,10 @@ class LiveActivityManager {
     // LiveActivity 생성 요청
     static func startLiveActivity(favoritIdol: String?) async {
         do {
+            // 다이나믹이 이미 실행 중인지 파악
+            if let activity = getLiveActivity(name: "RemainingCapacity") {
+                return
+            }
             let freeCapacity = await CapacityCalculator.getFreeCapacity()
             let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             let videoFormat = UserDefaults.standard.integer(forKey: UserDefaultsKeys.seletedVideoFormat.rawValue)
