@@ -90,7 +90,6 @@ struct CapacityCleanupView: View {
     private func fetchCleanUpData() async {
         cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
         freeCapacity = await CapacityCalculator.getFreeCapacity()
-        print("fetch\(freeCapacity)")
     }
     
     private func capacityTextView(title: String, value: String) -> some View {
