@@ -30,7 +30,6 @@ struct onboardingStepView: View {
                     Spacer()
                 }
             }
-//            .padding(.top, 100)
             
             LottieView(animation: .named(step.imageName))
                 .playing(loopMode: .loop)
@@ -49,7 +48,6 @@ struct onboardingStepView: View {
             }
             .padding(.top, 57)
         }
-//        .frame(maxHeight: .infinity)
         .background(.gray50)
     }
 }

@@ -108,7 +108,6 @@ struct CapacitySettingView: View {
                 
                 Button {
                     path.append("PreCleanUpView")
-    
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)

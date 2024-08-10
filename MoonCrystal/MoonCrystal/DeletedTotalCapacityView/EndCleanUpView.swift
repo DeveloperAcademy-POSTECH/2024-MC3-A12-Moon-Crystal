@@ -48,6 +48,7 @@ struct EndCleanUpView: View {
                             .foregroundStyle(.white)
                     )
                     .padding(.top, 65)
+                    .padding(.bottom, 80)
             }
             Spacer()
         }
