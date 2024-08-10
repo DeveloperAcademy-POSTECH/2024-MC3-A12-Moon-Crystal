@@ -13,12 +13,13 @@ struct onboardingStepView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Text(step.title)
                         .font(.system(size: 28, weight: .bold))
                         .foregroundStyle(.gray900)
-
+                        .fixedSize()
                     Spacer()
                 }
                 
@@ -29,6 +30,7 @@ struct onboardingStepView: View {
                     Spacer()
                 }
             }
+//            .padding(.top, 100)
             
             LottieView(animation: .named(step.imageName))
                 .playing(loopMode: .loop)
@@ -47,7 +49,7 @@ struct onboardingStepView: View {
             }
             .padding(.top, 57)
         }
-        .frame(maxHeight: .infinity)
+//        .frame(maxHeight: .infinity)
         .background(.gray50)
     }
 }

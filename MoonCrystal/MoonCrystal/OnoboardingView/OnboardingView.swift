@@ -12,7 +12,7 @@ struct OnboardingView: View {
     @State private var currentStep: OnboardingStep = .first
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             TabView(selection: $currentStep) {
                 onboardingStepView(step: .first)
                     .tag(OnboardingStep.first)
@@ -24,7 +24,6 @@ struct OnboardingView: View {
                     .tag(OnboardingStep.third)
                 
             }
-            .padding(.top, 100)
             
             Button {
                 moveToNextStep()
