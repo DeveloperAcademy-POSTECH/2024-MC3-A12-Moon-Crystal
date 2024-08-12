@@ -15,20 +15,26 @@ struct DeletedTotalCapacityView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
+                .frame(maxHeight: 22)
+            
             HStack {
                 Text("최애를 위해 정리한 용량.zip")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundStyle(.gray900)
                 Spacer()
             }
-            .padding(.top, 22)
+            
+            Spacer()
+                .frame(maxHeight: 49)
             
             deletedTotalStatus
                 .frame(height: 60)
-                .padding(.top, 40)
+            
+            Spacer()
+                .frame(maxHeight: 56)
             
             MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, userProfile: userProfile)
-                .padding(.top, 56)
             Spacer()
         }
         .padding(.horizontal)
