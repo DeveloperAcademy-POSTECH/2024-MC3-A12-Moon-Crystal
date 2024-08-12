@@ -15,6 +15,7 @@ struct EndCleanUpView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
             HStack {
                 Text("정리가 종료됐어요!")
                     .font(.system(size: 24, weight: .semibold))
@@ -24,7 +25,6 @@ struct EndCleanUpView: View {
                     .offset(y: -6)
                 Spacer()
             }
-            .padding(.top, 116)
             
             HStack {
                 Text("포토카드에 \(userProfile?.nickname ?? "당신")의 마음을 담았어요")
@@ -34,8 +34,13 @@ struct EndCleanUpView: View {
             }
             .padding(.top, 8)
             
+            Spacer()
+                .frame(maxHeight: 57)
+            
             MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, currentDeletedCapacity: cleanUpCapacity , isEndView: true, userProfile: userProfile)
-                .padding(.top, 57)
+            
+            Spacer()
+                .frame(maxHeight: 65)
             
             Button {
                 path.removeAll()
@@ -47,14 +52,15 @@ struct EndCleanUpView: View {
                         Text("확인")
                             .foregroundStyle(.white)
                     )
-                    .padding(.top, 65)
-                    .padding(.bottom, 80)
             }
             Spacer()
         }
         .padding(.horizontal)
-        .background(Color.gray50)
-        .edgesIgnoringSafeArea(.all)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background{
+            Color.gray50
+                .ignoresSafeArea(.all)
+        }
         .navigationBarBackButtonHidden()
         .onAppear {
             // 종료 클릭 시 다이나믹 종료
