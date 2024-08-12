@@ -15,6 +15,8 @@ struct ProgressBarView: View {
         ProgressView(value: Double(currentPage), total: totalPages)
             .progressViewStyle(LinearProgressViewStyle())
             .tint(.pink)
+            .frame(height: 6)
+            .padding(.top, 30)
     }
 }
 
