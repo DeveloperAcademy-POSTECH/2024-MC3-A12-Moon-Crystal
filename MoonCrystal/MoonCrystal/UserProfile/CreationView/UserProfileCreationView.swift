@@ -16,13 +16,9 @@ struct UserProfileCreationView: View {
     var body: some View {
         VStack(spacing: 0) {
             ProgressBarView(currentPage: $currentPage)
-                .padding(.top, 42)
-                .padding(.bottom, 40)
-        
             pageView
-                .padding(.bottom, 86)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.gray50)
         .navigationTitle("프로필 작성")

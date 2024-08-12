@@ -16,7 +16,7 @@ struct UserProfileTextInputPageView: View {
     var page: UserProfileCreationPage
     
     var body: some View {
-        VStack(spacing: 44) {
+        VStack(spacing: 0) {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(page.title)
@@ -31,30 +31,32 @@ struct UserProfileTextInputPageView: View {
                 }
                 Spacer()
             }
+            .padding(.top, 40)
             
-            VStack(alignment: .leading, spacing: 8) {
-                TextField("", text: bindingForCurrentPage())
-                    .font(.system(size: 16, weight: .regular))
-                    .frame(height: 48)
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .overlay(
-                        HStack {
-                            Spacer()
-                            Text("\(bindingForCurrentPage().wrappedValue.count)/\(maxTextCount)")
-                                .font(.system(size: 16, weight: .regular))
-                                .foregroundColor(.gray300)
-                                .padding(.trailing, 16)
-                        }
-                    )
-                    .onChange(of: bindingForCurrentPage().wrappedValue) {
-                        if bindingForCurrentPage().wrappedValue.count > maxTextCount {
-                            // 최대 글자 수를 초과하면 초과 부분을 제거
-                            bindingForCurrentPage().wrappedValue = String(bindingForCurrentPage().wrappedValue.prefix(maxTextCount))
-                        }
+            Spacer(minLength: 5)
+                .frame(maxHeight: 42)
+            
+            TextField("", text: bindingForCurrentPage())
+                .font(.system(size: 16, weight: .regular))
+                .frame(height: 48)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .overlay(
+                    HStack {
+                        Spacer()
+                        Text("\(bindingForCurrentPage().wrappedValue.count)/\(maxTextCount)")
+                            .font(.system(size: 16, weight: .regular))
+                            .foregroundColor(.gray300)
+                            .padding(.trailing, 16)
                     }
-            }
+                )
+                .onChange(of: bindingForCurrentPage().wrappedValue) {
+                    if bindingForCurrentPage().wrappedValue.count > maxTextCount {
+                        // 최대 글자 수를 초과하면 초과 부분을 제거
+                        bindingForCurrentPage().wrappedValue = String(bindingForCurrentPage().wrappedValue.prefix(maxTextCount))
+                    }
+                }
             
             Spacer()
             
@@ -65,7 +67,6 @@ struct UserProfileTextInputPageView: View {
             } label: {
                 Text("다음")
                     .font(.system(size: 15, weight: .regular))
-                    .padding()
                     .frame(height: 68)
                     .frame(maxWidth: .infinity)
                     .background(bindingForCurrentPage().wrappedValue.isEmpty ? .gray400 : .gray900)
@@ -73,7 +74,12 @@ struct UserProfileTextInputPageView: View {
                     .cornerRadius(12)
             }
             .disabled(bindingForCurrentPage().wrappedValue.isEmpty)
+            
+            Spacer(minLength: 20)
+                .frame(maxHeight: 86)
         }
+        .background(.gray50)
+        .ignoresSafeArea(.all, edges: .bottom)
     }
     
     private func bindingForCurrentPage() -> Binding<String> {
