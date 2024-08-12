@@ -48,17 +48,17 @@ struct CapacitySettingView: View {
             Color.gray50.ignoresSafeArea()
             VStack(spacing: 0) {
                 Spacer()
+                    .frame(maxHeight: 66)
                 HStack {
                     Text(JosaFomatter.postPositionText(favoriteIdol) + title)
                         .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.gray900)
-                        .padding(.bottom, 54)
                         .padding(.leading, 20)
                         .fixedSize()
                     Spacer()
                 }
-                .padding(.top, 66)
-                
+                Spacer()
+                    .frame(minHeight: 10, maxHeight: 54)
                 VStack(spacing: 24) {
                     Text("\(Int(selectedCapacity))GB")
                         .font(.system(size: 34, weight: .semibold))
@@ -106,6 +106,8 @@ struct CapacitySettingView: View {
                 .foregroundStyle(.gray800)
                 .padding(.horizontal, 20)
                 
+                Spacer()
+                    .frame(minHeight: 20, maxHeight: 60)
                 Button {
                     path.append("PreCleanUpView")
                 } label: {
@@ -119,7 +121,6 @@ struct CapacitySettingView: View {
                         )
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 60)
                 
                 Button {
                     path.removeAll()
@@ -169,5 +170,18 @@ struct CapacitySettingView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+    }
+}
+
+struct CapacitySettingView_Previews: PreviewProvider {
+    @State static var path: [String] = []
+    
+    static var previews: some View {
+        CapacitySettingView(
+            path: $path,
+            totalCapacity: 100,
+            favoriteIdol: "아이유",
+            profileImage: nil
+        )
     }
 }

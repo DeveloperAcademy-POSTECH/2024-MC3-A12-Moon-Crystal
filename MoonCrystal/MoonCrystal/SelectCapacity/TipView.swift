@@ -78,6 +78,9 @@ struct TipView: View {
                         .font(.system(size: 16))
                         .foregroundStyle(.gray800)
                 }
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
+
             }
             Spacer()
         }

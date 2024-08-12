@@ -18,50 +18,53 @@ struct FormatInputView: View {
     var profileImage: Data?
 
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            HStack {
-                Text("어떤 화질로\n촬영하실 건가요?")
-                    .font(.system(size: 28, weight: .bold))
-                    .fixedSize()
+        ZStack(alignment: .top) {
+            Color.gray50.ignoresSafeArea()
+            VStack(spacing: 0) {
                 Spacer()
-            }
-            .padding(.top, 66)
-            
-            HStack {
-                formatButton(buttonName: "기본 화질", type: .defaultQuality)
-                    .padding(.trailing, 9)
-                formatButton(buttonName: "고화질", type: nil)
-            }
-            .padding(.top, 68)
-            
-            HStack() {
-                if isHighQualitySelected {
-                    highFormatRadioButtons
-                        .padding(.top, 10)
+                    .frame(maxHeight: 66)
+                HStack {
+                    Text("어떤 화질로\n촬영하실 건가요?")
+                        .font(.system(size: 28, weight: .bold))
+                        .fixedSize()
+                    Spacer()
                 }
+                
+                HStack {
+                    formatButton(buttonName: "기본 화질", type: .defaultQuality)
+                        .padding(.trailing, 9)
+                    formatButton(buttonName: "고화질", type: nil)
+                }
+                .padding(.top, 68)
+                
+                HStack() {
+                    if isHighQualitySelected {
+                        highFormatRadioButtons
+                            .padding(.top, 10)
+                    }
+                }
+                .frame(height: 260)
+                .padding(.top, 34)
+                
+                Spacer()
+                    .frame(maxHeight: 42)
+                
+                Button {
+                    self.path.append("SettingView")
+                } label: {
+                    RoundedRectangle(cornerRadius: 12)
+                        .frame(height: 68)
+                        .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
+                        .overlay(
+                            Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
+                                .font(.system(size: 15, weight: .regular))
+                                .foregroundStyle(.white))
+                }
+                .disabled(selectedType == nil)
             }
-            .frame(height: 260)
-            .padding(.top, 34)
-
-            Button {
-                self.path.append("SettingView")
-            } label: {
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(height: 68)
-                    .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
-                    .overlay(
-                        Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
-                            .font(.system(size: 15, weight: .regular))
-                            .foregroundStyle(.white))
-            }
-            .disabled(selectedType == nil)
-            .padding(.top, 42)
-            Spacer()
+            .padding(.horizontal)
+            .padding(.bottom, 20)
         }
-        .padding(.horizontal)
-        .ignoresSafeArea()
-        .background(.gray50)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
@@ -117,5 +120,20 @@ struct FormatInputView: View {
         }
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
+struct FormatInputView_Previews: PreviewProvider {
+    @State static var path: [String] = []
+    @State static var selectedType: VideoFormatCapacity? = nil
+    
+    static var previews: some View {
+        FormatInputView(
+            path: $path,
+            selectedType: $selectedType,
+            favoriteIdol: "Sample Idol",
+            totalCapacity: 100,
+            profileImage: nil
+        )
     }
 }
