@@ -11,6 +11,8 @@ import SwiftUI
 struct onboardingStepView: View {
     let step: OnboardingStep
     
+    let stepButtonAction: () -> Void
+    
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
@@ -30,6 +32,7 @@ struct onboardingStepView: View {
                     Spacer()
                 }
             }
+            .padding(.top, 20)  //최소 패딩 걸어두기
             
             LottieView(animation: .named(step.imageName))
                 .playing(loopMode: .loop)
@@ -46,12 +49,27 @@ struct onboardingStepView: View {
                         .frame(width: 8)
                 }
             }
-            .padding(.top, 57)
+            .padding(.top, 50)
+            
+            Spacer()
+            Button {
+                stepButtonAction()
+            } label: {
+                RoundedRectangle(cornerRadius: 12)
+                    .frame(height: 68)
+                    .foregroundStyle(.gray900)
+                    .overlay(
+                        Text(step.buttonTitle)
+                            .font(.system(size: 16, weight: .regular))
+                            .foregroundStyle(.white))
+            }
         }
         .background(.gray50)
     }
 }
 
 #Preview {
-    onboardingStepView(step: .second)
+    onboardingStepView(step: .second, stepButtonAction: {
+        print("HI")
+    })
 }
