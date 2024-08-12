@@ -14,30 +14,15 @@ struct OnboardingView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             TabView(selection: $currentStep) {
-                onboardingStepView(step: .first)
+                onboardingStepView(step: .first, stepButtonAction: moveToNextStep)
                     .tag(OnboardingStep.first)
                 
-                onboardingStepView(step: .second)
+                onboardingStepView(step: .second, stepButtonAction: moveToNextStep)
                     .tag(OnboardingStep.second)
                 
-                onboardingStepView(step: .third)
+                onboardingStepView(step: .third, stepButtonAction: moveToNextStep)
                     .tag(OnboardingStep.third)
-                
             }
-            
-            Button {
-                moveToNextStep()
-            } label: {
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(height: 68)
-                    .foregroundStyle(.gray900)
-                    .overlay(
-                        Text(currentStep.buttonTitle)
-                            .font(.system(size: 16, weight: .regular))
-                            .foregroundStyle(.white))
-            }
-            .padding(.bottom, 86)
-            Spacer()
         }
         .padding(.horizontal)
         .background(.gray50)
@@ -78,4 +63,8 @@ struct OnboardingView: View {
             }
         }
     }
+}
+
+#Preview {
+    OnboardingView(isFirstLaunch: .constant(true))
 }
