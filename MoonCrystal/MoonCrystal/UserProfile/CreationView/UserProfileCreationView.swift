@@ -16,6 +16,7 @@ struct UserProfileCreationView: View {
     var body: some View {
         VStack(spacing: 0) {
             ProgressBarView(currentPage: $currentPage)
+                .padding(.top, 30)
             pageView
         }
         .padding(.horizontal)

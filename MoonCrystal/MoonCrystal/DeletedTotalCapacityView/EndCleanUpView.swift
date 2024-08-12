@@ -16,6 +16,7 @@ struct EndCleanUpView: View {
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
+                .frame(minHeight: 20)
             HStack {
                 Text("정리가 종료됐어요!")
                     .font(.system(size: 24, weight: .semibold))
@@ -54,6 +55,7 @@ struct EndCleanUpView: View {
                     )
             }
             Spacer()
+                .frame(minHeight: 20)
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

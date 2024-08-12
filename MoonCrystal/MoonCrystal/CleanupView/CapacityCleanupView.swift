@@ -46,6 +46,9 @@ struct CapacityCleanupView: View {
             }
             .padding(.top, 60)
             
+            Spacer()
+                .frame(minHeight: 30, maxHeight: 86)
+            
             HStack(alignment: .center, spacing: 49) {
                 capacityTextView(title: "사용 가능 용량", value: "\(freeCapacity.byteToGBStr(format: "%.1f"))GB")
                 Divider()
@@ -55,7 +58,9 @@ struct CapacityCleanupView: View {
                                     capacity: freeCapacity, format: seletedVideoFormat))
             }
             .frame(height: 60)
-            .padding(.top, 86)
+            
+            Spacer()
+                .frame(minHeight: 20, maxHeight: 82)
             
             NavigationLink {
                 EndCleanUpView(path: $path, userProfile: userProfile, cleanUpCapacity: cleanUpCapacity)
@@ -68,7 +73,6 @@ struct CapacityCleanupView: View {
                             .font(.system(size: 16, weight: .regular))
                             .foregroundStyle(.white))
             }
-            .padding(.top, 82)
             .padding(.bottom, 60)
             .ignoresSafeArea(.all, edges: .bottom)
         }

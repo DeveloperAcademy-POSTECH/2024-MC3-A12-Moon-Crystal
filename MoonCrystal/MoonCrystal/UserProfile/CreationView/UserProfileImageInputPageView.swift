@@ -35,12 +35,12 @@ struct UserProfileImageInputPageView: View {
             }
             .padding(.top, 40)
             
-            Spacer(minLength: 5)
+            Spacer(minLength: 40)
             
             PhotoPickerButton(userProfileData: $userProfileData, isEditing: .constant(false))
                 .padding(.horizontal, 23)
             
-            Spacer(minLength: 5)
+            Spacer(minLength: 44)
             
             Button {
                 let profile = UserProfile(favoriteIdol: userProfileData.favoriteIdol,
