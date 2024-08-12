@@ -35,7 +35,6 @@ struct DeletedTotalCapacityView: View {
                 .frame(maxHeight: 56)
             
             MyFavoriteIdolCardView(deletedTotalCapacity: deletedTotalCapacity, userProfile: userProfile)
-                .padding(.bottom, .leastNonzeroMagnitude)
             Spacer()
         }
         .padding(.horizontal)
