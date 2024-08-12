@@ -22,50 +22,53 @@ struct MainHomeView: View {
     
     var body: some View {
         NavigationStack(path: $navPath) {
-            VStack(spacing: 0) {
-                HStack {
-                    Spacer()
-                    NavigationLink {
-                        UserProfileView(userProfile: userProfile.first)
-                    } label: {
-                        profileViewButton
-                            .padding(.top, 74)
-                            .padding(.trailing)
+            ZStack {
+                Color.gray50.ignoresSafeArea()
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
+                        Spacer()
+                        NavigationLink {
+                            UserProfileView(userProfile: userProfile.first)
+                        } label: {
+                            profileViewButton
+                        }
                     }
-                }
-                NavigationLink {
-                    DeletedTotalCapacityView(userProfile: userProfile.first)
-                } label: {
-                    deletedStorageViewButton
-                        .padding(.top, 28)
-                        .padding(.horizontal)
-                }
-                availableTime
-                    .padding(.leading, 40)
-                Divider()
-                    .foregroundStyle(.gray200)
-                    .padding(.horizontal, 40)
-                    .padding(.top, 33)
-                currentCapacityTitle
-                    .padding(.horizontal, 40)
-                    .padding(.top, 39)
-                ZStack {
-                    ProgressHalfCircleView(progress: self.$progress, totalCapacity: $totalCapacity, freeCapacity: $freeCapacity)
-                        .padding(.top, 32)
-                        .padding(.horizontal, 50)
                     
-                    NavigationLink(value: "FormatInput") {
-                        cleanUpViewButton
+                    NavigationLink {
+                        DeletedTotalCapacityView(userProfile: userProfile.first)
+                    } label: {
+                        deletedStorageViewButton
+                            .padding(.top, 28)
                     }
-                    .padding(.top, 260)
-                    .padding(.horizontal)
+                    
+                    availableTime
+                        .padding(.leading, 20)
+                    
+                    Divider()
+                        .foregroundStyle(.gray200)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 33)
+                    
+                    currentCapacityTitle
+                        .padding(.horizontal, 20)
+                        .padding(.top, 39)
+                    
+                    ZStack {
+                        ProgressHalfCircleView(progress: self.$progress, totalCapacity: $totalCapacity, freeCapacity: $freeCapacity)
+                            .padding(.top, 32)
+                            .padding(.horizontal, 30)
+                        VStack {
+                            Spacer()
+                                .frame(maxHeight: 260)
+                            NavigationLink(value: "FormatInput") {
+                                cleanUpViewButton
+                            }
+                        }
+                    }
                 }
-                
-                Spacer()
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
             }
-            .padding(.bottom, 86)
-            .background(.gray50)
-            .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in
                 // 네비게이션 링크 연결 방식 통일
                 if pathValue == "FormatInput" {
@@ -83,7 +86,7 @@ struct MainHomeView: View {
                 } else if pathValue == "CleanUpView" {
                     
                     CapacityCleanupView(path: $navPath, userProfile: userProfile.first)
-        
+            
                 }
             }
         }
@@ -99,7 +102,6 @@ struct MainHomeView: View {
                 }
             }
         }
-        .ignoresSafeArea(.all)
         .task {
             await fetchCapacityData()
         }
