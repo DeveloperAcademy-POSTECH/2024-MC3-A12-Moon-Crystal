@@ -21,7 +21,7 @@ struct DeletedTotalCapacityView: View {
                     .foregroundStyle(.gray900)
                 Spacer()
             }
-            .padding(.top, 120)
+            .padding(.top, 22)
             
             deletedTotalStatus
                 .frame(height: 60)
@@ -33,7 +33,7 @@ struct DeletedTotalCapacityView: View {
         }
         .padding(.horizontal)
         .background(.gray50)
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.bottom)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {

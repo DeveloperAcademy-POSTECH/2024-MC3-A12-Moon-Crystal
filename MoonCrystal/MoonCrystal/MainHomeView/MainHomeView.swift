@@ -63,6 +63,7 @@ struct MainHomeView: View {
                 
                 Spacer()
             }
+            .padding(.bottom, 86)
             .background(.gray50)
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(for: String.self) { pathValue in

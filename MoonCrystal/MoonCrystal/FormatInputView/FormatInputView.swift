@@ -19,12 +19,16 @@ struct FormatInputView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
             HStack {
                 Text("어떤 화질로\n촬영하실 건가요?")
                     .font(.system(size: 28, weight: .bold))
+                    .fixedSize()
                 Spacer()
             }
-            HStack() {
+            .padding(.top, 66)
+            
+            HStack {
                 formatButton(buttonName: "기본 화질", type: .defaultQuality)
                     .padding(.trailing, 9)
                 formatButton(buttonName: "고화질", type: nil)
@@ -40,9 +44,9 @@ struct FormatInputView: View {
             .frame(height: 260)
             .padding(.top, 34)
 
-            Button(action: {
+            Button {
                 self.path.append("SettingView")
-            }, label: {
+            } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(height: 68)
                     .foregroundStyle(selectedType == nil ? .gray400 : .gray900)
@@ -50,12 +54,11 @@ struct FormatInputView: View {
                         Text("\(selectedType ==  .defaultQuality ? "기본 화질" : "고화질")로 촬영할래요")
                             .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(.white))
-            })
+            }
             .disabled(selectedType == nil)
             .padding(.top, 42)
             Spacer()
         }
-        .padding(.top, 164)
         .padding(.horizontal)
         .ignoresSafeArea()
         .background(.gray50)
