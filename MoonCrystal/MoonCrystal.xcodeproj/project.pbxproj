@@ -312,7 +312,7 @@
 			path = CleanupView;
 			sourceTree = "<group>";
 		};
-		2602D51E2C5B475E00DBE5A1 /* LottieJsonFile */ = {
+		2602D51E2C5B475E00DBE5A1 /* LottieJson */ = {
 			isa = PBXGroup;
 			children = (
 				2602D51A2C5B474900DBE5A1 /* Arrow.json */,
@@ -321,7 +321,7 @@
 				26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */,
 				26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */,
 			);
-			path = LottieJsonFile;
+			path = LottieJson;
 			sourceTree = "<group>";
 		};
 		26BAEF9A2C5BAC2300346BF6 /* OnoboardingView */ = {
@@ -339,7 +339,7 @@
 				26C965CC2C5241F9000257EA /* Assets.xcassets */,
 				26BAEFF32C65AF4D00346BF6 /* Info.plist */,
 				26DB1C102C65DE4000DC8C14 /* PrivacyInfo.xcprivacy */,
-				2602D51E2C5B475E00DBE5A1 /* LottieJsonFile */,
+				2602D51E2C5B475E00DBE5A1 /* LottieJson */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
