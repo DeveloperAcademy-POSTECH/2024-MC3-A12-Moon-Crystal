@@ -7,35 +7,364 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */; };
+		1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */; };
+		1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */; };
+		1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */; };
+		1BC4CF962C606B190012B7F0 /* CustomNumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */; };
+		1BF858BA2C5B75A200C2204E /* CapacitySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */; };
+		1BF858BB2C5B75A200C2204E /* CapacityDirectInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */; };
+		1BF858BC2C5B75A200C2204E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B62C5B75A200C2204E /* CustomSlider.swift */; };
+		1BF858BD2C5B75A200C2204E /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF858B72C5B75A200C2204E /* TipView.swift */; };
+		1E26D7272C62583D007E6059 /* LocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D72C537CB8000257EA /* LocalNotificationType.swift */; };
+		1E26D72A2C625A6D007E6059 /* requestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D7292C625A6D007E6059 /* requestNotification.swift */; };
+		1E26D72B2C625A6D007E6059 /* requestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D7292C625A6D007E6059 /* requestNotification.swift */; };
+		1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */; };
+		1E356AD62C5CCA5A00869711 /* CleanUpStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */; };
+		1E5593472C53800B00C78466 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5593462C53800B00C78466 /* WidgetKit.framework */; };
+		1E5593492C53800B00C78466 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5593482C53800B00C78466 /* SwiftUI.framework */; };
+		1E55934C2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55934B2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift */; };
+		1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */; };
+		1E5593542C53800C00C78466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E5593532C53800C00C78466 /* Assets.xcassets */; };
+		1E5593582C53800C00C78466 /* MoonCrystalWidgetExtentionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E5593442C53800B00C78466 /* MoonCrystalWidgetExtentionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */; };
+		1E5593622C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */; };
+		1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593632C5382F200C78466 /* LiveActivityManager.swift */; };
+		1E5593652C5382F200C78466 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5593632C5382F200C78466 /* LiveActivityManager.swift */; };
+		1E87A6D42C593D4700BD28D1 /* MainHomeViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */; };
+		1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */; };
+		1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */; };
+		1E99CC912C5F6B0F002A7156 /* CapacityCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */; };
+		1EAA7F222C5F6D8000BF140D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */; };
+		1EAA7F232C5F6F9100BF140D /* MediaCapacityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */; };
+		1EAA7F242C5F70CA00BF140D /* VideoFormatCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */; };
+		1EAA7F252C5F722000BF140D /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */; };
+		1EAEBAD12C647AEA00D6C28A /* JosaFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */; };
+		1EAEBAD22C64817100D6C28A /* JosaFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */; };
+		1EB4BE972C5F3E8B00BEE5DB /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */; };
+		1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */; };
+		1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */; };
+		1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */; };
+		1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
+		1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */; };
+		1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
+		1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */; };
+		1EEF41572C5B34F80078CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
+		1EEF415A2C5BB0B00078CD21 /* DeletedTotalCapacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */; };
+		1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */; };
+		1EEF415E2C5BDC080078CD21 /* EndCleanUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF415D2C5BDC080078CD21 /* EndCleanUpView.swift */; };
+		260035C42C57703500343511 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C32C57703500343511 /* UserProfileView.swift */; };
+		260035C72C5772F500343511 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C62C5772F500343511 /* UserProfile.swift */; };
+		260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C82C57792000343511 /* UserProfileCreationView.swift */; };
+		260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D22C57EF0B00343511 /* ProgressBarView.swift */; };
+		260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */; };
+		260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D72C57F8A300343511 /* UserProfileCreationPage.swift */; };
+		260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */; };
+		260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DB2C580D4C00343511 /* UserProfileInputModel.swift */; };
+		260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DD2C5925BC00343511 /* UserProfileDetailView.swift */; };
+		260035E02C5928D000343511 /* PhotoPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DF2C5928D000343511 /* PhotoPickerButton.swift */; };
+		2602D51C2C5B474900DBE5A1 /* Arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2602D51A2C5B474900DBE5A1 /* Arrow.json */; };
+		2602D51D2C5B474900DBE5A1 /* Timer.json in Resources */ = {isa = PBXBuildFile; fileRef = 2602D51B2C5B474900DBE5A1 /* Timer.json */; };
+		2602D5202C5B480800DBE5A1 /* PreCleanupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */; };
+		2602D5222C5B5D7B00DBE5A1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2602D5212C5B5D7B00DBE5A1 /* Lottie */; };
+		2602D5242C5B620600DBE5A1 /* CapacityCleanupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2602D5232C5B620600DBE5A1 /* CapacityCleanupView.swift */; };
+		26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */; };
+		26BAEFA42C5BBA2300346BF6 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */; };
+		26BAEFA62C5BBB8800346BF6 /* onboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */; };
+		26BAEFED2C5E181D00346BF6 /* Onboarding3.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */; };
+		26BAEFEE2C5E181D00346BF6 /* Onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */; };
+		26BAEFEF2C5E181D00346BF6 /* Onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = 26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */; };
+		26BAEFF52C65BA2900346BF6 /* KeyboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFF42C65BA2900346BF6 /* KeyboardProvider.swift */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
 		26C965D02C5241F9000257EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CF2C5241F9000257EA /* Preview Assets.xcassets */; };
+		26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D72C537CB8000257EA /* LocalNotificationType.swift */; };
+		26C965DA2C538046000257EA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D92C538046000257EA /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1E5593562C53800C00C78466 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26C965BD2C5241F8000257EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E5593432C53800B00C78466;
+			remoteInfo = MoonCrystalWidgetExtentionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1E5593592C53800C00C78466 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1E5593582C53800C00C78466 /* MoonCrystalWidgetExtentionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCapacityConverter.swift; sourceTree = "<group>"; };
+		1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormatCapacity.swift; sourceTree = "<group>"; };
+		1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityCalculator.swift; sourceTree = "<group>"; };
+		1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumPad.swift; sourceTree = "<group>"; };
+		1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacitySettingView.swift; sourceTree = "<group>"; };
+		1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapacityDirectInputView.swift; sourceTree = "<group>"; };
+		1BF858B62C5B75A200C2204E /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		1BF858B72C5B75A200C2204E /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		1E26D7292C625A6D007E6059 /* requestNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestNotification.swift; sourceTree = "<group>"; };
+		1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivitySaveTimeView.swift; sourceTree = "<group>"; };
+		1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUpStatusView.swift; sourceTree = "<group>"; };
+		1E5593442C53800B00C78466 /* MoonCrystalWidgetExtentionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoonCrystalWidgetExtentionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E5593462C53800B00C78466 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1E5593482C53800B00C78466 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1E55934B2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalWidgetExtentionBundle.swift; sourceTree = "<group>"; };
+		1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalWidgetExtentionLiveActivity.swift; sourceTree = "<group>"; };
+		1E5593532C53800C00C78466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E5593552C53800C00C78466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCapacityAttributes.swift; sourceTree = "<group>"; };
+		1E5593632C5382F200C78466 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewComponent.swift; sourceTree = "<group>"; };
+		1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHalfCircleView.swift; sourceTree = "<group>"; };
+		1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
+		1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonCrystal.entitlements; sourceTree = "<group>"; };
+		1EAA7F272C5F749100BF140D /* MoonCrystalWidgetExtentionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoonCrystalWidgetExtentionExtension.entitlements; sourceTree = "<group>"; };
+		1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JosaFomatter.swift; sourceTree = "<group>"; };
+		1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicIslandButtonsView.swift; sourceTree = "<group>"; };
+		1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatInputView.swift; sourceTree = "<group>"; };
+		1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighFormatRadioButton.swift; sourceTree = "<group>"; };
+		1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskAppIntent.swift; sourceTree = "<group>"; };
+		1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskAppIntent.swift; sourceTree = "<group>"; };
+		1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedTotalCapacityView.swift; sourceTree = "<group>"; };
+		1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteIdolCardView.swift; sourceTree = "<group>"; };
+		1EEF415D2C5BDC080078CD21 /* EndCleanUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCleanUpView.swift; sourceTree = "<group>"; };
+		260035C32C57703500343511 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		260035C62C5772F500343511 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		260035C82C57792000343511 /* UserProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCreationView.swift; sourceTree = "<group>"; };
+		260035D22C57EF0B00343511 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTextInputPageView.swift; sourceTree = "<group>"; };
+		260035D72C57F8A300343511 /* UserProfileCreationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCreationPage.swift; sourceTree = "<group>"; };
+		260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageInputPageView.swift; sourceTree = "<group>"; };
+		260035DB2C580D4C00343511 /* UserProfileInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInputModel.swift; sourceTree = "<group>"; };
+		260035DD2C5925BC00343511 /* UserProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDetailView.swift; sourceTree = "<group>"; };
+		260035DF2C5928D000343511 /* PhotoPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerButton.swift; sourceTree = "<group>"; };
+		2602D51A2C5B474900DBE5A1 /* Arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Arrow.json; sourceTree = "<group>"; };
+		2602D51B2C5B474900DBE5A1 /* Timer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Timer.json; sourceTree = "<group>"; };
+		2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCleanupInfoView.swift; sourceTree = "<group>"; };
+		2602D5232C5B620600DBE5A1 /* CapacityCleanupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityCleanupView.swift; sourceTree = "<group>"; };
+		26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
+		26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingStepView.swift; sourceTree = "<group>"; };
+		26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding3.json; sourceTree = "<group>"; };
+		26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding2.json; sourceTree = "<group>"; };
+		26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
+		26BAEFF32C65AF4D00346BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		26BAEFF42C65BA2900346BF6 /* KeyboardProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardProvider.swift; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26C965CC2C5241F9000257EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26C965CF2C5241F9000257EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26C965D72C537CB8000257EA /* LocalNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationType.swift; sourceTree = "<group>"; };
+		26C965D92C538046000257EA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		26DB1C102C65DE4000DC8C14 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1E5593412C53800B00C78466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E5593492C53800B00C78466 /* SwiftUI.framework in Frameworks */,
+				1E5593472C53800B00C78466 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26C965C22C5241F8000257EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2602D5222C5B5D7B00DBE5A1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BF858B22C5B753B00C2204E /* SelectCapacity */ = {
+			isa = PBXGroup;
+			children = (
+				1BF858B52C5B75A200C2204E /* CapacityDirectInputView.swift */,
+				1BF858B42C5B75A200C2204E /* CapacitySettingView.swift */,
+				1BF858B62C5B75A200C2204E /* CustomSlider.swift */,
+				1BF858B72C5B75A200C2204E /* TipView.swift */,
+				1BC4CF952C606B190012B7F0 /* CustomNumPad.swift */,
+			);
+			path = SelectCapacity;
+			sourceTree = "<group>";
+		};
+		1E26D7282C625A57007E6059 /* RequestNotification */ = {
+			isa = PBXGroup;
+			children = (
+				1E26D7292C625A6D007E6059 /* requestNotification.swift */,
+			);
+			path = RequestNotification;
+			sourceTree = "<group>";
+		};
+		1E5593452C53800B00C78466 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E5593462C53800B00C78466 /* WidgetKit.framework */,
+				1E5593482C53800B00C78466 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E55934A2C53800B00C78466 /* MoonCrystalWidgetExtention */ = {
+			isa = PBXGroup;
+			children = (
+				1E55934B2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift */,
+				1E55934D2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift */,
+				1EEF414F2C5B2FA60078CD21 /* LiveActivityView */,
+				1EEF414B2C5B2B350078CD21 /* LiveActivityIntent */,
+				1E5593532C53800C00C78466 /* Assets.xcassets */,
+				1E5593552C53800C00C78466 /* Info.plist */,
+			);
+			path = MoonCrystalWidgetExtention;
+			sourceTree = "<group>";
+		};
+		1E87A6D22C593D1800BD28D1 /* MainHomeView */ = {
+			isa = PBXGroup;
+			children = (
+				1E87A6D32C593D4700BD28D1 /* MainHomeViewComponent.swift */,
+				1E87A6D52C593D5B00BD28D1 /* ProgressHalfCircleView.swift */,
+				1E87A6D72C593D7300BD28D1 /* MainHomeView.swift */,
+			);
+			path = MainHomeView;
+			sourceTree = "<group>";
+		};
+		1EAEBACF2C647AC700D6C28A /* JosaFomatter */ = {
+			isa = PBXGroup;
+			children = (
+				1EAEBAD02C647AEA00D6C28A /* JosaFomatter.swift */,
+			);
+			path = JosaFomatter;
+			sourceTree = "<group>";
+		};
+		1EB4BE952C5F3E8100BEE5DB /* UserDefaultsKeys */ = {
+			isa = PBXGroup;
+			children = (
+				1EB4BE962C5F3E8B00BEE5DB /* UserDefaultsKeys.swift */,
+			);
+			path = UserDefaultsKeys;
+			sourceTree = "<group>";
+		};
+		1EEF41462C5A1CD60078CD21 /* FormatInputView */ = {
+			isa = PBXGroup;
+			children = (
+				1EEF41472C5A1CF50078CD21 /* FormatInputView.swift */,
+				1EEF41492C5A58EA0078CD21 /* HighFormatRadioButton.swift */,
+			);
+			path = FormatInputView;
+			sourceTree = "<group>";
+		};
+		1EEF414B2C5B2B350078CD21 /* LiveActivityIntent */ = {
+			isa = PBXGroup;
+			children = (
+				1EEF414C2C5B2B740078CD21 /* CompleteTaskAppIntent.swift */,
+				1EEF41542C5B30EA0078CD21 /* UpdateTaskAppIntent.swift */,
+			);
+			path = LiveActivityIntent;
+			sourceTree = "<group>";
+		};
+		1EEF414F2C5B2FA60078CD21 /* LiveActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				1E356AD52C5CCA5A00869711 /* CleanUpStatusView.swift */,
+				1ED6C0662C5E41BF007D9C71 /* DynamicIslandButtonsView.swift */,
+				1E356AD32C5CC82500869711 /* LiveActivitySaveTimeView.swift */,
+			);
+			path = LiveActivityView;
+			sourceTree = "<group>";
+		};
+		1EEF41582C5BB0820078CD21 /* DeletedTotalCapacityView */ = {
+			isa = PBXGroup;
+			children = (
+				1EEF41592C5BB0B00078CD21 /* DeletedTotalCapacityView.swift */,
+				1EEF415B2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift */,
+				1EEF415D2C5BDC080078CD21 /* EndCleanUpView.swift */,
+			);
+			path = DeletedTotalCapacityView;
+			sourceTree = "<group>";
+		};
+		260035C52C5772DF00343511 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				260035C62C5772F500343511 /* UserProfile.swift */,
+				260035C32C57703500343511 /* UserProfileView.swift */,
+				260035DD2C5925BC00343511 /* UserProfileDetailView.swift */,
+				260035D62C57F1BC00343511 /* CreationView */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		260035D62C57F1BC00343511 /* CreationView */ = {
+			isa = PBXGroup;
+			children = (
+				260035D72C57F8A300343511 /* UserProfileCreationPage.swift */,
+				260035DB2C580D4C00343511 /* UserProfileInputModel.swift */,
+				260035D22C57EF0B00343511 /* ProgressBarView.swift */,
+				260035C82C57792000343511 /* UserProfileCreationView.swift */,
+				260035D42C57F1AB00343511 /* UserProfileTextInputPageView.swift */,
+				260035D92C5801AC00343511 /* UserProfileImageInputPageView.swift */,
+			);
+			path = CreationView;
+			sourceTree = "<group>";
+		};
+		2602D5192C5B472E00DBE5A1 /* CleanupView */ = {
+			isa = PBXGroup;
+			children = (
+				2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */,
+				2602D5232C5B620600DBE5A1 /* CapacityCleanupView.swift */,
+			);
+			path = CleanupView;
+			sourceTree = "<group>";
+		};
+		2602D51E2C5B475E00DBE5A1 /* JsonFile */ = {
+			isa = PBXGroup;
+			children = (
+				2602D51A2C5B474900DBE5A1 /* Arrow.json */,
+				2602D51B2C5B474900DBE5A1 /* Timer.json */,
+				26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */,
+				26BAEFEB2C5E181D00346BF6 /* Onboarding2.json */,
+				26BAEFEA2C5E181C00346BF6 /* Onboarding3.json */,
+			);
+			path = JsonFile;
+			sourceTree = "<group>";
+		};
+		26BAEF9A2C5BAC2300346BF6 /* OnoboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */,
+				26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */,
+				26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */,
+			);
+			path = OnoboardingView;
+			sourceTree = "<group>";
+		};
 		26C965BC2C5241F8000257EA = {
 			isa = PBXGroup;
 			children = (
+				1EAA7F272C5F749100BF140D /* MoonCrystalWidgetExtentionExtension.entitlements */,
 				26C965C72C5241F8000257EA /* MoonCrystal */,
+				1E55934A2C53800B00C78466 /* MoonCrystalWidgetExtention */,
+				1E5593452C53800B00C78466 /* Frameworks */,
 				26C965C62C5241F8000257EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				26C965C52C5241F8000257EA /* MoonCrystal.app */,
+				1E5593442C53800B00C78466 /* MoonCrystalWidgetExtentionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +381,31 @@
 		26C965C72C5241F8000257EA /* MoonCrystal */ = {
 			isa = PBXGroup;
 			children = (
+				26BAEFF32C65AF4D00346BF6 /* Info.plist */,
+				26DB1C102C65DE4000DC8C14 /* PrivacyInfo.xcprivacy */,
+				1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */,
+				1BF858B22C5B753B00C2204E /* SelectCapacity */,
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
 				26C965CA2C5241F8000257EA /* ContentView.swift */,
+				1EB4BE952C5F3E8100BEE5DB /* UserDefaultsKeys */,
+				26C965D62C537C9D000257EA /* Notification */,
+				1BAAB4FC2C57A67700B73AF0 /* CapacityCalculator.swift */,
+				1E26D7282C625A57007E6059 /* RequestNotification */,
+				1BAAB4EE2C54D7E400B73AF0 /* MediaCapacityConverter.swift */,
+				1BAAB4F62C576CCF00B73AF0 /* Int+Extension.swift */,
+				1BAAB4FA2C57872600B73AF0 /* VideoFormatCapacity.swift */,
+				1EAEBACF2C647AC700D6C28A /* JosaFomatter */,
+				1EEF41582C5BB0820078CD21 /* DeletedTotalCapacityView */,
+				1EEF41462C5A1CD60078CD21 /* FormatInputView */,
+				1E87A6D22C593D1800BD28D1 /* MainHomeView */,
+				1E5593632C5382F200C78466 /* LiveActivityManager.swift */,
+				1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */,
+				260035C52C5772DF00343511 /* UserProfile */,
+				260035DF2C5928D000343511 /* PhotoPickerButton.swift */,
+				26BAEFF42C65BA2900346BF6 /* KeyboardProvider.swift */,
+				2602D5192C5B472E00DBE5A1 /* CleanupView */,
+				26BAEF9A2C5BAC2300346BF6 /* OnoboardingView */,
+				2602D51E2C5B475E00DBE5A1 /* JsonFile */,
 				26C965CC2C5241F9000257EA /* Assets.xcassets */,
 				26C965CE2C5241F9000257EA /* Preview Content */,
 			);
@@ -67,9 +420,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		26C965D62C537C9D000257EA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				26C965D72C537CB8000257EA /* LocalNotificationType.swift */,
+				26C965D92C538046000257EA /* NotificationManager.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E5593432C53800B00C78466 /* MoonCrystalWidgetExtentionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E55935C2C53800C00C78466 /* Build configuration list for PBXNativeTarget "MoonCrystalWidgetExtentionExtension" */;
+			buildPhases = (
+				1E5593402C53800B00C78466 /* Sources */,
+				1E5593412C53800B00C78466 /* Frameworks */,
+				1E5593422C53800B00C78466 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoonCrystalWidgetExtentionExtension;
+			productName = MoonCrystalWidgetExtentionExtension;
+			productReference = 1E5593442C53800B00C78466 /* MoonCrystalWidgetExtentionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		26C965C42C5241F8000257EA /* MoonCrystal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26C965D32C5241F9000257EA /* Build configuration list for PBXNativeTarget "MoonCrystal" */;
@@ -77,12 +456,17 @@
 				26C965C12C5241F8000257EA /* Sources */,
 				26C965C22C5241F8000257EA /* Frameworks */,
 				26C965C32C5241F8000257EA /* Resources */,
+				1E5593592C53800C00C78466 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1E5593572C53800C00C78466 /* PBXTargetDependency */,
 			);
 			name = MoonCrystal;
+			packageProductDependencies = (
+				2602D5212C5B5D7B00DBE5A1 /* Lottie */,
+			);
 			productName = MoonCrystal;
 			productReference = 26C965C52C5241F8000257EA /* MoonCrystal.app */;
 			productType = "com.apple.product-type.application";
@@ -94,9 +478,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					1E5593432C53800B00C78466 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					26C965C42C5241F8000257EA = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -111,40 +498,200 @@
 				Base,
 			);
 			mainGroup = 26C965BC2C5241F8000257EA;
+			packageReferences = (
+				2602D5182C5B46D700DBE5A1 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 26C965C62C5241F8000257EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				26C965C42C5241F8000257EA /* MoonCrystal */,
+				1E5593432C53800B00C78466 /* MoonCrystalWidgetExtentionExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1E5593422C53800B00C78466 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EEF41572C5B34F80078CD21 /* Assets.xcassets in Resources */,
+				1E5593542C53800C00C78466 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26C965C32C5241F8000257EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				26C965D02C5241F9000257EA /* Preview Assets.xcassets in Resources */,
+				26BAEFEF2C5E181D00346BF6 /* Onboarding1.json in Resources */,
+				26BAEFEE2C5E181D00346BF6 /* Onboarding2.json in Resources */,
 				26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */,
+				2602D51C2C5B474900DBE5A1 /* Arrow.json in Resources */,
+				26BAEFED2C5E181D00346BF6 /* Onboarding3.json in Resources */,
+				2602D51D2C5B474900DBE5A1 /* Timer.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1E5593402C53800B00C78466 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E5593622C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
+				1EAA7F242C5F70CA00BF140D /* VideoFormatCapacity.swift in Sources */,
+				1E55934C2C53800B00C78466 /* MoonCrystalWidgetExtentionBundle.swift in Sources */,
+				1EEF414E2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
+				1E356AD62C5CCA5A00869711 /* CleanUpStatusView.swift in Sources */,
+				1E5593652C5382F200C78466 /* LiveActivityManager.swift in Sources */,
+				1EAA7F222C5F6D8000BF140D /* Int+Extension.swift in Sources */,
+				1E99CC912C5F6B0F002A7156 /* CapacityCalculator.swift in Sources */,
+				1EAA7F252C5F722000BF140D /* UserDefaultsKeys.swift in Sources */,
+				1EEF41562C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */,
+				1E26D7272C62583D007E6059 /* LocalNotificationType.swift in Sources */,
+				1E55934E2C53800B00C78466 /* MoonCrystalWidgetExtentionLiveActivity.swift in Sources */,
+				1E26D72B2C625A6D007E6059 /* requestNotification.swift in Sources */,
+				1EAEBAD22C64817100D6C28A /* JosaFomatter.swift in Sources */,
+				1EAA7F232C5F6F9100BF140D /* MediaCapacityConverter.swift in Sources */,
+				1E356AD42C5CC82500869711 /* LiveActivitySaveTimeView.swift in Sources */,
+				1ED6C0672C5E41BF007D9C71 /* DynamicIslandButtonsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26C965C12C5241F8000257EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E87A6D42C593D4700BD28D1 /* MainHomeViewComponent.swift in Sources */,
+				2602D5242C5B620600DBE5A1 /* CapacityCleanupView.swift in Sources */,
+				1BF858BC2C5B75A200C2204E /* CustomSlider.swift in Sources */,
+				1EEF41482C5A1CF50078CD21 /* FormatInputView.swift in Sources */,
+				1BAAB4FB2C57872600B73AF0 /* VideoFormatCapacity.swift in Sources */,
+				26BAEFA62C5BBB8800346BF6 /* onboardingStepView.swift in Sources */,
+				1E5593612C53823400C78466 /* DynamicCapacityAttributes.swift in Sources */,
+				260035C72C5772F500343511 /* UserProfile.swift in Sources */,
+				260035D82C57F8A300343511 /* UserProfileCreationPage.swift in Sources */,
+				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
+				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
+				260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */,
+				1EB4BE972C5F3E8B00BEE5DB /* UserDefaultsKeys.swift in Sources */,
+				1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
+				1BAAB4F72C576CCF00B73AF0 /* Int+Extension.swift in Sources */,
+				260035C42C57703500343511 /* UserProfileView.swift in Sources */,
+				26BAEFF52C65BA2900346BF6 /* KeyboardProvider.swift in Sources */,
+				26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */,
+				1E26D72A2C625A6D007E6059 /* requestNotification.swift in Sources */,
+				260035C92C57792000343511 /* UserProfileCreationView.swift in Sources */,
+				260035DC2C580D4C00343511 /* UserProfileInputModel.swift in Sources */,
+				1BC4CF962C606B190012B7F0 /* CustomNumPad.swift in Sources */,
+				1EEF415C2C5BCAA40078CD21 /* MyFavoriteIdolCardView.swift in Sources */,
+				1BF858BA2C5B75A200C2204E /* CapacitySettingView.swift in Sources */,
+				260035D52C57F1AB00343511 /* UserProfileTextInputPageView.swift in Sources */,
+				1BF858BD2C5B75A200C2204E /* TipView.swift in Sources */,
+				1EEF415E2C5BDC080078CD21 /* EndCleanUpView.swift in Sources */,
+				1EAEBAD12C647AEA00D6C28A /* JosaFomatter.swift in Sources */,
+				260035E02C5928D000343511 /* PhotoPickerButton.swift in Sources */,
+				1EEF415A2C5BB0B00078CD21 /* DeletedTotalCapacityView.swift in Sources */,
 				26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */,
+				26C965DA2C538046000257EA /* NotificationManager.swift in Sources */,
+				26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */,
+				1EEF41552C5B30EA0078CD21 /* UpdateTaskAppIntent.swift in Sources */,
+				1E87A6D62C593D5B00BD28D1 /* ProgressHalfCircleView.swift in Sources */,
+				1EEF414A2C5A58EA0078CD21 /* HighFormatRadioButton.swift in Sources */,
+				2602D5202C5B480800DBE5A1 /* PreCleanupInfoView.swift in Sources */,
+				1BF858BB2C5B75A200C2204E /* CapacityDirectInputView.swift in Sources */,
+				1BAAB4FD2C57A67700B73AF0 /* CapacityCalculator.swift in Sources */,
+				1BAAB4EF2C54D7E400B73AF0 /* MediaCapacityConverter.swift in Sources */,
+				1E5593642C5382F200C78466 /* LiveActivityManager.swift in Sources */,
+				1E87A6D82C593D7300BD28D1 /* MainHomeView.swift in Sources */,
+				26BAEFA42C5BBA2300346BF6 /* OnboardingStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1E5593572C53800C00C78466 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E5593432C53800B00C78466 /* MoonCrystalWidgetExtentionExtension */;
+			targetProxy = 1E5593562C53800C00C78466 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1E55935A2C53800C00C78466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Horang.Fanbyte.FanbyteWidgetExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1E55935B2C53800C00C78466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystalWidgetExtentionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonCrystalWidgetExtention/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoonCrystalWidgetExtention;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Horang.Fanbyte.FanbyteWidgetExtention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		26C965D12C5241F9000257EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -267,25 +814,32 @@
 		26C965D42C5241F9000257EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystal/MoonCrystal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = LYC8XX4ZNC;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonCrystal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Horang.MoonCrystal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Horang.Fanbyte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -300,25 +854,32 @@
 		26C965D52C5241F9000257EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoonCrystal/MoonCrystal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoonCrystal/Preview Content\"";
-				DEVELOPMENT_TEAM = LYC8XX4ZNC;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoonCrystal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fanbyte;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Horang.MoonCrystal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Horang.Fanbyte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -333,6 +894,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1E55935C2C53800C00C78466 /* Build configuration list for PBXNativeTarget "MoonCrystalWidgetExtentionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E55935A2C53800C00C78466 /* Debug */,
+				1E55935B2C53800C00C78466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		26C965C02C5241F8000257EA /* Build configuration list for PBXProject "MoonCrystal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -352,6 +922,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2602D5182C5B46D700DBE5A1 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2602D5212C5B5D7B00DBE5A1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2602D5182C5B46D700DBE5A1 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 26C965BD2C5241F8000257EA /* Project object */;
 }
