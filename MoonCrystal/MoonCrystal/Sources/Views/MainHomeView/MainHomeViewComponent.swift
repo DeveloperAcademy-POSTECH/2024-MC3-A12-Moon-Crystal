@@ -4,7 +4,7 @@
 //
 //  Created by sungkug_apple_developer_ac on 7/31/24.
 //
-
+//TODO: 굳이 있어야 하나? 논의!
 enum MainHomeViewComponent {
     case deletedStorage
     case availableTime

@@ -39,6 +39,7 @@ class NotificationManager: NSObject, ObservableObject {
     
     /// Notification 권한 거부 시, 사용자에게 앱 설정 화면을 열도록 안내하는 함수
     func openSettings() {
+        //TODO: 해당 메소드를 분리하고 requestNotification class를 삭제하자.
         if let url = URL(string: UIApplication.openSettingsURLString) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
