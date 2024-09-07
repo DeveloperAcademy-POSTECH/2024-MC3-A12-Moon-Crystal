@@ -84,12 +84,15 @@ struct FormatInputView: View {
     
     func formatButton(buttonName: String, type: VideoFormatCapacity?) -> some View {
         Button {
-            selectedType = type
-            if type == .defaultQuality {
-                isHighQualitySelected = false
-            } else {
-                isHighQualitySelected = true
-                selectedType = nil
+            // 애니메이션 없이 상태 변경
+            withTransaction(Transaction(animation: nil)) {
+                selectedType = type
+                if type == .defaultQuality {
+                    isHighQualitySelected = false
+                } else {
+                    isHighQualitySelected = true
+                    selectedType = nil
+                }
             }
         } label: {
             RoundedRectangle(cornerRadius: 12)
