@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//TODO: String+Extension으로 빼도 될 지 의논
 class JosaFomatter {
     static func postPositionText(_ name: String) -> String {
         guard let lastText = name.last else { return name }
