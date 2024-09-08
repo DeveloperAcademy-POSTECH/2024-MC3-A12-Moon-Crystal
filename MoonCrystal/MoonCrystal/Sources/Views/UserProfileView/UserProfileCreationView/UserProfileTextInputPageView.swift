@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserProfileTextInputPageView: View {
+    @FocusState var isTextFieldFocused: Bool
     @Binding var currentPage: Int
     @Binding var userProfileData: UserProfileInputModel
     
@@ -37,6 +38,7 @@ struct UserProfileTextInputPageView: View {
                 .frame(maxHeight: 42)
             
             TextField("", text: bindingForCurrentPage())
+                .focused($isTextFieldFocused)
                 .font(.system(size: 16, weight: .regular))
                 .frame(height: 48)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
@@ -80,6 +82,9 @@ struct UserProfileTextInputPageView: View {
         }
         .background(.gray50)
         .ignoresSafeArea(.all, edges: .bottom)
+        .onTapGesture {
+            isTextFieldFocused = false
+        }
     }
     
     private func bindingForCurrentPage() -> Binding<String> {
