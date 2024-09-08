@@ -19,11 +19,16 @@ struct MainHomeView: View {
     @State var selectedType: VideoFormatCapacity? = .defaultQuality
     
     @Query var userProfile: [UserProfile]
-    
+    // profileButton의 위치와 크기를 저장할 상태 변수
+    @State private var profileFrame: CGRect = .zero
+    // cleanUpButton의 위치와 크기를 저장할 상태 변수
+    @State private var cleanUpFrame: CGRect = .zero
+
     var body: some View {
         NavigationStack(path: $navPath) {
             ZStack {
                 Color.gray50.ignoresSafeArea()
+                
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         Spacer()
@@ -31,16 +36,23 @@ struct MainHomeView: View {
                             UserProfileView(userProfile: userProfile.first)
                         } label: {
                             profileViewButton
+                                .background(GeometryReader { geometry in
+                                    Color.clear
+                                        .task {
+                                            // 버튼의 위치와 크기를 저장
+                                            profileFrame = geometry.frame(in: .global)
+                                        }
+                                })
                         }
                     }
-                    
+
                     NavigationLink {
                         DeletedTotalCapacityView(userProfile: userProfile.first)
                     } label: {
                         deletedStorageViewButton
                             .padding(.top, 28)
                     }
-                    
+
                     availableTime
                         .padding(.leading, 20)
                     
@@ -57,17 +69,33 @@ struct MainHomeView: View {
                         ProgressHalfCircleView(progress: self.$progress, totalCapacity: $totalCapacity, freeCapacity: $freeCapacity)
                             .padding(.top, 32)
                             .padding(.horizontal, 30)
+
                         VStack {
                             Spacer()
                                 .frame(maxHeight: 260)
                             NavigationLink(value: "FormatInput") {
                                 cleanUpViewButton
+                                    .background(GeometryReader { geometry in
+                                        Color.clear
+                                            .task {
+                                                // 버튼의 위치와 크기를 저장
+                                                cleanUpFrame = geometry.frame(in: .global)
+                                            }
+                                    })
                             }
                         }
                     }
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
+                if !hasSeenGuide {
+                    Button {
+                        hasSeenGuide = true
+                    } label: {
+                        buttonGuidePage
+                    }
+                }
+
             }
             .navigationDestination(for: String.self) { pathValue in
                 // 네비게이션 링크 연결 방식 통일
@@ -91,17 +119,6 @@ struct MainHomeView: View {
             }
         }
         .tint(.gray900)
-        .overlay {
-            if !hasSeenGuide {
-                Button {
-                    hasSeenGuide = true
-                } label: {
-                    Image("ProfileTip")
-                        .resizable()
-                        .scaledToFill()
-                }
-            }
-        }
         .task {
             await fetchCapacityData()
         }
@@ -124,6 +141,40 @@ struct MainHomeView: View {
         if totalCapacity > 0 {
             freeCapacity = await CapacityCalculator.getFreeCapacity()
             progress = Float(Double(totalCapacity - freeCapacity) / Double(totalCapacity))
+        }
+    }
+    
+    var buttonGuidePage: some View {
+        ZStack {
+            Color.black.opacity(0.5)
+                .ignoresSafeArea()
+            
+            profileViewButton
+                .position(x: profileFrame.midX,
+                          y:  profileFrame.midY)
+                .ignoresSafeArea()
+            
+            Image("profileTip")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 60)
+                .position(x: profileFrame.midX - 73,
+                          y:  profileFrame.midY + 70)
+                .ignoresSafeArea()
+
+            Image("cleanupTip")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 60)
+                .position(x: cleanUpFrame.midX,
+                          y:  cleanUpFrame.midY - 80)
+                .ignoresSafeArea()
+            
+            cleanUpViewButton
+                .padding(.horizontal, 20)
+                .position(x: cleanUpFrame.midX,
+                          y:  cleanUpFrame.midY)
+                .ignoresSafeArea()
         }
     }
     
