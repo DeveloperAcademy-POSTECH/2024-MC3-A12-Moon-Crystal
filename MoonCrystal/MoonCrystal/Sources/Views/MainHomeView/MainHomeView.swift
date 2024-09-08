@@ -20,9 +20,9 @@ struct MainHomeView: View {
     
     @Query var userProfile: [UserProfile]
     // profileButton의 위치와 크기를 저장할 상태 변수
-    @State private var profileFrame: CGRect = .zero
+    @State private var profileViewButtonFrame: CGRect = .zero
     // cleanUpButton의 위치와 크기를 저장할 상태 변수
-    @State private var cleanUpFrame: CGRect = .zero
+    @State private var cleanUpViewButtonFrame: CGRect = .zero
 
     var body: some View {
         NavigationStack(path: $navPath) {
@@ -39,8 +39,10 @@ struct MainHomeView: View {
                                 .background(GeometryReader { geometry in
                                     Color.clear
                                         .task {
-                                            // 버튼의 위치와 크기를 저장
-                                            profileFrame = geometry.frame(in: .global)
+                                            if !hasSeenGuide {
+                                                // 버튼의 위치와 크기를 저장
+                                                profileViewButtonFrame = geometry.frame(in: .global)
+                                            }
                                         }
                                 })
                         }
@@ -75,11 +77,15 @@ struct MainHomeView: View {
                                 .frame(maxHeight: 260)
                             NavigationLink(value: "FormatInput") {
                                 cleanUpViewButton
-                                    .background(GeometryReader { geometry in
+                                    .background(
+                                        
+                                        GeometryReader { geometry in
                                         Color.clear
                                             .task {
-                                                // 버튼의 위치와 크기를 저장
-                                                cleanUpFrame = geometry.frame(in: .global)
+                                                if !hasSeenGuide {
+                                                    // 버튼의 위치와 크기를 저장
+                                                    cleanUpViewButtonFrame = geometry.frame(in: .global)
+                                                }
                                             }
                                     })
                             }
@@ -150,30 +156,30 @@ struct MainHomeView: View {
                 .ignoresSafeArea()
             
             profileViewButton
-                .position(x: profileFrame.midX,
-                          y:  profileFrame.midY)
+                .position(x: profileViewButtonFrame.midX,
+                          y: profileViewButtonFrame.midY)
                 .ignoresSafeArea()
             
             Image("profileTip")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 60)
-                .position(x: profileFrame.midX - 73,
-                          y:  profileFrame.midY + 70)
+                .position(x: profileViewButtonFrame.midX - 73,
+                          y: profileViewButtonFrame.midY + 70)
                 .ignoresSafeArea()
 
             Image("cleanupTip")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 60)
-                .position(x: cleanUpFrame.midX,
-                          y:  cleanUpFrame.midY - 80)
+                .position(x: cleanUpViewButtonFrame.midX,
+                          y: cleanUpViewButtonFrame.midY - 80)
                 .ignoresSafeArea()
             
             cleanUpViewButton
                 .padding(.horizontal, 20)
-                .position(x: cleanUpFrame.midX,
-                          y:  cleanUpFrame.midY)
+                .position(x: cleanUpViewButtonFrame.midX,
+                          y: cleanUpViewButtonFrame.midY)
                 .ignoresSafeArea()
         }
     }
