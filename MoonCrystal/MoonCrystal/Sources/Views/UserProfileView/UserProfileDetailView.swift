@@ -13,7 +13,8 @@ struct UserProfileDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @State var keyboardHeight : CGFloat = 0
+    @FocusState var focusedField: String?
+    @State var keyboardHeight: CGFloat = 0
     @State private var isEditing = false
     @State private var userProfileInputData = UserProfileInputModel()
     
@@ -55,6 +56,9 @@ struct UserProfileDetailView: View {
                 editSaveButton
             }
         }
+        .onTapGesture {
+            focusedField = nil
+        }
     }
     
     // 프로필 이미지 섹션
@@ -82,6 +86,7 @@ struct UserProfileDetailView: View {
                 Spacer()
             }
             TextField("", text: text)
+                .focused($focusedField, equals: title)
                 .frame(height: 48)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 .background(.white)
@@ -103,6 +108,9 @@ struct UserProfileDetailView: View {
                         // 최대 글자 수를 초과하면 초과 부분을 제거
                         text.wrappedValue = String(text.wrappedValue.prefix(maxTextCount))
                     }
+                }
+                .onTapGesture {
+                    focusedField = title
                 }
         }
     }
