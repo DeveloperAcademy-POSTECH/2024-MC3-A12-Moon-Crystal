@@ -7,11 +7,31 @@
 
 import SwiftUI
 
-///미완성된 파일입니다.
 struct TipView: View {
     @Environment(\.dismiss) var dismiss
-    let title = "정리를 시작하기 전,\n얼마나 삭제할 지 감이 안 온다면?"
-    var profileImage: Data?
+    
+    let title = "GB를 확보하려면\n얼마나 삭제해야 할까요?"
+    var videoFormat: VideoFormatCapacity
+    var videoFormatString: String
+    var standardGB: Int
+    var photoNumber: Int
+    var videoTime: Int
+    
+    /// 화면 초기화에서 모든 변수값 한번만 계산하도록 함
+    init(videoFormat: VideoFormatCapacity) {
+        self.videoFormat = videoFormat
+        
+        /// 기본화질과 고화질 구분
+        let isDefaultQuality = videoFormat == .defaultQuality
+        /// Byte 단위로 된 용량
+        let capacity = isDefaultQuality ? 5368709120 : 21474836480
+        
+        videoFormatString = isDefaultQuality ? "기본화질" : "고화질"
+        standardGB = isDefaultQuality ? 5 : 20
+        
+        photoNumber = MediaCapacityConverter.capacityToPhoto(capacity: capacity)
+        videoTime = MediaCapacityConverter.capacityToMinute(capacity: capacity, format: videoFormat)
+    }
     
     var body: some View {
         ZStack {
@@ -19,9 +39,12 @@ struct TipView: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .top, spacing: 0) {
                     Text("Tip")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(.gray700)
                         .padding(.leading, 20)
+                    
                     Spacer()
+                    
                     Button {
                         dismiss()
                     } label: {
@@ -32,94 +55,84 @@ struct TipView: View {
                             .foregroundStyle(.gray700)
                     }
                 }
+                .padding(.top, 14)
                 
-                Text(title)
-                    .font(.system(size: 24, weight: .bold))
-                    .padding(.leading, 22)
-                    .padding(.top, 23)
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(.pink300, lineWidth: 1)
+                    .frame(width: 71, height: 28)
+                    .overlay {
+                        Text(videoFormatString)
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundStyle(.pink300)
+                    }
+                    .padding(.leading, 20)
+                    .padding(.top, 43)
+                
+                Text("\(standardGB)" + title)
+                    .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(.gray700)
+                    .padding(.leading, 20)
+                    .padding(.top, 12)
                     .fixedSize(horizontal: true, vertical: true)
                 
-                ZStack (alignment: .topLeading) {
-                    VStack(alignment: .leading, spacing: 16) {
-                        infoMessage(informationText: "사진 약 1700장을 삭제")
-                        infoMessage(informationText: "5분 분량의 영상을 12개 삭제")
-                        infoMessage(informationText: "1시간 분량의 영상을 삭제")
-                    }
-                    .padding(.trailing, 20)
-                    
-                    //나중에 이미지 연결할 때 이미지데이터 넣어주세요.
-                    circleIcon(image: profileImage)
-                        .frame(height: 72)
-                        .offset(x: -48, y: -32)
-                    
-                }
-                .padding(.leading, 72)
-                .padding(.top, 66)
+                infoBox()
+                    .padding(.top, 28)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 21)
+                
+                Spacer()
             }
         }
         .ignoresSafeArea()
     }
     
-    private func infoMessage(informationText: String) -> some View {
-        let GBInfoText = "5GB를 확보하려면"
-        let endingText = "해야해요"
-        
-        return HStack {
-            VStack(alignment: .leading, spacing: 0) {
-                Text(GBInfoText)
+    private func infoBox() -> some View {
+        HStack {
+            Spacer()
+            VStack(spacing: 23) {
+                Text("사진")
                     .font(.system(size: 16))
                     .foregroundStyle(.gray800)
-                HStack(spacing: 0) {
-                    Text(informationText)
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.pink300)
-                    Text(endingText)
-                        .font(.system(size: 16))
-                        .foregroundStyle(.gray800)
-                }
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-
+                    .padding(.top, 23)
+                
+                Text("\(photoNumber)" + "장")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundStyle(.pink300)
+                
+                Spacer()
+            }
+            Spacer(minLength: 41)
+            
+            Rectangle()
+                .frame(width: 1, height: 76)
+                .foregroundStyle(Color(red: 0.9, green: 0.9, blue: 0.9))
+                .padding(.top, 25)
+                .padding(.bottom, 24)
+            
+            Spacer(minLength: 59)
+            
+            VStack(spacing: 23) {
+                Text("동영상")
+                    .font(.system(size: 16))
+                    .foregroundStyle(.gray800)
+                    .padding(.top, 23)
+                
+                Text("\(videoTime)" + "시간")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundStyle(.pink300)
+                
+                Spacer()
             }
             Spacer()
         }
-        .padding(.horizontal, 24)
-        .padding(.vertical, 15)
-        .background(Color.white)
-        .clipShape(
-            .rect(
-                topLeadingRadius: 4,
-                bottomLeadingRadius: 20,
-                bottomTrailingRadius: 22,
-                topTrailingRadius: 22
-            )
+        .frame(height: 125)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(.white)
         )
     }
-    
-    private func circleIcon(image: Data?) -> some View {
-        ZStack {
-            if let image = image, let uiimage = UIImage(data: image) {
-                Image(uiImage: uiimage)
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
-                    .padding(4.5)
-                    .frame(width: 72)
-            } else {
-                Circle()
-                    .frame(height: 72)
-                    .foregroundStyle(.white)
-                    .overlay {
-                        Image(systemName: "person")
-                            .font(.system(size: 28, weight: .bold))
-                            .foregroundStyle(.gray700)
-                    }
-            }
-            Circle()
-                .stroke(.pink300, lineWidth: 2)
-                .frame(height: 72)
-                .padding(1)
-        }
-    }
+}
+
+#Preview {
+    TipView(videoFormat: .defaultQuality)
 }

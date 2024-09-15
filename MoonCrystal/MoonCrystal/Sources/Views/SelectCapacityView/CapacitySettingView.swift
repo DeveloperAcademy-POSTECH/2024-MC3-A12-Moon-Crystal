@@ -10,15 +10,14 @@ import SwiftUI
 struct CapacitySettingView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var path: [String]
-    @State var selectedCapacity : Double = 0
+    @State var selectedCapacity: Double = 0
     @State var useDirectInput = false
     @State var showTip = false
-    @State var keyboardHeight : CGFloat = 0
+    @State var keyboardHeight: CGFloat = 0
     
-    var totalCapacity : Int
+    var totalCapacity: Int
     var videoFormat: VideoFormatCapacity = .defaultQuality
     var favoriteIdol: String
-    var profileImage: Data?
     
     ///Slider의 max값을 결정하는 변수입니다.
     var maxCapacity: Double {
@@ -141,8 +140,8 @@ struct CapacitySettingView: View {
                 .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $showTip) {
-            TipView(profileImage: profileImage)
-                .presentationDetents([.height(476)])
+            TipView(videoFormat: videoFormat)
+                .presentationDetents([.height(408)])
                 .presentationDragIndicator(.visible)
         }
         .toolbar {
@@ -164,7 +163,7 @@ struct CapacitySettingView: View {
                     showTip.toggle()
                 } label: {
                     Text("Tip")
-                        .font(.system(size: 16))
+                        .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(.pink300)
                 }
             }
@@ -180,8 +179,7 @@ struct CapacitySettingView_Previews: PreviewProvider {
         CapacitySettingView(
             path: $path,
             totalCapacity: 100,
-            favoriteIdol: "아이유",
-            profileImage: nil
+            favoriteIdol: "아이유"
         )
     }
 }

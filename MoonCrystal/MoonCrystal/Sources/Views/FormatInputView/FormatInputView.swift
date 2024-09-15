@@ -15,7 +15,6 @@ struct FormatInputView: View {
     
     var favoriteIdol: String
     var totalCapacity: Int
-    var profileImage: Data?
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -135,8 +134,7 @@ struct FormatInputView_Previews: PreviewProvider {
             path: $path,
             selectedType: $selectedType,
             favoriteIdol: "Sample Idol",
-            totalCapacity: 100,
-            profileImage: nil
+            totalCapacity: 100
         )
     }
 }
