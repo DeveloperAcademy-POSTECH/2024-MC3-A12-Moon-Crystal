@@ -11,11 +11,11 @@ struct TipView: View {
     @Environment(\.dismiss) var dismiss
     
     let title = "GB를 확보하려면\n얼마나 삭제해야 할까요?"
-    var videoFormat: VideoFormatCapacity
-    var videoFormatString: String
-    var standardGB: Int
-    var photoNumber: Int
-    var videoTime: Int
+    let videoFormat: VideoFormatCapacity
+    let videoFormatString: String
+    let standardGB: Int
+    let photoNumber: Int
+    let videoTime: Int
     
     /// 화면 초기화에서 모든 변수값 한번만 계산하도록 함
     init(videoFormat: VideoFormatCapacity) {
