@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TipViewModel {
+struct TipViewModel {
     let title = "GB를 확보하려면\n얼마나 삭제해야 할까요?"
     let videoFormatString: String
     let standardGB: Int
