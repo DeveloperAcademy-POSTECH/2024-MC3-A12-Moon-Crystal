@@ -10,27 +10,10 @@ import SwiftUI
 struct TipView: View {
     @Environment(\.dismiss) var dismiss
     
-    let title = "GB를 확보하려면\n얼마나 삭제해야 할까요?"
-    let videoFormat: VideoFormatCapacity
-    let videoFormatString: String
-    let standardGB: Int
-    let photoNumber: Int
-    let videoTime: Int
+    let viewModel: TipViewModel
     
-    /// 화면 초기화에서 모든 변수값 한번만 계산하도록 함
     init(videoFormat: VideoFormatCapacity) {
-        self.videoFormat = videoFormat
-        
-        /// 기본화질과 고화질 구분
-        let isDefaultQuality = videoFormat == .defaultQuality
-        /// Byte 단위로 된 용량
-        let capacity = isDefaultQuality ? 5368709120 : 21474836480
-        
-        videoFormatString = isDefaultQuality ? "기본화질" : "고화질"
-        standardGB = isDefaultQuality ? 5 : 20
-        
-        photoNumber = MediaCapacityConverter.capacityToPhoto(capacity: capacity)
-        videoTime = MediaCapacityConverter.capacityToMinute(capacity: capacity, format: videoFormat)
+        viewModel = TipViewModel(videoFormat: videoFormat)
     }
     
     var body: some View {
@@ -61,14 +44,14 @@ struct TipView: View {
                     .stroke(.pink300, lineWidth: 1)
                     .frame(width: 71, height: 28)
                     .overlay {
-                        Text(videoFormatString)
+                        Text(viewModel.videoFormatString)
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundStyle(.pink300)
                     }
                     .padding(.leading, 20)
                     .padding(.top, 43)
                 
-                Text("\(standardGB)" + title)
+                Text("\(viewModel.standardGB)" + viewModel.title)
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(.gray700)
                     .padding(.leading, 20)
@@ -95,7 +78,7 @@ struct TipView: View {
                     .foregroundStyle(.gray800)
                     .padding(.top, 23)
                 
-                Text("\(photoNumber)" + "장")
+                Text("\(viewModel.photoNumber)" + "장")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundStyle(.pink300)
                 
@@ -117,7 +100,7 @@ struct TipView: View {
                     .foregroundStyle(.gray800)
                     .padding(.top, 23)
                 
-                Text("\(videoTime)" + "시간")
+                Text("\(viewModel.videoTime)" + "시간")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundStyle(.pink300)
                 
