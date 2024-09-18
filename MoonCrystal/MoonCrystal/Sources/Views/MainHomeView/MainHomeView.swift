@@ -107,11 +107,11 @@ struct MainHomeView: View {
                 // 네비게이션 링크 연결 방식 통일
                 if pathValue == "FormatInput" {
                     
-                    FormatInputView(path: $navPath, selectedType: $selectedType, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", totalCapacity: Int(totalCapacity.byteToGB()), profileImage: userProfile.first?.image)
+                    FormatInputView(path: $navPath, selectedType: $selectedType, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", totalCapacity: Int(totalCapacity.byteToGB()))
                     
                 } else if pathValue == "SettingView" {
                     
-                    CapacitySettingView(path: $navPath, totalCapacity: Int(totalCapacity.byteToGB()), videoFormat: selectedType!, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애", profileImage: userProfile.first?.image)
+                    CapacitySettingView(path: $navPath, totalCapacity: Int(totalCapacity.byteToGB()), videoFormat: selectedType!, favoriteIdol: userProfile.first?.favoriteIdol ?? "최애")
                     
                 } else if pathValue == "PreCleanUpView" {
                     
