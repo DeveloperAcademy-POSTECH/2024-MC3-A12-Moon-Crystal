@@ -10,10 +10,16 @@ import SwiftUI
 struct TipView: View {
     @Environment(\.dismiss) var dismiss
     
-    let viewModel: TipViewModel
+    let title = "GB를 확보하려면\n얼마나 삭제해야 할까요?"
+    let deleteGoal: DeleteGoalTip
+    let photoNumber: Int
+    let videoTime: Int
     
     init(videoFormat: VideoFormatCapacity) {
-        viewModel = TipViewModel(videoFormat: videoFormat)
+        deleteGoal = DeleteGoalTip(videoFormat: videoFormat)
+        // MediaCapacityConverter활용 계산부분
+        photoNumber = MediaCapacityConverter.capacityToPhoto(capacity: deleteGoal.standardByte)
+        videoTime = MediaCapacityConverter.capacityToMinute(capacity: deleteGoal.standardByte, format: videoFormat)
     }
     
     var body: some View {
@@ -44,14 +50,14 @@ struct TipView: View {
                     .stroke(.pink300, lineWidth: 1)
                     .frame(width: 71, height: 28)
                     .overlay {
-                        Text(viewModel.videoFormatString)
+                        Text(deleteGoal.videoFormatString)
                             .font(.system(size: 12, weight: .semibold))
                             .foregroundStyle(.pink300)
                     }
                     .padding(.leading, 20)
                     .padding(.top, 43)
                 
-                Text("\(viewModel.standardGB)" + viewModel.title)
+                Text("\(deleteGoal.standardGB)" + title)
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(.gray700)
                     .padding(.leading, 20)
@@ -78,7 +84,7 @@ struct TipView: View {
                     .foregroundStyle(.gray800)
                     .padding(.top, 23)
                 
-                Text("\(viewModel.photoNumber)" + "장")
+                Text("\(photoNumber)" + "장")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundStyle(.pink300)
                 
@@ -100,7 +106,7 @@ struct TipView: View {
                     .foregroundStyle(.gray800)
                     .padding(.top, 23)
                 
-                Text("\(viewModel.videoTime)" + "시간")
+                Text("\(videoTime)" + "시간")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundStyle(.pink300)
                 
