@@ -20,7 +20,7 @@ struct EndCleanUpView: View {
             HStack {
                 Text("정리가 종료됐어요!")
                     .font(.system(size: 24, weight: .semibold))
-                Image("twinkle")
+                Image("Twinkle")
                     .resizable()
                     .frame(width: 34, height: 29)
                     .offset(y: -6)

@@ -160,7 +160,7 @@ struct MainHomeView: View {
                           y: profileViewButtonFrame.midY)
                 .ignoresSafeArea()
             
-            Image("profileTip")
+            Image("ProfileTip")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 60)
@@ -168,7 +168,7 @@ struct MainHomeView: View {
                           y: profileViewButtonFrame.midY + 70)
                 .ignoresSafeArea()
 
-            Image("cleanupTip")
+            Image("CleanupTip")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 60)
