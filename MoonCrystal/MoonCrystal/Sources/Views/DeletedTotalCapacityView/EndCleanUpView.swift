@@ -68,7 +68,7 @@ struct EndCleanUpView: View {
             // 종료 클릭 시 다이나믹 종료
             LiveActivityManager.endLiveActivity(isActive: true)
             
-            Tracking.Screen.onboardingStep1.setTracking()
+            Tracking.Screen.endCleanUp.setTracking()
         }
     }
 }
