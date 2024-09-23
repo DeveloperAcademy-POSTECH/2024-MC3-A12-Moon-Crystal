@@ -89,6 +89,9 @@ struct CapacityCleanupView: View {
                 }
             }
         }
+        .onAppear {
+            Tracking.Screen.capacityCleanup.setTracking()
+        }
     }
     
     private func fetchCleanUpData() async {

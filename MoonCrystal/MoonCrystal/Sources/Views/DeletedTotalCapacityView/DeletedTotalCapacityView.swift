@@ -87,6 +87,9 @@ struct DeletedTotalCapacityView: View {
             }
             .frame(width: geometry.size.width, height: 60)
         }
+        .onAppear {
+            Tracking.Screen.deletedTotalCapacity.setTracking()
+        }
     }
 }
 

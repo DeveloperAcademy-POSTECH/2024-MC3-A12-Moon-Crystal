@@ -92,5 +92,8 @@ struct CapacityDirectInputView: View {
             
             CustomNumPad(selectedNumber: $tempCapacity)
         }
+        .onAppear {
+            Tracking.Screen.capacityDirectInput.setTracking()
+        }
     }
 }

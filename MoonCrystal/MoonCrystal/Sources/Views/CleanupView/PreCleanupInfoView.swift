@@ -150,5 +150,8 @@ struct PreCleanupInfoView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            Tracking.Screen.preCleanupInfo.setTracking()
+        }
     }
 }

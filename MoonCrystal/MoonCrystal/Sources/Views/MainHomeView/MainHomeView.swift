@@ -140,6 +140,9 @@ struct MainHomeView: View {
                 }
             }
         }
+        .onAppear {
+            Tracking.Screen.mainHome.setTracking()
+        }
     }
     
     private func fetchCapacityData() async {

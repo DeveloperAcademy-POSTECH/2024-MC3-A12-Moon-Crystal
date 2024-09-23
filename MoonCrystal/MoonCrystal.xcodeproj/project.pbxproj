@@ -78,12 +78,15 @@
 		26BAEFF52C65BA2900346BF6 /* KeyboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFF42C65BA2900346BF6 /* KeyboardProvider.swift */; };
 		26C83DA92C8B463D00B956B2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035C62C5772F500343511 /* UserProfile.swift */; };
 		26C83DAA2C8B465700B956B2 /* UserProfileInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260035DB2C580D4C00343511 /* UserProfileInputModel.swift */; };
+		26C83DB32C8C638B00B956B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26C83DB22C8C638B00B956B2 /* GoogleService-Info.plist */; };
+		26C83DB72C8C650B00B956B2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 26C83DB62C8C650B00B956B2 /* FirebaseAnalytics */; };
 		26C965C92C5241F8000257EA /* MoonCrystalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965C82C5241F8000257EA /* MoonCrystalApp.swift */; };
 		26C965CB2C5241F8000257EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965CA2C5241F8000257EA /* ContentView.swift */; };
 		26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CC2C5241F9000257EA /* Assets.xcassets */; };
 		26C965D02C5241F9000257EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C965CF2C5241F9000257EA /* Preview Assets.xcassets */; };
 		26C965D82C537CB8000257EA /* LocalNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D72C537CB8000257EA /* LocalNotificationType.swift */; };
 		26C965DA2C538046000257EA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C965D92C538046000257EA /* NotificationManager.swift */; };
+		26E18D972CA1172E00ABC392 /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E18D962CA1172E00ABC392 /* Tracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +173,7 @@
 		26BAEFEC2C5E181D00346BF6 /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
 		26BAEFF32C65AF4D00346BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26BAEFF42C65BA2900346BF6 /* KeyboardProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardProvider.swift; sourceTree = "<group>"; };
+		26C83DB22C8C638B00B956B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26C965C52C5241F8000257EA /* MoonCrystal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCrystal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C965C82C5241F8000257EA /* MoonCrystalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCrystalApp.swift; sourceTree = "<group>"; };
 		26C965CA2C5241F8000257EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		26C965D72C537CB8000257EA /* LocalNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationType.swift; sourceTree = "<group>"; };
 		26C965D92C538046000257EA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		26DB1C102C65DE4000DC8C14 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		26E18D962CA1172E00ABC392 /* Tracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C83DB72C8C650B00B956B2 /* FirebaseAnalytics in Frameworks */,
 				2602D5222C5B5D7B00DBE5A1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +376,7 @@
 				26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */,
 				1E5593602C53823400C78466 /* DynamicCapacityAttributes.swift */,
 				1B1216502C99756200316CE8 /* DeleteGoalTip.swift */,
+				26E18D962CA1172E00ABC392 /* Tracking.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,6 +457,7 @@
 			children = (
 				1EAA7F262C5F744C00BF140D /* MoonCrystal.entitlements */,
 				26C965C82C5241F8000257EA /* MoonCrystalApp.swift */,
+				26C83DB22C8C638B00B956B2 /* GoogleService-Info.plist */,
 				26C83DA22C8B43D900B956B2 /* Resources */,
 				26C83DA32C8B43E400B956B2 /* Sources */,
 				26C965CE2C5241F9000257EA /* Preview Content */,
@@ -511,6 +519,7 @@
 			name = MoonCrystal;
 			packageProductDependencies = (
 				2602D5212C5B5D7B00DBE5A1 /* Lottie */,
+				26C83DB62C8C650B00B956B2 /* FirebaseAnalytics */,
 			);
 			productName = MoonCrystal;
 			productReference = 26C965C52C5241F8000257EA /* MoonCrystal.app */;
@@ -545,6 +554,7 @@
 			mainGroup = 26C965BC2C5241F8000257EA;
 			packageReferences = (
 				2602D5182C5B46D700DBE5A1 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				26C83DB52C8C650B00B956B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 26C965C62C5241F8000257EA /* Products */;
 			projectDirPath = "";
@@ -571,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26C965D02C5241F9000257EA /* Preview Assets.xcassets in Resources */,
+				26C83DB32C8C638B00B956B2 /* GoogleService-Info.plist in Resources */,
 				26BAEFEF2C5E181D00346BF6 /* Onboarding1.json in Resources */,
 				26BAEFEE2C5E181D00346BF6 /* Onboarding2.json in Resources */,
 				26C965CD2C5241F9000257EA /* Assets.xcassets in Resources */,
@@ -625,6 +636,7 @@
 				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
 				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
 				260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */,
+				26E18D972CA1172E00ABC392 /* Tracking.swift in Sources */,
 				1EB4BE972C5F3E8B00BEE5DB /* UserDefaultsKeys.swift in Sources */,
 				1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
 				26C965CB2C5241F8000257EA /* ContentView.swift in Sources */,
@@ -980,6 +992,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		26C83DB52C8C650B00B956B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -987,6 +1007,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2602D5182C5B46D700DBE5A1 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		26C83DB62C8C650B00B956B2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26C83DB52C8C650B00B956B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

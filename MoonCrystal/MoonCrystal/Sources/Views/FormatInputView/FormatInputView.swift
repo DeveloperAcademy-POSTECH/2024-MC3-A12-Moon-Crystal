@@ -79,6 +79,9 @@ struct FormatInputView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            Tracking.Screen.formatInput.setTracking()
+        }
     }
     
     func formatButton(buttonName: String, type: VideoFormatCapacity?) -> some View {

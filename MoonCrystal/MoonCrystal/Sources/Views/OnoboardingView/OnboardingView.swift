@@ -16,12 +16,21 @@ struct OnboardingView: View {
             TabView(selection: $currentStep) {
                 onboardingStepView(step: .first, stepButtonAction: moveToNextStep)
                     .tag(OnboardingStep.first)
+                    .onAppear {
+                        Tracking.Screen.onboardingStep1.setTracking()
+                    }
                 
                 onboardingStepView(step: .second, stepButtonAction: moveToNextStep)
                     .tag(OnboardingStep.second)
+                    .onAppear {
+                        Tracking.Screen.onboardingStep2.setTracking()
+                    }
                 
                 onboardingStepView(step: .third, stepButtonAction: moveToNextStep)
                     .tag(OnboardingStep.third)
+                    .onAppear {
+                        Tracking.Screen.onboardingStep3.setTracking()
+                    }
             }
         }
         .padding(.horizontal)

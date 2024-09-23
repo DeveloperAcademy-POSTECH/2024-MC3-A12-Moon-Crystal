@@ -59,6 +59,9 @@ struct UserProfileDetailView: View {
         .onTapGesture {
             focusedField = nil
         }
+        .onAppear {
+            Tracking.Screen.profileDetail.setTracking()
+        }
     }
     
     // 프로필 이미지 섹션
