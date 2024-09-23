@@ -35,4 +35,38 @@ enum Tracking {
                                ])
         }
     }
+    
+    enum Event: String {
+        case defaultQualityButtonTapped = "C1_defaultQuality_buttonTapped"
+        case hd1080p60fpsButtonTapped = "C1_hd1080p60fps_buttonTapped"
+        case uhd4k24fpsButtonTapped = "C1_uhd4k24fps_buttonTapped"
+        case uhd4k30fpsButtonTapped = "C1_uhd4k30fps_buttonTapped"
+        case uhd4k60fpsButtonTapped = "C1_uhd4k60fps_buttonTapped"
+        
+        case appBackground = "D1_AppBackground"
+        
+        //TODO: UpdateTaskAppIntent 구조체에 트래킹 추가하기
+        case dynamicIslandUpdateButtonTapped = "E1_DynamicIslandUpdateButtonTapped"
+        
+        func setTracking() {
+            Analytics.logEvent(self.rawValue,
+                               parameters: nil)
+        }
+    }
+    
+    // VideoFormatCapacity와 트래킹 이벤트 매핑
+    static func setFormatButtonTracking(for format: VideoFormatCapacity) {
+        switch format {
+        case .defaultQuality:
+            Event.defaultQualityButtonTapped.setTracking()
+        case .hd1080p60fps:
+            Event.hd1080p60fpsButtonTapped.setTracking()
+        case .uhd4k24fps:
+            Event.uhd4k24fpsButtonTapped.setTracking()
+        case .uhd4k30fps:
+            Event.uhd4k30fpsButtonTapped.setTracking()
+        case .uhd4k60fps:
+            Event.uhd4k60fpsButtonTapped.setTracking()
+        }
+    }
 }
