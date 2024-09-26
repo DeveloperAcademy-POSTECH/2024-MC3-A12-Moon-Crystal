@@ -41,6 +41,9 @@ struct UserProfileCreationView: View {
             }
         }
         .ignoresSafeArea(.all, edges: .bottom)
+        .onAppear {
+            Tracking.Screen.profileCreation.setTracking()
+        }
     }
     
     private func handleBackButton() {

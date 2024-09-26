@@ -169,6 +169,9 @@ struct CapacitySettingView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            Tracking.Screen.capacitySetting.setTracking()
+        }
     }
 }
 

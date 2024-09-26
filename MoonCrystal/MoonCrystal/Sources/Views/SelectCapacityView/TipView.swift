@@ -119,6 +119,9 @@ struct TipView: View {
             RoundedRectangle(cornerRadius: 16)
                 .fill(.white)
         )
+        .onAppear {
+            Tracking.Screen.deleteTip.setTracking()
+        }
     }
 }
 

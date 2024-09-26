@@ -50,6 +50,9 @@ struct FormatInputView: View {
                 
                 Button {
                     self.path.append("SettingView")
+                    
+                    // nil 체크가 .disabled 메서드에서 이루어지므로 강제 언래핑 가능
+                    Tracking.setFormatButtonTracking(for: selectedType!)
                 } label: {
                     RoundedRectangle(cornerRadius: 12)
                         .frame(height: 68)
@@ -79,6 +82,9 @@ struct FormatInputView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            Tracking.Screen.formatInput.setTracking()
+        }
     }
     
     func formatButton(buttonName: String, type: VideoFormatCapacity?) -> some View {
