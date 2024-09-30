@@ -63,9 +63,7 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                 }
                 
             } compactLeading: {
-                Text(context.state.showCleanupText
-                     ? "정리중"
-                     : "시작")
+                Text(context.state.showCleanupText ? "정리중" : "시작")
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.white)
                     .padding(.leading , 10)
