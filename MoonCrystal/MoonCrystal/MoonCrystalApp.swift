@@ -47,7 +47,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     private func requestTrackingAuthorization() async {
         // 1초 지연 후 추적 권한 요청
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000) // 1초 = 1,000,000,000 나노초
+            try await Task.sleep(nanoseconds: 500_000_000) // 0.5초 = 500,000,000 나노초
         } catch {
             print(error)
         }
