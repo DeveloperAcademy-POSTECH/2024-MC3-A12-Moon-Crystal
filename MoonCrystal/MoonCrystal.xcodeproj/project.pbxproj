@@ -545,11 +545,11 @@
 			};
 			buildConfigurationList = 26C965C02C5241F8000257EA /* Build configuration list for PBXProject "MoonCrystal" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ko,
 			);
 			mainGroup = 26C965BC2C5241F8000257EA;
 			packageReferences = (
