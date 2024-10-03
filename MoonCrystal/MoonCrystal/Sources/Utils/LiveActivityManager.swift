@@ -22,7 +22,7 @@ class LiveActivityManager {
             let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
             let videoFormat = UserDefaults.standard.integer(forKey: UserDefaultsKeys.seletedVideoFormat.rawValue)
             let activityData = dynamicCapacityAttributes(name: "RemainingCapacity")
-            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: videoFormat, favoritIdol: favoritIdol ?? "최애")
+            let contentState = dynamicCapacityAttributes.ContentState(freeCapacity: freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: videoFormat, favoritIdol: favoritIdol ?? "최애", showCleanupText: false)
             
             if #available(iOS 16.2, *) {
                 if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -30,14 +30,41 @@ class LiveActivityManager {
                     let _ = try Activity<dynamicCapacityAttributes>.request(attributes:  activityData, content: content)
                 }
             } else {
-
                 let _ = try Activity<dynamicCapacityAttributes>.request(attributes:  activityData, contentState: contentState)
             }
             // 다이나믹 아일랜드 실행 후 종료버튼으로 꺼짐 확인용
+            await countDownLiveActivity()
             UserDefaults.standard.set(true, forKey: UserDefaultsKeys.runLiveActivity.rawValue)
             
         } catch {
             print("❌ LiveActivityManager/startLiveActivity LiveActivity start error:\(error)")
+        }
+    }
+    
+    // CountDown LiveActivity 업데이트
+    static func countDownLiveActivity() async {
+        
+        guard let activity = getLiveActivity(name: "RemainingCapacity") else {
+            print("❌ LiveActivityManager/updateLiveActivity Not found Activity")
+            return
+        }
+        
+        for second in stride(from: 3, to: 0, by: -1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(3 - second)) {
+                Task {
+                    let updatedContent = dynamicCapacityAttributes.ContentState(videoFormatRaw: activity.content.state.videoFormatRaw, favoritIdol: activity.content.state.favoritIdol, showCleanupText: false, countDownText:  String(second - 1))
+                    
+                    if #available(iOS 16.2, *) {
+                        let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 1))
+                        await  activity.update(content)
+                    } else {
+                        await  activity.update(using: updatedContent)
+                    }
+                    if second - 1 == 0 {
+                        await updateLiveActivity()
+                    }
+                }
+            }
         }
     }
     
@@ -51,17 +78,15 @@ class LiveActivityManager {
         let freeCapacity = await CapacityCalculator.getFreeCapacity()
         let cleanUpCapacity = await CapacityCalculator.getCleanUpFreeCapacity()
         let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  freeCapacity, cleanUpCapacity: cleanUpCapacity, videoFormatRaw: activity.content.state.videoFormatRaw, favoritIdol: activity.content.state.favoritIdol)
+        
         if #available(iOS 16.2, *) {
-            
             let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 10))
             
-            Task{
+            Task {
                 await  activity.update(content)
             }
-            
         } else {
-            
-            Task{
+            Task {
                 await  activity.update(using: updatedContent)
             }
             
