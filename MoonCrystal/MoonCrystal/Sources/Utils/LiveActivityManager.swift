@@ -52,7 +52,7 @@ class LiveActivityManager {
         for second in stride(from: 3, to: 0, by: -1) {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(3 - second)) {
                 Task {
-                    let updatedContent = dynamicCapacityAttributes.ContentState(freeCapacity:  0, cleanUpCapacity: 0, videoFormatRaw: activity.content.state.videoFormatRaw, favoritIdol: activity.content.state.favoritIdol, showCleanupText: false, countDownText:  String(second - 1))
+                    let updatedContent = dynamicCapacityAttributes.ContentState(videoFormatRaw: activity.content.state.videoFormatRaw, favoritIdol: activity.content.state.favoritIdol, showCleanupText: false, countDownText:  String(second - 1))
                     
                     if #available(iOS 16.2, *) {
                         let content = ActivityContent(state: updatedContent, staleDate:  Date(timeIntervalSinceNow: 1))
