@@ -63,17 +63,14 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                 }
                 
             } compactLeading: {
-                Text(context.state.showCleanupText ? "정리중" : "시작")
+                Text("정리중")
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.white)
                     .padding(.leading , 10)
                 
             } compactTrailing: {
-                Text(context.state.showCleanupText
-                    ? context.state.cleanUpCapacity.byteToGBStr() + "GB"
-                    : context.state.countDownText)
-                    .font(.system(size: context.state.showCleanupText ? 14 : 12,
-                                  weight: .semibold))
+                Text(context.state.cleanUpCapacity.byteToGBStr() + "GB")
+                    .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.pink300)
                     .padding(.trailing , 10)
                 

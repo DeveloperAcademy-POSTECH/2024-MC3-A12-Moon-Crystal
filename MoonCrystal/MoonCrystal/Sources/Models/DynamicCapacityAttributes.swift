@@ -18,8 +18,6 @@ struct dynamicCapacityAttributes: ActivityAttributes {
         var isCompleted = false
         var videoFormatRaw = VideoFormatCapacity.defaultQuality.rawValue
         var favoritIdol = "최애"
-        var showCleanupText = true
-        var countDownText = ""
     }
     
     var name: String
