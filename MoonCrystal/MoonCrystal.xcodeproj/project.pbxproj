@@ -69,6 +69,7 @@
 		2602D5202C5B480800DBE5A1 /* PreCleanupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */; };
 		2602D5222C5B5D7B00DBE5A1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2602D5212C5B5D7B00DBE5A1 /* Lottie */; };
 		2602D5242C5B620600DBE5A1 /* CapacityCleanupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2602D5232C5B620600DBE5A1 /* CapacityCleanupView.swift */; };
+		2657FA4C2CD7BCD10085E253 /* CustomBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657FA4B2CD7BCD10085E253 /* CustomBottomButton.swift */; };
 		26BAEFA22C5BAD8500346BF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */; };
 		26BAEFA42C5BBA2300346BF6 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */; };
 		26BAEFA62C5BBB8800346BF6 /* onboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */; };
@@ -165,6 +166,7 @@
 		2602D51B2C5B474900DBE5A1 /* Timer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Timer.json; sourceTree = "<group>"; };
 		2602D51F2C5B480800DBE5A1 /* PreCleanupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCleanupInfoView.swift; sourceTree = "<group>"; };
 		2602D5232C5B620600DBE5A1 /* CapacityCleanupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityCleanupView.swift; sourceTree = "<group>"; };
+		2657FA4B2CD7BCD10085E253 /* CustomBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomButton.swift; sourceTree = "<group>"; };
 		26BAEFA12C5BAD8500346BF6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		26BAEFA32C5BBA2300346BF6 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
 		26BAEFA52C5BBB8800346BF6 /* onboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingStepView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,14 @@
 			path = LottieJson;
 			sourceTree = "<group>";
 		};
+		2657FA4A2CD7BCC10085E253 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2657FA4B2CD7BCD10085E253 /* CustomBottomButton.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		26BAEF9A2C5BAC2300346BF6 /* OnoboardingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +402,7 @@
 		26C83DA62C8B442600B956B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2657FA4A2CD7BCC10085E253 /* Shared */,
 				26C965CA2C5241F8000257EA /* ContentView.swift */,
 				26BAEF9A2C5BAC2300346BF6 /* OnoboardingView */,
 				1BF858B22C5B753B00C2204E /* SelectCapacityView */,
@@ -636,6 +647,7 @@
 				260035DA2C5801AC00343511 /* UserProfileImageInputPageView.swift in Sources */,
 				260035D32C57EF0B00343511 /* ProgressBarView.swift in Sources */,
 				260035DE2C5925BC00343511 /* UserProfileDetailView.swift in Sources */,
+				2657FA4C2CD7BCD10085E253 /* CustomBottomButton.swift in Sources */,
 				26E18D972CA1172E00ABC392 /* Tracking.swift in Sources */,
 				1EB4BE972C5F3E8B00BEE5DB /* UserDefaultsKeys.swift in Sources */,
 				1EEF414D2C5B2B740078CD21 /* CompleteTaskAppIntent.swift in Sources */,
