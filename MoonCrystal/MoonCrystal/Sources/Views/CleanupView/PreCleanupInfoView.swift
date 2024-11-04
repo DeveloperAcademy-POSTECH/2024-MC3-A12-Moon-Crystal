@@ -52,19 +52,11 @@ struct PreCleanupInfoView: View {
                         .foregroundStyle(.white)
                         .overlay(Circle().stroke(.gray200, lineWidth: 0.5))
                         .overlay {
-                            if notificationManager.isGranted {
-                                Image(systemName: "bell")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 21)
-                                    .tint(.gray600)
-                            } else {
-                                Image(systemName: "bell.slash")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 21)
-                                    .tint(.gray600)
-                            }
+                            Image(systemName: notificationManager.isGranted ? "bell" : "bell.slash")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 21)
+                                .tint(.gray600)
                         }
                 }
                 .alert(
@@ -125,9 +117,9 @@ struct PreCleanupInfoView: View {
             } else if scenePhase == .inactive && !isAppBackgroundedByURL {
                 Tracking.Event.appBackground.setTracking()
                 
-                // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
                 Task {
                     await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
+                    // 권한 요청이 보내진 상태도 inactive 상태 -> 그래서 새로운 뷰가 추가된다.
                     self.path.append("CleanUpView")
                 }
             }
