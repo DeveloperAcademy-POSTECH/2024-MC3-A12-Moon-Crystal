@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PreCleanupInfoView: View {
     @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
-
+    
     @AppStorage(UserDefaultsKeys.preFreeCapacity.rawValue) var preFreeCapacity: Int = 0
     
     @Environment(\.scenePhase) var scenePhase
@@ -114,18 +114,25 @@ struct PreCleanupInfoView: View {
                     await notificationManager.getCurrentSettings()
                     isAppBackgroundedByURL = false
                 }
-            } else if scenePhase == .inactive && !isAppBackgroundedByURL {
-                Tracking.Event.appBackground.setTracking()
+            } else if scenePhase == .inactive {
+                if notificationManager.isNotDetermined {
+                    print("⚠️ 권한 요청 중, CleanUpView 추가 방지")
+                    return
+                }
                 
-                Task {
-                    await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
-                    // 권한 요청이 보내진 상태도 inactive 상태 -> 그래서 새로운 뷰가 추가된다.
-                    self.path.append("CleanUpView")
+                if !isAppBackgroundedByURL {
+                    Tracking.Event.appBackground.setTracking()
+                    
+                    Task {
+                        await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
+                        self.path.append("CleanUpView")
+                    }
                 }
             }
         }
         .task {
             preFreeCapacity = await CapacityCalculator.getFreeCapacity()
+            
             await notificationManager.requestAuthorization()
         }
         .toolbar {
