@@ -45,19 +45,24 @@ struct CapacitySettingView: View {
     var body: some View {
         ZStack {
             Color.gray50.ignoresSafeArea()
+            
             VStack(spacing: 0) {
                 Spacer()
                     .frame(maxHeight: 66)
+                
                 HStack {
                     Text(JosaFomatter.postPositionText(favoriteIdol) + title)
                         .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.gray900)
                         .padding(.leading, 20)
                         .fixedSize()
+                    
                     Spacer()
                 }
+                
                 Spacer()
                     .frame(minHeight: 10, maxHeight: 54)
+                
                 VStack(spacing: 24) {
                     Text("\(Int(selectedCapacity))GB")
                         .font(.system(size: 34, weight: .semibold))
@@ -82,8 +87,10 @@ struct CapacitySettingView: View {
                     HStack(alignment: .center, spacing: 0) {
                         Text("동영상 \(videoTime.minutesToHoursAndMinutes().hours)시간 \(videoTime.minutesToHoursAndMinutes().minutes)분 ")
                             .font(.system(size: 16, weight: .bold))
+                        
                         Text(ment)
                             .font(.system(size: 16))
+                        
                         Spacer()
                     }
                     .padding(.leading, 22)
@@ -94,7 +101,9 @@ struct CapacitySettingView: View {
                     HStack(alignment: .center, spacing: 0) {
                         Text("사진 \(String(photoShot))장 ")
                             .font(.system(size: 16, weight: .bold))
+                        
                         Text(ment)
+                        
                         Spacer()
                     }
                     .padding(.leading, 22)
@@ -106,32 +115,26 @@ struct CapacitySettingView: View {
                 .padding(.horizontal, 20)
                 
                 Spacer()
-                    .frame(minHeight: 20, maxHeight: 60)
-                Button {
-                    path.append("PreCleanUpView")
-                } label: {
-                    RoundedRectangle(cornerRadius: 12)
-                        .frame(height: 68)
-                        .foregroundStyle(.gray900)
-                        .overlay(
-                            Text("정리 시작하기")
-                                .font(.system(size: 15, weight: .regular))
-                                .foregroundStyle(.white)
-                        )
-                }
-                .padding(.horizontal, 20)
+                    .frame(minHeight: 20)
                 
-                Button {
-                    path.removeAll()
-                } label: {
-                    Text("홈으로 가기")
-                        .underline()
-                        .font(.system(size: 15, weight: .regular))
-                        .foregroundStyle(.gray500)
+                VStack(spacing: 24) {
+                    CustomBottomButton(label: "정리 시작하기") {
+                        path.append("PreCleanUpView")
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Button {
+                        path.removeAll()
+                    } label: {
+                        Text("홈으로 가기")
+                            .underline()
+                            .font(.system(size: 15, weight: .regular))
+                            .foregroundStyle(.gray500)
+                    }
                 }
-                .padding(.top, 24)
                 .padding(.bottom, 60)
             }
+            .ignoresSafeArea(edges: .bottom)
             .ignoresSafeArea(.keyboard)
         }
         .sheet(isPresented: $useDirectInput) {

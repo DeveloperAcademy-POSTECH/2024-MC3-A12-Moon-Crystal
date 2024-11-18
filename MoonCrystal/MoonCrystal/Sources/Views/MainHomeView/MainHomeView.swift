@@ -23,7 +23,7 @@ struct MainHomeView: View {
     @State private var profileViewButtonFrame: CGRect = .zero
     // cleanUpButton의 위치와 크기를 저장할 상태 변수
     @State private var cleanUpViewButtonFrame: CGRect = .zero
-
+    
     var body: some View {
         NavigationStack(path: $navPath) {
             ZStack {
@@ -32,6 +32,7 @@ struct MainHomeView: View {
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         Spacer()
+                        
                         NavigationLink {
                             UserProfileView(userProfile: userProfile.first)
                         } label: {
@@ -47,53 +48,55 @@ struct MainHomeView: View {
                                 })
                         }
                     }
-
+                    
                     NavigationLink {
                         DeletedTotalCapacityView(userProfile: userProfile.first)
                     } label: {
                         deletedStorageViewButton
                             .padding(.top, 28)
                     }
-
+                    
                     availableTime
-                        .padding(.leading, 20)
+                        .padding(.leading, 21)
                     
                     Divider()
                         .foregroundStyle(.gray200)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 33)
+                        .padding(.horizontal, 17)
+                        .padding(.top, 32)
                     
                     currentCapacityTitle
-                        .padding(.horizontal, 20)
-                        .padding(.top, 39)
+                        .padding(.horizontal, 21)
+                        .padding(.top, 40)
                     
                     ZStack {
                         ProgressHalfCircleView(progress: self.$progress, totalCapacity: $totalCapacity, freeCapacity: $freeCapacity)
                             .padding(.top, 32)
                             .padding(.horizontal, 30)
-
+                        
                         VStack {
                             Spacer()
-                                .frame(maxHeight: 260)
-                            NavigationLink(value: "FormatInput") {
-                                cleanUpViewButton
-                                    .background(
-                                        
-                                        GeometryReader { geometry in
-                                        Color.clear
-                                            .task {
-                                                if !hasSeenGuide {
-                                                    // 버튼의 위치와 크기를 저장
-                                                    cleanUpViewButtonFrame = geometry.frame(in: .global)
-                                                }
-                                            }
-                                    })
+
+                            CustomBottomButton(label: MainHomeViewComponent.CleanUpButton.title) {
+                                navPath.append("FormatInput")
                             }
+                            .background(
+                                GeometryReader { geometry in
+                                    Color.clear
+                                        .task {
+                                            if !hasSeenGuide {
+                                                // 버튼의 위치와 크기를 저장
+                                                cleanUpViewButtonFrame = geometry.frame(in: .global)
+                                            }
+                                        }
+                                }
+                            )
                         }
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 20)
+                .padding(.bottom, 86)
+                .ignoresSafeArea(edges: .bottom)
+                
                 if !hasSeenGuide {
                     Button {
                         hasSeenGuide = true
@@ -101,7 +104,6 @@ struct MainHomeView: View {
                         buttonGuidePage
                     }
                 }
-
             }
             .navigationDestination(for: String.self) { pathValue in
                 // 네비게이션 링크 연결 방식 통일
@@ -120,7 +122,7 @@ struct MainHomeView: View {
                 } else if pathValue == "CleanUpView" {
                     
                     CapacityCleanupView(path: $navPath, userProfile: userProfile.first)
-            
+                    
                 }
             }
         }
@@ -170,7 +172,7 @@ struct MainHomeView: View {
                 .position(x: profileViewButtonFrame.midX - 73,
                           y: profileViewButtonFrame.midY + 70)
                 .ignoresSafeArea()
-
+            
             Image("CleanupTip")
                 .resizable()
                 .scaledToFit()
@@ -179,7 +181,7 @@ struct MainHomeView: View {
                           y: cleanUpViewButtonFrame.midY - 80)
                 .ignoresSafeArea()
             
-            cleanUpViewButton
+            CustomBottomButton(label: MainHomeViewComponent.CleanUpButton.title, action: nil)
                 .padding(.horizontal, 20)
                 .position(x: cleanUpViewButtonFrame.midX,
                           y: cleanUpViewButtonFrame.midY)
@@ -255,16 +257,6 @@ struct MainHomeView: View {
                 .foregroundStyle(Color.gray700)
             Spacer()
         }
-    }
-    
-    var cleanUpViewButton: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .frame(height: 68)
-            .foregroundStyle(Color.gray900)
-            .overlay(
-                Text(MainHomeViewComponent.CleanUpButton.title)
-                    .font(.system(size: 15, weight: .regular))
-                    .foregroundStyle(.white))
     }
 }
 

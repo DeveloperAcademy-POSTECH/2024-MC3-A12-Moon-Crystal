@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PreCleanupInfoView: View {
     @AppStorage(UserDefaultsKeys.seletedVideoFormat.rawValue) var seletedVideoFormat: VideoFormatCapacity = .defaultQuality
-
+    
     @AppStorage(UserDefaultsKeys.preFreeCapacity.rawValue) var preFreeCapacity: Int = 0
     
     @Environment(\.scenePhase) var scenePhase
@@ -52,19 +52,11 @@ struct PreCleanupInfoView: View {
                         .foregroundStyle(.white)
                         .overlay(Circle().stroke(.gray200, lineWidth: 0.5))
                         .overlay {
-                            if notificationManager.isGranted {
-                                Image(systemName: "bell")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 21)
-                                    .tint(.gray600)
-                            } else {
-                                Image(systemName: "bell.slash")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 21)
-                                    .tint(.gray600)
-                            }
+                            Image(systemName: notificationManager.isGranted ? "bell" : "bell.slash")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 21)
+                                .tint(.gray600)
                         }
                 }
                 .alert(
@@ -122,18 +114,25 @@ struct PreCleanupInfoView: View {
                     await notificationManager.getCurrentSettings()
                     isAppBackgroundedByURL = false
                 }
-            } else if scenePhase == .inactive && !isAppBackgroundedByURL {
-                Tracking.Event.appBackground.setTracking()
+            } else if scenePhase == .inactive {
+                if notificationManager.isNotDetermined {
+                    print("⚠️ 권한 요청 중, CleanUpView 추가 방지")
+                    return
+                }
                 
-                // TODO: 나중에 다이나믹 아일랜드 시작 카운트다운 로직 추가해야됨
-                Task {
-                    await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
-                    self.path.append("CleanUpView")
+                if !isAppBackgroundedByURL {
+                    Tracking.Event.appBackground.setTracking()
+                    
+                    Task {
+                        await LiveActivityManager.startLiveActivity(favoritIdol: favoritIdol)
+                        self.path.append("CleanUpView")
+                    }
                 }
             }
         }
         .task {
             preFreeCapacity = await CapacityCalculator.getFreeCapacity()
+            
             await notificationManager.requestAuthorization()
         }
         .toolbar {

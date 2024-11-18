@@ -10,7 +10,6 @@ import SwiftUI
 
 struct onboardingStepView: View {
     let step: OnboardingStep
-    
     let stepButtonAction: () -> Void
     
     var body: some View {
@@ -52,24 +51,18 @@ struct onboardingStepView: View {
             .padding(.top, 50)
             
             Spacer()
-            Button {
+            
+            CustomBottomButton(label: step.buttonTitle) {
                 stepButtonAction()
-            } label: {
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(height: 68)
-                    .foregroundStyle(.gray900)
-                    .overlay(
-                        Text(step.buttonTitle)
-                            .font(.system(size: 16, weight: .regular))
-                            .foregroundStyle(.white))
             }
+            
         }
         .background(.gray50)
     }
 }
 
 #Preview {
-    onboardingStepView(step: .second, stepButtonAction: {
+    onboardingStepView(step: .third, stepButtonAction: {
         print("HI")
     })
 }

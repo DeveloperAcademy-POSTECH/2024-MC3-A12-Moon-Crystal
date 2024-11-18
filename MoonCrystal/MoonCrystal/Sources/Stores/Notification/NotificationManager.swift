@@ -12,6 +12,7 @@ import NotificationCenter
 class NotificationManager: NSObject, ObservableObject {
     private let notificationCenter = UNUserNotificationCenter.current()
     @Published var isGranted = false
+    @Published var isNotDetermined = true
     @Published var didTapResultNotification = false
     
     override init() {
@@ -34,9 +35,21 @@ class NotificationManager: NSObject, ObservableObject {
     /// 현재 Notification 권한 설정을 가져오는 함수
     func getCurrentSettings() async {
         let currentSettings = await notificationCenter.notificationSettings()
-        isGranted = (currentSettings.authorizationStatus == .authorized)
+        switch currentSettings.authorizationStatus {
+        case .notDetermined:
+            isNotDetermined = true
+            isGranted = false
+        case .denied:
+            isNotDetermined = false
+            isGranted = false
+        case .authorized, .provisional, .ephemeral:
+            isNotDetermined = false
+            isGranted = true
+        @unknown default:
+            isNotDetermined = false
+            isGranted = false
+        }
     }
-    
     /// Notification 권한 거부 시, 사용자에게 앱 설정 화면을 열도록 안내하는 함수
     func openSettings() {
         //TODO: 해당 메소드를 분리하고 requestNotification class를 삭제하자.
