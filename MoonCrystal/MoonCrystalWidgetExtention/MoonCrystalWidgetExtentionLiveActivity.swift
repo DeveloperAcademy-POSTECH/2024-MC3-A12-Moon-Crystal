@@ -10,6 +10,8 @@ import WidgetKit
 import SwiftUI
 
 struct MoonCrystalWidgetExtentionLiveActivity: Widget {
+    let timer = Date.now...Calendar.current.date(byAdding: .second, value: 3, to: Date())!
+    
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: dynamicCapacityAttributes.self) { context in
             // LockScreen LiveActivity UI
@@ -64,14 +66,26 @@ struct MoonCrystalWidgetExtentionLiveActivity: Widget {
                 Text("정리중")
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.white)
+                    .padding(.leading , 10)
+                
             } compactTrailing: {
-                Text("\(context.state.cleanUpCapacity.byteToGBStr())GB")
+                Text(context.state.cleanUpCapacity.byteToGBStr() + "GB")
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(.pink300)
+                    .padding(.trailing , 10)
+                
             } minimal: {}
                 .widgetURL(URL(string: "http://www.apple.com"))
                 .keylineTint(Color.white)
         }
+    }
+    
+    private var timerFormatter: DateComponentsFormatter {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second]
+        formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = []
+        return formatter
     }
 }
 
